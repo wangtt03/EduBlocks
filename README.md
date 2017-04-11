@@ -44,18 +44,18 @@ Support
 
 Need help or support with EduBlocks? There are a few ways in which you can get in touch with us. We try our best to provide a speedy and smooth support service for our users. It may take us a few hours to respond as EduBlocks is not our full time jobs/ commitment. Also, it may take a few days/weeks/months before your request is solved.
 
-###Twitter
+### Twitter
 
 EduBlocks Support: @edu_blocks
 All About Code: @all_about_code
 
-###Email
+### Email
 
 Support Email: support@edublocks.org
 Joshua Email: josh@edublocks.org
 Chris (Developer) Email: chris@edublocks.org
 
-###Website
+### Website
 
 EduBlocks: http://edublocks.org
 All About Code: http://allaboutcode.co.uk
