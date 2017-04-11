@@ -65,6 +65,38 @@ Ways to contribute:
 
 We want to make EduBlocks a community project. We are open to people opening issues, giving us feedback on how we can improve and opening pull requests to add features or fixes to the project. The community plays a huge part in EduBlocks.
 
+Contributors
+-----------
+
+Meet the contributers who make EduBlocks a reality.
+
+### Joshua Lowe @joshualowe1002
+
+Joshua is the project lead and oversees all new changes. He programs he blocks and adds new libraries and features. Josh also was the founder of EduBlocks.
+
+### Chris Dell @cjdell
+
+Chris is a freelance software developer who works on the programming and software side of EduBlocks. He works with Joshua to make his ideas a reality.
+
+### Les Pounder 
+
+Les is a freelance software developer who mainly contributed on the original install script making sure that anyone can install EduBlocks with ease. Also Les helps with writing and making sure EduBlocks is out there in the Raspberry Pi community. Les is also a pi-top champion meaning we can borrow 10 pi-tops for our workshops.
+
+### Chris Penn (AKA NCS:Computing) @ncscomputing
+
+Chris P developed the first ever EduBlocks resource sheets within the HackPack anthology. Also, Chris P suggested that MineCraft should be incuded with EduBlocks. Chris also blogs about his cool uses of new EduBlocks features.
+
+We would also like to recognize the following companies. These may not have contibuted to software but have contributed in other ways.
+
+### Makerspace @ CPC: 
+For supplying GPIO equimpment for workshops and helping EduBlocks out whenever we need them. They are a truly great team. Thanks Kev, Rachel & Ivan!
+
+### Pimoroni:
+For letting us visit the ship at Sheffield-On-Sea to promote and learn about software & hardware to improve EduBlocks and for being awesome people. Thanks Jon, Paul, Phil, Sandy & The team.
+
+### Pi-Top:
+For the pi-top champions program and giving us access to 10 pi-tops for our workshops through Les Pounder.
+
 
 
 
