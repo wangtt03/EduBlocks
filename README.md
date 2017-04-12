@@ -35,7 +35,7 @@ curl -sSL edu.buz.co | bash
 5. You will now be able to see EduBlocks in the Raspberry Pi >> Programming menu. Click on the EduBlocks link to run the program.
 ![alt tag](5.png)
 6. After around half a minute, you should be able to see the EduBlocks workspace. Happy Coding.
-![alt tag](5.png)
+![alt tag](6.png)
 
 Did this not work for you? Look at the Support section of this document.
 
