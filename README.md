@@ -47,17 +47,21 @@ Need help or support with EduBlocks? There are a few ways in which you can get i
 ### Twitter
 
 EduBlocks Support: @edu_blocks
+<br>
 All About Code: @all_about_code
 
 ### Email
 
 Support Email: support@edublocks.org
+<br>
 Joshua Email: josh@edublocks.org
+<br>
 Chris (Developer) Email: chris@edublocks.org
 
 ### Website
 
 EduBlocks: http://edublocks.org
+<br>
 All About Code: http://allaboutcode.co.uk
 
 Ways to contribute:
