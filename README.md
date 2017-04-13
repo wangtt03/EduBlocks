@@ -1,6 +1,6 @@
 ![alt tag](edublocks-header.png)
 
-Welcome to the EduBlocks Github Repository
+Welcome to the EduBlocks Github Repository!
 =========
 
 About EduBlocks
