@@ -195,6 +195,21 @@ Blockly.Blocks['sleep'] = {
   }
 };
 
+//Added by andrew pye 15/04/2017
+Blockly.Blocks['code_block'] = {
+  init: function() {
+	  this.appendDummyInput()
+        .appendField("code block")
+		.appendField(new Blockly.FieldTextInput(""), "code");
+		this.setPreviousStatement(true, null);
+		this.setNextStatement(true, null);
+		this.setColour(336);
+		this.setTooltip('Get the responce.');
+		this.setHelpUrl('https://docs.python.org/3/library/http.client.html');
+  }
+};
+
+
 Blockly.Blocks['led_on'] = {
   init: function() {
     this.appendDummyInput()
@@ -1311,16 +1326,4 @@ Blockly.Blocks['inline_print'] = {
 };
 
 
-Blockly.Blocks['code_block'] = {
-  init: function() {
-	  this.appendDummyInput()
-        .appendField("code block")
-		.appendField(new Blockly.FieldTextInput(""), "code");
-		this.setPreviousStatement(true, null);
-		this.setNextStatement(true, null);
-		this.setColour(70);
-		this.setTooltip('Get the responce.');
-		this.setHelpUrl('https://docs.python.org/3/library/http.client.html');
-  }
-};
 
