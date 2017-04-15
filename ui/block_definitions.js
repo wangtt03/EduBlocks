@@ -1,3 +1,6 @@
+
+
+
 Blockly.Blocks['import_edupy'] = {
   init: function() {
     this.appendDummyInput()
@@ -1175,14 +1178,30 @@ Blockly.Blocks['http_client_import_rest'] = {
     this.setTooltip('Imports the http client library.');
     this.setHelpUrl('http://www.example.com/');
   }
+};  
+ 
+Blockly.Blocks['https_client_create_connection'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("conn = http.client.HTTPSConnection(\"")
+		.appendField(new Blockly.FieldTextInput("www.edublocks.org"), "URL")
+		.appendField("\")")
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(70);
+    this.setTooltip('Created a connection');
+    this.setHelpUrl('https://docs.python.org/3/library/http.client.html');
+  }
 };
 
 Blockly.Blocks['http_client_create_connection'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("conn = http.client.HTTPSConnection(\"")
-		.appendField(new Blockly.FieldTextInput("http://www.edublocks.org/"), "URL")
-		.appendField("\")")
+        .appendField("conn = http.client.HTTPConnection(\"")
+		.appendField(new Blockly.FieldTextInput("www.edublocks.org"), "URL")
+		.appendField(",")
+		.appendField(new Blockly.FieldTextInput("80"), "PORT")
+		.appendField("\")");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(70);
@@ -1198,11 +1217,15 @@ Blockly.Blocks['http_client_request'] = {
 		.appendField(new Blockly.FieldDropdown([["GET","GET"], ["POST","POST"], ["PUT","PUT"], ["DELETE","DELETE"]]), "method")
 		.appendField(",\"")
 		.appendField(new Blockly.FieldTextInput("/"), "request")
-		.appendField("\")");
+		.appendField("\",\"")
+		.appendField(new Blockly.FieldTextInput(""), "body")
+		.appendField("\",{")
+		.appendField(new Blockly.FieldTextInput(""), "headers")
+		.appendField("})");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(70);
-    this.setTooltip('Imports the edupy library.');
+    this.setTooltip('Create a request text_headers(method,request,body,headers)');
     this.setHelpUrl('https://docs.python.org/3/library/http.client.html');
   }
 };
@@ -1218,3 +1241,86 @@ Blockly.Blocks['http_client_responce'] = {
     this.setHelpUrl('https://docs.python.org/3/library/http.client.html');
   }
 };
+
+Blockly.Blocks['http_client_status'] = {
+  init: function() {
+	this.appendDummyInput()
+        .appendField("r1.status");
+	this.setOutput(true, 'Number');
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(70);
+    this.setTooltip('Get the responce.');
+    this.setHelpUrl('https://docs.python.org/3/library/http.client.html');
+  }
+};
+
+Blockly.Blocks['http_client_reason'] = {
+  init: function() {
+	this.appendDummyInput()
+        .appendField("r1.reason");
+	this.setOutput(true, 'Number');
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(70);
+    this.setTooltip('Get the responce.');
+    this.setHelpUrl('https://docs.python.org/3/library/http.client.html');
+  }
+};
+
+Blockly.Blocks['http_client_read'] = {
+  init: function() {
+	this.appendDummyInput()
+        .appendField("r1.read");
+	this.setOutput(true, 'Number');
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(70);
+    this.setTooltip('Get the responce.');
+    this.setHelpUrl('https://docs.python.org/3/library/http.client.html');
+  }
+};
+
+Blockly.Blocks['inline_print'] = {
+  init: function() {
+	  this.appendValueInput('VALUE')
+        .setCheck(['String', 'Number'])
+        .appendField('print');
+		this.setInputsInline(true);
+		this.setPreviousStatement(true, null);
+		this.setNextStatement(true, null);
+		this.setColour(70);
+		this.setTooltip('Use this to print to the output box.');
+		this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+
+Blockly.Blocks['inline_print'] = {
+  init: function() {
+	  this.appendValueInput('VALUE')
+        .setCheck(['String', 'Number'])
+        .appendField('print');
+		this.setInputsInline(true);
+		this.setPreviousStatement(true, null);
+		this.setNextStatement(true, null);
+		this.setColour(70);
+		this.setTooltip('Use this to print to the output box.');
+		this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+
+Blockly.Blocks['code_block'] = {
+  init: function() {
+	  this.appendDummyInput()
+        .appendField("code block")
+		.appendField(new Blockly.FieldTextInput(""), "code");
+		this.setPreviousStatement(true, null);
+		this.setNextStatement(true, null);
+		this.setColour(70);
+		this.setTooltip('Get the responce.');
+		this.setHelpUrl('https://docs.python.org/3/library/http.client.html');
+  }
+};
+
