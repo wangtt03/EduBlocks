@@ -1161,5 +1161,60 @@ Blockly.Blocks['senseinit'] = {
   }
 };
 
+//********************
+//Added by andrew pye
+//Rest Call block
+//********************
+Blockly.Blocks['http_client_import_rest'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("import http.client");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(70);
+    this.setTooltip('Imports the http client library.');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
 
+Blockly.Blocks['http_client_create_connection'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("conn = http.client.HTTPSConnection(\"")
+		.appendField(new Blockly.FieldTextInput("http://www.edublocks.org/"), "URL")
+		.appendField("\")")
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(70);
+    this.setTooltip('Created a connection');
+    this.setHelpUrl('https://docs.python.org/3/library/http.client.html');
+  }
+};
 
+Blockly.Blocks['http_client_request'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("conn.request(")
+		.appendField(new Blockly.FieldDropdown([["GET","GET"], ["POST","POST"], ["PUT","PUT"], ["DELETE","DELETE"]]), "method")
+		.appendField(",\"")
+		.appendField(new Blockly.FieldTextInput("/"), "request")
+		.appendField("\")");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(70);
+    this.setTooltip('Imports the edupy library.');
+    this.setHelpUrl('https://docs.python.org/3/library/http.client.html');
+  }
+};
+
+Blockly.Blocks['http_client_responce'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("r1 = conn.getresponse()");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(70);
+    this.setTooltip('Get the responce.');
+    this.setHelpUrl('https://docs.python.org/3/library/http.client.html');
+  }
+};

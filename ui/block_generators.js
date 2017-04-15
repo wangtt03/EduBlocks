@@ -589,3 +589,30 @@ Blockly.Python['cameraset'] = function(block) {
   var code = 'mc.camera.set' + dropdown_drop + '()\n';
   return code;
 };
+
+//*****************************
+//Code to perform http requests
+//Written by Andrew Pye
+//*****************************
+Blockly.Python['import_rest'] = function(block) {
+  var code = 'import http.client \n';
+  return code;
+};
+
+Blockly.Python['http_client_create_connection'] = function(block) {
+  var text_url = block.getFieldValue('URL');
+  var code = 'conn = http.client.HTTPSConnection("'+text_url+'") \n';
+  return code;
+};
+
+Blockly.Python['http_client_request'] = function(block) {
+  var text_method = block.getFieldValue('method');
+  var text_request = block.getFieldValue('request');
+  var code = 'conn.request("'+text_method+'", "'+text_request+'") \n';
+  return code;
+};
+
+Blockly.Python['http_client_responce'] = function(block) {
+  var code = 'r1 = conn.getresponse() \n';
+  return code;
+};
