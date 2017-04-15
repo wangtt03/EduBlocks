@@ -195,16 +195,18 @@ Blockly.Blocks['sleep'] = {
   }
 };
 
-//Added by andrew pye 15/04/2017
+//*******************************
+// Added by andrew pye 
+// 15/04/2017
+//*******************************
 Blockly.Blocks['code_block'] = {
   init: function() {
 	  this.appendDummyInput()
-        .appendField("code block")
 		.appendField(new Blockly.FieldTextInput(""), "code");
 		this.setPreviousStatement(true, null);
 		this.setNextStatement(true, null);
 		this.setColour(336);
-		this.setTooltip('Get the responce.');
+		this.setTooltip('Add a line of Python code');
 		this.setHelpUrl('https://docs.python.org/3/library/http.client.html');
   }
 };
@@ -1179,10 +1181,11 @@ Blockly.Blocks['senseinit'] = {
   }
 };
 
-//********************
-//Added by andrew pye
-//Rest Call block
-//********************
+//*******************************
+// Added by andrew pye 
+// 15/04/2017
+// Http.client
+//*******************************
 Blockly.Blocks['http_client_import_rest'] = {
   init: function() {
     this.appendDummyInput()
