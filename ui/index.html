@@ -151,6 +151,7 @@
     add your own blocks, you'll need to add them here as well. -->
     <xml id="toolbox" style="display: none">
       <category name="Basic" colour="336">
+		<block type="comment_block"></block>
         <block type="import_edupy"></block>
         <block type="random"></block>
         <block type="while_true"></block>
@@ -168,7 +169,11 @@
         <block type="equalsblock"></block>
         <block type="define"></block>
         <block type="greater"></block>
+		<block type="code_block"></block>
       </category>
+	  
+	  
+	  
       <category name="EduPy" colour="60">
 
       	<category name="Kit 1" colour="196">
@@ -266,6 +271,20 @@
         <block type="blinktsetallbright"></block>
         <block type="blinktclear"></block>
       </category>
+    </category>
+
+	<category name="Advanced" colour="70">
+		<category name="Http Client" colour="70">
+			<block type="http_client_import_rest"></block>
+			<block type="https_client_create_connection"></block>
+			<block type="http_client_create_connection"></block>
+			<block type="http_client_request"></block>
+			<block type="http_client_responce"></block>
+			<block type="inline_print"></block>
+			<block type="http_client_status"></block>
+			<block type="http_client_reason"></block>
+			<block type="http_client_read"></block>
+		</category>
     </category>
 
 
@@ -462,7 +481,7 @@
 
       function getHost() {
         if (location.protocol === 'file:') {
-          return "127.0.0.1:8080";
+          return "127.0.0.1:8081";
         }
 
         if (location.protocol === 'http:') {
