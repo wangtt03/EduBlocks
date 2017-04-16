@@ -8,3 +8,7 @@ dependencies:
     - ./build.sh
   cache_directories:
     - ~/.cache/yarn
+deployment:
+  production:
+    commands:
+      - scp edublocks.tar.xz Josh@edublocks.org:/var/www/html/
