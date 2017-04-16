@@ -658,9 +658,17 @@ Blockly.Python['http_client_read'] = function(block) {
   var code = 'r1.read().decode()';
   return code;
 };
+
 Blockly.Python['code_block'] = function(block) {
   // TODO: Assemble Python into code variable.
   var text_method = block.getFieldValue('code');
   var code = text_method +'\n';
+  return code;
+};
+
+Blockly.Python['comment_block'] = function(block) {
+  // TODO: Assemble Python into code variable.
+  var text_method = block.getFieldValue('comment');
+  var code = '#' +text_method +'\n';
   return code;
 };

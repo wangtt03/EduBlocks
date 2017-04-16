@@ -211,6 +211,18 @@ Blockly.Blocks['code_block'] = {
   }
 };
 
+Blockly.Blocks['comment_block'] = {
+  init: function() {
+	  this.appendDummyInput()
+		.appendField("#")
+		.appendField(new Blockly.FieldTextInput(""), "comment");
+		this.setPreviousStatement(true, null);
+		this.setNextStatement(true, null);
+		this.setColour(80);
+		this.setTooltip('Add a comment');
+		this.setHelpUrl('https://docs.python.org/3/library');
+  }
+};
 
 Blockly.Blocks['led_on'] = {
   init: function() {
@@ -1240,6 +1252,7 @@ Blockly.Blocks['http_client_request'] = {
 		.appendField("\",{")
 		.appendField(new Blockly.FieldTextInput(""), "headers")
 		.appendField("})");
+		
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(70);
@@ -1314,19 +1327,22 @@ Blockly.Blocks['inline_print'] = {
 };
 
 
-Blockly.Blocks['inline_print'] = {
+Blockly.Blocks['http_client_header'] = {
   init: function() {
-	  this.appendValueInput('VALUE')
-        .setCheck(['String', 'Number'])
-        .appendField('print');
-		this.setInputsInline(true);
-		this.setPreviousStatement(true, null);
-		this.setNextStatement(true, null);
-		this.setColour(70);
-		this.setTooltip('Use this to print to the output box.');
-		this.setHelpUrl('http://www.example.com/');
+	this.appendDummyInput()
+		.appendField("")
+		.appendField(new Blockly.FieldDropdown([["Authorization","Authorization"], ["Content-Type","Content-Type"], ["Accept-Charset","Accept-Charset"], ["Cache-Control","Cache-Control"]]), "key")
+		.appendField(",\"")
+		.appendField(new Blockly.FieldTextInput(""), "value")
+		.appendField("\"");
+	this.setOutput(true, 'String');
+	this.setIput(true, 'String');
+    this.setPreviousStatement(false, null);
+    this.setNextStatement(false, null);
+    this.setColour(70);
+    this.setTooltip('Get the responce.');
+    this.setHelpUrl('https://docs.python.org/3/library/http.client.html');
   }
 };
-
 
 
