@@ -5,3 +5,5 @@ tmp
 *.log
 build
 *.egg
+/edublocks
+edublocks.tar.xz

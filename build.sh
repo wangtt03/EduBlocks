@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if [ $(whoami) == 'root' ]; then
+  echo 'Please do not run me as root'
+  exit 1
+fi
+
 LOCALREPO="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 cd $LOCALREPO
@@ -18,57 +23,75 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
-mkdir -p $LOCALREPO/build
-rm -rf $LOCALREPO/build/*
+mkdir -p $LOCALREPO/edublocks
+rm -rf $LOCALREPO/edublocks/*
+rm $LOCALREPO/edublocks.tar.xz
 
+echo ''
 echo 'Building EduBlocks general'
 echo '========================='
 
-cp $LOCALREPO/edublocks.desktop   $LOCALREPO/build
-cp $LOCALREPO/runtime_support.py  $LOCALREPO/build
-cp $LOCALREPO/start.sh            $LOCALREPO/build
-cp $LOCALREPO/setup.py            $LOCALREPO/build
-cp $LOCALREPO/README.txt          $LOCALREPO/build
-cp $LOCALREPO/CHANGELOG.txt       $LOCALREPO/build
+echo ''
+echo 'Copying general files...'
 
+rm $LOCALREPO/tmp/*.py
+
+cp $LOCALREPO/edublocks.desktop   $LOCALREPO/edublocks
+cp $LOCALREPO/runtime_support.py  $LOCALREPO/edublocks
+cp $LOCALREPO/start.sh            $LOCALREPO/edublocks
+cp $LOCALREPO/install.sh          $LOCALREPO/edublocks
+cp $LOCALREPO/uninstall.sh        $LOCALREPO/edublocks
+
+cp -r $LOCALREPO/tmp  $LOCALREPO/edublocks
+
+echo ''
 echo 'Building EduBlocks server'
 echo '========================='
 
 cd $LOCALREPO/server
 
+echo ''
 echo 'Installing dev dependencies...'
 yarn install
 
+echo ''
 echo 'Compiling...'
 yarn run build
 
-mkdir -p $LOCALREPO/build/server
+mkdir -p $LOCALREPO/edublocks/server
 
-cp $LOCALREPO/server/build/*      $LOCALREPO/build/server
-cp $LOCALREPO/server/package.json $LOCALREPO/build/server
-cp $LOCALREPO/server/yarn.lock    $LOCALREPO/build/server
+cp $LOCALREPO/server/build/*      $LOCALREPO/edublocks/server
+cp $LOCALREPO/server/package.json $LOCALREPO/edublocks/server
+cp $LOCALREPO/server/yarn.lock    $LOCALREPO/edublocks/server
 
-cd $LOCALREPO/build/server
+cd $LOCALREPO/edublocks/server
 
+echo ''
 echo 'Installing production dependencies...'
 yarn install --production
 
+echo ''
 echo 'Building EduBlocks client'
 echo '========================='
 
-mkdir -p $LOCALREPO/build/ui
+mkdir -p $LOCALREPO/edublocks/ui
 
-cp $LOCALREPO/ui/package.json $LOCALREPO/build/ui
-cp $LOCALREPO/ui/yarn.lock    $LOCALREPO/build/ui
-cp $LOCALREPO/ui/main.js      $LOCALREPO/build/ui
-cp $LOCALREPO/ui/index.html   $LOCALREPO/build/ui
+cp $LOCALREPO/ui/package.json $LOCALREPO/edublocks/ui
+cp $LOCALREPO/ui/yarn.lock    $LOCALREPO/edublocks/ui
+cp $LOCALREPO/ui/main.js      $LOCALREPO/edublocks/ui
+cp $LOCALREPO/ui/index.html   $LOCALREPO/edublocks/ui
 
-cp -r $LOCALREPO/ui/lib     $LOCALREPO/build/ui
-cp -r $LOCALREPO/ui/images  $LOCALREPO/build/ui
-cp -r $LOCALREPO/ui/js      $LOCALREPO/build/ui
-cp -r $LOCALREPO/ui/css     $LOCALREPO/build/ui
+cp -r $LOCALREPO/ui/lib     $LOCALREPO/edublocks/ui
+cp -r $LOCALREPO/ui/blockly $LOCALREPO/edublocks/ui
+cp -r $LOCALREPO/ui/images  $LOCALREPO/edublocks/ui
+cp -r $LOCALREPO/ui/js      $LOCALREPO/edublocks/ui
+cp -r $LOCALREPO/ui/css     $LOCALREPO/edublocks/ui
 
-cd $LOCALREPO/build/ui
+cd $LOCALREPO
 
-echo 'Installing production dependencies...'
-yarn install --production
+echo 'Compressing distributable...'
+tar -cJvf edublocks.tar.xz edublocks
+
+echo ''
+echo '==== EduBlock distributable created successfully (edublocks.tar.xz)'
+echo ''

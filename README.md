@@ -1,7 +1,7 @@
 ![alt tag](edublocks-header.png)
 
 Welcome to the EduBlocks Github Repository!
-=========
+===========================================
 
 About EduBlocks
 ---------------
@@ -38,6 +38,39 @@ curl -sSL edu.buz.co | bash
 ![alt tag](6.png)
 
 Did this not work for you? Look at the Support section of this document.
+
+Developer Instructions
+----------------------
+
+### Dependencies
+
+Install Node.JS 6+ using the appropriate installer for your platform
+
+Install Yarn:
+
+    npm --global install yarn
+
+### Building EduBlocks
+
+The PIP package can be built using a shell script. This will create the subdirectory `build`.
+
+To run build script:
+
+    ./build.sh
+
+### Running Server and Client in developer mode
+
+To run the server and client in desktop in developer mode:
+
+    cd server
+    yarn install
+    yarn run debug
+
+In another terminal:
+
+    cd ui
+    yarn install
+    yarn start
 
 Support
 -------
@@ -82,7 +115,7 @@ Joshua is the project lead and oversees all new changes. He programs he blocks a
 
 Chris is a freelance software developer who works on the programming and software side of EduBlocks. He works with Joshua to make his ideas a reality.
 
-### Les Pounder 
+### Les Pounder
 
 Les is a freelance software developer who mainly contributed on the original install script making sure that anyone can install EduBlocks with ease. Also Les helps with writing and making sure EduBlocks is out there in the Raspberry Pi community. Les is also a pi-top champion meaning we can borrow 10 pi-tops for our workshops.
 
@@ -92,7 +125,7 @@ Chris P developed the first ever EduBlocks resource sheets within the HackPack a
 
 We would also like to recognize the following companies. These may not have contibuted to software but have contributed in other ways.
 
-### Makerspace @ CPC: 
+### Makerspace @ CPC:
 For supplying GPIO equimpment for workshops and helping EduBlocks out whenever we need them. They are a truly great team. Thanks Kev, Rachel & Ivan!
 
 ### Pimoroni:
