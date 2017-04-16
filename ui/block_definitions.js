@@ -1107,6 +1107,8 @@ Blockly.Blocks['getblock'] = {
   }
 };
 
+
+
 Blockly.Blocks['setblock'] = {
   init: function() {
     this.appendDummyInput()
