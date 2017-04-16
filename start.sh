@@ -1,12 +1,9 @@
 #!/bin/bash
 
-LOCALREPO=$(dirname $(readlink -f $0))
+LOCALREPO="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 # Make sure node isnt running somewhere...
 pkill node
-
-cd $LOCALREPO
-bash check.sh
 
 cd $LOCALREPO/server
 npm start &

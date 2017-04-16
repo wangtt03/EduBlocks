@@ -17,36 +17,40 @@ THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 from setuptools import setup, find_packages
 import os
 
-    
+
 classifiers = [
-  'Environment :: Web Environment',
-  'Development Status :: 4 - Beta',
-  'Intended Audience :: Education',
-  'Operating System :: POSIX :: Linux',
-  'License :: OSI Approved :: MIT License',
-  'Programming Language :: Python :: 3',
-  'Programming Language :: Python :: 3'
+    'Environment :: Web Environment',
+    'Development Status :: 4 - Beta',
+    'Intended Audience :: Education',
+    'Operating System :: POSIX :: Linux',
+    'License :: OSI Approved :: MIT License',
+    'Programming Language :: Python :: 3',
+    'Programming Language :: Python :: 3'
 ]
 
 setup(
-  name='EduBlocks',
-  version='0.0.1',
-  description='Making the transition from Scratch to Python easier',
-  long_description=open('README.txt').read() + '\n\n' + open('CHANGELOG.txt').read(),
-  url='http://edupython.co.uk',
-  author='All About Code',
-  author_email='info@edupython.co.uk',
-  license='MIT', # note the American spelling
-  classifiers=classifiers,
-  keywords='EduBlocks, Transition, Bottle, Blockly, Minecraft, EduPy', # used when people are searching for a module, keywords separated with a space
-  packages=find_packages(),
-  install_requires=['edupy'],
-  
-)                                                                                   
+    name='EduBlocks',
+    version='0.0.1',
+    description='Making the transition from Scratch to Python easier',
+    long_description=open('README.txt').read() + '\n\n' +
+    open('CHANGELOG.txt').read(),
+    url='http://edupython.co.uk',
+    author='All About Code',
+    author_email='info@edupython.co.uk',
+    license='MIT',  # note the American spelling
+    classifiers=classifiers,
+    # used when people are searching for a module, keywords separated with a
+    # space
+    keywords='EduBlocks, Transition, Bottle, Blockly, Minecraft, EduPy',
+    packages=find_packages(),
+    install_requires=['edupy'],
+    entry_points={
+        'console_scripts': [
+            'edublocks.py=edublocks:_main',
+        ],
+    },
+)
 
 
-os.system("wget http://edupython.co.uk/blockly.zip")
-os.system("unzip blockly.zip -d /home/$SUDO_USER/blockly")
-os.system("cp /home/$SUDO_USER/blockly/edublocks.desktop /home/$SUDO_USER/Desktop")
-os.system("chmod +x /home/$SUDO_USER/blockly/test.sh")
+os.system("echo cp /home/$SUDO_USER/blockly/edublocks.desktop /home/$SUDO_USER/Desktop")
 print("All Done, Enjoy hacking with EduBlocks. Queries: info at edupython dot co dot uk")
