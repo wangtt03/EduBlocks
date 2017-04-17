@@ -390,6 +390,13 @@ Blockly.Python['importinputs'] = function(block) {
   return code;
 };
 
+Blockly.Python['return'] = function(block) {
+  var text_return = block.getFieldValue('return');
+  // TODO: Assemble Python into code variable.
+  var code = 'return(' +text_return+ ')\n';
+  return code;
+};
+
 Blockly.Python['greater'] = function(block) {
   var text_1 = block.getFieldValue('1');
   var text_v = block.getFieldValue('v');
