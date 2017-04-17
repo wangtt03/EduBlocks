@@ -28,6 +28,11 @@ if [ ! -L /usr/local/bin/edublocks ]; then
   sudo ln -s $INSTALLPATH/scripts/start.sh /usr/local/bin/edublocks
 fi
 
+if [ ! -L /usr/local/bin/edublocks-headless ]; then
+  echo "Creating symlink..."
+  sudo ln -s $INSTALLPATH/scripts/start-headless.sh /usr/local/bin/edublocks-headless
+fi
+
 if [ ! -L /usr/local/bin/edublocks-uninstall ]; then
   echo "Creating uninstall symlink..."
   sudo ln -s $INSTALLPATH/scripts/uninstall.sh /usr/local/bin/edublocks-uninstall
