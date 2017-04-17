@@ -21,9 +21,10 @@ fi
 rm -f ~/Desktop/edublocks.desktop
 
 sudo rm -f /usr/local/bin/edublocks
-sudo rm -f /usr/local/bin/edublocks-uninstall
+sudo rm -f /usr/local/bin/edublocks-headless
 sudo rm -f /usr/local/bin/edublocks-startup-enable
 sudo rm -f /usr/local/bin/edublocks-startup-disable
+sudo rm -f /usr/local/bin/edublocks-uninstall
 
 sudo rm -f /usr/share/icons/hicolor/scalable/apps/logo.png
 sudo rm -f /usr/share/applications/edublocks.desktop
