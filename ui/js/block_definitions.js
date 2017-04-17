@@ -56,12 +56,11 @@ Blockly.Blocks['importinputs'] = {
   }
 };
 
-Blockly.Blocks['return'] = {
+Blockly.Blocks['return2'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("return(")
-        .appendField(new Blockly.FieldTextInput(""), "return")
-        .appendField(")");
+        .appendField("return")
+        .appendField(new Blockly.FieldTextInput(""), "return");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(336);
