@@ -183,7 +183,7 @@ function sendCode() {
 
 function getHost() {
   if (location.protocol === "file:") {
-    return "127.0.0.1:8080";
+    return "127.0.0.1:8081";
   }
 
   if (location.protocol === "http:") {
