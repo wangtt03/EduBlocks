@@ -3,6 +3,8 @@ Blockly.Python['import_edupy'] = function(block) {
   return code;
 };
 
+
+
 Blockly.Python['pass'] = function(block) {
   var code = 'pass \n';
   return code;
@@ -355,6 +357,36 @@ Blockly.Python['for'] = function(block) {
   var statements_name = Blockly.Python.statementToCode(block, 'DO');
   // TODO: Assemble Python into code variable.
   var code = 'for ' +text_letter+ ' in range(' +text_no+ '):\n' +branch;
+  return code;
+};
+
+Blockly.Python['advancedforloops'] = function(block) {
+  var branch = Blockly.Python.statementToCode(block, 'DO');
+  branch = Blockly.Python.addLoopTrap(branch, block.id) ||
+      Blockly.Python.PASS;
+  var text_x = block.getFieldValue('x');
+  var text_y = block.getFieldValue('y');
+  var statements_do = Blockly.Python.statementToCode(block, 'DO');
+  // TODO: Assemble Python into code variable.
+  var code = 'for ' +text_x+ ' in ' +text_y+  ':\n' +branch;
+  return code;
+};
+
+Blockly.Python['ifequals'] = function(block) {
+  var branch = Blockly.Python.statementToCode(block, 'DO');
+  branch = Blockly.Python.addLoopTrap(branch, block.id) ||
+      Blockly.Python.PASS;
+  var text_this = block.getFieldValue('this');
+  var text_that = block.getFieldValue('that');
+  var statements_do = Blockly.Python.statementToCode(block, 'DO');
+  // TODO: Assemble Python into code variable.
+  var code = 'if ' +text_this+ ' == ' +text_that+ ':\n' +branch;
+  return code;
+};
+
+Blockly.Python['importinputs'] = function(block) {
+  // TODO: Assemble Python into code variable.
+  var code = 'import inputs\n';
   return code;
 };
 
