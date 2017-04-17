@@ -60,6 +60,8 @@ mkdir -p $LOCALREPO/edublocks/server
 cp $LOCALREPO/server/build/*      $LOCALREPO/edublocks/server
 cp $LOCALREPO/server/package.json $LOCALREPO/edublocks/server
 cp $LOCALREPO/server/yarn.lock    $LOCALREPO/edublocks/server
+cp $LOCALREPO/server/*.sh         $LOCALREPO/edublocks/server
+cp $LOCALREPO/server/*.service    $LOCALREPO/edublocks/server
 
 cd $LOCALREPO/edublocks/server
 
