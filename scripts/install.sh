@@ -23,32 +23,16 @@ sudo cp $LOCALREPO/ui/images/logo.png /usr/share/icons/hicolor/scalable/apps/log
 echo "Making the program visible in the menu..."
 sudo cp $LOCALREPO/edublocks.desktop /usr/share/applications
 
-# Main launch script
-if [ ! -L /usr/local/bin/edublocks ]; then
-  echo "Creating symlink..."
-  sudo ln -s $INSTALLPATH/scripts/start.sh /usr/local/bin/edublocks
-fi
+echo "Creating symlinks..."
 
-# Headless script
-if [ ! -L /usr/local/bin/edublocks-headless ]; then
-  echo "Creating symlink..."
-  sudo ln -s $INSTALLPATH/server/start.sh /usr/local/bin/edublocks-headless
-fi
+sudo rm -f /usr/local/bin/edublocks
+sudo rm -f /usr/local/bin/edublocks-headless
+sudo rm -f /usr/local/bin/edublocks-startup-enable
+sudo rm -f /usr/local/bin/edublocks-startup-disable
+sudo rm -f /usr/local/bin/edublocks-uninstall
 
-# Startup enable script
-if [ ! -L /usr/local/bin/edublocks-startup-enable ]; then
-  echo "Creating symlink..."
-  sudo ln -s $INSTALLPATH/server/startup-enable.sh /usr/local/bin/edublocks-startup-enable
-fi
-
-# Startup disable script
-if [ ! -L /usr/local/bin/edublocks-startup-disable ]; then
-  echo "Creating symlink..."
-  sudo ln -s $INSTALLPATH/server/startup-disable.sh /usr/local/bin/edublocks-startup-disable
-fi
-
-# Uninstall script
-if [ ! -L /usr/local/bin/edublocks-uninstall ]; then
-  echo "Creating uninstall symlink..."
-  sudo ln -s $INSTALLPATH/scripts/uninstall.sh /usr/local/bin/edublocks-uninstall
-fi
+sudo ln -s $INSTALLPATH/scripts/start.sh /usr/local/bin/edublocks
+sudo ln -s $INSTALLPATH/server/start.sh /usr/local/bin/edublocks-headless
+sudo ln -s $INSTALLPATH/server/startup-enable.sh /usr/local/bin/edublocks-startup-enable
+sudo ln -s $INSTALLPATH/server/startup-disable.sh /usr/local/bin/edublocks-startup-disable
+sudo ln -s $INSTALLPATH/scripts/uninstall.sh /usr/local/bin/edublocks-uninstall
