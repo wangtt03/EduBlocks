@@ -10,6 +10,52 @@ Blockly.Blocks['import_edupy'] = {
   }
 };
 
+Blockly.Blocks['advancedforloops'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("for")
+        .appendField(new Blockly.FieldTextInput("x"), "x")
+        .appendField("in")
+        .appendField(new Blockly.FieldTextInput("y"), "y");
+    this.appendStatementInput("DO")
+        .setCheck(null);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(336);
+    this.setTooltip('');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['ifequals'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("if")
+        .appendField(new Blockly.FieldTextInput("this"), "this")
+        .appendField("==")
+        .appendField(new Blockly.FieldTextInput("that"), "that");
+    this.appendStatementInput("DO")
+        .setCheck(null);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(336);
+    this.setTooltip('');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['importinputs'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("import inputs");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(336);
+    this.setTooltip('');
+    this.setHelpUrl('');
+  }
+};
+
 Blockly.Blocks['pass'] = {
   init: function() {
     this.appendDummyInput()
