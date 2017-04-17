@@ -47,8 +47,18 @@ function getWebIo() {
    * @param {string} text
    */
   function saveFile(text) {
+    const path = prompt('Enter filename...');
+
+    if (!path) {
+      return;
+    }
+
+    if (path.indexOf('.xml') !== path.length - 4) {
+      path = path + '.xml';
+    }
+
     var blob = new Blob([text], { type: 'text/xml;charset=utf-8' });
-    saveAs(blob, prompt('Enter filename...'));
+    saveAs(blob, path);
     return Promise.resolve(null);
   }
 

@@ -34,8 +34,6 @@ echo '========================='
 echo ''
 echo 'Copying general files...'
 
-rm $LOCALREPO/tmp/*.py
-
 cp $LOCALREPO/edublocks.desktop   $LOCALREPO/edublocks
 cp $LOCALREPO/runtime_support.py  $LOCALREPO/edublocks
 
@@ -55,6 +53,8 @@ echo ''
 echo 'Compiling...'
 yarn run build
 
+echo ''
+echo 'Copying...'
 mkdir -p $LOCALREPO/edublocks/server
 
 cp $LOCALREPO/server/build/*      $LOCALREPO/edublocks/server
@@ -71,6 +71,8 @@ echo ''
 echo 'Building EduBlocks client'
 echo '========================='
 
+echo ''
+echo 'Copying...'
 mkdir -p $LOCALREPO/edublocks/ui
 
 cp $LOCALREPO/ui/package.json $LOCALREPO/edublocks/ui
@@ -86,7 +88,12 @@ cp -r $LOCALREPO/ui/css     $LOCALREPO/edublocks/ui
 
 cd $LOCALREPO
 
-echo 'Compressing distributable...'
+echo ''
+echo 'Creating distributable'
+echo '======================'
+
+echo ''
+echo 'Compressing...'
 tar -cJvf edublocks.tar.xz edublocks
 
 echo ''

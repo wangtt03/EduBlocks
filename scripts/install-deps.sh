@@ -19,6 +19,9 @@ sudo cp edublocks.desktop /usr/share/applications
 echo "Downloading the edupy library"
 sudo pip3 install edupy python-sonic
 
+echo 'Changing Chromium preferences to ask for directory upon saving a download'
+sed -i 's/"download":{"directory_upgrade":true}/"download":{"directory_upgrade":true,"prompt_for_download":true}/g' ~/.config/chromium/Default/Preferences
+
 NODE_VERSION=$(node -v 2> /dev/null)
 
 if [ $NODE_VERSION != 'v6.2.1' ]; then
