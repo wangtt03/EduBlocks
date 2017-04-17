@@ -79,6 +79,7 @@ cp $LOCALREPO/ui/package.json $LOCALREPO/edublocks/ui
 cp $LOCALREPO/ui/yarn.lock    $LOCALREPO/edublocks/ui
 cp $LOCALREPO/ui/main.js      $LOCALREPO/edublocks/ui
 cp $LOCALREPO/ui/index.html   $LOCALREPO/edublocks/ui
+cp $LOCALREPO/ui/start.sh   $LOCALREPO/edublocks/ui
 
 cp -r $LOCALREPO/ui/lib     $LOCALREPO/edublocks/ui
 cp -r $LOCALREPO/ui/blockly $LOCALREPO/edublocks/ui
