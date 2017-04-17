@@ -56,6 +56,20 @@ Blockly.Blocks['importinputs'] = {
   }
 };
 
+Blockly.Blocks['return'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("return(")
+        .appendField(new Blockly.FieldTextInput(""), "return")
+        .appendField(")");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(336);
+    this.setTooltip('');
+    this.setHelpUrl('');
+  }
+};
+
 Blockly.Blocks['pass'] = {
   init: function() {
     this.appendDummyInput()
