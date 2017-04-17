@@ -8,6 +8,7 @@ while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symli
 done
 PROJECT="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 
+sudo systemctl stop edublocks-server
 sudo systemctl disable edublocks-server
 
 sudo rm -rf /etc/systemd/system/edublocks-server.service
