@@ -9,25 +9,25 @@ function getIo() {
 }
 
 function getElectronIo() {
-  const electron = require('electron')
-  const fs = require('fs');
+  var electron = require('electron')
+  var fs = require('fs');
 
-  const { dialog } = electron.remote;
+  var dialog = electron.remote.dialog;
 
   /**
    * @param {string} text
    */
   function saveFile(text, ext, extName) {
-    const path = dialog.showSaveDialog({ filters: [{ name: extName, extensions: [ext] }] });
+    var path = dialog.showSaveDialog({ filters: [{ name: extName, extensions: [ext] }] });
 
     if (!path) {
       return;
     }
 
-    const buffer = new Buffer(text, 'utf8');
+    var buffer = new Buffer(text, 'utf8');
 
-    return new Promise((resolve, reject) => {
-      return fs.writeFile(path, buffer, err => {
+    return new Promise(function(resolve, reject) {
+      return fs.writeFile(path, buffer, function(err) {
         if (err) {
           return reject(err);
         }
@@ -38,7 +38,7 @@ function getElectronIo() {
   }
 
   return {
-    saveFile,
+    saveFile: saveFile
   }
 }
 
@@ -47,7 +47,7 @@ function getWebIo() {
    * @param {string} text
    */
   function saveFile(text) {
-    const path = prompt('Enter filename...');
+    var path = prompt('Enter filename...');
 
     if (!path) {
       return;
@@ -63,6 +63,6 @@ function getWebIo() {
   }
 
   return {
-    saveFile,
+    saveFile: saveFile
   }
 }
