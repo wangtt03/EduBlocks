@@ -30,3 +30,5 @@ sudo rm -f /usr/local/bin/edublocks-uninstall
 
 sudo rm -f /usr/share/icons/hicolor/scalable/apps/logo.png
 sudo rm -f /usr/share/applications/edublocks.desktop
+
+echo '==== EduBlocks has been uninstalled successfully ===='
