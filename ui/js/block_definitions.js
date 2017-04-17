@@ -122,7 +122,7 @@ Blockly.Blocks['ehlights'] = {
 Blockly.Blocks['ehanalog'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("explorerhat.AnalogInput.")
+        .appendField("explorerhat.analog.")
         .appendField(new Blockly.FieldDropdown([["one","one"], ["two","two"], ["three","three"], ["four","four"]]), "analognumber")
         .appendField(".")
         .appendField(new Blockly.FieldDropdown([["read","read"], ["changed","changed"]]), "analogevent")

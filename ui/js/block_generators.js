@@ -55,7 +55,7 @@ Blockly.Python['ehanalog'] = function(block) {
   var dropdown_analogevent = block.getFieldValue('analogevent');
   var text_bracketanalog = block.getFieldValue('bracketanalog');
   // TODO: Assemble Python into code variable.
-  var code = 'explorerhat.AnalogInput.' +dropdown_analognumber+'.' +dropdown_analogevent+'(' +text_bracketanalog+')\n';
+  var code = 'explorerhat.analog.' +dropdown_analognumber+'.' +dropdown_analogevent+'(' +text_bracketanalog+')\n';
   return code;
 };
 
