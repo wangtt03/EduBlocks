@@ -8,7 +8,7 @@ while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symli
 done
 PROJECT="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 
-sudo cp $LOCALREPO/server/edublocks-server.service /etc/systemd/system/
+sudo cp $PROJECT/edublocks-server.service /etc/systemd/system/
 
 sudo systemctl enable edublocks-server
 sudo systemctl start edublocks-server
