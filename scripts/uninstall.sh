@@ -14,6 +14,8 @@ done
 LOCALREPO="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 LOCALREPO=$(dirname $LOCALREPO)
 
+$LOCALREPO/server/startup-disable.sh
+
 if [ $(basename $LOCALREPO) == 'edublocks' ]; then
   sudo rm -rf $LOCALREPO
 fi
