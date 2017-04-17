@@ -10,6 +10,18 @@ fi
 
 cd ~
 
+if [ -f edublocks.tar.xz ]; then
+  echo ''
+  echo 'Removing old download...'
+  rm -f edublocks.tar.xz
+fi
+
+if [ -d edublocks ]; then
+  echo ''
+  echo 'Removing old extract...'
+  rm -rf edublocks
+fi
+
 echo ''
 echo 'Downloading package...'
 wget http://edublocks.org/downloads/edublocks.tar.xz
