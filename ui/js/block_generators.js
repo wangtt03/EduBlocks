@@ -393,7 +393,7 @@ Blockly.Python['importinputs'] = function(block) {
 Blockly.Python['return2'] = function(block) {
   var text_return = block.getFieldValue('return');
   // TODO: Assemble Python into code variable.
-  var code = 'return' +text_return+ '\n';
+  var code = 'return ' +text_return+ '\n';
   return code;
 };
 
