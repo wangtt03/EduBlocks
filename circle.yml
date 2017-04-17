@@ -5,7 +5,7 @@ machine:
     NODE_MODE: development
 dependencies:
   override:
-    - ./build.sh
+    - ./tarball-create.sh
   cache_directories:
     - ~/.cache/yarn
 deployment:

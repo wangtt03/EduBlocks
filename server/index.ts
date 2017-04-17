@@ -7,10 +7,19 @@ import readline = require('readline');
 import bodyParser = require('body-parser');
 import { Readable } from 'stream';
 
+const homeDirPath = process.env[(process.platform == 'win32') ? 'USERPROFILE' : 'HOME'];
+const eduBlocksWorkingPath = path.join(homeDirPath, '.edublocks');
+
+if (!fs.existsSync(eduBlocksWorkingPath)) {
+  fs.mkdirSync(eduBlocksWorkingPath);
+}
+
 const ui = path.join(__dirname, '..', 'ui');
 const runtimeSupportPath = path.join(__dirname, '..', 'runtime_support.py');
-const scriptPath = path.join(__dirname, '..', 'tmp', 'output.py');
+const scriptPath = path.join(eduBlocksWorkingPath, 'output.py');
 const packagePath = path.join(__dirname, 'package.json');
+
+console.log('Scripts will be written to:', scriptPath);
 
 const app = express();
 
