@@ -14,8 +14,15 @@ done
 LOCALREPO="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 LOCALREPO=$(dirname $LOCALREPO)
 
-cd $LOCALREPO/server
-./start.sh &
+SERVER_ACTIVE=$(systemctl is-active edublocks-server.service)
+
+if [ $SERVER_ACTIVE != 'active' ]; then
+  echo 'Starting EduBlocks server...'
+  cd $LOCALREPO/server
+  ./start.sh &
+else
+  echo 'Server already running in the background, not starting another one'
+fi
 
 echo '==== Please be patient, the EduBlocks UI is loading... ===='
 
