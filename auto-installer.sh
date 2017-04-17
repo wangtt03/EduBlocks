@@ -16,7 +16,7 @@ wget http://edublocks.org/downloads/edublocks.tar.xz
 
 echo ''
 echo 'Extracting package...'
-tar -xvf edublocks.tar.gz
+tar -xvf edublocks.tar.xz
 
 echo ''
 echo 'Running install dependencies script...'

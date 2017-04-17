@@ -10,12 +10,6 @@ LOCALREPO=$(dirname $LOCALREPO)
 
 cd $LOCALREPO
 
-echo "Copying the desktop shortcut to your desktop"
-sudo cp edublocks.desktop ~/Desktop
-echo "Copying the icon."
-sudo cp ui/images/logo.png /usr/share/icons/hicolor/scalable/apps/logo.png
-echo "Making the program visable in the menu."
-sudo cp edublocks.desktop /usr/share/applications
 echo "Downloading the edupy library"
 sudo pip3 install edupy python-sonic
 
