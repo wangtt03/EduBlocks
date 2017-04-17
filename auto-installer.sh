@@ -10,18 +10,6 @@ fi
 
 cd ~
 
-if [ -f edublocks.tar.xz ]; then
-  echo ''
-  echo 'Removing old download...'
-  rm -f edublocks.tar.xz
-fi
-
-if [ -d edublocks ]; then
-  echo ''
-  echo 'Removing old extract...'
-  rm -rf edublocks
-fi
-
 echo ''
 echo 'Downloading package...'
 wget http://edublocks.org/downloads/edublocks.tar.xz
@@ -37,3 +25,15 @@ echo 'Running install dependencies script...'
 echo ''
 echo 'Running install script...'
 ~/edublocks/scripts/install.sh
+
+if [ -f edublocks.tar.xz ]; then
+  echo ''
+  echo 'Removing temp download...'
+  rm -f edublocks.tar.xz
+fi
+
+if [ -d edublocks ]; then
+  echo ''
+  echo 'Removing temp extract...'
+  rm -rf edublocks
+fi
