@@ -20,5 +20,7 @@ pkill node
 cd $LOCALREPO/server
 npm start &
 
+echo '==== Please be patient, the EduBlocks UI is loading... ===='
+
 cd $LOCALREPO/ui
 2>/dev/null 1>&2 ./start.sh

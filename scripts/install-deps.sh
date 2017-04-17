@@ -13,10 +13,16 @@ cd $LOCALREPO
 echo "Downloading the edupy library"
 sudo pip3 install edupy python-sonic blinkt explorerhat
 
-echo 'Changing Chromium preferences to ask for directory upon saving a download'
-sed -i 's/"download":{"directory_upgrade":true}/"download":{"directory_upgrade":true,"prompt_for_download":true}/g' ~/.config/chromium/Default/Preferences
+if [ -f ~/.config/chromium/Default/Preferences ]; then
+  echo 'Changing Chromium preferences to ask for directory upon saving a download'
+  sed -i 's/"download":{"directory_upgrade":true}/"download":{"directory_upgrade":true,"prompt_for_download":true}/g' ~/.config/chromium/Default/Preferences
+fi
 
 NODE_VERSION=$(node -v 2> /dev/null)
+
+if [ -z $NODE_VERSION ]; then
+  NODE_VERSION='none'
+fi
 
 if [ $NODE_VERSION != 'v6.2.1' ]; then
   echo "Installing Node.JS..."
@@ -31,6 +37,10 @@ ARCH=$(uname -m)
 
 if [ $ARCH != 'armv6l' ]; then
   YARN_VERSION=$(yarn --version 2> /dev/null)
+
+  if [ -z $YARN_VERSION ]; then
+    YARN_VERSION='none'
+  fi
 
   if [ $? -ne 0 ]; then
     echo "Installing Yarn..."

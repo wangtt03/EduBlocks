@@ -47,7 +47,13 @@ function getWebIo() {
    * @param {string} text
    */
   function saveFile(text) {
-    var path = prompt('Enter filename...');
+    var path = 'export';
+
+    // Pi 1 / Zero has a hacked version of Chromium which provides a save prompt
+    // Only ask for a filename if this is not the case
+    if (navigator.userAgent.indexOf('armv6l') === -1) {
+      path = prompt('Enter filename...');
+    }
 
     if (!path) {
       return;
