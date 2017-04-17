@@ -11,7 +11,7 @@ LOCALREPO=$(dirname $LOCALREPO)
 cd $LOCALREPO
 
 echo "Downloading the edupy library"
-sudo pip3 install edupy python-sonic
+sudo pip3 install edupy python-sonic blinkt explorerhat
 
 echo 'Changing Chromium preferences to ask for directory upon saving a download'
 sed -i 's/"download":{"directory_upgrade":true}/"download":{"directory_upgrade":true,"prompt_for_download":true}/g' ~/.config/chromium/Default/Preferences
