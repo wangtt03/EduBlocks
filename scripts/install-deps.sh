@@ -42,10 +42,7 @@ if [ $ARCH != 'armv6l' ]; then
     YARN_VERSION='none'
   fi
 
-  if [ $? -ne 0 ]; then
-    echo "Installing Yarn..."
-    sudo npm install --global yarn
-  fi
+  sudo npm install --global yarn
 
   cd $LOCALREPO/ui
   yarn install --production
