@@ -12,10 +12,10 @@ ARCH=$(uname -m)
 
 cd ~
 
-if [ -f edublocks.tar.xz ]; then
+if [ -f edublocks-armv6l.tar.xz ]; then
   echo ''
   echo 'Removing old download...'
-  rm -f edublocks.tar.xz
+  rm -f edublocks-armv6l.tar.xz
 fi
 
 if [ -d edublocks ]; then
@@ -40,10 +40,10 @@ echo ''
 echo 'Running install script...'
 ~/edublocks/install.sh
 
-if [ -f edublocks.tar.xz ]; then
+if [ -f edublocks-armv6l.tar.xz ]; then
   echo ''
   echo 'Removing temp download...'
-  rm -f edublocks.tar.xz
+  rm -f edublocks-armv6l.tar.xz
 fi
 
 if [ -d edublocks ]; then
