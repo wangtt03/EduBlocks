@@ -7,7 +7,7 @@ fi
 
 SCRIPT_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-EXTRACT_PATH=SCRIPT_PATH
+EXTRACT_PATH=$SCRIPT_PATH
 
 cd $EXTRACT_PATH
 
