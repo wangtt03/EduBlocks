@@ -14,6 +14,12 @@ done
 LOCALREPO="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 LOCALREPO=$(dirname $LOCALREPO)
 
+NODE_PATH=$LOCALREPO/bin/node
+
+echo "Using Node.js runtime binary $PATH"
+
+export PATH=$NODE_PATH:$PATH
+
 SERVER_ACTIVE=$(systemctl is-active edublocks-server.service)
 
 if [ $SERVER_ACTIVE != 'active' ]; then

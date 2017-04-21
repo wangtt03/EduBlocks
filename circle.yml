@@ -5,11 +5,11 @@ machine:
     NODE_MODE: development
 dependencies:
   override:
-    - ./tarball-create.sh
+    - ./tarball-create.sh armv6l
   cache_directories:
     - ~/.cache/yarn
 deployment:
   production:
     branch: tarball-install
     commands:
-      - scp edublocks.tar.xz Josh@edublocks.org:downloads
+      - scp edublocks-armv6l.tar.xz Josh@edublocks.org:downloads

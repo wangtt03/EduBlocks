@@ -5,23 +5,26 @@ if [ $(whoami) == 'root' ]; then
   exit 1
 fi
 
-LOCALREPO="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-LOCALREPO=$(dirname $LOCALREPO)
+SCRIPT_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-INSTALLPATH=/opt/edublocks
+EXTRACT_PATH=$(dirname $SCRIPT_PATH)
 
-sudo mkdir -p $INSTALLPATH
+APP_PATH=$EXTRACT_PATH/app
 
-sudo cp -r $LOCALREPO/* $INSTALLPATH
+INSTALL_PATH=/opt/edublocks
+
+sudo mkdir -p $INSTALL_PATH
+
+sudo cp -r $APP_PATH/* $INSTALL_PATH
 
 echo "Copying the desktop shortcut to your desktop..."
-cp $LOCALREPO/edublocks.desktop ~/Desktop
+cp $APP_PATH/edublocks.desktop ~/Desktop
 
 echo "Copying the icon..."
-sudo cp $LOCALREPO/ui/images/logo.png /usr/share/icons/hicolor/scalable/apps/logo.png
+sudo cp $APP_PATH/ui/images/logo.png /usr/share/icons/hicolor/scalable/apps/logo.png
 
 echo "Making the program visible in the menu..."
-sudo cp $LOCALREPO/edublocks.desktop /usr/share/applications
+sudo cp $APP_PATH/edublocks.desktop /usr/share/applications
 
 echo "Creating symlinks..."
 
@@ -31,8 +34,8 @@ sudo rm -f /usr/local/bin/edublocks-startup-enable
 sudo rm -f /usr/local/bin/edublocks-startup-disable
 sudo rm -f /usr/local/bin/edublocks-uninstall
 
-sudo ln -s $INSTALLPATH/scripts/start.sh /usr/local/bin/edublocks
-sudo ln -s $INSTALLPATH/server/start.sh /usr/local/bin/edublocks-headless
-sudo ln -s $INSTALLPATH/server/startup-enable.sh /usr/local/bin/edublocks-startup-enable
-sudo ln -s $INSTALLPATH/server/startup-disable.sh /usr/local/bin/edublocks-startup-disable
-sudo ln -s $INSTALLPATH/scripts/uninstall.sh /usr/local/bin/edublocks-uninstall
+sudo ln -s $INSTALL_PATH/scripts/start.sh /usr/local/bin/edublocks
+sudo ln -s $INSTALL_PATH/server/start.sh /usr/local/bin/edublocks-headless
+sudo ln -s $INSTALL_PATH/server/startup-enable.sh /usr/local/bin/edublocks-startup-enable
+sudo ln -s $INSTALL_PATH/server/startup-disable.sh /usr/local/bin/edublocks-startup-disable
+sudo ln -s $INSTALL_PATH/scripts/uninstall.sh /usr/local/bin/edublocks-uninstall

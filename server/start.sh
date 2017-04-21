@@ -18,4 +18,5 @@ pkill node
 
 cd $PROJECT
 
-npm start
+# npm start
+node index.js

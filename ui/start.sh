@@ -12,9 +12,13 @@ cd $PROJECT
 ARCH=$(uname -m)
 
 if [ $ARCH != 'armv6l' ]; then
-  yarn start
+  # node node_module/.bin/electron
+
+  sleep 10
+
+  chromium-browser --app=http://localhost:8081/
 else
-  echo 'Raspberry Pi 1 or Zero detected, falling back to Chromium'
+  # echo 'Raspberry Pi 1 or Zero detected, falling back to Chromium'
 
   # Give the poor little Raspberry Pi time to start the server...
   sleep 60

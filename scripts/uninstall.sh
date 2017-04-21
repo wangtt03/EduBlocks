@@ -7,17 +7,18 @@ fi
 
 SOURCE="${BASH_SOURCE[0]}"
 while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symlink
-  LOCALREPO="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
+  SCRIPT_DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
   SOURCE="$(readlink "$SOURCE")"
-  [[ $SOURCE != /* ]] && SOURCE="$LOCALREPO/$SOURCE" # if $SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
+  [[ $SOURCE != /* ]] && SOURCE="$SCRIPT_DIR/$SOURCE" # if $SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
 done
-LOCALREPO="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
-LOCALREPO=$(dirname $LOCALREPO)
+SCRIPT_DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 
-$LOCALREPO/server/startup-disable.sh
+INSTALL_PATH=$(dirname $SCRIPT_DIR)
 
-if [ $(basename $LOCALREPO) == 'edublocks' ]; then
-  sudo rm -rf $LOCALREPO
+$INSTALL_PATH/server/startup-disable.sh
+
+if [ $(basename $INSTALL_PATH) == 'edublocks' ]; then
+  sudo rm -rf $INSTALL_PATH
 fi
 
 rm -f ~/Desktop/edublocks.desktop

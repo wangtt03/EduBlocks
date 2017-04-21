@@ -5,13 +5,16 @@ if [ $(whoami) == 'root' ]; then
   exit 1
 fi
 
-LOCALREPO="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-LOCALREPO=$(dirname $LOCALREPO)
+SCRIPT_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-cd $LOCALREPO
+EXTRACT_PATH=$(dirname $SCRIPT_PATH)
 
-echo "Downloading the edupy library"
-sudo pip3 install edupy python-sonic blinkt explorerhat
+cd $EXTRACT_PATH
+
+PIP_PACKAGES_PATH=$EXTRACT_PATH/pip-packages
+
+echo "Downloading the edupy and associated libraries"
+sudo pip3 install $PIP_PACKAGES_PATH/*.tar.gz
 
 if [ -f ~/.config/chromium/Default/Preferences ]; then
   echo 'Changing Chromium preferences to ask for directory upon saving a download'
@@ -36,18 +39,16 @@ fi
 ARCH=$(uname -m)
 
 if [ $ARCH != 'armv6l' ]; then
-  YARN_VERSION=$(yarn --version 2> /dev/null)
+  # YARN_VERSION=$(yarn --version 2> /dev/null)
 
-  if [ -z $YARN_VERSION ]; then
-    YARN_VERSION='none'
-  fi
+  # if [ -z $YARN_VERSION ]; then
+  #   YARN_VERSION='none'
+  # fi
 
-  sudo npm install --global yarn
+  # sudo npm install --global yarn
 
-  cd $LOCALREPO/ui
-  yarn install --production
+  # cd $EXTRACT_PATH/ui
+  # yarn install --production
 else
   echo 'Raspberry Pi 1 or Zero detected, falling back to Chromium'
 fi
-
-cd $LOCALREPO
