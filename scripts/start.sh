@@ -17,7 +17,7 @@ APP_PATH=$(dirname $SCRIPT_DIR)
 
 NODE_PATH=$APP_PATH/bin/node
 
-echo "Using Node.js runtime binary $PATH"
+echo "Using Node.js runtime binary $NODE_PATH"
 
 export PATH=$NODE_PATH:$PATH
 

@@ -24,7 +24,7 @@ fi
 ARCH=$(uname -m)
 
 if [ $ARCH != 'armv6l' ]; then
-
+  echo 'Raspberry Pi 2 or 3 detected'
 else
   echo 'Raspberry Pi 1 or Zero detected, falling back to Chromium'
 fi
