@@ -8,7 +8,7 @@ while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symli
 done
 SCRIPT_DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 
-sudo cp $SCRIPT_DIR/edublocks-server.service /etc/systemd/system/
+PROJECT_PATH=$SCRIPT_DIR
 
-sudo systemctl enable edublocks-server
-sudo systemctl start edublocks-server
+sudo systemctl enable $PROJECT_PATH/edublocks-server.service
+sudo systemctl start edublocks-server.service
