@@ -72,6 +72,9 @@ echo '=========================='
 echo ''
 echo 'Copying general files...'
 
+cp $REPO_PATH/install-deps.sh     $BUNDLE_PATH
+cp $REPO_PATH/install.sh          $BUNDLE_PATH
+
 cp $REPO_PATH/edublocks.desktop   $APP_PATH
 cp $REPO_PATH/runtime_support.py  $APP_PATH
 

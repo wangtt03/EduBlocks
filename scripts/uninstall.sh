@@ -14,6 +14,7 @@ done
 SCRIPT_DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 
 INSTALL_PATH=$(dirname $SCRIPT_DIR)
+GLOBAL_BIN_PATH=/usr/local/bin
 
 $INSTALL_PATH/server/startup-disable.sh
 
@@ -23,11 +24,11 @@ fi
 
 rm -f ~/Desktop/edublocks.desktop
 
-sudo rm -f /usr/local/bin/edublocks
-sudo rm -f /usr/local/bin/edublocks-headless
-sudo rm -f /usr/local/bin/edublocks-startup-enable
-sudo rm -f /usr/local/bin/edublocks-startup-disable
-sudo rm -f /usr/local/bin/edublocks-uninstall
+sudo rm -f $GLOBAL_BIN_PATH/edublocks
+sudo rm -f $GLOBAL_BIN_PATH/edublocks-headless
+sudo rm -f $GLOBAL_BIN_PATH/edublocks-startup-enable
+sudo rm -f $GLOBAL_BIN_PATH/edublocks-startup-disable
+sudo rm -f $GLOBAL_BIN_PATH/edublocks-uninstall
 
 sudo rm -f /usr/share/icons/hicolor/scalable/apps/logo.png
 sudo rm -f /usr/share/applications/edublocks.desktop
