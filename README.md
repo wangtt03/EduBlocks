@@ -47,6 +47,20 @@ curl -sSL edu.buz.co | bash
 
 Did this not work for you? Look at the Support section of this document.
 
+Manual Install
+--------------
+
+If you would rather mannually install EduBlocks instead of running our curl command. Here is the commands to do it:
+```
+wget http://edublocks.org/downloads/edublocks-armv6l.tar.xz
+
+tar -xf edublocks-armv6l.tar.xz
+
+edublocks/install-deps.sh
+
+edublocks/install.sh
+```
+
 Developer Instructions
 ----------------------
 
@@ -80,19 +94,6 @@ In another terminal:
     yarn install
     yarn start
     
-Manual Install
---------------
-
-If you would rather mannually install EduBlocks instead of running our command. Here is the commands to do it:
-```
-wget http://edublocks.org/downloads/edublocks-armv6l.tar.xz
-
-tar -xf edublocks-armv6l.tar.xz
-
-edublocks/install-deps.sh
-
-edublocks/install.sh
-```
 
 Support
 -------
