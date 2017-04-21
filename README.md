@@ -79,6 +79,20 @@ In another terminal:
     cd ui
     yarn install
     yarn start
+    
+Manual Install
+--------------
+
+If you would rather mannually install EduBlocks instead of running our command. Here is the commands to do it:
+```
+wget http://edublocks.org/downloads/edublocks-armv6l.tar.xz
+
+tar -xf edublocks-armv6l.tar.xz
+
+edublocks/install-deps.sh
+
+edublocks/install.sh
+```
 
 Support
 -------
