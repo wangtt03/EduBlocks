@@ -55,10 +55,10 @@ live_thread_2 = Thread(name='consumer1', target=live_loop_2a, args=(condition,st
 live_thread_3 = Thread(name='consumer2', target=live_loop_3a, args=(condition,stop_event))
 live_thread_4 = Thread(name='consumer3', target=live_loop_4a, args=(condition,stop_event))
 
-live_thread_1.start()
-live_thread_2.start()
-live_thread_3.start()
-live_thread_4.start()
+# live_thread_1.start()
+# live_thread_2.start()
+# live_thread_3.start()
+# live_thread_4.start()
 
 
 def buildPumpkin(x, y, z):
@@ -85,7 +85,7 @@ def buildPumpkin(x, y, z):
 old_print = print
 
 # Overload print so that we can't hammer the standard output.
-# Print is limited to 1 line every 10 seconds.
+# Print is limited to 1 line every 1/10 seconds.
 def print(*args):
   old_print(*args)
   time.sleep(0.10)
