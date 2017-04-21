@@ -8,12 +8,15 @@ if [ $(whoami) == 'root' ]; then
   exit 1
 fi
 
+# ARCH=$(uname -m)
+ARCH="armv6l"
+
 cd ~
 
-if [ -f edublocks.tar.xz ]; then
+if [ -f edublocks-$ARCH.tar.xz ]; then
   echo ''
   echo 'Removing old download...'
-  rm -f edublocks.tar.xz
+  rm -f edublocks-$ARCH.tar.xz
 fi
 
 if [ -d edublocks ]; then
@@ -24,24 +27,24 @@ fi
 
 echo ''
 echo 'Downloading package...'
-wget http://edublocks.org/downloads/edublocks.tar.xz
+wget http://edublocks.org/downloads/edublocks-$ARCH.tar.xz
 
 echo ''
 echo 'Extracting package...'
-tar -xf edublocks.tar.xz
+tar -xf edublocks-$ARCH.tar.xz
 
 echo ''
 echo 'Running install dependencies script...'
-~/edublocks/scripts/install-deps.sh
+~/edublocks/install-deps.sh
 
 echo ''
 echo 'Running install script...'
-~/edublocks/scripts/install.sh
+~/edublocks/install.sh
 
-if [ -f edublocks.tar.xz ]; then
+if [ -f edublocks-$ARCH.tar.xz ]; then
   echo ''
   echo 'Removing temp download...'
-  rm -f edublocks.tar.xz
+  rm -f edublocks-$ARCH.tar.xz
 fi
 
 if [ -d edublocks ]; then

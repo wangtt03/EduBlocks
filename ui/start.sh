@@ -5,19 +5,23 @@ if [ $(whoami) == 'root' ]; then
   exit 1
 fi
 
-PROJECT="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-cd $PROJECT
+PROJECT_PATH=$SCRIPT_DIR
+
+NODE_PATH=$PROJECT_PATH/../bin/node
+
+cd $PROJECT_PATH
 
 ARCH=$(uname -m)
 
 if [ $ARCH != 'armv6l' ]; then
-  yarn start
-else
-  echo 'Raspberry Pi 1 or Zero detected, falling back to Chromium'
+  sleep 10
 
+  chromium-browser --app=http://localhost:8081/
+else
   # Give the poor little Raspberry Pi time to start the server...
-  sleep 60
+  sleep 20
 
   chromium-browser --app=http://localhost:8081/
 fi

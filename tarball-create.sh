@@ -5,14 +5,37 @@ if [ $(whoami) == 'root' ]; then
   exit 1
 fi
 
-LOCALREPO="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+TMP_PATH=/tmp
 
-cd $LOCALREPO
+ARCH=$1
+
+if [ "$ARCH" == 'armv6l' ]; then
+  echo 'Targeting ARM Architecture'
+elif [ "$ARCH" == 'x64' ]; then
+  echo 'Targeting x86-64 Architecture'
+else
+  echo "Invalid architecture $ARCH"
+  exit 1
+fi
+
+echo ''
+echo 'Downloading dependencies'
+echo '========================'
+
+echo ''
+echo 'Downloading / Extracting Node.JS...'
+curl https://nodejs.org/dist/v6.10.2/node-v6.10.2-linux-$ARCH.tar.xz | tar -xJ -C $TMP_PATH
+
+NODE_TMP_PATH=$TMP_PATH/node-v6.10.2-linux-$ARCH
+
+REPO_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+cd $REPO_PATH
 
 NODE_VERSION=$(node -v)
 
-if [ $? -ne 0 ]; then
-  echo 'NodeJS has not been installed!'
+if [ "$NODE_VERSION" != 'v6.10.2' ]; then
+  echo "NodeJS has invalid version! ($NODE_VERSION)"
   exit 1
 fi
 
@@ -23,27 +46,48 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
-mkdir -p $LOCALREPO/edublocks
-rm -rf $LOCALREPO/edublocks/*
-rm $LOCALREPO/edublocks.tar.xz
+BUNDLE_NAME="edublocks"
+
+BUNDLE_PATH=$REPO_PATH/$BUNDLE_NAME
+
+mkdir -p $BUNDLE_PATH
+rm -rf $BUNDLE_PATH/*
+rm $BUNDLE_PATH.tar.xz
+
+APP_PATH=$BUNDLE_PATH/app
+
+mkdir -p $APP_PATH
+
+PIP_PACKAGES_PATH=$BUNDLE_PATH/pip-packages
+
+echo ''
+echo 'Downloading PIP Dependencies...'
+mkdir -p $PIP_PACKAGES_PATH
+pip3 install --download $PIP_PACKAGES_PATH edupy python-sonic blinkt explorerhat
 
 echo ''
 echo 'Building EduBlocks general'
-echo '========================='
+echo '=========================='
 
 echo ''
 echo 'Copying general files...'
 
-cp $LOCALREPO/edublocks.desktop   $LOCALREPO/edublocks
-cp $LOCALREPO/runtime_support.py  $LOCALREPO/edublocks
+cp $REPO_PATH/install-deps.sh     $BUNDLE_PATH
+cp $REPO_PATH/install.sh          $BUNDLE_PATH
 
-cp -r $LOCALREPO/scripts  $LOCALREPO/edublocks
+cp $REPO_PATH/edublocks.desktop   $APP_PATH
+cp $REPO_PATH/runtime_support.py  $APP_PATH
+
+cp -r $REPO_PATH/scripts          $APP_PATH
+
+mkdir -p                          $APP_PATH/bin
+cp $NODE_TMP_PATH/bin/node        $APP_PATH/bin
 
 echo ''
 echo 'Building EduBlocks server'
 echo '========================='
 
-cd $LOCALREPO/server
+cd $REPO_PATH/server
 
 echo ''
 echo 'Installing dev dependencies...'
@@ -55,15 +99,15 @@ yarn run build
 
 echo ''
 echo 'Copying...'
-mkdir -p $LOCALREPO/edublocks/server
+mkdir -p $APP_PATH/server
 
-cp $LOCALREPO/server/build/*      $LOCALREPO/edublocks/server
-cp $LOCALREPO/server/package.json $LOCALREPO/edublocks/server
-cp $LOCALREPO/server/yarn.lock    $LOCALREPO/edublocks/server
-cp $LOCALREPO/server/*.sh         $LOCALREPO/edublocks/server
-cp $LOCALREPO/server/*.service    $LOCALREPO/edublocks/server
+cp $REPO_PATH/server/build/*      $APP_PATH/server
+cp $REPO_PATH/server/package.json $APP_PATH/server
+cp $REPO_PATH/server/yarn.lock    $APP_PATH/server
+cp $REPO_PATH/server/*.sh         $APP_PATH/server
+cp $REPO_PATH/server/*.service    $APP_PATH/server
 
-cd $LOCALREPO/edublocks/server
+cd $APP_PATH/server
 
 echo ''
 echo 'Installing production dependencies...'
@@ -75,21 +119,21 @@ echo '========================='
 
 echo ''
 echo 'Copying...'
-mkdir -p $LOCALREPO/edublocks/ui
+mkdir -p $APP_PATH/ui
 
-cp $LOCALREPO/ui/package.json $LOCALREPO/edublocks/ui
-cp $LOCALREPO/ui/yarn.lock    $LOCALREPO/edublocks/ui
-cp $LOCALREPO/ui/main.js      $LOCALREPO/edublocks/ui
-cp $LOCALREPO/ui/index.html   $LOCALREPO/edublocks/ui
-cp $LOCALREPO/ui/start.sh   $LOCALREPO/edublocks/ui
+cp $REPO_PATH/ui/package.json $APP_PATH/ui
+cp $REPO_PATH/ui/yarn.lock    $APP_PATH/ui
+cp $REPO_PATH/ui/main.js      $APP_PATH/ui
+cp $REPO_PATH/ui/index.html   $APP_PATH/ui
+cp $REPO_PATH/ui/start.sh     $APP_PATH/ui
 
-cp -r $LOCALREPO/ui/lib     $LOCALREPO/edublocks/ui
-cp -r $LOCALREPO/ui/blockly $LOCALREPO/edublocks/ui
-cp -r $LOCALREPO/ui/images  $LOCALREPO/edublocks/ui
-cp -r $LOCALREPO/ui/js      $LOCALREPO/edublocks/ui
-cp -r $LOCALREPO/ui/css     $LOCALREPO/edublocks/ui
+cp -r $REPO_PATH/ui/lib       $APP_PATH/ui
+cp -r $REPO_PATH/ui/blockly   $APP_PATH/ui
+cp -r $REPO_PATH/ui/images    $APP_PATH/ui
+cp -r $REPO_PATH/ui/js        $APP_PATH/ui
+cp -r $REPO_PATH/ui/css       $APP_PATH/ui
 
-cd $LOCALREPO
+cd $REPO_PATH
 
 echo ''
 echo 'Creating distributable'
@@ -97,8 +141,8 @@ echo '======================'
 
 echo ''
 echo 'Compressing...'
-tar -cJvf edublocks.tar.xz edublocks
+tar -cJf $BUNDLE_NAME-$ARCH.tar.xz $BUNDLE_NAME
 
 echo ''
-echo '==== EduBlock distributable created successfully (edublocks.tar.xz)'
+echo "==== EduBlock distributable created successfully ($BUNDLE_NAME.tar.xz)"
 echo ''
