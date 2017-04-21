@@ -7,14 +7,15 @@ fi
 
 SOURCE="${BASH_SOURCE[0]}"
 while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symlink
-  LOCALREPO="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
+  SCRIPT_DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
   SOURCE="$(readlink "$SOURCE")"
-  [[ $SOURCE != /* ]] && SOURCE="$LOCALREPO/$SOURCE" # if $SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
+  [[ $SOURCE != /* ]] && SOURCE="$SCRIPT_DIR/$SOURCE" # if $SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
 done
-LOCALREPO="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
-LOCALREPO=$(dirname $LOCALREPO)
+SCRIPT_DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 
-NODE_PATH=$LOCALREPO/bin/node
+APP_PATH=$(dirname $SCRIPT_DIR)
+
+NODE_PATH=$APP_PATH/bin/node
 
 echo "Using Node.js runtime binary $PATH"
 
@@ -24,7 +25,7 @@ SERVER_ACTIVE=$(systemctl is-active edublocks-server.service)
 
 if [ $SERVER_ACTIVE != 'active' ]; then
   echo 'Starting EduBlocks server...'
-  cd $LOCALREPO/server
+  cd $APP_PATH/server
   ./start.sh &
 else
   echo 'Server already running in the background, not starting another one'
@@ -32,5 +33,5 @@ fi
 
 echo '==== Please be patient, the EduBlocks UI is loading... ===='
 
-cd $LOCALREPO/ui
+cd $APP_PATH/ui
 2>/dev/null 1>&2 ./start.sh

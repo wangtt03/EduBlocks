@@ -9,9 +9,9 @@ TMP_PATH=/tmp
 
 ARCH=$1
 
-if [ $ARCH != 'armv6l' ]; then
+if [ "$ARCH" == 'armv6l' ]; then
   echo 'Targeting ARM Architecture'
-elif [ $ARCH != 'x64' ]; then
+elif [ "$ARCH" == 'x64' ]; then
   echo 'Targeting x86-64 Architecture'
 else
   echo "Invalid architecture $ARCH"
@@ -24,7 +24,7 @@ echo '========================'
 
 echo ''
 echo 'Downloading / Extracting Node.JS...'
-curl https://nodejs.org/dist/v6.10.2/node-v6.10.2-linux-$ARCH.tar.xz | tar -xvJ -C $TMP_PATH
+curl https://nodejs.org/dist/v6.10.2/node-v6.10.2-linux-$ARCH.tar.xz | tar -xJ -C $TMP_PATH
 
 NODE_TMP_PATH=$TMP_PATH/node-v6.10.2-linux-$ARCH
 
@@ -34,7 +34,7 @@ cd $REPO_PATH
 
 NODE_VERSION=$(node -v)
 
-if [ $NODE_VERSION != '6.10.2' ]; then
+if [ "$NODE_VERSION" != 'v6.10.2' ]; then
   echo "NodeJS has invalid version! ($NODE_VERSION)"
   exit 1
 fi
@@ -138,8 +138,8 @@ echo '======================'
 
 echo ''
 echo 'Compressing...'
-tar -cJvf $BUNDLE_NAME-$ARCH.tar.xz $BUNDLE_NAME
+tar -cJf $BUNDLE_NAME-$ARCH.tar.xz $BUNDLE_NAME
 
 echo ''
-echo '==== EduBlock distributable created successfully ($BUNDLE_NAME.tar.xz)'
+echo "==== EduBlock distributable created successfully ($BUNDLE_NAME.tar.xz)"
 echo ''

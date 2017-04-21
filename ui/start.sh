@@ -5,9 +5,13 @@ if [ $(whoami) == 'root' ]; then
   exit 1
 fi
 
-PROJECT="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-cd $PROJECT
+PROJECT_PATH=$SCRIPT_DIR
+
+NODE_PATH=$PROJECT_PATH/../bin/node
+
+cd $PROJECT_PATH
 
 ARCH=$(uname -m)
 
