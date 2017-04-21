@@ -10,6 +10,6 @@ dependencies:
     - ~/.cache/yarn
 deployment:
   production:
-    branch: tarball-install
+    branch: all-in-one
     commands:
       - scp edublocks-armv6l.tar.xz Josh@edublocks.org:downloads
