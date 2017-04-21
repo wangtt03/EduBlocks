@@ -7,9 +7,7 @@ fi
 
 SCRIPT_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-EXTRACT_PATH=$(dirname $SCRIPT_PATH)
-
-APP_PATH=$EXTRACT_PATH/app
+APP_PATH=$(dirname $SCRIPT_PATH)
 
 INSTALL_PATH=/opt/edublocks
 
