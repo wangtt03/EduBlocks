@@ -2,8 +2,6 @@
 
 Welcome to the EduBlocks Github Repository!
 ===========================================
-### Build Status
-![Build Status](https://circleci.com/gh/AllAboutCode/EduBlocks.png?circle-token=:circle-token)
 
 About EduBlocks
 ---------------
@@ -18,6 +16,14 @@ Lots of documentation to get you ready to go quickly. New projects added every 2
 EduBlocks has a range of libraies like EduPython, Minecraft & Sonic Pi. (COMING SOON: GpioZERO, Sense Hat)
 * Python View:
 Once you have coded the blocks, you can easily switch to the Python View to see the real Python code.
+
+Status
+---------------
+### Build Status
+![Build Status](https://circleci.com/gh/AllAboutCode/EduBlocks.png?circle-token=:circle-token)
+
+### Branch Status
+![experimental](http://badges.github.io/stability-badges/dist/experimental.svg)
 
 Installation
 ------------
