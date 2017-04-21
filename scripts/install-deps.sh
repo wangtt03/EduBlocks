@@ -7,13 +7,15 @@ fi
 
 SCRIPT_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-EXTRACT_PATH=$(dirname $SCRIPT_PATH)
+APP_PATH=$(dirname $SCRIPT_PATH)
+
+EXTRACT_PATH=$(dirname $APP_PATH)
 
 cd $EXTRACT_PATH
 
 PIP_PACKAGES_PATH=$EXTRACT_PATH/pip-packages
 
-echo "Downloading the edupy and associated libraries"
+echo "Downloading edupy and associated libraries"
 sudo pip3 install $PIP_PACKAGES_PATH/*.tar.gz
 
 if [ -f ~/.config/chromium/Default/Preferences ]; then
@@ -21,34 +23,10 @@ if [ -f ~/.config/chromium/Default/Preferences ]; then
   sed -i 's/"download":{"directory_upgrade":true}/"download":{"directory_upgrade":true,"prompt_for_download":true}/g' ~/.config/chromium/Default/Preferences
 fi
 
-NODE_VERSION=$(node -v 2> /dev/null)
-
-if [ -z $NODE_VERSION ]; then
-  NODE_VERSION='none'
-fi
-
-if [ $NODE_VERSION != 'v6.2.1' ]; then
-  echo "Installing Node.JS..."
-  wget https://nodejs.org/dist/v6.2.1/node-v6.2.1-linux-armv6l.tar.gz
-  tar -xzf node-v6.2.1-linux-armv6l.tar.gz
-  sudo cp -R node-v6.2.1-linux-armv6l/* /usr/local/
-  export PATH=$PATH:/usr/local/bin
-  echo 'PATH=$PATH:/usr/local/bin' >> ~/.bashrc
-fi
-
 ARCH=$(uname -m)
 
 if [ $ARCH != 'armv6l' ]; then
-  # YARN_VERSION=$(yarn --version 2> /dev/null)
 
-  # if [ -z $YARN_VERSION ]; then
-  #   YARN_VERSION='none'
-  # fi
-
-  # sudo npm install --global yarn
-
-  # cd $EXTRACT_PATH/ui
-  # yarn install --production
 else
   echo 'Raspberry Pi 1 or Zero detected, falling back to Chromium'
 fi
