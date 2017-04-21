@@ -90,7 +90,7 @@ a img{
   .minecraft-header {
   overflow: visible;
   background-color: white;
-  background-image: url("images/minecrafttheme.png");
+  background-image: url("../images/minecrafttheme.png");
 }
 
   .minecraft-header .material-icons {
@@ -111,7 +111,7 @@ a img{
   .space-header {
   overflow: visible;
   background-color: white;
-  background-image: url("images/space.jpg");
+  background-image: url("../images/space.jpg");
 }
 
   .space-header .material-icons {
@@ -129,12 +129,12 @@ a img{
     font-size: 14px;
   }
 
-  
+
 
 .circuit-header {
   overflow: visible;
   background-color: white;
-  background-image: url("images/board.png");
+  background-image: url("../images/board.png");
 }
 
   .circuit-header .material-icons {
@@ -155,7 +155,7 @@ a img{
   .slate-header {
   overflow: visible;
   background-color: white;
-  background-image: url("images/slate.jpg");
+  background-image: url("../images/slate.jpg");
 }
 
   .slate-header .material-icons {
