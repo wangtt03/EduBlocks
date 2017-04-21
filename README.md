@@ -2,6 +2,7 @@
 
 Welcome to the EduBlocks Github Repository!
 ===========================================
+![Build Status](https://circleci.com/gh/AllAboutCode/EduBlocks.png?circle-token=:circle-token)
 
 About EduBlocks
 ---------------
