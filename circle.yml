@@ -8,7 +8,14 @@ dependencies:
     - ./tarball-create.sh armv6l
   cache_directories:
     - ~/.cache/yarn
+test:
+  override:
+    - echo 'No tests to run'
 deployment:
+  dev:
+    branch: /.*/
+    commands:
+      - scp edublocks-armv6l.tar.xz Josh@edublocks.org:downloads/edublocks-armv6l-dev.tar.xz
   production:
     tag: /v[0-9]+\.[0-9]+\.[0-9]$/
     commands:
