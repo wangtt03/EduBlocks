@@ -23,7 +23,7 @@ Status
 ![Build Status](https://circleci.com/gh/AllAboutCode/EduBlocks.png?circle-token=:circle-token)
 
 ### Branch Status
-![experimental](http://badges.github.io/stability-badges/dist/experimental.svg)
+![experimental](http://badges.github.io/stability-badges/dist/stable.svg)
 
 Installation
 ------------
@@ -33,7 +33,7 @@ Get started with EduBlocks on your Raspberry Pi in these simple steps:
 ![alt tag](misc/1.png)
 2. Type the following command and then press enter on your keyboard.
 ```bash
-curl -sSL edu.buz.co | bash
+curl -sSL get.edublocks.org | bash
 ```
 ![alt tag](misc/2.png)
 3. When promted by the installer, press enter to select YES to install.
