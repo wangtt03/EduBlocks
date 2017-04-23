@@ -82,6 +82,17 @@ To run the server and client in desktop in developer mode:
 
 EduBlocks UI will now be available at http://localhost:8081/
 
+### Releasing a new version
+
+Increment version, this will automatically tag the current commit as the new version:
+
+    yarn version
+
+Push changes along with the new tag to GitHub, triggering a new build:
+
+    git push --tags
+    git push
+
 ### Building EduBlocks
 
 Building is performed by our CI platform. See `circle.yml` for more info. The tarball is built using a shell script. This will create the subdirectory `edublocks`. The build script is only intended to be run by the CI platform however it will probably work on most Linux platforms.

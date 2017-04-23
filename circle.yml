@@ -10,6 +10,7 @@ dependencies:
     - ~/.cache/yarn
 deployment:
   production:
-    branch: tarball-install
+    tag: /v[0-9]+\.[0-9]+\.[0-9]$/
     commands:
       - scp edublocks-armv6l.tar.xz Josh@edublocks.org:downloads
+      - echo $CIRCLE_TAG | ssh Josh@edublocks.org 'cat > downloads/version.txt'
