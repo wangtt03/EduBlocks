@@ -167,8 +167,13 @@ function saveCode() {
   io.saveFile(text, "xml", "EduBlocks XML");
 }
 
+function clearTerminal() {
+  term.value = "";
+}
+
 function sendCode() {
   toggleTerminal(true);
+  clearTerminal();
 
   var code = Blockly.Python.workspaceToCode();
 
