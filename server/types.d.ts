@@ -7,3 +7,9 @@ declare namespace Express {
     send(msg: string): void;
   }
 }
+
+interface EduBlocksClient {
+  writeLine(line: string): void;
+
+  // onInput(handler: (line: string) => void): void;
+}

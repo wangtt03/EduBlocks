@@ -19,6 +19,8 @@ const runtimeSupportPath = path.join(__dirname, '..', 'runtime_support.py');
 const scriptPath = path.join(eduBlocksWorkingPath, 'output.py');
 const packagePath = path.join(__dirname, 'package.json');
 
+const version = JSON.parse(fs.readFileSync(packagePath, 'utf8')).version;
+
 console.log('Scripts will be written to:', scriptPath);
 
 const app = express();
@@ -30,8 +32,15 @@ expressWs(app);
 
 let proc: ChildProcess;
 
-let lineReporter: (msg: string) => void;
 let inputFeed: (inp: string) => void;
+
+const clients: EduBlocksClient[] = [];
+
+function writeLineToAllClients(line: string) {
+  clients.forEach(client => {
+    client.writeLine(line);
+  });
+}
 
 app.post('/runcode', (req, res) => {
   const { code } = req.body;
@@ -56,23 +65,17 @@ app.post('/runcode', (req, res) => {
   rl.on('line', (input) => {
     console.log(`LINE: ${input}`);
 
-    if (lineReporter) {
-      lineReporter(input);
-    }
+    writeLineToAllClients(input);
   });
 
   proc.stderr.on('data', (data) => {
     console.log(`stderr: ${data}`);
 
-    if (lineReporter) {
-      lineReporter('ERROR: ' + data);
-    }
+    writeLineToAllClients('ERROR: ' + data);
   });
 
   proc.on('close', (code) => {
-    if (lineReporter) {
-      lineReporter(`==== Process complete (${code}) ====`);
-    }
+    writeLineToAllClients(`==== Process complete (${code}) ====`);
 
     res.send(`Done ${code}`);
   });
@@ -84,9 +87,7 @@ app.post('/runcode', (req, res) => {
         proc.kill('SIGTERM');
       } else {
         // Echo the send command back to the client
-        if (lineReporter) {
-          lineReporter(inp);
-        }
+        writeLineToAllClients(inp);
 
         // Need to add new line character on end
         proc.stdin.write(inp + '\n');
@@ -96,15 +97,19 @@ app.post('/runcode', (req, res) => {
 });
 
 app.ws('/terminal', (ws, req: express.Request) => {
-  lineReporter = (msg) => {
-    try {
-      ws.send(msg);
-    } catch (e) { }
+  const client: EduBlocksClient = {
+    writeLine(line) {
+      try {
+        ws.send(line);
+      } catch (e) { }
+    },
   };
 
-  const version = JSON.parse(fs.readFileSync(packagePath, 'utf8')).version;
+  const index = clients.push(client) - 1;
 
   ws.send(`EduBlocks server version ${version} online and ready`);
+
+  console.log(`Client ${index} connected`);
 
   ws.on('message', (msg) => {
     console.log(`INP: ${msg}`);
@@ -112,6 +117,14 @@ app.ws('/terminal', (ws, req: express.Request) => {
     if (inputFeed) {
       inputFeed(msg);
     }
+  });
+
+  ws.on('close', () => {
+    const index = clients.indexOf(client);
+
+    console.log(`Client ${index} disconnected`);
+
+    clients.splice(index, 1);
   });
 });
 
