@@ -93,6 +93,10 @@ Push changes along with the new tag to GitHub, triggering a new build:
     git push --tags
     git push
 
+Once build has completed successfully, a new build will be available at:
+
+    http://edublocks.org/downloads/edublocks-armv6l.tar.xz
+
 ### Building EduBlocks
 
 Building is performed by our CI platform. See `circle.yml` for more info. The tarball is built using a shell script. This will create the subdirectory `edublocks`. The build script is only intended to be run by the CI platform however it will probably work on most Linux platforms.
