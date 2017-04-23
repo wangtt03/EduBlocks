@@ -35,7 +35,7 @@ body {
   border-bottom: solid 1px #000;
 }
 
-#editor { 
+#editor {
   position: absolute;
   top: 0;
   right: 0;
@@ -54,8 +54,24 @@ body {
   line-height: 20px;
   display: none;
 }
+
+.terminal-help {
+  height: 28px;
+  line-height: 28px;
+  padding: 0 4px;
+  background: white;
+}
+.terminal-help .help-item {
+  margin: 0 10px 0 0;
+}
+.terminal-help .key {
+  background: #ddd;
+  padding: 2px 3px;
+  border: solid 1px #777;
+}
+
 .terminal-output {
-  height: calc(100% - 28px);
+  height: calc(100% - 28px - 28px);
 }
 .terminal-output textarea {
   font-family: Courier New, Courier, monospace;
@@ -71,6 +87,7 @@ body {
 .terminal-output textarea:focus {
   outline: none;
 }
+
 .terminal-input {
   height: 28px;
 }
