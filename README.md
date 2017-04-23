@@ -72,14 +72,6 @@ Install Yarn:
 
     npm --global install yarn
 
-### Building EduBlocks
-
-The PIP package can be built using a shell script. This will create the subdirectory `build`.
-
-To run build script:
-
-    ./build.sh
-
 ### Running Server and Client in developer mode
 
 To run the server and client in desktop in developer mode:
@@ -88,12 +80,15 @@ To run the server and client in desktop in developer mode:
     yarn install
     yarn run debug
 
-In another terminal:
+EduBlocks UI will now be available at http://localhost:8081/
 
-    cd ui
-    yarn install
-    yarn start
-    
+### Building EduBlocks
+
+Building is performed by our CI platform. See `circle.yml` for more info. The tarball is built using a shell script. This will create the subdirectory `edublocks`. The build script is only intended to be run by the CI platform however it will probably work on most Linux platforms.
+
+To run build script:
+
+    ./tarball-create.sh
 
 Support
 -------
