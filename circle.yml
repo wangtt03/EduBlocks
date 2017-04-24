@@ -15,9 +15,12 @@ deployment:
   dev:
     branch: /.*/
     commands:
-      - scp edublocks-armv6l.tar.xz Josh@edublocks.org:downloads/edublocks-armv6l-dev.tar.xz
+      - scp edublocks-armv6l.tar.xz Josh@edublocks.org:downloads/dev
+      - scp auto-installer.sh Josh@edublocks.org:downloads/dev
+      - echo $CIRCLE_TAG | ssh Josh@edublocks.org 'cat > downloads/dev/version.txt'
   production:
     tag: /v[0-9]+\.[0-9]+\.[0-9]$/
     commands:
       - scp edublocks-armv6l.tar.xz Josh@edublocks.org:downloads
+      - scp auto-installer.sh Josh@edublocks.org:downloads
       - echo $CIRCLE_TAG | ssh Josh@edublocks.org 'cat > downloads/version.txt'
