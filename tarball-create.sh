@@ -36,6 +36,7 @@ NODE_VERSION=$(node -v)
 
 if [ "$NODE_VERSION" != 'v6.10.2' ]; then
   echo "NodeJS has invalid version! ($NODE_VERSION)"
+  echo "Please switch to v6.10.2 using nvm or similar tool, i.e. nvm use v6.10.2"
   exit 1
 fi
 
@@ -43,6 +44,7 @@ YARN_VERSION=$(yarn --version)
 
 if [ $? -ne 0 ]; then
   echo 'Yarn has not been installed!'
+  echo 'Please install yarn with: npm --global install yarn'
   exit 1
 fi
 
@@ -52,7 +54,7 @@ BUNDLE_PATH=$REPO_PATH/$BUNDLE_NAME
 
 mkdir -p $BUNDLE_PATH
 rm -rf $BUNDLE_PATH/*
-rm $BUNDLE_PATH.tar.xz
+rm -f $BUNDLE_PATH.tar.xz
 
 APP_PATH=$BUNDLE_PATH/app
 
@@ -122,7 +124,6 @@ echo 'Copying...'
 mkdir -p $APP_PATH/ui
 
 cp $REPO_PATH/ui/package.json $APP_PATH/ui
-cp $REPO_PATH/ui/yarn.lock    $APP_PATH/ui
 cp $REPO_PATH/ui/main.js      $APP_PATH/ui
 cp $REPO_PATH/ui/index.html   $APP_PATH/ui
 cp $REPO_PATH/ui/start.sh     $APP_PATH/ui

@@ -6,4 +6,4 @@ tmp
 build
 *.egg
 /edublocks
-edublocks.tar.xz
+edublocks*.tar.xz
