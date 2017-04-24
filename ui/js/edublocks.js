@@ -9,7 +9,7 @@ var term = document.getElementById("term");
 var inp = document.getElementById("inp");
 
 term.parentNode.addEventListener("click", ontermclick);
-inp.addEventListener("keyup", oninputkey);
+inp.addEventListener("keyup", oninputkeyup);
 
 var blockly = document.getElementById("blockly");
 var python = document.getElementById("python");
@@ -62,8 +62,6 @@ function onresize(e) {
 
 function onkeypress(e) {
   if (e.keyCode === 27) {
-    //ws.send(String.fromCharCode(3));
-
     toggleTerminal();
   }
 }
@@ -72,16 +70,35 @@ function ontermclick(e) {
   inp.focus();
 }
 
-function oninputkey(e) {
+var preLineTerm = null;
+
+function oninputkeyup(e) {
+  if (preLineTerm === null) {
+    preLineTerm = term.value;
+  }
+
   if (e.keyCode === 13) {
-    ws.send(inp.value);
+    preLineTerm = null; // term.value;
+
+    ws.send(inp.value + '\r\n');
+
     inp.value = "";
+
+    term.value += '\r\n';
+
+    return;
   }
 
   // Detect Ctrl-C
   if (e.keyCode === 67 && e.ctrlKey) {
+    preLineTerm = null;
+
     ws.send(String.fromCharCode(3));
+
+    return;
   }
+
+  term.value = preLineTerm + inp.value;
 }
 
 function initWebsocket() {
@@ -90,7 +107,7 @@ function initWebsocket() {
   ws = new WebSocket("ws://" + getHost() + "/terminal");
 
   ws.onmessage = function(evt) {
-    term.value += evt.data + "\n";
+    term.value += evt.data;
     term.scrollTop = term.scrollHeight;
   };
 
@@ -168,6 +185,8 @@ function saveCode() {
 }
 
 function clearTerminal() {
+  preLineTerm = null;
+
   term.value = "";
 }
 

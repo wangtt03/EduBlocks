@@ -1,11 +1,10 @@
 import fs = require('fs');
 import path = require('path');
 import express = require('express');
-import expressWs = require('express-ws');
+const expressWs = require('express-ws');
 import { spawn, ChildProcess } from 'child_process';
 import readline = require('readline');
-import bodyParser = require('body-parser');
-import { Readable } from 'stream';
+const bodyParser = require('body-parser');
 
 const homeDirPath = process.env[(process.platform == 'win32') ? 'USERPROFILE' : 'HOME'];
 const eduBlocksWorkingPath = path.join(homeDirPath, '.edublocks');
@@ -36,48 +35,74 @@ let inputFeed: (inp: string) => void;
 
 const clients: EduBlocksClient[] = [];
 
-function writeLineToAllClients(line: string) {
+function writeToAllClients(line: string) {
   clients.forEach(client => {
     client.writeLine(line);
   });
 }
+
+let ready = false;
 
 app.post('/runcode', (req, res) => {
   const { code } = req.body;
 
   const runtimeSupport = fs.readFileSync(runtimeSupportPath);
 
-  fs.writeFileSync(scriptPath, runtimeSupport + code);
+  const exec = runtimeSupport + code + '\r\n';
+
+  fs.writeFileSync(scriptPath, exec);
 
   // Kill the last process if it is still running...
   if (proc) {
+    ready = false;
+
     proc.kill('SIGTERM');
   }
 
-  proc = spawn('python3', ['-u', scriptPath], { stdio: ['pipe', 'pipe', 'pipe'] });
+  proc = spawn('python3', ['-u', '-i'], { stdio: ['pipe', 'pipe', 'pipe'] });
 
   console.log(code);
 
+  writeToAllClients('\r\n');
+
+  proc.stdin.write(exec);
+
   const rl = readline.createInterface({
-    input: proc.stdout,
+    input: proc.stdout
   });
 
   rl.on('line', (input) => {
+    if (input.toString().indexOf('Starting...') === 0) {
+      ready = true;
+    }
+
     console.log(`LINE: ${input}`);
 
-    writeLineToAllClients(input);
+    if (!ready) return;
+
+    writeToAllClients(input.toString() + '\r\n');
   });
 
   proc.stderr.on('data', (data) => {
     console.log(`stderr: ${data}`);
 
-    writeLineToAllClients('ERROR: ' + data);
+    if (!ready) return;
+
+    let line = data.toString();
+
+    line = line.replace(/\.\.\.\ /g, '');
+
+    writeToAllClients(line);
   });
 
   proc.on('close', (code) => {
-    writeLineToAllClients(`==== Process complete (${code}) ====`);
+    if (!ready) return;
+
+    writeToAllClients(`==== Process complete (${code || 'killed'}) ====\r\n`);
 
     res.send(`Done ${code}`);
+
+    ready = false;
   });
 
   inputFeed = (inp) => {
@@ -86,11 +111,7 @@ app.post('/runcode', (req, res) => {
       if (inp.length === 1 && inp[0] === String.fromCharCode(3)) {
         proc.kill('SIGTERM');
       } else {
-        // Echo the send command back to the client
-        writeLineToAllClients(inp);
-
-        // Need to add new line character on end
-        proc.stdin.write(inp + '\n');
+        proc.stdin.write(inp);
       }
     } catch (e) { }
   };
@@ -111,7 +132,7 @@ app.ws('/terminal', (ws, req: express.Request) => {
 
   console.log(`Client ${index} connected`);
 
-  ws.on('message', (msg) => {
+  ws.on('message', (msg: string) => {
     console.log(`INP: ${msg}`);
 
     if (inputFeed) {
