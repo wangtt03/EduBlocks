@@ -30,7 +30,7 @@ Installation
 Get started with EduBlocks on your Raspberry Pi in these simple steps:
 
 1. Open up a terminal window by clicking on the terminal icon on the top right hand corner of your Raspberry Pi's Screen
-![alt tag](misc/1.png)
+![alt tag](newcommand.png)
 2. Type the following command and then press enter on your keyboard.
 ```bash
 curl -sSL get.edublocks.org | bash
