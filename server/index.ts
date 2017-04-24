@@ -3,7 +3,6 @@ import path = require('path');
 import express = require('express');
 const expressWs = require('express-ws');
 import { spawn, ChildProcess } from 'child_process';
-import readline = require('readline');
 const bodyParser = require('body-parser');
 
 const homeDirPath = process.env[(process.platform == 'win32') ? 'USERPROFILE' : 'HOME'];
@@ -59,28 +58,22 @@ app.post('/runcode', (req, res) => {
     proc.kill('SIGTERM');
   }
 
-  proc = spawn('python3', ['-u', '-i'], { stdio: ['pipe', 'pipe', 'pipe'] });
+  proc = spawn('python3', ['-u', '-i', scriptPath], { stdio: ['pipe', 'pipe', 'pipe'] });
 
   console.log(code);
 
   writeToAllClients('\r\n');
 
-  proc.stdin.write(exec);
-
-  const rl = readline.createInterface({
-    input: proc.stdout
-  });
-
-  rl.on('line', (input) => {
+  proc.stdout.on('data', (input) => {
     if (input.toString().indexOf('Starting...') === 0) {
       ready = true;
     }
 
-    console.log(`LINE: ${input}`);
+    console.log(`stdout: ${input}`);
 
     if (!ready) return;
 
-    writeToAllClients(input.toString() + '\r\n');
+    writeToAllClients(input.toString());
   });
 
   proc.stderr.on('data', (data) => {
