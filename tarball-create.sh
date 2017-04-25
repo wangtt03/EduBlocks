@@ -65,7 +65,7 @@ PIP_PACKAGES_PATH=$BUNDLE_PATH/pip-packages
 echo ''
 echo 'Downloading PIP Dependencies...'
 mkdir -p $PIP_PACKAGES_PATH
-pip3 install --download $PIP_PACKAGES_PATH edupy python-sonic blinkt explorerhat
+pip3 install --download $PIP_PACKAGES_PATH edupy python-sonic blinkt explorerhat 'ipython==6.0.0'
 
 echo ''
 echo 'Building EduBlocks general'

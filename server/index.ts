@@ -13,9 +13,11 @@ if (!fs.existsSync(eduBlocksWorkingPath)) {
 }
 
 const ui = path.join(__dirname, '..', 'ui');
-const runtimeSupportPath = path.join(__dirname, '..', 'runtime_support.py');
 const scriptPath = path.join(eduBlocksWorkingPath, 'output.py');
 const packagePath = path.join(__dirname, 'package.json');
+
+const beforeScriptPath = path.join(__dirname, '..', 'script-includes', 'before.py');
+const afterScriptPath = path.join(__dirname, '..', 'script-includes', 'after.py');
 
 const version = JSON.parse(fs.readFileSync(packagePath, 'utf8')).version;
 
@@ -45,9 +47,10 @@ let ready = false;
 app.post('/runcode', (req, res) => {
   const { code } = req.body;
 
-  const runtimeSupport = fs.readFileSync(runtimeSupportPath);
+  const beforeScript = fs.readFileSync(beforeScriptPath);
+  const afterScript = fs.readFileSync(afterScriptPath);
 
-  const exec = runtimeSupport + code + '\r\n';
+  const exec = [beforeScript, code, afterScript].join('\r\n');
 
   fs.writeFileSync(scriptPath, exec);
 
@@ -58,14 +61,14 @@ app.post('/runcode', (req, res) => {
     proc.kill('SIGTERM');
   }
 
-  proc = spawn('python3', ['-u', '-i', scriptPath], { stdio: ['pipe', 'pipe', 'pipe'] });
+  proc = spawn('python3', ['-u', scriptPath], { stdio: ['pipe', 'pipe', 'pipe'] });
 
   console.log(code);
 
   writeToAllClients('\r\n');
 
   proc.stdout.on('data', (input) => {
-    if (input.toString().indexOf('Starting...') === 0) {
+    if (input.toString().indexOf('[Starting]') === 0) {
       ready = true;
     }
 
