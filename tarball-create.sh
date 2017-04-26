@@ -78,8 +78,8 @@ cp $REPO_PATH/install-deps.sh     $BUNDLE_PATH
 cp $REPO_PATH/install.sh          $BUNDLE_PATH
 
 cp $REPO_PATH/edublocks.desktop   $APP_PATH
-cp $REPO_PATH/runtime_support.py  $APP_PATH
 
+cp -r $REPO_PATH/script-includes  $APP_PATH
 cp -r $REPO_PATH/scripts          $APP_PATH
 
 mkdir -p                          $APP_PATH/bin
