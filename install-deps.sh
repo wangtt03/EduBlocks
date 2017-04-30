@@ -17,4 +17,4 @@ fi
 PIP_PACKAGES_PATH=$EXTRACT_PATH/pip-packages
 
 echo "Installing edupy and associated libraries"
-sudo pip3 install $PIP_PACKAGES_PATH/*.*
+sudo pip3 install --no-deps $PIP_PACKAGES_PATH/*.*
