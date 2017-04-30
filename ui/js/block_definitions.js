@@ -1106,7 +1106,7 @@ Blockly.Blocks['varprint'] = {
         .appendField(")");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(120);
+    this.setColour(336);
     this.setTooltip('Use this to print a variable.');
     this.setHelpUrl('http://www.example.com/');
   }
