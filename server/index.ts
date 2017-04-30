@@ -96,8 +96,6 @@ app.post('/runcode', (req, res) => {
 
     writeToAllClients(`==== Process complete (${code || 'killed'}) ====\r\n`);
 
-    res.send(`Done ${code}`);
-
     ready = false;
   });
 
@@ -111,6 +109,8 @@ app.post('/runcode', (req, res) => {
       }
     } catch (e) { }
   };
+
+  res.send(`Started`);
 });
 
 app.ws('/terminal', (ws, req: express.Request) => {
