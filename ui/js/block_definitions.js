@@ -1112,6 +1112,133 @@ Blockly.Blocks['varprint'] = {
   }
 };
 
+Blockly.Blocks['ifcroc'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("if")
+        .appendField(new Blockly.FieldTextInput("this"), "this")
+        .appendField(new Blockly.FieldDropdown([[">",">"], ["<","<"]]), "crocsigns")
+        .appendField(new Blockly.FieldTextInput("that"), "that")
+        .appendField(":");
+    this.appendStatementInput("DO")
+        .setCheck(null);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(336);
+    this.setTooltip('If statement with greater and less than');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['varminus'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldTextInput("0"), "1")
+        .appendField("-=")
+        .appendField(new Blockly.FieldTextInput("0"), "2");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(336);
+    this.setTooltip('Variable with - and =');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['printwall'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("PrintWall(PixelArt(");
+    this.appendDummyInput()
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField(new Blockly.FieldTextInput(""), "11")
+        .appendField(new Blockly.FieldTextInput(""), "12")
+        .appendField(new Blockly.FieldTextInput(""), "13")
+        .appendField(new Blockly.FieldTextInput(""), "14")
+        .appendField(new Blockly.FieldTextInput(""), "15")
+        .appendField(new Blockly.FieldTextInput(""), "16")
+        .appendField(new Blockly.FieldTextInput(""), "17")
+        .appendField(new Blockly.FieldTextInput(""), "18");
+    this.appendDummyInput()
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField(new Blockly.FieldTextInput(""), "21")
+        .appendField(new Blockly.FieldTextInput(""), "22")
+        .appendField(new Blockly.FieldTextInput(""), "23")
+        .appendField(new Blockly.FieldTextInput(""), "24")
+        .appendField(new Blockly.FieldTextInput(""), "25")
+        .appendField(new Blockly.FieldTextInput(""), "26")
+        .appendField(new Blockly.FieldTextInput(""), "27")
+        .appendField(new Blockly.FieldTextInput(""), "28");
+    this.appendDummyInput()
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField(new Blockly.FieldTextInput(""), "31")
+        .appendField(new Blockly.FieldTextInput(""), "32")
+        .appendField(new Blockly.FieldTextInput(""), "33")
+        .appendField(new Blockly.FieldTextInput(""), "34")
+        .appendField(new Blockly.FieldTextInput(""), "35")
+        .appendField(new Blockly.FieldTextInput(""), "36")
+        .appendField(new Blockly.FieldTextInput(""), "37")
+        .appendField(new Blockly.FieldTextInput(""), "38");
+    this.appendDummyInput()
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField(new Blockly.FieldTextInput(""), "41")
+        .appendField(new Blockly.FieldTextInput(""), "42")
+        .appendField(new Blockly.FieldTextInput(""), "43")
+        .appendField(new Blockly.FieldTextInput(""), "44")
+        .appendField(new Blockly.FieldTextInput(""), "45")
+        .appendField(new Blockly.FieldTextInput(""), "46")
+        .appendField(new Blockly.FieldTextInput(""), "47")
+        .appendField(new Blockly.FieldTextInput(""), "48");
+    this.appendDummyInput()
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField(new Blockly.FieldTextInput(""), "51")
+        .appendField(new Blockly.FieldTextInput(""), "52")
+        .appendField(new Blockly.FieldTextInput(""), "53")
+        .appendField(new Blockly.FieldTextInput(""), "54")
+        .appendField(new Blockly.FieldTextInput(""), "55")
+        .appendField(new Blockly.FieldTextInput(""), "56")
+        .appendField(new Blockly.FieldTextInput(""), "57")
+        .appendField(new Blockly.FieldTextInput(""), "58");
+    this.appendDummyInput()
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField(new Blockly.FieldTextInput(""), "61")
+        .appendField(new Blockly.FieldTextInput(""), "62")
+        .appendField(new Blockly.FieldTextInput(""), "63")
+        .appendField(new Blockly.FieldTextInput(""), "64")
+        .appendField(new Blockly.FieldTextInput(""), "65")
+        .appendField(new Blockly.FieldTextInput(""), "66")
+        .appendField(new Blockly.FieldTextInput(""), "67")
+        .appendField(new Blockly.FieldTextInput(""), "68");
+    this.appendDummyInput()
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField(new Blockly.FieldTextInput(""), "71")
+        .appendField(new Blockly.FieldTextInput(""), "72")
+        .appendField(new Blockly.FieldTextInput(""), "73")
+        .appendField(new Blockly.FieldTextInput(""), "74")
+        .appendField(new Blockly.FieldTextInput(""), "75")
+        .appendField(new Blockly.FieldTextInput(""), "76")
+        .appendField(new Blockly.FieldTextInput(""), "77")
+        .appendField(new Blockly.FieldTextInput(""), "78");
+    this.appendDummyInput()
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField(new Blockly.FieldTextInput(""), "81")
+        .appendField(new Blockly.FieldTextInput(""), "82")
+        .appendField(new Blockly.FieldTextInput(""), "83")
+        .appendField(new Blockly.FieldTextInput(""), "84")
+        .appendField(new Blockly.FieldTextInput(""), "85")
+        .appendField(new Blockly.FieldTextInput(""), "86")
+        .appendField(new Blockly.FieldTextInput(""), "87")
+        .appendField(new Blockly.FieldTextInput(""), "88");
+    this.appendDummyInput()
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField("))");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(120);
+    this.setTooltip('');
+    this.setHelpUrl('');
+  }
+};
+
 Blockly.Blocks['setpos'] = {
   init: function() {
     this.appendDummyInput()
