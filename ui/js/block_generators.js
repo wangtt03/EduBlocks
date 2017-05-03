@@ -404,14 +404,14 @@ Blockly.Python['printwall'] = function(block) {
   var text_88 = block.getFieldValue('88');
   // TODO: Assemble Python into code variable.
   var start = 'PrintWall(PixelArt(\n';
-  var line1 = ' '+text_11+ text_12+text_13+text_14+text_15+text_16+text_17+text_18+'\n'
-  var line2 = ' '+text_21+ text_22+text_23+text_24+text_25+text_26+text_27+text_28+'\n'
-  var line3 = ' '+text_31+ text_32+text_33+text_34+text_35+text_36+text_37+text_38+'\n'
-  var line4 = ' '+text_41+ text_42+text_43+text_44+text_45+text_46+text_47+text_48+'\n'
-  var line5 = ' '+text_51+ text_52+text_53+text_54+text_55+text_56+text_57+text_58+'\n'
-  var line6 = ' '+text_61+ text_62+text_63+text_64+text_65+text_66+text_67+text_68+'\n'
-  var line7 = ' '+text_71+ text_72+text_73+text_74+text_75+text_76+text_77+text_78+'\n'
-  var line8 = ' '+text_81+ text_82+text_83+text_84+text_85+text_86+text_87+text_88+'\n'  
+  var line1 = ' '+text_11+ ', ' +text_12+ ', '+text_13+', '+text_14+', '+text_15+', '+text_16+', '+text_17+', '+text_18+', \n'
+  var line2 = ' '+text_21+', ' +text_22+', '+text_23+', '+text_24+', '+text_25+', '+text_26+', '+text_27+', '+text_28+', \n'
+  var line3 = ' '+text_31+', ' +text_32+', '+text_33+', '+text_34+', '+text_35+', '+text_36+', '+text_37+', '+text_38+', \n'
+  var line4 = ' '+text_41+', ' +text_42+', '+text_43+', '+text_44+', '+text_45+', '+text_46+', '+text_47+', '+text_48+', \n'
+  var line5 = ' '+text_51+ ', '+text_52+', '+text_53+', '+text_54+', '+text_55+', '+text_56+', '+text_57+', '+text_58+', \n'
+  var line6 = ' '+text_61+ ', '+text_62+', '+text_63+', '+text_64+', '+text_65+', '+text_66+', '+text_67+', '+text_68+', \n'
+  var line7 = ' '+text_71+', ' +text_72+', '+text_73+', '+text_74+', '+text_75+', '+text_76+', '+text_77+', '+text_78+', \n'
+  var line8 = ' '+text_81+', ' +text_82+', '+text_83+', '+text_84+', '+text_85+', '+text_86+', '+text_87+', '+text_88+', \n'  
   var end = '))\n'
   var code = start+line1+line2+line3+line4+line5+line6+line7+line8+end+'\n'
   return code;
