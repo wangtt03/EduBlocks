@@ -129,6 +129,7 @@ yarn run build
 echo ''
 echo 'Copying...'
 mkdir -p $APP_PATH/ui
+mkdir -p $APP_PATH/ui/node_modules/picnic
 
 cp $REPO_PATH/ui/package.json $APP_PATH/ui
 cp $REPO_PATH/ui/index.html   $APP_PATH/ui
@@ -140,6 +141,8 @@ cp -r $REPO_PATH/ui/blockly   $APP_PATH/ui
 cp -r $REPO_PATH/ui/images    $APP_PATH/ui
 cp -r $REPO_PATH/ui/js        $APP_PATH/ui
 cp -r $REPO_PATH/ui/css       $APP_PATH/ui
+cp -r $REPO_PATH/ui/fonts     $APP_PATH/ui
+cp -r $REPO_PATH/ui/node_modules/picnic/picnic.min.css $APP_PATH/ui/node_modules/picnic
 
 cd $REPO_PATH
 

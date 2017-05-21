@@ -23,4 +23,4 @@ pkill node
 cd $PROJECT_PATH
 
 # npm start
-$NODE_PATH index.js
+$NODE_PATH build/index.js
