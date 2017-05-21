@@ -14,7 +14,5 @@ if [ -f ~/.config/chromium/Default/Preferences ]; then
   sed -i 's/"download":{"directory_upgrade":true}/"download":{"directory_upgrade":true,"prompt_for_download":true}/g' ~/.config/chromium/Default/Preferences
 fi
 
-PIP_PACKAGES_PATH=$EXTRACT_PATH/pip-packages
-
 echo "Installing edupy and associated libraries"
-sudo pip3 install $PIP_PACKAGES_PATH/*.*
+sudo pip3 install edupy python-sonic blinkt explorerhat 'ipython==6.0.0'

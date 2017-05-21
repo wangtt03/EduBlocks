@@ -4,6 +4,8 @@ machine:
   python:
     version: 3.4.2
 dependencies:
+  pre:
+    - sudo apt-get install g++-arm-linux-gnueabihf
   override:
     - ./tarball-create.sh armv6l
   cache_directories:

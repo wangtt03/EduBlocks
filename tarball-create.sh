@@ -60,13 +60,6 @@ APP_PATH=$BUNDLE_PATH/app
 
 mkdir -p $APP_PATH
 
-PIP_PACKAGES_PATH=$BUNDLE_PATH/pip-packages
-
-echo ''
-echo 'Downloading PIP Dependencies...'
-mkdir -p $PIP_PACKAGES_PATH
-pip3 install --download $PIP_PACKAGES_PATH edupy python-sonic blinkt explorerhat 'ipython==6.0.0'
-
 echo ''
 echo 'Building EduBlocks general'
 echo '=========================='
@@ -91,6 +84,9 @@ echo '========================='
 
 cd $REPO_PATH/server
 
+# "node-pty" is a native code module so we must cross compile it individually targeting the ARM architecture
+$REPO_PATH/node-pty-arm.sh $REPO_PATH/server/node_modules/node-pty
+
 echo ''
 echo 'Installing dev dependencies...'
 yarn install
@@ -103,7 +99,8 @@ echo ''
 echo 'Copying...'
 mkdir -p $APP_PATH/server
 
-cp $REPO_PATH/server/build/*      $APP_PATH/server
+cp -r $REPO_PATH/server/build     $APP_PATH/server
+
 cp $REPO_PATH/server/package.json $APP_PATH/server
 cp $REPO_PATH/server/yarn.lock    $APP_PATH/server
 cp $REPO_PATH/server/*.sh         $APP_PATH/server
