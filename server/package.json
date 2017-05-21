@@ -8,11 +8,10 @@
   },
   "engineStrict": true,
   "scripts": {
-    "start": "node build/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "debug": "ts-node src/index.ts",
     "build": "tsc",
-    "lint": "tslint src/*.ts"
+    "debug": "tsc && node build/index.js",
+    "lint": "tslint src/**/*.ts",
+    "start": "node build/index.js"
   },
   "author": "",
   "license": "ISC",
@@ -28,7 +27,6 @@
     "@types/mime": "^0.0.29",
     "@types/node": "^7.0.5",
     "@types/serve-static": "^1.7.31",
-    "ts-node": "^2.1.0",
     "tslint": "^4.4.2",
     "typescript": "^2.3.2"
   }

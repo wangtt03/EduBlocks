@@ -116,12 +116,23 @@ echo ''
 echo 'Building EduBlocks client'
 echo '========================='
 
+cd $REPO_PATH/ui
+
+echo ''
+echo 'Installing dev dependencies...'
+yarn install
+
+echo ''
+echo 'Compiling...'
+yarn run build
+
 echo ''
 echo 'Copying...'
 mkdir -p $APP_PATH/ui
 
+cp $REPO_PATH/dist/main.js    $APP_PATH/ui
+
 cp $REPO_PATH/ui/package.json $APP_PATH/ui
-cp $REPO_PATH/ui/main.js      $APP_PATH/ui
 cp $REPO_PATH/ui/index.html   $APP_PATH/ui
 cp $REPO_PATH/ui/start.sh     $APP_PATH/ui
 

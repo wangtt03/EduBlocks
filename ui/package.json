@@ -3,7 +3,7 @@
   "version": "2.0.0",
   "description": "EduBlocks UI",
   "scripts": {
-    "compile": "tsc && browserify build/main.js -o dist/main.js",
+    "build": "tsc && browserify build/main.js -o dist/main.js",
     "watch": "tsc --watch & watchify build/main.js -o dist/main.js",
     "lint": "tslint src/**/*.ts"
   },

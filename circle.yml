@@ -6,6 +6,7 @@ machine:
 dependencies:
   pre:
     - sudo apt-get install g++-arm-linux-gnueabihf
+    - npm --global install node-gyp
   override:
     - ./tarball-create.sh armv6l
   cache_directories:
