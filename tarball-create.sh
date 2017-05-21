@@ -84,9 +84,6 @@ echo '========================='
 
 cd $REPO_PATH/server
 
-# "node-pty" is a native code module so we must cross compile it individually targeting the ARM architecture
-$REPO_PATH/node-gyp-arm.sh $REPO_PATH/server/node_modules/node-pty
-
 echo ''
 echo 'Installing dev dependencies...'
 yarn install
@@ -111,6 +108,9 @@ cd $APP_PATH/server
 echo ''
 echo 'Installing production dependencies...'
 yarn install --production
+
+# "node-pty" is a native code module so we must cross compile it individually targeting the ARM architecture
+$REPO_PATH/node-gyp-arm.sh $APP_PATH/server/node_modules/node-pty
 
 echo ''
 echo 'Building EduBlocks client'
