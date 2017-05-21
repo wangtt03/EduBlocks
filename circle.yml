@@ -2,7 +2,7 @@ machine:
   node:
     version: 6.10.2
   python:
-    version: 3.4.2
+    version: 2.7.12
 dependencies:
   pre:
     - sudo apt-get install g++-arm-linux-gnueabihf

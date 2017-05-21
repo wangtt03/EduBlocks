@@ -85,7 +85,7 @@ echo '========================='
 cd $REPO_PATH/server
 
 # "node-pty" is a native code module so we must cross compile it individually targeting the ARM architecture
-$REPO_PATH/node-pty-arm.sh $REPO_PATH/server/node_modules/node-pty
+$REPO_PATH/node-gyp-arm.sh $REPO_PATH/server/node_modules/node-pty
 
 echo ''
 echo 'Installing dev dependencies...'
