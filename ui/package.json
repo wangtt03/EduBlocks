@@ -4,7 +4,7 @@
   "description": "EduBlocks UI",
   "scripts": {
     "build": "tsc && browserify build/main.js -o dist/main.js",
-    "watch": "tsc --watch && watchify build/main.js -o dist/main.js",
+    "watch": "tsc --watch & watchify build/main.js -o dist/main.js",
     "lint": "tslint src/**/*.ts"
   },
   "repository": "https://github.com/AllAboutCode/EduBlocks",

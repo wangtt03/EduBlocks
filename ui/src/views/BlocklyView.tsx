@@ -22,11 +22,14 @@ export default class BlocklyView extends Component<BlocklyViewProps, {}> {
     }
   }
 
-  protected componentDidMount() {
+  protected async componentDidMount() {
     if (this.blocklyDiv) {
+      const toolboxReq = await fetch('/blocks/toolbox.xml');
+      const toolbox = await toolboxReq.text();
+
       const workspace = Blockly.inject(this.blocklyDiv, {
         media: 'blockly/media/',
-        toolbox: document.getElementById('toolbox'),
+        toolbox,
       });
 
       workspace.addChangeListener(() => {

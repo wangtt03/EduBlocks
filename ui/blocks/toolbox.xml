@@ -1,0 +1,136 @@
+<xml>
+  <category name="Basic" colour="336">
+    <block type="import_edupy"></block>
+    <block type="random"></block>
+    <block type="while_true"></block>
+    <block type="pass"></block>
+    <block type="if"></block>
+    <block type="varprint"></block>
+    <block type="ifcroc"></block>
+    <block type="varminus"></block>
+    <block type="for"></block>
+    <block type="advancedforloops"></block>
+    <block type="ifequals"></block>
+    <block type="importinputs"></block>
+    <block type="return2"></block>
+    <block type="elif"></block>
+    <block type="else"></block>
+    <block type="df"></block>
+    <block type="whileout"></block>
+    <block type="time"></block>
+    <block type="import_math"></block>
+    <block type="sleep"></block>
+    <block type="print"></block>
+    <block type="equalsblock"></block>
+    <block type="define"></block>
+    <block type="greater"></block>
+  </category>
+  <category name="EduPy" colour="60">
+    <category name="Kit 1" colour="196">
+      <block type="led_on"></block>
+      <block type="led_off"></block>
+      <block type="button_pressed"></block>
+      <block type="all_on"></block>
+      <block type="all_off"></block>
+      <block type="all_blink"></block>
+      <block type="button"></block>
+      <block type="buzzer"></block>
+      <block type="blink"></block>
+      <block type="user_input"></block>
+      <block type="crossing"></block>
+      <block type="dot"></block>
+      <block type="dash"></block>
+      <block type="letter"></block>
+      <block type="word"></block>
+    </category>
+    <category name="Kit 2" colour="45">
+      <block type="2led_on"></block>
+      <block type="2led_off"></block>
+      <block type="2buzzer"></block>
+      <block type="temperature"></block>
+      <block type="ldr"></block>
+      <block type="capacitor"></block>
+      <block type="motion"></block>
+      <block type="alarm"></block>
+    </category>
+    <category name="Kit 3" colour="0">
+      <block type="forward"></block>
+      <block type="backward"></block>
+      <block type="turn_left"></block>
+      <block type="turn_right"></block>
+      <block type="stop"></block>
+      <block type="get_reading"></block>
+      <block type="line_test"></block>
+      <block type="key_control"></block>
+      <block type="line_follower"></block>
+      <block type="avoid"></block>
+    </category>
+  </category>
+  <category name="Minecraft" colour="120">
+    <category name="General" colour="270">
+      <block type="mcimport"></block>
+      <block type="mccreate"></block>
+      <block type="import_block"></block>
+    </category>
+    <category name="Commands" colour="120">
+      <block type="mcpost"></block>
+      <block type="mcpos"></block>
+      <block type="varprint"></block>
+      <block type="setpos"></block>
+      <block type="campos"></block>
+      <block type="getblock"></block>
+      <block type="cameraset"></block>
+      <block type="setblock"></block>
+      <block type="mcvar"></block>
+      <block type="mctext"></block>
+      <block type="mcblocks"></block>
+      <block type="build"></block>
+      <block type="printwall"></block>
+      <block type="mctext2"></block>
+      <block type="mctext5"></block>
+      <block type="mcblocks8"></block>
+      <block type="return"></block>
+      <block type="getdist"></block>
+    </category>
+  </category>
+  <category name="Sonic Pi" colour="180">
+    <block type="import_sonic"></block>
+    <block type="sampleson"></block>
+    <block type="play"></block>
+    <block type="sleep1"></block>
+    <block type="liveloop"></block>
+  </category>
+  <category name="Pimoroni" colour="150">
+    <category name="Explorer Hat" colour="240">
+      <block type="ehimport"></block>
+      <block type="ehtouch"></block>
+      <block type="ehinput"></block>
+      <block type="ehoutput"></block>
+      <block type="ehlights"></block>
+      <block type="ehanalog"></block>
+      <block type="ehmotor"></block>
+    </category>
+    <category name="Blinkt!" colour="90">
+      <block type="blinktimport"></block>
+      <block type="blinktsetpixel"></block>
+      <block type="blinktshow"></block>
+      <block type="blinktsetbrightness"></block>
+      <block type="blinktsetall"></block>
+      <block type="blinktsetallbright"></block>
+      <block type="blinktclear"></block>
+    </category>
+  </category>
+  <category name="Advanced" colour="70">
+    <category name="Http Client" colour="70">
+      <block type="http_client_import_rest"></block>
+      <block type="https_client_create_connection"></block>
+      <block type="http_client_create_connection"></block>
+      <block type="http_client_request"></block>
+      <block type="http_client_responce"></block>
+      <block type="inline_print"></block>
+      <block type="http_client_status"></block>
+      <block type="http_client_reason"></block>
+      <block type="http_client_read"></block>
+    </category>
+  </category>
+</xml>
