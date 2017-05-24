@@ -139,7 +139,7 @@ cp -r $REPO_PATH/ui/dist      $APP_PATH/ui
 cp -r $REPO_PATH/ui/lib       $APP_PATH/ui
 cp -r $REPO_PATH/ui/blockly   $APP_PATH/ui
 cp -r $REPO_PATH/ui/images    $APP_PATH/ui
-cp -r $REPO_PATH/ui/js        $APP_PATH/ui
+cp -r $REPO_PATH/ui/blocks    $APP_PATH/ui
 cp -r $REPO_PATH/ui/css       $APP_PATH/ui
 cp -r $REPO_PATH/ui/fonts     $APP_PATH/ui
 cp -r $REPO_PATH/ui/node_modules/picnic/picnic.min.css $APP_PATH/ui/node_modules/picnic
