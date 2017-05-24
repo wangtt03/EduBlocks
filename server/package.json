@@ -9,7 +9,7 @@
   "engineStrict": true,
   "scripts": {
     "build": "tsc",
-    "debug": "tsc && node build/index.js",
+    "watch": "tsc && node build/index.js",
     "lint": "tslint src/**/*.ts",
     "start": "node build/index.js"
   },
