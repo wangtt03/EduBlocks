@@ -74,6 +74,10 @@ Install Yarn:
 
     npm --global install yarn
 
+Install PIP packages:
+
+    pip3 install edupy python-sonic blinkt explorerhat 'ipython==6.0.0'
+
 ### Running Server and Client locally in developer mode on your PC
 
 Developer mode allows you to run EduBlocks on your PC and watch for live code changes for developer convenience.
