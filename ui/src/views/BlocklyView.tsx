@@ -1,5 +1,6 @@
 import React = require('preact');
 import { Component } from 'preact';
+import { getToolBoxXml } from '../blocks';
 
 const Blockly = (self as any).Blockly;
 
@@ -24,8 +25,7 @@ export default class BlocklyView extends Component<BlocklyViewProps, {}> {
 
   protected async componentDidMount() {
     if (this.blocklyDiv) {
-      const toolboxReq = await fetch('/blocks/toolbox.xml');
-      const toolbox = await toolboxReq.text();
+      const toolbox = getToolBoxXml();
 
       const workspace = Blockly.inject(this.blocklyDiv, {
         media: 'blockly/media/',

@@ -1439,9 +1439,28 @@ declare module Blockly {
 
 declare module Blockly {
 
-  const Blocks: { [blockId: string]: { init(this: Block__Class): void } };
+  interface BlockDefinitions {
+    [blockId: string]: {
+      init(this: Blockly.Block__Class): void,
+    };
+  }
 
-  const Python: { [blockId: string]: (block: Block) => string };
+  interface BlockGenerators {
+    [blockId: string]: (block: Block) => string;
+  }
+
+  const Blocks: {
+    [blockId: string]: {
+      init(this: Block__Class): void
+    }
+  };
+
+  const Python: {
+    statementToCode(block: Block, d: 'DO' | 'NAME' | 'VALUE'): string;
+    addLoopTrap(code: string, id: string): string;
+
+    PASS: string;
+  };
 
   class Bubble extends Bubble__Class { }
   /** Fake class which should be extended to avoid inheriting static properties */
@@ -2804,6 +2823,92 @@ declare module Blockly {
      * @constructor
      */
     constructor(text: string, opt_changeHandler?: Function);
+
+    /**
+     * Mouse cursor style when over the hotspot that initiates the editor.
+     */
+    CURSOR: any /*missing*/;
+
+    /**
+     * Allow browser to spellcheck this field.
+     * @private
+     */
+    spellcheck_: any /*missing*/;
+
+    /**
+     * Close the input widget if this input is being deleted.
+     */
+    dispose(): void;
+
+    /**
+     * Set whether this field is spellchecked by the browser.
+     * @param {boolean} check True if checked.
+     */
+    setSpellcheck(check: boolean): void;
+
+    /**
+     * Show the inline free-text editor on top of the text.
+     * @param {boolean=} opt_quietInput True if editor should be created without
+     *     focus.  Defaults to false.
+     * @private
+     */
+    showEditor_(opt_quietInput?: boolean): void;
+
+    /**
+     * Handle key down to the editor.
+     * @param {!Event} e Keyboard event.
+     * @private
+     */
+    onHtmlInputKeyDown_(e: Event): void;
+
+    /**
+     * Handle a change to the editor.
+     * @param {!Event} e Keyboard event.
+     * @private
+     */
+    onHtmlInputChange_(e: Event): void;
+
+    /**
+     * Check to see if the contents of the editor validates.
+     * Style the editor accordingly.
+     * @private
+     */
+    validate_(): void;
+
+    /**
+     * Resize the editor and the underlying block to fit the text.
+     * @private
+     */
+    resizeEditor_(): void;
+
+    /**
+     * Close the editor, save the results, and dispose of the editable
+     * text field's elements.
+     * @return {!Function} Closure to call on destruction of the WidgetDiv.
+     * @private
+     */
+    widgetDispose_(): Function;
+  }
+
+}
+
+declare module Blockly {
+
+  class FieldNumber extends FieldNumber__Class { }
+  /** Fake class which should be extended to avoid inheriting static properties */
+  class FieldNumber__Class extends Blockly.Field__Class {
+
+    /**
+     * Class for an editable text field.
+     * @param {string} text The initial content of the field.
+     * @param {Function=} opt_changeHandler An optional function that is called
+     *     to validate any constraints on what the user entered.  Takes the new
+     *     text as an argument and returns either the accepted text, a replacement
+     *     text, or null to abort the change.
+     * @extends {Blockly.Field}
+     * @constructor
+     */
+    constructor(num1: number, num2?: number, opt_changeHandler?: Function);
 
     /**
      * Mouse cursor style when over the hotspot that initiates the editor.
