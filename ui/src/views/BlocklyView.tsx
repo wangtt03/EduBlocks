@@ -68,7 +68,7 @@ export default class BlocklyView extends Component<BlocklyViewProps, {}> {
     return (
       <div
         style={{ display: this.props.visible ? 'block' : 'none' }}
-        id="blockly"
+        id='blockly'
         ref={(div) => this.blocklyDiv = div}>
       </div>
     );
