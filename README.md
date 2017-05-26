@@ -66,6 +66,8 @@ Developer Instructions
 
 NOTE: Windows users will need to enable symbolic link support before they attempt to clone the repository!
 
+
+
 ### Dependencies
 
 Install Node.JS 6.10.2 using the appropriate installer for your platform. For Linux and Mac OS X (and also Bash on Windows), we recommend using NVM for this.
@@ -97,6 +99,28 @@ In the second terminal, run the server:
     yarn run watch
 
 EduBlocks UI will now be available at http://localhost:8081/
+
+#### Bash on Windows instructions (better instructions will follow)
+
+    sudo apt install git build-essential
+    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
+    . ~/.nvm/nvm.sh
+    nvm install 6.10.2
+    npm --global install yarn
+    
+    git clone git@github.com:AllAboutCode/EduBlocks.git
+
+    cd EduBlocks
+
+    cd ui
+    ln -s ../../server/src/protocol.ts src/protocol.ts
+
+    yarn
+    yarn run build
+
+    cd ../server
+    yarn
+    yarn run watch
 
 ### Releasing a new version
 
