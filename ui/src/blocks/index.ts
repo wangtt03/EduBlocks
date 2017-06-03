@@ -17,20 +17,17 @@ edupyDefs(Blockly.Blocks);
 edupyGens(Blockly.Python as any);
 toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'edupy', 'toolbox.xml'));
 
-
 import minecraftDefs from './minecraft/definitions';
 import minecraftGens from './minecraft/generators';
 minecraftDefs(Blockly.Blocks);
 minecraftGens(Blockly.Python as any);
 toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'minecraft', 'toolbox.xml'));
 
-
 import sonicpiDefs from './sonicpi/definitions';
 import sonicpiGens from './sonicpi/generators';
 sonicpiDefs(Blockly.Blocks);
 sonicpiGens(Blockly.Python as any);
 toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'sonicpi', 'toolbox.xml'));
-
 
 import pimoroniDefs from './pimoroni/definitions';
 import pimoroniGens from './pimoroni/generators';

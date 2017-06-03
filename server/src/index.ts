@@ -4,7 +4,7 @@ import express = require('express');
 const expressWs = require('express-ws');
 const bodyParser = require('body-parser');
 import { initProcess } from './process';
-import { Packet } from './protocol';
+import { Packet } from './common/protocol';
 
 interface EduBlocksClient {
   pos: number;

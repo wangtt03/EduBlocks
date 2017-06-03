@@ -1,4 +1,4 @@
-import { Packet } from './protocol';
+import { Packet } from './common/protocol';
 import { initSocket } from './socket';
 
 interface Events {

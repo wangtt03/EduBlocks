@@ -1,4 +1,4 @@
-import { Packet } from './protocol';
+import { Packet } from './common/protocol';
 
 interface Events {
   data: (packet: Packet) => void;

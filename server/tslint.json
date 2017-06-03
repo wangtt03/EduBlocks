@@ -59,6 +59,7 @@
                 "multiline": "always",
                 "singleline": "never"
             }
-        ]
+        ],
+        "arrow-parens": true
     }
 }
