@@ -426,7 +426,7 @@ Blockly.Python['liveloop'] = function(block) {
   var statements_do = Blockly.Python.statementToCode(block, 'DO');
   // TODO: Assemble Python into code variable.
   var code = '\ndef live_loop_' +dropdown_num+ '():\n' + branch;
-  code = code + '\nlive_thread_' + dropdown_num + '.start()';
+  code = code + '\nlive_thread_' + dropdown_num + '.start()\n';
   return code;
 };
 
