@@ -1307,17 +1307,17 @@ Blockly.Blocks['setpos'] = {
   init: function() {
     this.appendDummyInput()
         .appendField("mc.player.setPos(")
-        .appendField(new Blockly.FieldNumber(0, 0), "x")
-        .appendField(",")
-        .appendField(new Blockly.FieldNumber(0, 0), "y")
-        .appendField(",")
-        .appendField(new Blockly.FieldNumber(0, 0), "z")
+        .appendField(new Blockly.FieldTextInput("x"), "x")
+        .appendField(", ")
+        .appendField(new Blockly.FieldTextInput("y"), "y")
+        .appendField(", ")
+        .appendField(new Blockly.FieldTextInput("z"), "z")
         .appendField(")");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(120);
-    this.setTooltip('Use this to set the players position');
-    this.setHelpUrl('http://www.example.com/');
+    this.setTooltip('Set players position');
+    this.setHelpUrl('');
   }
 };
 
@@ -1643,8 +1643,22 @@ Blockly.Blocks['senseshow'] = {
         .appendField("\")");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(180);
-    this.setTooltip('Imports the Sense Hat library');
+    this.setColour(20);
+    this.setTooltip('Shows a message on the Sense Hat');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['senseshowvar'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("sense.show_message(")
+        .appendField(new Blockly.FieldTextInput(""), "varname")
+        .appendField(")");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(20);
+    this.setTooltip('Show a variable on the display');
     this.setHelpUrl('');
   }
 };
@@ -1655,8 +1669,59 @@ Blockly.Blocks['senseinit'] = {
         .appendField("sense = SenseHat()");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(180);
+    this.setColour(20);
     this.setTooltip('Detects the sense hat');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['senseimport'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("from sense_hat import SenseHat");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(20);
+    this.setTooltip('Imports the Sense Hat library');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['senseimportemu'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("from sense_emu import SenseHat");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(20);
+    this.setTooltip('Imports the Sense Hat Emulator library');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['mcpiblockas'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("import mcpi.block as block");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(270);
+    this.setTooltip('Imports the Minecraft Block Library');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['defcall'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldTextInput(""), "fname")
+        .appendField("(")
+        .appendField(new Blockly.FieldTextInput(""), "extra")
+        .appendField(")");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(336);
+    this.setTooltip('Call a function');
     this.setHelpUrl('');
   }
 };

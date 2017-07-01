@@ -180,6 +180,39 @@ Blockly.Python['senseshow'] = function(block) {
   return code;
 };
 
+Blockly.Python['senseshowvar'] = function(block) {
+  var text_varname = block.getFieldValue('varname');
+  // TODO: Assemble Python into code variable.
+  var code = 'sense.show_message(' +text_varname+ ')\n\n';
+  return code;
+};
+
+Blockly.Python['senseimport'] = function(block) {
+  // TODO: Assemble Python into code variable.
+  var code = 'from sense_hat import SenseHat\n';
+  return code;
+};
+
+Blockly.Python['senseimportemu'] = function(block) {
+  // TODO: Assemble Python into code variable.
+  var code = 'from sense_emu import SenseHat\n';
+  return code;
+};
+
+Blockly.Python['mcpiblockas'] = function(block) {
+  // TODO: Assemble Python into code variable.
+  var code = 'import mcpi.block as block\n';
+  return code;
+};
+
+Blockly.Python['defcall'] = function(block) {
+  var text_fname = block.getFieldValue('fname');
+  var text_extra = block.getFieldValue('extra');
+  // TODO: Assemble Python into code variable.
+  var code = text_fname+'('+text_extra+ ')\n';
+  return code;
+};
+
 Blockly.Python['import_block'] = function(block) {
   var code = 'from mcpi import block\n';
   return code;
@@ -701,12 +734,14 @@ Blockly.Python['varprint'] = function(block) {
   return code;
 };
 
+
+
 Blockly.Python['setpos'] = function(block) {
-  var number_x = block.getFieldValue('x');
-  var number_y = block.getFieldValue('y');
-  var number_z = block.getFieldValue('z');
+  var text_x = block.getFieldValue('x');
+  var text_y = block.getFieldValue('y');
+  var text_z = block.getFieldValue('z');
   // TODO: Assemble Python into code variable.
-  var code = 'mc.player.setPos(' + number_x + ', ' + number_y + ', ' + number_z + ')\n';
+  var code = 'mc.player.setPos(' + text_x + ', ' + text_y + ', ' + text_z + ')\n\n';
   return code;
 };
 
