@@ -2,8 +2,15 @@ machine:
   node:
     version: 6.10.2
   python:
-    version: 3.4.2
+    version: 2.7.12
+general:
+  branches:
+    ignore:
+      - wip
 dependencies:
+  pre:
+    - sudo apt-get install g++-arm-linux-gnueabihf
+    - npm --global install node-gyp
   override:
     - ./tarball-create.sh armv6l
   cache_directories:

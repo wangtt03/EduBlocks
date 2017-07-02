@@ -7,3 +7,5 @@ build
 *.egg
 /edublocks
 edublocks*.tar.xz
+dist
+

@@ -64,23 +64,63 @@ edublocks/install.sh
 Developer Instructions
 ----------------------
 
+NOTE: Windows users will need to enable symbolic link support before they attempt to clone the repository!
+
+
+
 ### Dependencies
 
-Install Node.JS 6+ using the appropriate installer for your platform
+Install Node.JS 6.10.2 using the appropriate installer for your platform. For Linux and Mac OS X (and also Bash on Windows), we recommend using NVM for this.
 
 Install Yarn:
 
     npm --global install yarn
 
-### Running Server and Client in developer mode
+Install PIP packages:
 
-To run the server and client in desktop in developer mode:
+    pip3 install edupy python-sonic blinkt explorerhat 'ipython==6.0.0'
+
+### Running Server and Client locally in developer mode on your PC
+
+Developer mode allows you to run EduBlocks on your PC and watch for live code changes for developer convenience.
+
+Open two terminal windows/tabs.
+
+In the first terminal, run the UI watcher:
+
+    cd ui
+    yarn
+    yarn run watch
+
+In the second terminal, run the server:
 
     cd server
-    yarn install
-    yarn run debug
+    yarn
+    yarn run watch
 
 EduBlocks UI will now be available at http://localhost:8081/
+
+#### Bash on Windows instructions (better instructions will follow)
+
+    sudo apt install git build-essential
+    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
+    . ~/.nvm/nvm.sh
+    nvm install 6.10.2
+    npm --global install yarn
+    
+    git clone git@github.com:AllAboutCode/EduBlocks.git
+
+    cd EduBlocks
+
+    cd ui
+    ln -s ../../server/src/protocol.ts src/protocol.ts
+
+    yarn
+    yarn run build
+
+    cd ../server
+    yarn
+    yarn run watch
 
 ### Releasing a new version
 

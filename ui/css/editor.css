@@ -1,27 +1,65 @@
 body {
-  margin: 0px;
-  border: 0px;
+  height: auto;
 }
 
-#content {
+.loading-message {
+  font-size: 100px;
+  color: #aaa;
+  text-align: center;
+}
+
+#page {
   height: 100%;
   width: 100%;
 }
-#header {
-  width: 100%;
-  height: 60px;
-  text-align: center;
+
+button {
+  margin: 0;
 }
+
+.filename {
+  font-weight: normal;
+  font-family: Courier New, Courier, monospace;
+  margin-left: 20px;
+}
+
+.file {
+  display: none;
+}
+
+#workspace {
+  height: calc(100vh - 3em);
+  position: relative;
+  margin-top: 3em;
+}
+
+#toggleViewButton {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 10;
+  opacity: 0.75;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  background: #fff;
+  color: #000;
+  /*border-left: solid 2px #aaa;
+  border-bottom: solid 2px #aaa;*/
+  text-transform: capitalize;
+  box-shadow: 0 0 5px rgba(0,0,0,0.75);
+}
+#toggleViewButton:focus {
+  outline: none;
+}
+#toggleViewButton:hover {
+  background: #ccc;
+}
+
 #blockly {
   width: 100%;
   height: 100%;
   background-color: #ff0066;
-}
-#footer {
-  width: 100%;
-  height: 40px;
-  text-align: center;
-  margin-top: -20px; /* fixes a very odd bug */
 }
 
 #python {
@@ -43,62 +81,18 @@ body {
   left: 0;
 }
 
-.terminal {
+#terminal-dialog {
   position: fixed;
-  z-index: 10;
+  z-index: 10001;
   left: 20px;
   top: 20px;
   right: 20px;
   bottom: 20px;
   border: solid 1px #000;
   line-height: 20px;
-  display: none;
 }
 
-.terminal-help {
-  height: 28px;
-  line-height: 28px;
-  padding: 0 4px;
-  background: white;
-}
-.terminal-help .help-item {
-  margin: 0 10px 0 0;
-}
-.terminal-help .key {
-  background: #ddd;
-  padding: 2px 3px;
-  border: solid 1px #777;
-}
-
-.terminal-output {
-  height: calc(100% - 28px - 28px);
-}
-.terminal-output textarea {
-  font-family: Courier New, Courier, monospace;
-  font-size: 20px;
-  background: rgba(0,0,0,0.5);
-  color: #fff;
-  border: none;
-  padding: 0;
-  margin: 0;
-  width: 100%;
+#term {
   height: 100%;
-}
-.terminal-output textarea:focus {
-  outline: none;
-}
-
-.terminal-input {
-  height: 28px;
-}
-.terminal-input input {
-  width: calc(100% - 8px);
-  height: 24px;
-  border: none;
-  padding: 2px 4px;
-  font-family: Courier New, Courier, monospace;
-  font-size: 20px;
-}
-.terminal-input input:focus {
-  outline: none;
+  background: #333;
 }

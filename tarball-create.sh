@@ -60,13 +60,6 @@ APP_PATH=$BUNDLE_PATH/app
 
 mkdir -p $APP_PATH
 
-PIP_PACKAGES_PATH=$BUNDLE_PATH/pip-packages
-
-echo ''
-echo 'Downloading PIP Dependencies...'
-mkdir -p $PIP_PACKAGES_PATH
-pip3 install --download $PIP_PACKAGES_PATH edupy python-sonic blinkt explorerhat 'ipython==6.0.0'
-
 echo ''
 echo 'Building EduBlocks general'
 echo '=========================='
@@ -103,7 +96,8 @@ echo ''
 echo 'Copying...'
 mkdir -p $APP_PATH/server
 
-cp $REPO_PATH/server/build/*      $APP_PATH/server
+cp -r $REPO_PATH/server/build     $APP_PATH/server
+
 cp $REPO_PATH/server/package.json $APP_PATH/server
 cp $REPO_PATH/server/yarn.lock    $APP_PATH/server
 cp $REPO_PATH/server/*.sh         $APP_PATH/server
@@ -115,24 +109,39 @@ echo ''
 echo 'Installing production dependencies...'
 yarn install --production
 
+# "node-pty" is a native code module so we must cross compile it individually targeting the ARM architecture
+$REPO_PATH/node-gyp-arm.sh $APP_PATH/server/node_modules/node-pty
+
 echo ''
 echo 'Building EduBlocks client'
 echo '========================='
 
+cd $REPO_PATH/ui
+
+echo ''
+echo 'Installing dev dependencies...'
+yarn install
+
+echo ''
+echo 'Compiling...'
+yarn run build
+
 echo ''
 echo 'Copying...'
 mkdir -p $APP_PATH/ui
+mkdir -p $APP_PATH/ui/node_modules/picnic
 
 cp $REPO_PATH/ui/package.json $APP_PATH/ui
-cp $REPO_PATH/ui/main.js      $APP_PATH/ui
 cp $REPO_PATH/ui/index.html   $APP_PATH/ui
 cp $REPO_PATH/ui/start.sh     $APP_PATH/ui
 
+cp -r $REPO_PATH/ui/dist      $APP_PATH/ui
 cp -r $REPO_PATH/ui/lib       $APP_PATH/ui
 cp -r $REPO_PATH/ui/blockly   $APP_PATH/ui
 cp -r $REPO_PATH/ui/images    $APP_PATH/ui
-cp -r $REPO_PATH/ui/js        $APP_PATH/ui
 cp -r $REPO_PATH/ui/css       $APP_PATH/ui
+cp -r $REPO_PATH/ui/fonts     $APP_PATH/ui
+cp -r $REPO_PATH/ui/node_modules/picnic/picnic.min.css $APP_PATH/ui/node_modules/picnic
 
 cd $REPO_PATH
 
