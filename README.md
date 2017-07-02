@@ -205,10 +205,7 @@ For supplying GPIO equimpment for workshops and helping EduBlocks out whenever w
 For letting us visit the ship at Sheffield-On-Sea to promote and learn about software & hardware to improve EduBlocks and for being awesome people. Thanks Jon, Paul, Phil, Sandy & The team.
 
 ### Pi-Top:
-For the pi-top champions program and giving us access to 10 pi-tops for our workshops through Les Pounder.
-
-
-
+For the pi-top  FUTUREchampions for giving us acess to 4 pi-top CEEDS for demonstrating and running EduBlocks workshops.
 
 
 
