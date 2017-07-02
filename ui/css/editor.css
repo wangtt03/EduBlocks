@@ -17,6 +17,10 @@ button {
   margin: 0;
 }
 
+table.primary td {
+  padding: .3em .6em;
+}
+
 .filename {
   font-weight: normal;
   font-family: Courier New, Courier, monospace;
