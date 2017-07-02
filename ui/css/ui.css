@@ -129,6 +129,27 @@ a img{
     font-size: 14px;
   }
 
+    .lpool-header {
+  overflow: visible;
+  background-color: white;
+  background-image: url("../images/lpool.png");
+}
+
+  .lpool-header .material-icons {
+    color: white !important;
+  }
+
+  .lpool-header .mdl-layout__drawer-button {
+    background: transparent;
+    color: white;
+  }
+
+  .lpool-header .mdl-navigation__link {
+    color: white;
+    font-weight: 700;
+    font-size: 14px;
+  }
+
 
 
 .circuit-header {
