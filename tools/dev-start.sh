@@ -4,14 +4,22 @@ TOOLS_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 REPO_PATH=$TOOLS_PATH/..
 
-cd $REPO_PATH/server
-yarn
-cd $REPO_PATH/server/node_modules/node-pty
-node-gyp configure
-node-gyp build
-cd $REPO_PATH/server
-yarn run watch &
+SESSION=$USER-edublocks
 
-cd $REPO_PATH/ui
-yarn
-yarn run watch
+tmux -2 new-session -d -s $SESSION
+
+tmux new-window -t $SESSION:1 -n 'Logs'
+
+tmux split-window -h
+
+tmux select-pane -t 0
+tmux send-keys "cd $REPO_PATH/server" C-m
+tmux send-keys "yarn" C-m
+tmux send-keys "yarn run watch" C-m
+
+tmux select-pane -t 1
+tmux send-keys "cd $REPO_PATH/ui" C-m
+tmux send-keys "yarn" C-m
+tmux send-keys "yarn run watch" C-m
+
+tmux -2 attach-session -t $SESSION
