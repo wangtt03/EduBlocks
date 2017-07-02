@@ -248,4 +248,18 @@ export default function define(Python: Blockly.BlockGenerators) {
     let code = 'distance_to_player(' + number_x + ', ' + number_y + ', ' + number_z + ')\n';
     return code;
   };
+
+  Python['mcpiblockas'] = function (block) {
+    // TODO: Assemble Python into code variable.
+    let code = 'import mcpi.block as block\n';
+    return code;
+  };
+
+  Python['defcall'] = function (block) {
+    let text_fname = block.getFieldValue('fname');
+    let text_extra = block.getFieldValue('extra');
+    // TODO: Assemble Python into code variable.
+    let code = text_fname + '(' + text_extra + ')\n';
+    return code;
+  };
 }
