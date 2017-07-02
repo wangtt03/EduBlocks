@@ -5,7 +5,7 @@ from threading import Condition, Event, Thread
 
 try:
     from psonic import *
-    from mcpi import block as block
+    #from mcpi import block as block
 except:
     pass
 
