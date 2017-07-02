@@ -41,6 +41,12 @@ advancedDefs(Blockly.Blocks);
 advancedGens(Blockly.Python as any);
 toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'advanced', 'toolbox.xml'));
 
+import sensehatDefs from './sensehat/definitions';
+import sensehatGens from './sensehat/generators';
+sensehatDefs(Blockly.Blocks);
+sensehatGens(Blockly.Python as any);
+toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'sensehat', 'toolbox.xml'));
+
 toolBoxXml += '</xml>';
 
 function getToolBoxXml() {

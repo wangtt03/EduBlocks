@@ -77,21 +77,21 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     },
   };
 
-  Blocks['setpos'] = {
+  Blockly.Blocks['setpos'] = {
     init: function () {
       this.appendDummyInput()
         .appendField('mc.player.setPos(')
-        .appendField(new Blockly.FieldNumber(0, 0), 'x')
-        .appendField(',')
-        .appendField(new Blockly.FieldNumber(0, 0), 'y')
-        .appendField(',')
-        .appendField(new Blockly.FieldNumber(0, 0), 'z')
+        .appendField(new Blockly.FieldTextInput('x'), 'x')
+        .appendField(', ')
+        .appendField(new Blockly.FieldTextInput('y'), 'y')
+        .appendField(', ')
+        .appendField(new Blockly.FieldTextInput('z'), 'z')
         .appendField(')');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
       this.setColour(120);
-      this.setTooltip('Use this to set the players position');
-      this.setHelpUrl('http://www.example.com/');
+      this.setTooltip('Set players position');
+      this.setHelpUrl('');
     },
   };
 
@@ -502,6 +502,33 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.setColour(120);
       this.setTooltip('');
       this.setHelpUrl('http://www.example.com/');
+    },
+  };
+
+  Blockly.Blocks['mcpiblockas'] = {
+    init: function () {
+      this.appendDummyInput()
+        .appendField('import mcpi.block as block');
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour(270);
+      this.setTooltip('Imports the Minecraft Block Library');
+      this.setHelpUrl('');
+    },
+  };
+
+  Blockly.Blocks['defcall'] = {
+    init: function () {
+      this.appendDummyInput()
+        .appendField(new Blockly.FieldTextInput(''), 'fname')
+        .appendField('(')
+        .appendField(new Blockly.FieldTextInput(''), 'extra')
+        .appendField(')');
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour(336);
+      this.setTooltip('Call a function');
+      this.setHelpUrl('');
     },
   };
 }

@@ -30,11 +30,10 @@ export default function define(Python: Blockly.BlockGenerators) {
     let branch = Blockly.Python.statementToCode(block, 'DO');
     branch = Blockly.Python.addLoopTrap(branch, block.id) ||
       Blockly.Python.PASS;
-    let dropdown_num = block.getFieldValue('num');
-    // let statements_do = Blockly.Python.statementToCode(block, 'DO');
+    const dropdown_num = block.getFieldValue('num');
     // TODO: Assemble Python into code variable.
-    let code = 'def live_loop_' + dropdown_num + '():\n' + branch;
-    code = code + '\nlive_thread_' + dropdown_num + '.start()';
+    let code = '\ndef live_loop_' + dropdown_num + '():\n' + branch;
+    code = code + '\nlive_thread_' + dropdown_num + '.start()\n';
     return code;
   };
 }
