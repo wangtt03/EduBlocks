@@ -4,6 +4,9 @@ TOOLS_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 REPO_PATH=$TOOLS_PATH/..
 
+code $REPO_PATH/server
+code $REPO_PATH/ui
+
 SESSION=$USER-edublocks
 
 tmux -2 new-session -d -s $SESSION
