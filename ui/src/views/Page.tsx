@@ -5,6 +5,7 @@ import Nav from './Nav';
 import BlocklyView from './BlocklyView';
 import PythonView from './PythonView';
 import TerminalView from './TerminalView';
+import FileListModal from './FileListModal';
 
 import { App } from '../types';
 
@@ -26,7 +27,7 @@ interface DocumentState {
 interface PageState {
   viewMode: ViewMode;
   terminalOpen: boolean;
-  files: string[];
+  samplesOpen: boolean;
 
   doc: Readonly<DocumentState>;
 }
@@ -42,7 +43,7 @@ export default class Page extends Component<PageProps, PageState> {
     this.state = {
       viewMode: ViewModeBlockly,
       terminalOpen: false,
-      files: [],
+      samplesOpen: false,
 
       doc: {
         xml: null,
@@ -192,13 +193,29 @@ export default class Page extends Component<PageProps, PageState> {
     }
   }
 
+  private openSamples() {
+    this.setState({ samplesOpen: true });
+  }
+
+  private closeSamples() {
+    this.setState({ samplesOpen: false });
+  }
+
+  private selectSample(file: string) {
+    this.closeSamples();
+
+    const xml = this.props.app.getSample(file);
+
+    this.readBlocklyContents(xml);
+  }
+
   private onTerminalClose() {
     this.setState({ terminalOpen: false });
   }
 
   public render() {
     return (
-      <div id="page">
+      <div id='page'>
         <Nav
           sync={this.state.doc.pythonClean}
 
@@ -206,11 +223,12 @@ export default class Page extends Component<PageProps, PageState> {
           downloadPython={() => this.downloadPython()}
           openCode={() => this.openFile()}
           saveCode={() => this.saveFile()}
-          newCode={() => this.new()} />
+          newCode={() => this.new()}
+          openSamples={() => this.openSamples()} />
 
-        <section id="workspace">
+        <section id='workspace'>
           <button
-            id="toggleViewButton"
+            id='toggleViewButton'
             onClick={() => this.toggleView()}>
 
             {this.state.viewMode}
@@ -234,6 +252,12 @@ export default class Page extends Component<PageProps, PageState> {
           ref={(c) => this.terminalView = c}
           visible={this.state.terminalOpen}
           onClose={() => this.onTerminalClose()} />
+
+        <FileListModal
+          files={this.props.app.getSamples()}
+          visible={this.state.samplesOpen}
+          onOpenFile={(file) => this.selectSample(file)}
+          onCancel={() => this.closeSamples()} />
       </div>
     );
   }

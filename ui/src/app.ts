@@ -1,10 +1,12 @@
 import { newServer } from './server';
 import { App, TerminalInterface } from './types';
 import { getIo } from './io';
+import { newSamples } from './samples';
 
 async function newApp(): Promise<App> {
   const client = await newServer();
   const io = getIo();
+  const samples = newSamples();
 
   function runCode(code: string) {
     return client.runCode(code);
@@ -40,6 +42,7 @@ async function newApp(): Promise<App> {
     openFile,
     saveFile,
     assignTerminal,
+    ...samples,
   };
 }
 

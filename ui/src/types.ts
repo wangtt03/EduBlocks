@@ -5,6 +5,9 @@ interface App {
   saveFile(code: string, ext: string): Promise<void>;
 
   assignTerminal(term: TerminalInterface): void;
+
+  getSamples(): string[];
+  getSample(file: string): string;
 }
 
 interface TerminalEvents {
