@@ -1,9 +1,14 @@
-import fs = require('fs');
+import path = require('path');
+import changeCase = require('change-case');
 
-const Samples: { [file: string]: string } = {
-  'Hello World': fs.readFileSync('./samples/hello-world.xml', 'utf8'),
-  'Minecraft Disco Dancefloor': fs.readFileSync('./samples/disco.xml', 'utf8'),
-};
+const includeFolder = require('include-folder');
+const samples: { [file: string]: string } = includeFolder(path.join(__dirname, '..', 'samples'));
+
+const Samples: { [name: string]: string } = {};
+
+Object.keys(samples).forEach((file) => {
+  Samples[changeCase.titleCase(file)] = samples[file];
+});
 
 function newSamples() {
   function getSamples() {
