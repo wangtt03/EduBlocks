@@ -1,7 +1,8 @@
 .theme-space nav {
   background-image: url('../images/space.jpg');
 }
-.theme-space nav a.brand {
+.theme-space nav a.brand,
+.theme-space nav label.pseudo.button {
   color: #fff;
   text-shadow: 2px 2px #000;
 }
