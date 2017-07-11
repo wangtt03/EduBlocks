@@ -1,0 +1,27 @@
+.theme-space nav {
+  background-image: url('../images/space.jpg');
+}
+.theme-space nav a.brand {
+  color: #fff;
+  text-shadow: 2px 2px #000;
+}
+
+.theme-minecraft nav {
+  background-image: url('../images/minecrafttheme.png');
+}
+.theme-minecraft nav a.brand {
+  color: #fff;
+  text-shadow: 2px 2px #000;
+}
+
+.theme-slate nav {
+  background-image: url('../images/slate.jpg');
+}
+.theme-slate nav a.brand {
+  color: #fff;
+  text-shadow: 2px 2px #000;
+}
+
+.theme-circuitboard nav {
+  background-image: url('../images/board.png');
+}

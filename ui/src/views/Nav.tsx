@@ -21,7 +21,7 @@ export default class Nav extends Component<NavProps, {}> {
         <a class='brand'>
           <img class='logo' src='/images/logo.png' />
           <span>EduBlocks</span>
-          <span class='filename'>({this.props.sync ? 'In sync' : 'Out of sync'})</span>
+          {/*<span class='filename'>({this.props.sync ? 'In sync' : 'Out of sync'})</span>*/}
         </a>
 
         <input id='bmenub' type='checkbox' class='show' />

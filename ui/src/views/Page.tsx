@@ -222,7 +222,7 @@ export default class Page extends Component<PageProps, PageState> {
   private selectTheme(theme: string) {
     this.closeThemes();
 
-
+    document.body.className = `theme-${theme}`;
   }
 
   private onTerminalClose() {
