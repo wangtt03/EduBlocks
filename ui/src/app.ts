@@ -37,11 +37,21 @@ async function newApp(): Promise<App> {
     }
   }
 
+  function getThemes() {
+    return [
+      'space',
+      'minecraft',
+      'slate',
+      'circuitboard',
+    ];
+  }
+
   return {
     runCode,
     openFile,
     saveFile,
     assignTerminal,
+    getThemes,
     ...samples,
   };
 }

@@ -28,6 +28,7 @@ interface PageState {
   viewMode: ViewMode;
   terminalOpen: boolean;
   samplesOpen: boolean;
+  themesOpen: boolean;
 
   doc: Readonly<DocumentState>;
 }
@@ -44,6 +45,7 @@ export default class Page extends Component<PageProps, PageState> {
       viewMode: ViewModeBlockly,
       terminalOpen: false,
       samplesOpen: false,
+      themesOpen: false,
 
       doc: {
         xml: null,
@@ -209,6 +211,20 @@ export default class Page extends Component<PageProps, PageState> {
     this.readBlocklyContents(xml);
   }
 
+  private openThemes() {
+    this.setState({ themesOpen: true });
+  }
+
+  private closeThemes() {
+    this.setState({ themesOpen: false });
+  }
+
+  private selectTheme(theme: string) {
+    this.closeThemes();
+
+
+  }
+
   private onTerminalClose() {
     this.setState({ terminalOpen: false });
   }
@@ -224,7 +240,8 @@ export default class Page extends Component<PageProps, PageState> {
           openCode={() => this.openFile()}
           saveCode={() => this.saveFile()}
           newCode={() => this.new()}
-          openSamples={() => this.openSamples()} />
+          openSamples={() => this.openSamples()}
+          openThemes={() => this.openThemes()} />
 
         <section id='workspace'>
           <button
@@ -254,10 +271,18 @@ export default class Page extends Component<PageProps, PageState> {
           onClose={() => this.onTerminalClose()} />
 
         <SelectModal
+          title='Samples'
           options={this.props.app.getSamples()}
           visible={this.state.samplesOpen}
           onSelect={(file) => this.selectSample(file)}
           onCancel={() => this.closeSamples()} />
+
+        <SelectModal
+          title='Themes'
+          options={this.props.app.getThemes()}
+          visible={this.state.themesOpen}
+          onSelect={(theme) => this.selectTheme(theme)}
+          onCancel={() => this.closeThemes()} />
       </div>
     );
   }

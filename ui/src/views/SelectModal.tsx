@@ -2,11 +2,12 @@ import React = require('preact');
 import { Component } from 'preact';
 
 interface SelectModalProps {
+  title: string;
   visible: boolean;
   options: string[];
 
   onCancel(): void;
-  onSelect(file: string): void;
+  onSelect(option: string): void;
 }
 
 interface SelectModalState {
@@ -15,10 +16,10 @@ interface SelectModalState {
 
 export default class SelectModal extends Component<SelectModalProps, SelectModalState> {
   public render() {
-    const getFileItems = () => this.props.options.map((file) => (
+    const getOptions = () => this.props.options.map((option) => (
       <tr>
-        <td>{file}</td>
-        <td><button onClick={() => this.props.onSelect(file)}>Open</button></td>
+        <td>{option}</td>
+        <td><button onClick={() => this.props.onSelect(option)}>Select</button></td>
       </tr>
     ));
 
@@ -28,13 +29,13 @@ export default class SelectModal extends Component<SelectModalProps, SelectModal
         <label for='modal_1' class='overlay'></label>
         <article>
           <header>
-            <h3>File List</h3>
+            <h3>{this.props.title}</h3>
             <a class='close' onClick={this.props.onCancel}>&times;</a>
           </header>
           <section class='content'>
             <table class='primary'>
               <tbody>
-                {getFileItems()}
+                {getOptions()}
               </tbody>
             </table>
           </section>

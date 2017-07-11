@@ -6,6 +6,8 @@ interface App {
 
   assignTerminal(term: TerminalInterface): void;
 
+  getThemes(): string[];
+
   getSamples(): string[];
   getSample(file: string): string;
 }

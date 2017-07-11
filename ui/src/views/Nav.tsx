@@ -3,6 +3,7 @@ import { Component } from 'preact';
 
 interface NavProps {
   openSamples(): void;
+  openThemes(): void;
   downloadPython(): void;
 
   newCode(): void;
@@ -27,6 +28,10 @@ export default class Nav extends Component<NavProps, {}> {
         <label for='bmenub' class='burger pseudo button'>menu</label>
 
         <div class='menu'>
+          <a class='button' title='Themes' href='javascript:void(0)' onClick={() => this.props.openThemes()}>
+            Themes
+          </a>
+
           <a class='button' title='Samples' href='javascript:void(0)' onClick={() => this.props.openSamples()}>
             Samples
           </a>
