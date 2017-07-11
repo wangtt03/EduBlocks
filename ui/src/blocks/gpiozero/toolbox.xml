@@ -1,0 +1,35 @@
+<category name="gpiozero" colour="60">
+  <category name="General" colour="60">
+    <block type="importgpiozero"></block>
+  </category>
+  <category name="Inputs" colour="196">
+    <category name="Button" colour="196">
+      <block type="buttonset"></block>
+      <block type="buttonaction"></block>
+      <block type="buttonvar"></block>
+    </category>
+    <category name="Line Sensor" colour="196">
+      <block type="lineset"></block>
+      <block type="lineaction"></block>
+      <block type="linevar"></block>
+    </category>
+    <category name="Motion Sensor" colour="196">
+      <block type="motionset"></block>
+      <block type="motionaction"></block>
+      <block type="motionvar"></block>
+    </category>
+    <category name="Light Sensor" colour="196">
+      <block type="lightset"></block>
+      <block type="lightaction"></block>
+      <block type="lightvar"></block>
+    </category>
+    <category name="Distance Sensor" colour="196">
+      <block type="distanceset"></block>
+      <block type="distanceaction"></block>
+      <block type="distancevar"></block>
+    </category>
+    
+    
+  
+  
+</category>

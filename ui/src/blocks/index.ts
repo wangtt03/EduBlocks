@@ -47,6 +47,12 @@ sensehatDefs(Blockly.Blocks);
 sensehatGens(Blockly.Python as any);
 toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'sensehat', 'toolbox.xml'));
 
+import gpiozeroDefs from './gpiozero/definitions';
+import gpiozeroGens from './gpiozero/generators';
+gpiozeroDefs(Blockly.Blocks);
+gpiozeroGens(Blockly.Python as any);
+toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'gpiozero', 'toolbox.xml'));
+
 toolBoxXml += '</xml>';
 
 function getToolBoxXml() {
