@@ -1460,6 +1460,10 @@ declare module Blockly {
     addLoopTrap(code: string, id: string): string;
 
     PASS: string;
+
+    variableDB_: {
+      getName(name: string, type: any): string;
+    }
   };
 
   class Bubble extends Bubble__Class { }
