@@ -5,7 +5,7 @@ import Nav from './Nav';
 import BlocklyView from './BlocklyView';
 import PythonView from './PythonView';
 import TerminalView from './TerminalView';
-import FileListModal from './FileListModal';
+import SelectModal from './SelectModal';
 
 import { App } from '../types';
 
@@ -253,10 +253,10 @@ export default class Page extends Component<PageProps, PageState> {
           visible={this.state.terminalOpen}
           onClose={() => this.onTerminalClose()} />
 
-        <FileListModal
-          files={this.props.app.getSamples()}
+        <SelectModal
+          options={this.props.app.getSamples()}
           visible={this.state.samplesOpen}
-          onOpenFile={(file) => this.selectSample(file)}
+          onSelect={(file) => this.selectSample(file)}
           onCancel={() => this.closeSamples()} />
       </div>
     );
