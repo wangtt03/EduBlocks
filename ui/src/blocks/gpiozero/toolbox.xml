@@ -28,7 +28,29 @@
       <block type="distanceaction"></block>
       <block type="distancevar"></block>
     </category>
-    
+    </category>
+  <category name="Outputs" colour="0">
+    <category name="LED" colour="0">
+      <block type="ledset"></block>
+      <block type="ledaction"></block>
+      <block type="ledvar"></block>
+    </category>
+    <category name="PWMLED" colour="0">
+      <block type="pledset"></block>
+      <block type="pledaction"></block>
+      <block type="pledvar"></block>
+    </category>
+    <category name="RGBLED" colour="0">
+      <block type="rgbledset"></block>
+      <block type="rgbledaction"></block>
+      <block type="rgbledvar"></block>
+    </category>
+    <category name="Buzzer" colour="0">
+      <block type="buzzerset"></block>
+      <block type="buzzeraction"></block>
+      <block type="buzzervar"></block>
+    </category>
+  </category>
     
   
   
