@@ -50,8 +50,27 @@
       <block type="buzzeraction"></block>
       <block type="buzzervar"></block>
     </category>
+    <category name="Motor" colour="0">
+      <block type="motorset"></block>
+      <block type="motoraction"></block>
+      <block type="motorvar"></block>
+    </category>
+     <category name="Servo" colour="0">
+      <block type="servoset"></block>
+      <block type="servoaction"></block>
+      <block type="servovar"></block>
+    </category>
+     <category name="Angular Servo" colour="0">
+      <block type="angset"></block>
+      <block type="angaction"></block>
+      <block type="angvar"></block>
+    </category>
+</category>
+  <category name="Boards &amp; Accessories" colour="45">
+    <category name="LEDBoard" colour="45">
+      <block type="ledbset"></block>
+      <block type="ledbaction"></block>
+      <block type="ledbvar"></block>
+    </category>  
   </category>
-    
-  
-  
 </category>
