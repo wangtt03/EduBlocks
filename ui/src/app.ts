@@ -43,6 +43,7 @@ async function newApp(): Promise<App> {
       'minecraft',
       'slate',
       'circuitboard',
+      'dark',
     ];
   }
 

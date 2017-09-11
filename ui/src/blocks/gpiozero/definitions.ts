@@ -206,6 +206,21 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     },
   };
 
+  Blocks['bbuttonset'] = {
+    init: function () {
+      this.appendDummyInput()
+        .appendField(new Blockly.FieldVariable('button'), 'button')
+        .appendField(' = ButtonBoard(')
+        .appendField(new Blockly.FieldTextInput('pin'), 'pin')
+        .appendField(')');
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour(45);
+      this.setTooltip('Set a variable for a Button Board');
+      this.setHelpUrl('https://gpiozero.readthedocs.io/en/stable/api_boards.html#buttonboard');
+    },
+  };
+
   Blocks['buttonaction'] = {
     init: function () {
       this.appendDummyInput()
@@ -430,17 +445,34 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
   Blocks['graphaction'] = {
     init: function () {
       this.appendDummyInput()
-        .appendField(new Blockly.FieldVariable('leds'), 'leds')
+        .appendField(new Blockly.FieldVariable('graph'), 'graph')
         .appendField('.')
-        .appendField(new Blockly.FieldDropdown([['blink', 'blink'], ['close', 'close'], ['on', 'off'], ['pulse', 'pulse'], ['toggle', 'toggle']]), 'action')
+        .appendField(new Blockly.FieldDropdown([['on', 'on'], ['off', 'off'], ['toggle', 'toggle']]), 'action')
         .appendField('(')
         .appendField(new Blockly.FieldTextInput(''), 'bracket')
         .appendField(')');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
       this.setColour(45);
-      this.setTooltip('Set a variable for an LED Board');
-      this.setHelpUrl('https://gpiozero.readthedocs.io/en/stable/api_boards.html#ledboard');
+      this.setTooltip('Set a variable for an LED Bar Graph');
+      this.setHelpUrl('https://gpiozero.readthedocs.io/en/stable/api_boards.html#ledbargraph');
+    },
+  };
+
+  Blocks['bbuttonaction'] = {
+    init: function () {
+      this.appendDummyInput()
+        .appendField(new Blockly.FieldVariable('buttonb'), 'buttonb')
+        .appendField('.')
+        .appendField(new Blockly.FieldDropdown([['wait_for_active', 'wait_for_active'], ['wait_for_inactive', 'wait_for_inactive'], ['wait_for_press', 'wait_for_press'], ['wait_for_release', 'wait_for_release']]), 'action')
+        .appendField('(')
+        .appendField(new Blockly.FieldTextInput(''), 'bracket')
+        .appendField(')');
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour(45);
+      this.setTooltip('Set a variable for a Button Baord');
+      this.setHelpUrl('https://gpiozero.readthedocs.io/en/stable/api_boards.html#buttonboard');
     },
   };
   
@@ -651,6 +683,38 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.setColour(45);
       this.setTooltip('Set an action variable for an LED Board');
       this.setHelpUrl('https://gpiozero.readthedocs.io/en/stable/api_boards.html#ledboard');
+    }, 
+  };
+
+  Blocks['graphvar'] = {
+    init: function () {
+      this.appendDummyInput()
+        .appendField(new Blockly.FieldVariable('graph'), 'graph')
+        .appendField('.')
+        .appendField(new Blockly.FieldTextInput(''), 'action')
+        .appendField(' = ')
+        .appendField(new Blockly.FieldTextInput(''), 'act');
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour(45);
+      this.setTooltip('Set an action variable for an LED Bar Graph');
+      this.setHelpUrl('https://gpiozero.readthedocs.io/en/stable/api_boards.html#ledbargraph');
+    }, 
+  };
+
+  Blocks['bbuttonboard'] = {
+    init: function () {
+      this.appendDummyInput()
+        .appendField(new Blockly.FieldVariable('buttonb'), 'buttonb')
+        .appendField('.')
+        .appendField(new Blockly.FieldTextInput(''), 'action')
+        .appendField(' = ')
+        .appendField(new Blockly.FieldTextInput(''), 'act');
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour(45);
+      this.setTooltip('Set an action variable for a Button Board');
+      this.setHelpUrl('https://gpiozero.readthedocs.io/en/stable/api_boards.html#buttonboard');
     }, 
   };
 

@@ -72,5 +72,15 @@
       <block type="ledbaction"></block>
       <block type="ledbvar"></block>
     </category>  
+    <category name="LED Bar Graph" colour="45">
+      <block type="graphset"></block>
+      <block type="graphaction"></block>
+      <block type="graphvar"></block>
+    </category> 
+    <category name="Button Board" colour="45">
+      <block type="bbuttonset"></block>
+      <block type="bbuttonaction"></block>
+      <block type="bbutton|var"></block>
+    </category>  
   </category>
 </category>

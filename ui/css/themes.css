@@ -28,3 +28,40 @@
 .theme-circuitboard nav {
   background-image: url('../images/board.png');
 }
+
+.theme-dark nav {
+  background: #000;
+}
+.theme-dark .blocklySvg {
+  background-color: #111111 !important;
+}
+.theme-dark .menu .button,
+.theme-dark button {
+  background: #444;
+}
+
+.theme-dark .brand {
+  color: white
+}
+
+.theme-dark .blocklyToolboxDiv {
+  background-color: #444;
+  color: white
+}
+
+
+.theme-dark #toggleViewButton{
+  background-color: #444;
+  color: white
+}
+
+.theme-dark .close {
+  color: #444
+}
+
+.theme-dark .modal article{
+  background-color: #111111;
+  color: #fff;
+  border: 1px solid white;
+}
+
