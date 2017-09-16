@@ -78,9 +78,19 @@
       <block type="graphvar"></block>
     </category> 
     <category name="Button Board" colour="45">
-      <block type="bbuttonset"></block>
-      <block type="bbuttonaction"></block>
-      <block type="bbutton|var"></block>
-    </category>  
+      <block type="buttonbset"></block>
+      <block type="buttonbaction"></block>
+      <block type="buttonbvar"></block>
+    </category> 
+    <category name="Traffic Lights" colour="45">
+      <block type="trafficset"></block>
+      <block type="trafficaction"></block>
+      <block type="trafficvar"></block>
+    </category>
+    <category name="Energenie" colour="45">
+      <block type="energenieset"></block>
+      <block type="energenieaction"></block>
+      <block type="energenievar"></block>
+    </category>   
   </category>
 </category>

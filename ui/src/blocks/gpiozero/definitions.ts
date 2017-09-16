@@ -26,6 +26,23 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     },
   };
 
+  
+
+  Blocks['lineset'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldVariable("sensor"), "sensor")
+        .appendField(" = LineSensor(")
+        .appendField(new Blockly.FieldTextInput("pin"), "pin")
+        .appendField(")");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(196);
+ this.setTooltip("Setup a line sensor");
+ this.setHelpUrl("https://gpiozero.readthedocs.io/en/stable/api_input.html#line-sensor-trct5000");
+  }
+};
+
   Blocks['motionset'] = {
     init: function () {
       this.appendDummyInput()
@@ -206,10 +223,10 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     },
   };
 
-  Blocks['bbuttonset'] = {
+  Blocks['buttonbset'] = {
     init: function () {
       this.appendDummyInput()
-        .appendField(new Blockly.FieldVariable('button'), 'button')
+        .appendField(new Blockly.FieldVariable('buttonb'), 'buttonb')
         .appendField(' = ButtonBoard(')
         .appendField(new Blockly.FieldTextInput('pin'), 'pin')
         .appendField(')');
@@ -245,15 +262,16 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField('.')
         .appendField(new Blockly.FieldDropdown([['wait_for_line', 'wait_for_line'], ['wait_for_no_line', 'wait_for_no_line']]), 'action')
         .appendField('(')
-        .appendField(new Blockly.FieldTextInput(''), 'bracket')
+        .appendField(new Blockly.FieldTextInput(''), 'sense')
         .appendField(')');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
       this.setColour(196);
-      this.setTooltip('Set a variable for a line sensor');
+      this.setTooltip('Set a variable for a Line Sensor');
       this.setHelpUrl('https://gpiozero.readthedocs.io/en/stable/api_input.html#line-sensor-trct5000');
     },
   };
+
 
   Blocks['motionaction'] = {
     init: function () {
@@ -459,7 +477,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     },
   };
 
-  Blocks['bbuttonaction'] = {
+  Blocks['buttonbaction'] = {
     init: function () {
       this.appendDummyInput()
         .appendField(new Blockly.FieldVariable('buttonb'), 'buttonb')
@@ -493,6 +511,22 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     },
   };
 
+  Blocks['linevar'] = {
+    init: function () {
+      this.appendDummyInput()
+        .appendField(new Blockly.FieldVariable('sensor'), 'sensor')
+        .appendField('.')
+        .appendField(new Blockly.FieldTextInput(''), 'first')
+        .appendField(' = ')
+        .appendField(new Blockly.FieldTextInput(''), 'second');
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour(196);
+      this.setTooltip('Set an action variable for a Sensor');
+      this.setHelpUrl('https://gpiozero.readthedocs.io/en/stable/api_input.html#line-sensor-trct5000');
+    },
+  };
+
   Blocks['motionvar'] = {
     init: function () {
       this.appendDummyInput()
@@ -509,21 +543,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     },
   };
 
-  Blocks['linevar'] = {
-    init: function () {
-      this.appendDummyInput()
-        .appendField(new Blockly.FieldVariable('sensor'), 'sensor')
-        .appendField('.')
-        .appendField(new Blockly.FieldTextInput(''), 'action')
-        .appendField(' = ')
-        .appendField(new Blockly.FieldTextInput(''), 'act');
-      this.setPreviousStatement(true, null);
-      this.setNextStatement(true, null);
-      this.setColour(196);
-      this.setTooltip('Set an action variable for a line sensor');
-      this.setHelpUrl('https://gpiozero.readthedocs.io/en/stable/api_input.html#line-sensor-trct5000');
-    },
-  };
+  
 
   Blocks['lightvar'] = {
     init: function () {
@@ -702,7 +722,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     }, 
   };
 
-  Blocks['bbuttonboard'] = {
+  Blocks['buttonbvar'] = {
     init: function () {
       this.appendDummyInput()
         .appendField(new Blockly.FieldVariable('buttonb'), 'buttonb')
@@ -718,19 +738,102 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     }, 
   };
 
-  Blocks['lineset'] = {
+Blocks['trafficset'] = {
     init: function () {
       this.appendDummyInput()
-        .appendField(new Blockly.FieldVariable('sensor'), 'sensor')
-        .appendField(' = ')
-        .appendField('LineSensor(')
+        .appendField(new Blockly.FieldVariable('traffic'), 'traffic')
+        .appendField(' = TrafficLights(')
         .appendField(new Blockly.FieldTextInput('pin'), 'pin')
         .appendField(')');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(196);
-      this.setTooltip('Setup a line sensor');
-      this.setHelpUrl('https://gpiozero.readthedocs.io/en/stable/api_input.html#line-sensor-trct5000');
+      this.setColour(45);
+      this.setTooltip('Set a variable for a Traffic Light');
+      this.setHelpUrl('https://gpiozero.readthedocs.io/en/stable/api_boards.html#trafficlights');
     },
   };
+
+  Blocks['trafficaction'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldVariable("traffic"), "traffic")
+        .appendField(".")
+        .appendField(new Blockly.FieldDropdown([["red","red"], ["yellow","yellow"], ["green","green"]]), "colour")
+        .appendField(".")
+        .appendField(new Blockly.FieldDropdown([["on","on"], ["off","off"], ["blink","blink"], ["pulse","pulse"], ["toggle","toggle"]]), "action")
+        .appendField("()");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(45);
+ this.setTooltip("Setup a Traffic Light");
+ this.setHelpUrl("https://gpiozero.readthedocs.io/en/stable/api_boards.html#trafficlights");
+  }
+};
+
+Blocks['trafficvar'] = {
+    init: function () {
+      this.appendDummyInput()
+        .appendField(new Blockly.FieldVariable('traffic'), 'traffic')
+        .appendField('.')
+        .appendField(new Blockly.FieldTextInput(''), 'action')
+        .appendField(' = ')
+        .appendField(new Blockly.FieldTextInput(''), 'act');
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour(45);
+      this.setTooltip('Set an action variable for a Traffic Light');
+      this.setHelpUrl('https://gpiozero.readthedocs.io/en/stable/api_boards.html#trafficlights');
+    }, 
+  };
+
+  Blocks['energenieset'] = {
+    init: function () {
+      this.appendDummyInput()
+        .appendField(new Blockly.FieldVariable('lamp'), 'lamp')
+        .appendField(' = Energenie(')
+        .appendField(new Blockly.FieldTextInput('num'), 'num')
+        .appendField(')');
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour(45);
+      this.setTooltip('Set a variable for an Energenie');
+      this.setHelpUrl('https://gpiozero.readthedocs.io/en/stable/api_boards.html#energenie');
+    },
+  };
+
+Blocks['energenieaction'] = {
+    init: function () {
+      this.appendDummyInput()
+        .appendField(new Blockly.FieldVariable('lamp'), 'lamp')
+        .appendField('.')
+        .appendField(new Blockly.FieldDropdown([['on', 'on'], ['off', 'off']]), 'action')
+        .appendField('(')
+        .appendField(new Blockly.FieldTextInput(''), 'bracket')
+        .appendField(')');
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour(45);
+      this.setTooltip('Set a variable for an Energenie');
+      this.setHelpUrl('https://gpiozero.readthedocs.io/en/stable/api_boards.html#energenie');
+    },
+  };  
+
+Blocks['energenievar'] = {
+    init: function () {
+      this.appendDummyInput()
+        .appendField(new Blockly.FieldVariable('energenie'), 'energenie')
+        .appendField('.')
+        .appendField(new Blockly.FieldTextInput(''), 'action')
+        .appendField(' = ')
+        .appendField(new Blockly.FieldTextInput(''), 'act');
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour(45);
+      this.setTooltip('Set an action variable for an Energenie');
+      this.setHelpUrl('https://gpiozero.readthedocs.io/en/stable/api_boards.html#energenie');
+    }, 
+  };
+
+
+
 }

@@ -13,6 +13,14 @@ export default function define(Python: Blockly.BlockGenerators) {
     return code;
   }; 
 
+  Python['lineset'] = function(block) {
+  var variable_sensor = Blockly.Python.variableDB_.getName(block.getFieldValue('sensor'), Blockly.Variables.NAME_TYPE);
+  var text_pin = block.getFieldValue('pin');
+  // TODO: Assemble Python into code variable.
+  var code = variable_sensor+ ' = LineSensor(' +text_pin+ ')\n';
+  return code;
+};
+
   Python['motionset'] = function (block) {
     const variable_name = Blockly.Python.variableDB_.getName(block.getFieldValue('motion'), Blockly.Variables.NAME_TYPE);
     const text_pin = block.getFieldValue('pin');
@@ -109,6 +117,14 @@ export default function define(Python: Blockly.BlockGenerators) {
     return code;
   };
 
+  Python['buttonbset'] = function (block) {
+    const variable_name = Blockly.Python.variableDB_.getName(block.getFieldValue('buttonb'), Blockly.Variables.NAME_TYPE);
+    const text_pin = block.getFieldValue('pin');
+    // TODO: Assemble Python into code variable.
+    const code = variable_name + ' = ButtonBoard(' + text_pin + ')\n';
+    return code;
+  };
+
   Python['buttonaction'] = function (block) {
     const variable_name = Blockly.Python.variableDB_.getName(block.getFieldValue('button'), Blockly.Variables.NAME_TYPE);
     const dropdown_action = block.getFieldValue('action');
@@ -118,14 +134,14 @@ export default function define(Python: Blockly.BlockGenerators) {
     return code;
   };
 
-  Python['lineaction'] = function (block) {
-    const variable_name = Blockly.Python.variableDB_.getName(block.getFieldValue('line'), Blockly.Variables.NAME_TYPE);
-    const dropdown_action = block.getFieldValue('action');
-    const text_bracket = block.getFieldValue('bracket');
-    // TODO: Assemble Python into code variable.
-    const code = variable_name + '.' + dropdown_action + '(' + text_bracket + ')\n';
-    return code;
-  };
+  Python['lineaction'] = function(block) {
+  var variable_sensor = Blockly.Python.variableDB_.getName(block.getFieldValue('sensor'), Blockly.Variables.NAME_TYPE);
+  var dropdown_action = block.getFieldValue('action');
+  const text_sense = block.getFieldValue('sense');
+  // TODO: Assemble Python into code variable.
+  var code = variable_sensor + '.' + dropdown_action + '(' + text_sense + ')\n';
+  return code;
+};
 
   Python['motionaction'] = function (block) {
     const variable_name = Blockly.Python.variableDB_.getName(block.getFieldValue('motion'), Blockly.Variables.NAME_TYPE);
@@ -234,6 +250,15 @@ export default function define(Python: Blockly.BlockGenerators) {
     const code = variable_name + '.' + dropdown_action + '(' + text_bracket + ')\n';
     return code;
   };
+  
+  Python['buttonbaction'] = function (block) {
+    const variable_name = Blockly.Python.variableDB_.getName(block.getFieldValue('buttonb'), Blockly.Variables.NAME_TYPE);
+    const dropdown_action = block.getFieldValue('action');
+    const text_bracket = block.getFieldValue('bracket');
+    // TODO: Assemble Python into code variable.
+    const code = variable_name + '.' + dropdown_action + '(' + text_bracket + ')\n';
+    return code;
+  };
 
   Python['buttonvar'] = function (block) {
     const variable_name = Blockly.Python.variableDB_.getName(block.getFieldValue('button'), Blockly.Variables.NAME_TYPE);
@@ -253,14 +278,15 @@ export default function define(Python: Blockly.BlockGenerators) {
     return code;
   };
 
-  Python['linevar'] = function (block) {
-    const variable_name = Blockly.Python.variableDB_.getName(block.getFieldValue('line'), Blockly.Variables.NAME_TYPE);
-    const text_action = block.getFieldValue('action');
-    const text_act = block.getFieldValue('act');
-    // TODO: Assemble Python into code variable.
-    const code = variable_name + '.' + text_action + ' = ' + text_act + '\n';
-    return code;
-  };
+  Python['lineaction'] = function(block) {
+  var variable_sensor = Blockly.Python.variableDB_.getName(block.getFieldValue('sensor'), Blockly.Variables.NAME_TYPE);
+  var text_first = block.getFieldValue('first');
+  var text_second = block.getFieldValue('second');
+  // TODO: Assemble Python into code variable.
+  var code = variable_sensor + '.' + text_first + ' = ' + text_second + '\n';
+  return code;
+};
+
 
   Python['lightvar'] = function (block) {
     const variable_name = Blockly.Python.variableDB_.getName(block.getFieldValue('ldr'), Blockly.Variables.NAME_TYPE);
@@ -361,12 +387,66 @@ export default function define(Python: Blockly.BlockGenerators) {
     return code;
   };
 
-  Python['lineset'] = function (block) {
-    const variable_sensor = Blockly.Python.variableDB_.getName(block.getFieldValue('line'), Blockly.Variables.NAME_TYPE);
-    const text_pin = block.getFieldValue('pin');
+  Python['buttonbvar'] = function (block) {
+    const variable_name = Blockly.Python.variableDB_.getName(block.getFieldValue('buttonb'), Blockly.Variables.NAME_TYPE);
+    const text_action = block.getFieldValue('action');
+    const text_act = block.getFieldValue('act');
     // TODO: Assemble Python into code variable.
-    const code = variable_sensor + ' = LineSensor(' + text_pin + ')\n';
+    const code = variable_name + '.' + text_action + ' = ' + text_act + '\n';
     return code;
   };
+
+  Python['trafficset'] = function (block) {
+    const variable_name = Blockly.Python.variableDB_.getName(block.getFieldValue('traffic'), Blockly.Variables.NAME_TYPE);
+    const text_pin = block.getFieldValue('pin');
+    // TODO: Assemble Python into code variable.
+    const code = variable_name + ' = TrafficLights(' + text_pin + ')\n';
+    return code;
+  }; 
+
+  Python['trafficaction'] = function(block) {
+  var variable_traffic = Blockly.Python.variableDB_.getName(block.getFieldValue('traffic'), Blockly.Variables.NAME_TYPE);
+  var dropdown_colour = block.getFieldValue('colour');
+  var dropdown_action = block.getFieldValue('action');
+  // TODO: Assemble Python into code variable.
+  var code = variable_traffic+ '.' +dropdown_colour+ '.' +dropdown_action+ '()\n';
+  return code;
+};
+
+Python['trafficvar'] = function (block) {
+    const variable_name = Blockly.Python.variableDB_.getName(block.getFieldValue('traffic'), Blockly.Variables.NAME_TYPE);
+    const text_action = block.getFieldValue('action');
+    const text_act = block.getFieldValue('act');
+    // TODO: Assemble Python into code variable.
+    const code = variable_name + '.' + text_action + ' = ' + text_act + '\n';
+    return code;
+  };
+
+  Python['energenieset'] = function (block) {
+    const variable_name = Blockly.Python.variableDB_.getName(block.getFieldValue('lamp'), Blockly.Variables.NAME_TYPE);
+    const text_num = block.getFieldValue('num');
+    // TODO: Assemble Python into code variable.
+    const code = variable_name + ' = Energenie(' + text_num + ')\n';
+    return code;
+  }; 
+
+  Python['energenieaction'] = function (block) {
+    const variable_name = Blockly.Python.variableDB_.getName(block.getFieldValue('lamp'), Blockly.Variables.NAME_TYPE);
+    const dropdown_action = block.getFieldValue('action');
+    const text_bracket = block.getFieldValue('bracket');
+    // TODO: Assemble Python into code variable.
+    const code = variable_name + '.' + dropdown_action + '(' + text_bracket + ')\n';
+    return code;
+  };
+
+Python['energenievar'] = function (block) {
+    const variable_name = Blockly.Python.variableDB_.getName(block.getFieldValue('lamp'), Blockly.Variables.NAME_TYPE);
+    const text_action = block.getFieldValue('action');
+    const text_act = block.getFieldValue('act');
+    // TODO: Assemble Python into code variable.
+    const code = variable_name + '.' + text_action + ' = ' + text_act + '\n';
+    return code;
+  };
+ 
 
 }
