@@ -88,6 +88,8 @@ app.post('/runcode', (req, res) => {
   }
 
   proc.setOnData(writeToAllClients);
+
+  res.send('Started');
 });
 
 app.ws('/terminal', (ws, req: express.Request) => {

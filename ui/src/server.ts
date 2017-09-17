@@ -41,13 +41,17 @@ async function newServer(): Promise<Server> {
   function runCode(python: string) {
     const url = `http://${getHost()}/runcode`;
 
-    console.log('runCode', python);
+    console.time('runCode');
 
     const xhr = new XMLHttpRequest();
 
     xhr.open('POST', url, true);
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     xhr.send('code=' + encodeURIComponent(python));
+
+    xhr.onload = (e) => {
+      console.timeEnd('runCode');
+    };
   }
 
   function getHost() {

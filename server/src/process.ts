@@ -37,7 +37,7 @@ function initProcess(cmd: string, args: any[]) {
       try {
         proc.resize(cols, rows);
       } catch (e) {
-        console.error('Error resizing terminal');
+        console.error('Error resizing terminal', e);
       }
     },
 
