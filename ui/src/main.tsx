@@ -6,6 +6,7 @@ import { newApp } from './app';
 async function main() {
   const app = await newApp();
   Blockly.HSV_VALUE = 0.9;
+  
 
   const pageDiv = getElementByIdSafe('page');
 

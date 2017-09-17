@@ -1,6 +1,7 @@
 <category name="gpiozero" colour="60">
   <category name="General" colour="60">
     <block type="importgpiozero"></block>
+    <block type="importtime"></block>
   </category>
   <category name="Inputs" colour="196">
     <category name="Button" colour="196">
@@ -98,4 +99,14 @@
       <block type="camjamvar"></block>
     </category>   
   </category>
+  <category name="Internal &amp; SPI Devices" colour="150">
+    <category name="Time Of Day" colour="150">
+      <block type="timeset"></block>
+    </category>
+    <category name="Ping Server" colour="150">
+      <block type="pingset"></block>
+    </category>
+    <category name="CPU Temperature" colour="150">
+      <block type="cpuset"></block>
+    </category>
 </category>

@@ -11,6 +11,30 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     },
   };
 
+  Blocks['import_signal'] = {
+    init: function () {
+      this.appendDummyInput()
+        .appendField('from signal import pause');
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour(336);
+      this.setTooltip('Imports the signal library.');
+      this.setHelpUrl('http://www.example.com/');
+    },
+  };
+
+  Blocks['pause_s'] = {
+    init: function () {
+      this.appendDummyInput()
+        .appendField('pause()');
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour(336);
+      this.setTooltip('Pause');
+      this.setHelpUrl('http://www.example.com/');
+    },
+  };
+
   Blocks['random'] = {
     init: function () {
       this.appendDummyInput()

@@ -5,6 +5,12 @@ export default function define(Python: Blockly.BlockGenerators) {
     return code;
   };
 
+  Python['importtime'] = function (block) {
+    // TODO: Assemble Python into code variable.
+    const code = 'from datetime import time\n';
+    return code;
+  };
+
   Python['buttonset'] = function (block) {
     const variable_name = Blockly.Python.variableDB_.getName(block.getFieldValue('button'), Blockly.Variables.NAME_TYPE);
     const text_pin = block.getFieldValue('pin');
@@ -422,6 +428,15 @@ Python['trafficvar'] = function (block) {
     return code;
   };
 
+
+ Python['pingset'] = function (block) {
+    const variable_name = Blockly.Python.variableDB_.getName(block.getFieldValue('server'), Blockly.Variables.NAME_TYPE);
+    const text_num = block.getFieldValue('www');
+    // TODO: Assemble Python into code variable.
+    const code = variable_name + ' = PingServer(' + text_num + ')\n';
+    return code;
+  }; 
+
   Python['energenieset'] = function (block) {
     const variable_name = Blockly.Python.variableDB_.getName(block.getFieldValue('lamp'), Blockly.Variables.NAME_TYPE);
     const text_num = block.getFieldValue('num');
@@ -473,6 +488,15 @@ Python['camjamvar'] = function (block) {
     const code = variable_name + '.' + text_action + ' = ' + text_act + '\n';
     return code;
   };
+
+  Python['timeset'] = function(block) {
+  var variable_morning = Blockly.Python.variableDB_.getName(block.getFieldValue('morning'), Blockly.Variables.NAME_TYPE);
+  var text_num = block.getFieldValue('num');
+  var text_num2 = block.getFieldValue('num2');
+  // TODO: Assemble Python into code variable.
+  var code = variable_morning+ ' = TimeOfDay(Time(' +text_num+ '), Time(' +text_num2+ '))\n';
+  return code;
+};
  
 
 }

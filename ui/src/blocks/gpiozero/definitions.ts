@@ -11,6 +11,18 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     },
   };
 
+  Blocks['importtime'] = {
+    init: function () {
+      this.appendDummyInput()
+        .appendField('from datetime import time');
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour(60);
+      this.setTooltip('Import the datetime library');
+      this.setHelpUrl('http://gpiozero.readthedocs.io');
+    },
+  };
+
   Blocks['buttonset'] = {
     init: function () {
       this.appendDummyInput()
@@ -786,6 +798,21 @@ Blocks['trafficvar'] = {
     }, 
   };
 
+  Blocks['pingset'] = {
+    init: function () {
+      this.appendDummyInput()
+        .appendField(new Blockly.FieldVariable('server'), 'server')
+        .appendField(' = PingServer(')
+        .appendField(new Blockly.FieldTextInput('www'), 'www')
+        .appendField(')');
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour(150);
+      this.setTooltip('Set a variable for a Ping Server');
+      this.setHelpUrl('https://gpiozero.readthedocs.io/en/stable/api_boards.html#energenie');
+    },
+  };
+
   Blocks['energenieset'] = {
     init: function () {
       this.appendDummyInput()
@@ -821,7 +848,7 @@ Blocks['energenieaction'] = {
 Blocks['energenievar'] = {
     init: function () {
       this.appendDummyInput()
-        .appendField(new Blockly.FieldVariable('energenie'), 'energenie')
+        .appendField(new Blockly.FieldVariable('lamp'), 'lamp')
         .appendField('.')
         .appendField(new Blockly.FieldTextInput(''), 'action')
         .appendField(' = ')
@@ -880,6 +907,22 @@ Blocks['camjamvar'] = {
     }, 
   };
 
+  Blocks['timeset'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldVariable("morning"), "morning")
+        .appendField(" = TimeOfDay(time(")
+        .appendField(new Blockly.FieldTextInput("num"), "num")
+        .appendField("), time(")
+        .appendField(new Blockly.FieldTextInput("num"), "num2")
+        .appendField("))");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(150);
+ this.setTooltip("Setup Time Of Day");
+ this.setHelpUrl("https://gpiozero.readthedocs.io/en/stable/api_other.html#timeofday");
+  }
+};
 
 
 }

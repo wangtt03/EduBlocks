@@ -8,6 +8,8 @@
   <block type="defcall"></block>
   <block type="ifcroc"></block>
   <block type="varminus"></block>
+  <block type="import_signal"></block>
+  <block type="pause_s"></block>
   <block type="for"></block>
   <block type="advancedforloops"></block>
   <block type="ifequals"></block>
