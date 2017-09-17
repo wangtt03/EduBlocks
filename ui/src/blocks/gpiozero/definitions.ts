@@ -770,7 +770,7 @@ Blocks['trafficset'] = {
     this.appendDummyInput()
         .appendField(new Blockly.FieldVariable("traffic"), "traffic")
         .appendField(".")
-        .appendField(new Blockly.FieldDropdown([["red","red"], ["yellow","yellow"], ["green","green"]]), "colour")
+        .appendField(new Blockly.FieldDropdown([["red","red"], ["amber","amber"], ["green","green"]]), "colour")
         .appendField(".")
         .appendField(new Blockly.FieldDropdown([["on","on"], ["off","off"], ["blink","blink"], ["pulse","pulse"], ["toggle","toggle"]]), "action")
         .appendField("()");
