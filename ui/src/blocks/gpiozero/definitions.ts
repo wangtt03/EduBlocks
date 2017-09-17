@@ -834,6 +834,52 @@ Blocks['energenievar'] = {
     }, 
   };
 
+  Blocks['camjamset'] = {
+    init: function () {
+      this.appendDummyInput()
+        .appendField(new Blockly.FieldVariable('camjam'), 'camjam')
+        .appendField(' = CamJamKitRobot()');
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour(45);
+      this.setTooltip('Set a variable for a CamJam Kit 3');
+      this.setHelpUrl('https://gpiozero.readthedocs.io/en/stable/api_boards.html#camjam-3-kit-robot');
+    },
+  };
+
+Blocks['camjamaction'] = {
+    init: function () {
+      this.appendDummyInput()
+        .appendField(new Blockly.FieldVariable('camjam'), 'camjam')
+        .appendField('.')
+        .appendField(new Blockly.FieldDropdown([['forward', 'forward'], ['backward', 'backward'], ['left', 'left'], ['right', 'right'], ['reverse', 'reverse'], ['stop', 'stop']]), 'action')
+        .appendField('(')
+        .appendField(new Blockly.FieldTextInput(''), 'bracket')
+        .appendField(')');
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour(45);
+      this.setTooltip('Set a variable for an CamJam Kit 3');
+      this.setHelpUrl('https://gpiozero.readthedocs.io/en/stable/api_boards.html#camjam-3-kit-robot');
+    },
+  };  
+
+Blocks['camjamvar'] = {
+    init: function () {
+      this.appendDummyInput()
+        .appendField(new Blockly.FieldVariable('camjam'), 'camjam')
+        .appendField('.')
+        .appendField(new Blockly.FieldTextInput(''), 'action')
+        .appendField(' = ')
+        .appendField(new Blockly.FieldTextInput(''), 'act');
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour(45);
+      this.setTooltip('Set an action variable for a CamJam Kit 3');
+      this.setHelpUrl('https://gpiozero.readthedocs.io/en/stable/api_boards.html#camjam-3-kit-robot');
+    }, 
+  };
+
 
 
 }

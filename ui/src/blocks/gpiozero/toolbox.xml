@@ -91,6 +91,11 @@
       <block type="energenieset"></block>
       <block type="energenieaction"></block>
       <block type="energenievar"></block>
+    </category>
+    <category name="CamJam Kit 3 Robot" colour="45">
+      <block type="camjamset"></block>
+      <block type="camjamaction"></block>
+      <block type="camjamvar"></block>
     </category>   
   </category>
 </category>

@@ -447,6 +447,32 @@ Python['energenievar'] = function (block) {
     const code = variable_name + '.' + text_action + ' = ' + text_act + '\n';
     return code;
   };
+
+  Python['camjamset'] = function (block) {
+    const variable_name = Blockly.Python.variableDB_.getName(block.getFieldValue('camjam'), Blockly.Variables.NAME_TYPE);
+    
+    // TODO: Assemble Python into code variable.
+    const code = variable_name + ' = CamJamKitRobot()\n';
+    return code;
+  }; 
+
+  Python['camjamaction'] = function (block) {
+    const variable_name = Blockly.Python.variableDB_.getName(block.getFieldValue('camjam'), Blockly.Variables.NAME_TYPE);
+    const dropdown_action = block.getFieldValue('action');
+    const text_bracket = block.getFieldValue('bracket');
+    // TODO: Assemble Python into code variable.
+    const code = variable_name + '.' + dropdown_action + '(' + text_bracket + ')\n';
+    return code;
+  };
+
+Python['camjamvar'] = function (block) {
+    const variable_name = Blockly.Python.variableDB_.getName(block.getFieldValue('camjam'), Blockly.Variables.NAME_TYPE);
+    const text_action = block.getFieldValue('action');
+    const text_act = block.getFieldValue('act');
+    // TODO: Assemble Python into code variable.
+    const code = variable_name + '.' + text_action + ' = ' + text_act + '\n';
+    return code;
+  };
  
 
 }
