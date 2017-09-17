@@ -924,7 +924,7 @@ Blocks['camjamvar'] = {
   }
 };
 
-Blocks['cputemp'] = {
+Blocks['cpuset'] = {
   init: function() {
     this.appendDummyInput()
         .appendField(new Blockly.FieldVariable("cpu"), "cpu")

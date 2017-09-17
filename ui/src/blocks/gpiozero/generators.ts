@@ -437,7 +437,7 @@ Python['trafficvar'] = function (block) {
     return code;
   }; 
 
-  Python['cputemp'] = function(block) {
+  Python['cpuset'] = function(block) {
   var variable_cpu = Blockly.Python.variableDB_.getName(block.getFieldValue('cpu'), Blockly.Variables.NAME_TYPE);
   var text_num = block.getFieldValue('num');
   var text_num2 = block.getFieldValue('num2');
