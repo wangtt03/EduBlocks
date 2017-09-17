@@ -11,17 +11,17 @@ basicDefs(Blockly.Blocks);
 basicGens(Blockly.Python as any);
 toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'basic', 'toolbox.xml'));
 
-import edupyDefs from './edupy/definitions';
-import edupyGens from './edupy/generators';
-edupyDefs(Blockly.Blocks);
-edupyGens(Blockly.Python as any);
-toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'edupy', 'toolbox.xml'));
-
 import minecraftDefs from './minecraft/definitions';
 import minecraftGens from './minecraft/generators';
 minecraftDefs(Blockly.Blocks);
 minecraftGens(Blockly.Python as any);
 toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'minecraft', 'toolbox.xml'));
+
+import gpiozeroDefs from './gpiozero/definitions';
+import gpiozeroGens from './gpiozero/generators';
+gpiozeroDefs(Blockly.Blocks);
+gpiozeroGens(Blockly.Python as any);
+toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'gpiozero', 'toolbox.xml'));
 
 import sonicpiDefs from './sonicpi/definitions';
 import sonicpiGens from './sonicpi/generators';
@@ -47,11 +47,7 @@ sensehatDefs(Blockly.Blocks);
 sensehatGens(Blockly.Python as any);
 toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'sensehat', 'toolbox.xml'));
 
-import gpiozeroDefs from './gpiozero/definitions';
-import gpiozeroGens from './gpiozero/generators';
-gpiozeroDefs(Blockly.Blocks);
-gpiozeroGens(Blockly.Python as any);
-toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'gpiozero', 'toolbox.xml'));
+
 
 toolBoxXml += '</xml>';
 
