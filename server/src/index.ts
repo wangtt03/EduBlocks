@@ -45,6 +45,10 @@ const clients: EduBlocksClient[] = [];
 
 let log = '';
 
+function clearLog() {
+  log = '';
+}
+
 function writeToAllClients(data: string) {
   log += data;
 
@@ -59,6 +63,8 @@ function writeToAllClients(data: string) {
 }
 
 app.post('/runcode', (req, res) => {
+  clearLog();
+
   const { code } = req.body;
 
   const beforeScript = fs.readFileSync(beforeScriptPath);

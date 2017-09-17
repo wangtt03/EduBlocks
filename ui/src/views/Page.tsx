@@ -153,6 +153,7 @@ export default class Page extends Component<PageProps, PageState> {
 
     this.setState({ terminalOpen: true });
     this.terminalView.focus();
+    this.terminalView.reset();
 
     this.props.app.runCode(this.state.doc.python);
 
