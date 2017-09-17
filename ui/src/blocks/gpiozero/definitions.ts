@@ -809,7 +809,7 @@ Blocks['trafficvar'] = {
       this.setNextStatement(true, null);
       this.setColour(150);
       this.setTooltip('Set a variable for a Ping Server');
-      this.setHelpUrl('https://gpiozero.readthedocs.io/en/stable/api_boards.html#energenie');
+      this.setHelpUrl('https://gpiozero.readthedocs.io/en/stable/api_other.html#pingserver');
     },
   };
 
@@ -921,6 +921,40 @@ Blocks['camjamvar'] = {
     this.setColour(150);
  this.setTooltip("Setup Time Of Day");
  this.setHelpUrl("https://gpiozero.readthedocs.io/en/stable/api_other.html#timeofday");
+  }
+};
+
+Blocks['cputemp'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldVariable("cpu"), "cpu")
+        .appendField(" = CPUTemperature(min_temp(")
+        .appendField(new Blockly.FieldTextInput("num"), "num")
+        .appendField("), max_temp(")
+        .appendField(new Blockly.FieldTextInput("num"), "num2")
+        .appendField("))");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(150);
+ this.setTooltip("Setup CPU Temp");
+ this.setHelpUrl("https://gpiozero.readthedocs.io/en/stable/api_other.html#cputemperature");
+  }
+};
+
+Blocks['adc'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldVariable("var"), "var")
+        .appendField(" = ")
+        .appendField(new Blockly.FieldDropdown([["MCP3001","MCP3001"], ["MCP3002","MCP3002"], ["MCP3004","MCP3004"], ["MCP3008","MCP3008"], ["MCP3201","MCP3201"], ["MCP3202","MCP3202"], ["MCP3204","MCP3204"], ["MCP3208","MCP3208"], ["MCP3302","MCP3302"], ["MCP3302","MCP3302"], ["MCP3304","MCP3304"]]), "NAME")
+        .appendField("(")
+        .appendField(new Blockly.FieldTextInput(""), "channel")
+        .appendField(")");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(150);
+ this.setTooltip("Setup Analog to Digital Converters");
+ this.setHelpUrl("https://gpiozero.readthedocs.io/en/stable/api_spi.html#analog-to-digital-converters-adc");
   }
 };
 

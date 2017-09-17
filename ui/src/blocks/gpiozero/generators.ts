@@ -437,6 +437,24 @@ Python['trafficvar'] = function (block) {
     return code;
   }; 
 
+  Python['cputemp'] = function(block) {
+  var variable_cpu = Blockly.Python.variableDB_.getName(block.getFieldValue('cpu'), Blockly.Variables.NAME_TYPE);
+  var text_num = block.getFieldValue('num');
+  var text_num2 = block.getFieldValue('num2');
+  // TODO: Assemble Python into code variable.
+  var code = variable_cpu + ' = CPUTemprature(min_temp(' +text_num+ '), max_temp(' +text_num2+ '))...\n';
+  return code;
+};
+
+Python['adc'] = function(block) {
+  var variable_var = Blockly.Python.variableDB_.getName(block.getFieldValue('var'), Blockly.Variables.NAME_TYPE);
+  var dropdown_name = block.getFieldValue('NAME');
+  var text_channel = block.getFieldValue('channel');
+  // TODO: Assemble Python into code variable.
+  var code = variable_var+ ' = ' +dropdown_name+ '(' +text_channel+ ')\n';
+  return code;
+};
+
   Python['energenieset'] = function (block) {
     const variable_name = Blockly.Python.variableDB_.getName(block.getFieldValue('lamp'), Blockly.Variables.NAME_TYPE);
     const text_num = block.getFieldValue('num');

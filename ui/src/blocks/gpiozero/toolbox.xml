@@ -109,4 +109,7 @@
     <category name="CPU Temperature" colour="150">
       <block type="cpuset"></block>
     </category>
+    <category name="Analogue to Digital" colour="150">
+      <block type="adc"></block>
+    </category>
 </category>
