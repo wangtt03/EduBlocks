@@ -131,12 +131,6 @@ export default class Page extends Component<PageProps, PageState> {
   private switchView(viewMode: ViewMode): 0 {
     switch (viewMode) {
       case ViewModeBlockly:
-        if (!this.state.doc.pythonClean && this.state.doc.xml === null) {
-          alert('Block view not available');
-
-          return 0;
-        }
-
         this.setState({ viewMode: 'blockly' });
 
         return 0;
