@@ -2,5 +2,5 @@
 
 cd $1
 
-AR=arm-linux-gnueabihf-ar CC=arm-linux-gnueabihf-gcc CXX=arm-linux-gnueabihf-g++ LINK=arm-linux-gnueabihf-g++ node-gyp --arch=arm configure
-AR=arm-linux-gnueabihf-ar CC=arm-linux-gnueabihf-gcc CXX=arm-linux-gnueabihf-g++ LINK=arm-linux-gnueabihf-g++ node-gyp --arch=arm build
+AR=arm-linux-gnueabi-ar CC=arm-linux-gnueabi-gcc CXX=arm-linux-gnueabi-g++ LINK=arm-linux-gnueabi-g++ node-gyp --arch=arm configure
+AR=arm-linux-gnueabi-ar CC=arm-linux-gnueabi-gcc CXX=arm-linux-gnueabi-g++ LINK=arm-linux-gnueabi-g++ node-gyp --arch=arm build

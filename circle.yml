@@ -9,7 +9,7 @@ general:
       - wip
 dependencies:
   pre:
-    - sudo apt-get install g++-arm-linux-gnueabihf
+    - sudo apt-get install g++-arm-linux-gnueabi
     - npm --global install node-gyp
   override:
     - ./tarball-create.sh armv6l
