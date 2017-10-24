@@ -4,7 +4,7 @@
     "description": "",
     "main": "src/index.ts",
     "engines": {
-        "node": "6.10.3"
+        "node": "^6.10.3"
     },
     "engineStrict": true,
     "scripts": {

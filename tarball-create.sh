@@ -110,7 +110,10 @@ echo 'Installing production dependencies...'
 yarn install --production
 
 # "node-pty" is a native code module so we must cross compile it individually targeting the ARM architecture
-$REPO_PATH/node-gyp-arm.sh $APP_PATH/server/node_modules/node-pty
+# $REPO_PATH/node-gyp-arm.sh $APP_PATH/server/node_modules/node-pty
+
+# Copy the pre-compiled binary of "node-pty" so that it will work on the "arm6l".
+tar -zxvf $REPO_PATH/assets/node-pty.tar.gz -C $APP_PATH/server/node_modules/node-pty/
 
 echo ''
 echo 'Building EduBlocks client'
