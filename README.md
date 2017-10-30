@@ -70,7 +70,7 @@ NOTE: Windows users will need to enable symbolic link support before they attemp
 
 ### Dependencies
 
-Install Node.JS 6.10.2 using the appropriate installer for your platform. For Linux and Mac OS X (and also Bash on Windows), we recommend using NVM for this.
+Install Node.JS 6.10.3 using the appropriate installer for your platform. For Linux and Mac OS X (and also Bash on Windows), we recommend using NVM for this.
 
 Install Yarn:
 
@@ -105,9 +105,9 @@ EduBlocks UI will now be available at http://localhost:8081/
     sudo apt install git build-essential
     curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
     . ~/.nvm/nvm.sh
-    nvm install 6.10.2
+    nvm install 6.10.3
     npm --global install yarn
-    
+
     git clone git@github.com:AllAboutCode/EduBlocks.git
 
     cd EduBlocks
@@ -206,8 +206,3 @@ For letting us visit the ship at Sheffield-On-Sea to promote and learn about sof
 
 ### Pi-Top:
 For the pi-top  FUTUREchampions for giving us acess to 4 pi-top CEEDS for demonstrating and running EduBlocks workshops.
-
-
-
-
-
