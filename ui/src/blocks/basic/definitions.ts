@@ -1,12 +1,12 @@
 export default function define(Blocks: Blockly.BlockDefinitions) {
-  Blocks['import_edupy'] = {
+  Blocks['import_microbit'] = {
     init: function () {
       this.appendDummyInput()
-        .appendField('from edupy import *');
+        .appendField('from microbit import *');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
       this.setColour(336);
-      this.setTooltip('Imports the edupy library.');
+      this.setTooltip('Imports the microbit library.');
       this.setHelpUrl('http://www.example.com/');
     },
   };

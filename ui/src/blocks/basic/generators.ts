@@ -1,6 +1,6 @@
 export default function define(Python: Blockly.BlockGenerators) {
-  Python['import_edupy'] = function (block) {
-    const code = 'from edupy import *\n';
+  Python['import_microbit'] = function (block) {
+    const code = 'from microbit import *\n';
     return code;
   };
 

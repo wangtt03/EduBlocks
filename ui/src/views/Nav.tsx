@@ -36,9 +36,6 @@ export default class Nav extends Component<NavProps, {}> {
             Samples
           </a>
 
-          <a class='button icon-download' title='Download Python Source Code' href='javascript:void(0)' onClick={() => this.props.downloadPython()}>
-            Download
-          </a>
 
           <a class='button icon-plus' title='New' href='javascript:void(0)' onClick={() => this.props.newCode()}>
             New
@@ -52,8 +49,8 @@ export default class Nav extends Component<NavProps, {}> {
             Save
           </a>
 
-          <a class='button icon-play' title='Run your code' href='javascript:void(0)' onClick={() => this.props.sendCode()}>
-            Run
+           <a class='button icon-download' title='Download Python Source Code' href='javascript:void(0)' onClick={() => this.props.downloadPython()}>
+            Download
           </a>
         </div>
       </nav>
