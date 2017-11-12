@@ -1,4 +1,8 @@
 <category name="Display" colour="70">
   <block type="scroll"></block>
-  </category>
+  <block type="image"></block>
+  <block type="getpixel"></block>
+  <block type="setpixel"></block>
+  <block type="disclear"></block>
+  <block type="disonoff"></block>
 </category>

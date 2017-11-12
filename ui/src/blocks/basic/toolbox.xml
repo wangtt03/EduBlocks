@@ -5,7 +5,7 @@
   <block type="pass"></block>
   <block type="if"></block>
   <block type="varprint"></block>
-  <block type="defcall"></block>
+  <block type="df"></block>
   <block type="ifcroc"></block>
   <block type="varminus"></block>
   <block type="import_signal"></block>
@@ -19,7 +19,6 @@
   <block type="else"></block>
   <block type="df"></block>
   <block type="whileout"></block>
-  <block type="time"></block>
   <block type="import_math"></block>
   <block type="sleep"></block>
   <block type="print"></block>

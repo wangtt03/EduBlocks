@@ -17,6 +17,14 @@ displayDefs(Blockly.Blocks);
 displayGens(Blockly.Python as any);
 toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'display', 'toolbox.xml'));
 
+import radioDefs from './radio/definitions';
+import radioGens from './radio/generators';
+radioDefs(Blockly.Blocks);
+radioGens(Blockly.Python as any);
+toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'radio', 'toolbox.xml'));
+
+
+
 
 
 toolBoxXml += '</xml>';

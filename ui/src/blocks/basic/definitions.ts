@@ -271,17 +271,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     },
   };
 
-  Blocks['time'] = {
-    init: function () {
-      this.appendDummyInput()
-        .appendField('import time');
-      this.setPreviousStatement(true, null);
-      this.setNextStatement(true, null);
-      this.setColour(336);
-      this.setTooltip('Imports the time library.');
-      this.setHelpUrl('http://www.example.com/');
-    },
-  };
+  
 
   Blocks['import_math'] = {
     init: function () {
@@ -295,17 +285,17 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     },
   };
 
-  Blocks['sleep'] = {
+   Blocks['sleep'] = {
     init: function () {
       this.appendDummyInput()
-        .appendField('time.sleep(')
-        .appendField(new Blockly.FieldTextInput('1'), 'sleepTime')
+        .appendField('sleep(')
+        .appendField(new Blockly.FieldTextInput(''), 'time')
         .appendField(')');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
       this.setColour(336);
-      this.setTooltip('Wait for a given amount of seconds.');
-      this.setHelpUrl('http://www.example.com/');
+      this.setTooltip('Sleep');
+      this.setHelpUrl('');
     },
   };
 

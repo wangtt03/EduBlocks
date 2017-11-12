@@ -20,8 +20,8 @@ export default class Nav extends Component<NavProps, {}> {
     return (
       <nav>
         <a class='brand'>
-          <img class='logo' src='/images/logo.png' />
-          <span>EduBlocks</span>
+          <img class='logo' src='/images/logo.svg' />
+  
           {/*<span class='filename'>({this.props.sync ? 'In sync' : 'Out of sync'})</span>*/}
         </a>
 

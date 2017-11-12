@@ -1,0 +1,5 @@
+<category name="Radio" colour="80">
+  <block type="imradio"></block>
+  <block type="radioon"></block>
+  <block type="radiosend"></block>
+</category>
