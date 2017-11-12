@@ -38,6 +38,7 @@
 .theme-dark .menu .button,
 .theme-dark button {
   background: #444;
+  color: white;
 }
 
 .theme-dark .brand {
