@@ -2,6 +2,7 @@ import { newServer } from './server';
 import { App, TerminalInterface } from './types';
 import { getIo } from './io';
 import { newSamples } from './samples';
+import { getHexFile } from './lib/hexlify';
 
 async function newApp(): Promise<App> {
   const client = await newServer();
@@ -18,6 +19,12 @@ async function newApp(): Promise<App> {
 
   function saveFile(data: string | Uint8Array, ext: string, type: string) {
     return io.saveFile(data, ext, type);
+  }
+
+  function saveHex(python: string) {
+    const hex = getHexFile(python);
+
+    return io.saveFile(hex, 'hex', 'application/octet-stream');
   }
 
   function assignTerminal(terminal: TerminalInterface) {
@@ -51,6 +58,7 @@ async function newApp(): Promise<App> {
     runCode,
     openFile,
     saveFile,
+    saveHex,
     assignTerminal,
     getThemes,
     ...samples,

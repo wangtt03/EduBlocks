@@ -191,7 +191,11 @@ export default class Page extends Component<PageProps, PageState> {
   }
 
   private async downloadHex() {
-    alert('TODO download hex');
+    const python = this.state.doc.python;
+
+    if (python) {
+      await this.props.app.saveHex(python);
+    }
   }
 
   private openSamples() {
