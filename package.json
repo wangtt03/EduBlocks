@@ -1,6 +1,6 @@
 {
     "name": "edublocks",
-    "version": "0.0.4-microbit",
+    "version": "0.0.5-microbit",
     "description": "EduBlocks is a visual block based programming tool",
     "main": "index.js",
     "scripts": {

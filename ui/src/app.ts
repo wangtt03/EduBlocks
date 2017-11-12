@@ -1,16 +1,16 @@
-import { newServer } from './server';
+// import { newServer } from './server';
 import { App, TerminalInterface } from './types';
 import { getIo } from './io';
 import { newSamples } from './samples';
 import { getHexFile } from './lib/hexlify';
 
 async function newApp(): Promise<App> {
-  const client = await newServer();
+  // const client = await newServer();
   const io = getIo();
   const samples = newSamples();
 
   function runCode(code: string) {
-    return client.runCode(code);
+    // return client.runCode(code);
   }
 
   function openFile() {
@@ -28,20 +28,20 @@ async function newApp(): Promise<App> {
   }
 
   function assignTerminal(terminal: TerminalInterface) {
-    client.on('data', (data) => terminal.write(data));
+    // client.on('data', (data) => terminal.write(data));
 
-    client.on('reconnect', () => {
-      terminal.reset();
+    // client.on('reconnect', () => {
+    //   terminal.reset();
 
-      client.resizeTerminal(terminal.cols, terminal.rows);
-    });
+    //   client.resizeTerminal(terminal.cols, terminal.rows);
+    // });
 
-    terminal.on('data', client.sendData);
-    terminal.on('resize', client.resizeTerminal);
+    // terminal.on('data', client.sendData);
+    // terminal.on('resize', client.resizeTerminal);
 
-    if (terminal.cols && terminal.rows) {
-      client.resizeTerminal(terminal.cols, terminal.rows);
-    }
+    // if (terminal.cols && terminal.rows) {
+    //   client.resizeTerminal(terminal.cols, terminal.rows);
+    // }
   }
 
   function getThemes() {
