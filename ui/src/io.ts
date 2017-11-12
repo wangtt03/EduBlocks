@@ -38,15 +38,15 @@ function getWebIo() {
    * @param text Data to save
    * @param ext Suggested file name extension, i.e. 'xml'
    */
-  function saveFile(text: string, ext: string | null = null) {
+  function saveFile(data: string | Uint8Array, ext: string, type: string) {
     let fileName = prompt('Enter filename...');
-    let disableAutoBOM = true
+    let disableAutoBOM = true;
 
     if (!fileName) return Promise.resolve(void 0);
 
     if (ext && fileName.slice(-4) !== `.${ext}`) fileName = `${fileName}.${ext}`;
 
-    const blob = new Blob([text], { type: 'text/xml;charset=utf-8' });
+    const blob = new Blob([data], { type });
     fileSaver.saveAs(blob, fileName, disableAutoBOM);
     return Promise.resolve(void 0);
   }

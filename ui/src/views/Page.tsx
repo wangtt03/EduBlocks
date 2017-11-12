@@ -178,7 +178,7 @@ export default class Page extends Component<PageProps, PageState> {
     const xml = this.state.doc.xml;
 
     if (xml) {
-      await this.props.app.saveFile(xml, 'xml');
+      await this.props.app.saveFile(xml, 'xml', 'text/xml;charset=utf-8');
     }
   }
 
@@ -186,8 +186,12 @@ export default class Page extends Component<PageProps, PageState> {
     const python = this.state.doc.python;
 
     if (python) {
-      await this.props.app.saveFile(python, 'py');
+      await this.props.app.saveFile(python, 'py', 'text/python;charset=utf-8');
     }
+  }
+
+  private async downloadHex() {
+    alert('TODO download hex');
   }
 
   private openSamples() {
@@ -232,6 +236,7 @@ export default class Page extends Component<PageProps, PageState> {
 
           sendCode={() => this.sendCode()}
           downloadPython={() => this.downloadPython()}
+          downloadHex={() => this.downloadHex()}
           openCode={() => this.openFile()}
           saveCode={() => this.saveFile()}
           newCode={() => this.new()}

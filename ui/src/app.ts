@@ -16,8 +16,8 @@ async function newApp(): Promise<App> {
     return io.openFile();
   }
 
-  function saveFile(data: string, ext: string) {
-    return io.saveFile(data, ext);
+  function saveFile(data: string | Uint8Array, ext: string, type: string) {
+    return io.saveFile(data, ext, type);
   }
 
   function assignTerminal(terminal: TerminalInterface) {

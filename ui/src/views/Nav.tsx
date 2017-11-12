@@ -5,6 +5,7 @@ interface NavProps {
   openSamples(): void;
   openThemes(): void;
   downloadPython(): void;
+  downloadHex(): void;
 
   newCode(): void;
   openCode(): void;
@@ -49,8 +50,12 @@ export default class Nav extends Component<NavProps, {}> {
             Save
           </a>
 
-           <a class='button icon-download' title='Download Python Source Code' href='javascript:void(0)' onClick={() => this.props.downloadPython()}>
-            Download
+          <a class='button icon-download' title='Download Python Source Code' href='javascript:void(0)' onClick={() => this.props.downloadPython()}>
+            Download Py
+          </a>
+
+          <a class='button icon-download' title='Download Python Source Code' href='javascript:void(0)' onClick={() => this.props.downloadHex()}>
+            Download Hex
           </a>
         </div>
       </nav>

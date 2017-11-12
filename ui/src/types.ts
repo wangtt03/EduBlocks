@@ -2,7 +2,7 @@ interface App {
   runCode(code: string): void;
 
   openFile(): Promise<string>;
-  saveFile(code: string, ext: string): Promise<void>;
+  saveFile(data: string | Uint8Array, ext: string, type: string): Promise<void>;
 
   assignTerminal(term: TerminalInterface): void;
 
