@@ -151,8 +151,8 @@ export default function define(Python: Blockly.BlockGenerators) {
   };
 
   Python['sleep'] = function (block) {
-    const text_sleeptime = block.getFieldValue('sleepTime');
-    const code = 'time.sleep(' + text_sleeptime + ')\n';
+    const text_sleeptime = block.getFieldValue('sleep');
+    const code = 'sleep(' + text_sleeptime + ')\n';
     return code;
   };
 

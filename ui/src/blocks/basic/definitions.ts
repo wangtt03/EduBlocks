@@ -289,7 +289,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     init: function () {
       this.appendDummyInput()
         .appendField('sleep(')
-        .appendField(new Blockly.FieldTextInput(''), 'time')
+        .appendField(new Blockly.FieldTextInput(''), 'sleep')
         .appendField(')');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
