@@ -17,7 +17,7 @@ test:
     - echo 'No tests to run'
 deployment:
   production:
-    tag: /v[0-9]+\.[0-9]+\.[0-9]$/
+    tag: /v[0-9]+\.[0-9]+\.[0-9]-microbit$/
     commands:
       - scp -r ui/*.* Josh@edublocks.org:/var/www/microbit.edublocks.org/html
       - echo $CIRCLE_TAG | ssh Josh@edublocks.org 'cat > /var/www/microbit.edublocks.org/html/version.txt'
