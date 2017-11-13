@@ -10,7 +10,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.setNextStatement(true, null);
       this.setColour(70);
       this.setTooltip('Scroll a Message');
-      this.setHelpUrl('https://docs.python.org/3/library/http.client.html');
+      this.setHelpUrl('');
     },
   };
 
@@ -24,7 +24,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.setNextStatement(true, null);
       this.setColour(70);
       this.setTooltip('Display an image');
-      this.setHelpUrl('https://docs.python.org/3/library/http.client.html');
+      this.setHelpUrl('');
     },
   };
 
@@ -38,7 +38,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.setNextStatement(true, null);
       this.setColour(70);
       this.setTooltip('Gets a pixel value');
-      this.setHelpUrl('https://docs.python.org/3/library/http.client.html');
+      this.setHelpUrl('');
     },
   };
 
@@ -52,7 +52,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.setNextStatement(true, null);
       this.setColour(70);
       this.setTooltip('Set a pixel');
-      this.setHelpUrl('https://docs.python.org/3/library/http.client.html');
+      this.setHelpUrl('');
     },
   };
 
@@ -66,7 +66,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.setNextStatement(true, null);
       this.setColour(70);
       this.setTooltip('Set a pixel');
-      this.setHelpUrl('https://docs.python.org/3/library/http.client.html');
+      this.setHelpUrl('');
     },
   };
 
@@ -78,7 +78,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.setNextStatement(true, null);
       this.setColour(70);
       this.setTooltip('Clear the display');
-      this.setHelpUrl('https://docs.python.org/3/library/http.client.html');
+      this.setHelpUrl('');
     },
   };
 
@@ -90,7 +90,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.setNextStatement(true, null);
       this.setColour(70);
       this.setTooltip('Clear the display');
-      this.setHelpUrl('https://docs.python.org/3/library/http.client.html');
+      this.setHelpUrl('');
     },
   };
 
@@ -102,7 +102,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.setNextStatement(true, null);
       this.setColour(70);
       this.setTooltip('Clear the display');
-      this.setHelpUrl('https://docs.python.org/3/library/http.client.html');
+      this.setHelpUrl('');
     },
   };
 
@@ -120,6 +120,55 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
   }
 };
 
-
+Blocks['imagecreate'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldTextInput(""), "var")
+        .appendField("= Image(\"")
+        .appendField(new Blockly.FieldTextInput(""), "11")
+        .appendField(new Blockly.FieldTextInput(""), "12")
+        .appendField(new Blockly.FieldTextInput(""), "13")
+        .appendField(new Blockly.FieldTextInput(""), "14")
+        .appendField(new Blockly.FieldTextInput(""), "15")
+        .appendField(":\"");
+    this.appendDummyInput()
+        .appendField("                  \"")
+        .appendField(new Blockly.FieldTextInput(""), "21")
+        .appendField(new Blockly.FieldTextInput(""), "22")
+        .appendField(new Blockly.FieldTextInput(""), "23")
+        .appendField(new Blockly.FieldTextInput(""), "24")
+        .appendField(new Blockly.FieldTextInput(""), "25")
+        .appendField(":\"");
+    this.appendDummyInput()
+        .appendField("                  \"")
+        .appendField(new Blockly.FieldTextInput(""), "31")
+        .appendField(new Blockly.FieldTextInput(""), "32")
+        .appendField(new Blockly.FieldTextInput(""), "33")
+        .appendField(new Blockly.FieldTextInput(""), "34")
+        .appendField(new Blockly.FieldTextInput(""), "35")
+        .appendField(":\"");
+    this.appendDummyInput()
+        .appendField("                  \"")
+        .appendField(new Blockly.FieldTextInput(""), "41")
+        .appendField(new Blockly.FieldTextInput(""), "42")
+        .appendField(new Blockly.FieldTextInput(""), "43")
+        .appendField(new Blockly.FieldTextInput(""), "44")
+        .appendField(new Blockly.FieldTextInput(""), "45")
+        .appendField(":\"");
+    this.appendDummyInput()
+        .appendField("                  \"")
+        .appendField(new Blockly.FieldTextInput(""), "51")
+        .appendField(new Blockly.FieldTextInput(""), "52")
+        .appendField(new Blockly.FieldTextInput(""), "53")
+        .appendField(new Blockly.FieldTextInput(""), "54")
+        .appendField(new Blockly.FieldTextInput(""), "55")
+        .appendField("\")");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(75);
+ this.setTooltip("Create a custom image");
+ this.setHelpUrl("");
+  }
+};
 
 }
