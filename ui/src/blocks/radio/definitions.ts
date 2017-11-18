@@ -27,7 +27,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.setTooltip('Import Radio');
       this.setHelpUrl('');
     },
-  };  
+  };   
 
   Blocks['radioon'] = {
     init: function () {
