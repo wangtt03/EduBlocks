@@ -39,7 +39,7 @@ function getWebIo() {
    * @param ext Suggested file name extension, i.e. 'xml'
    */
   function saveFile(data: string | Uint8Array, ext: string, type: string) {
-    let fileName = prompt('Enter filename...');
+    let fileName = "microbit";
     let disableAutoBOM = true;
 
     if (!fileName) return Promise.resolve(void 0);

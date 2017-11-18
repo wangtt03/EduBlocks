@@ -191,4 +191,24 @@ export default function define(Python: Blockly.BlockGenerators) {
     const code = 'while ' + text_1 + ' > ' + text_v + ':\n' + branch;
     return code;
   };
+
+  Python['buttonapressed'] = function(block) {
+    var dropdown_name = block.getFieldValue('NAME');
+    // TODO: Assemble Python into code variable.
+    var code = 'button_'+dropdown_name+'.is_pressed()';
+    // TODO: Change ORDER_NONE to the correct strength.
+    return [code, Blockly.Python.ORDER_ATOMIC = 0];
+  };
+
+  Python['ifinline'] = function(block) {
+    let branch = Blockly.Python.statementToCode(block, 'ifstate');
+    branch = Blockly.Python.addLoopTrap(branch, block.id) || Blockly.Python.PASS;
+    var value_iftext = Blockly.Python.valueToCode(block, 'iftext', Blockly.Python.ORDER_ATOMIC);
+    var statements_ifstate = Blockly.Python.statementToCode(block, 'ifstate');
+    // TODO: Assemble Python into code variable.
+    var code = 'if ' +value_iftext+ ':\n'+branch;
+    return code;
+  };
+
+  
 }

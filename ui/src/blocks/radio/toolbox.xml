@@ -2,4 +2,5 @@
   <block type="imradio"></block>
   <block type="radioon"></block>
   <block type="radiosend"></block>
+  <block type="radioconf"></block>
 </category>

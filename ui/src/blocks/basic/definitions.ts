@@ -362,4 +362,38 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.setHelpUrl('http://www.example.com/');
     },
   };
+
+  Blocks['ifinline'] = {
+    init: function() {
+      this.appendValueInput("iftext")
+          .setCheck(null)
+          .appendField("if");
+      this.appendDummyInput()
+          .appendField(":");
+      this.appendStatementInput("ifstate")
+          .setCheck(null);
+      this.setInputsInline(true);
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour(336);
+   this.setTooltip("If block with inline input");
+   this.setHelpUrl("");
+    }
+  };
+
+  Blocks['buttonapressed'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField("button_")
+          .appendField(new Blockly.FieldDropdown([["a","a"], ["b","b"]]), "NAME")
+          .appendField(".is_pressed()");
+      this.setInputsInline(false);
+      this.setOutput(true, null);
+      this.setColour(336);
+   this.setTooltip("Button A Pressed");
+   this.setHelpUrl("");
+    }
+  };
+
+  
 }

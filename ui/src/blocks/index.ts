@@ -23,6 +23,12 @@ radioDefs(Blockly.Blocks);
 radioGens(Blockly.Python as any);
 toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'radio', 'toolbox.xml'));
 
+import speechDefs from './speech/definitions';
+import speechGens from './speech/generators';
+speechDefs(Blockly.Blocks);
+speechGens(Blockly.Python as any);
+toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'speech', 'toolbox.xml'));
+
 
 
 

@@ -14,6 +14,20 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     },
   };
 
+  Blocks['scrollvar'] = {
+    init: function () {
+      this.appendDummyInput()
+        .appendField('display.scroll(')
+        .appendField(new Blockly.FieldTextInput(''), 'message')
+        .appendField(')');
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour(70);
+      this.setTooltip('Scroll a variable');
+      this.setHelpUrl('');
+    },
+  };
+
   Blocks['image'] = {
     init: function () {
       this.appendDummyInput()

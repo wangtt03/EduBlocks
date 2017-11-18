@@ -15,7 +15,19 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     },
   };
 
-  
+  Blocks['radioconf'] = {
+    init: function () {
+      this.appendDummyInput()
+        .appendField('radio.config(')
+        .appendField(new Blockly.FieldTextInput(''), 'conf')
+        .appendField(')');
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour(90);
+      this.setTooltip('Configure Radio');
+      this.setHelpUrl('');
+    },
+  };
 
   Blocks['imradio'] = {
     init: function () {

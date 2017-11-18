@@ -7,6 +7,12 @@ export default function define(Python: Blockly.BlockGenerators) {
     return code;
   };
 
+  Python['scrollvar'] = function (block) {
+    let text_message = block.getFieldValue('message');
+    let code = 'display.scroll(' + text_message + ') \n';
+    return code;
+  };
+
   Python['image'] = function (block) {
     let text_image = block.getFieldValue('image');
     let code = 'display.show(' + text_image + ') \n';
