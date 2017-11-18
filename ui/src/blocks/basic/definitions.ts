@@ -271,7 +271,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     },
   };
 
-  
+
 
   Blocks['import_math'] = {
     init: function () {
@@ -285,7 +285,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     },
   };
 
-   Blocks['sleep'] = {
+  Blocks['sleep'] = {
     init: function () {
       this.appendDummyInput()
         .appendField('sleep(')
@@ -364,36 +364,36 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
   };
 
   Blocks['ifinline'] = {
-    init: function() {
-      this.appendValueInput("iftext")
-          .setCheck(null)
-          .appendField("if");
+    init: function () {
+      this.appendValueInput('iftext')
+        .setCheck(null)
+        .appendField('if');
       this.appendDummyInput()
-          .appendField(":");
-      this.appendStatementInput("ifstate")
-          .setCheck(null);
+        .appendField(':');
+      this.appendStatementInput('ifstate')
+        .setCheck(null);
       this.setInputsInline(true);
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
       this.setColour(336);
-   this.setTooltip("If block with inline input");
-   this.setHelpUrl("");
-    }
+      this.setTooltip('If block with inline input');
+      this.setHelpUrl('');
+    },
   };
 
   Blocks['buttonapressed'] = {
-    init: function() {
+    init: function () {
       this.appendDummyInput()
-          .appendField("button_")
-          .appendField(new Blockly.FieldDropdown([["a","a"], ["b","b"]]), "NAME")
-          .appendField(".is_pressed()");
+        .appendField('button_')
+        .appendField(new Blockly.FieldDropdown([['a', 'a'], ['b', 'b']]), 'NAME')
+        .appendField('.is_pressed()');
       this.setInputsInline(false);
       this.setOutput(true, null);
       this.setColour(336);
-   this.setTooltip("Button A Pressed");
-   this.setHelpUrl("");
-    }
+      this.setTooltip('Button A Pressed');
+      this.setHelpUrl('');
+    },
   };
 
-  
+
 }

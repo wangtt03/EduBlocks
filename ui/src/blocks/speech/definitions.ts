@@ -1,56 +1,56 @@
 export default function define(Blocks: Blockly.BlockDefinitions) {
 
   Blocks['imspeech'] = {
-    init: function() {
+    init: function () {
       this.appendDummyInput()
-          .appendField("import speech");
+        .appendField('import speech');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
       this.setColour(180);
-   this.setTooltip("Imports the speech library");
-   this.setHelpUrl("");
-    }
+      this.setTooltip('Imports the speech library');
+      this.setHelpUrl('');
+    },
   };
 
   Blocks['speechsay'] = {
-    init: function() {
+    init: function () {
       this.appendDummyInput()
-          .appendField("speech.say(\"")
-          .appendField(new Blockly.FieldTextInput(""), "words")
-          .appendField("\")");
+        .appendField('speech.say("')
+        .appendField(new Blockly.FieldTextInput(''), 'words')
+        .appendField('")');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
       this.setColour(180);
-   this.setTooltip("Say something");
-   this.setHelpUrl("");
-    }
+      this.setTooltip('Say something');
+      this.setHelpUrl('');
+    },
   };
 
   Blocks['speechpro'] = {
-    init: function() {
+    init: function () {
       this.appendDummyInput()
-          .appendField("speech.pronounce(\"")
-          .appendField(new Blockly.FieldTextInput(""), "pro")
-          .appendField("\")");
+        .appendField('speech.pronounce("')
+        .appendField(new Blockly.FieldTextInput(''), 'pro')
+        .appendField('")');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
       this.setColour(180);
-   this.setTooltip("Pronounce something");
-   this.setHelpUrl("");
-    }
+      this.setTooltip('Pronounce something');
+      this.setHelpUrl('');
+    },
   };
 
   Blocks['speechsing'] = {
-    init: function() {
+    init: function () {
       this.appendDummyInput()
-          .appendField("speech.sing(\"")
-          .appendField(new Blockly.FieldTextInput(""), "sing")
-          .appendField("\")");
+        .appendField('speech.sing("')
+        .appendField(new Blockly.FieldTextInput(''), 'sing')
+        .appendField('")');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
       this.setColour(180);
-   this.setTooltip("Sing something");
-   this.setHelpUrl("");
-    }
+      this.setTooltip('Sing something');
+      this.setHelpUrl('');
+    },
   };
 }

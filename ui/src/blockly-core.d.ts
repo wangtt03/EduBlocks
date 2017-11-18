@@ -1446,7 +1446,7 @@ declare module Blockly {
   }
 
   interface BlockGenerators {
-    [blockId: string]: (block: Block) => string;
+    [blockId: string]: (block: Block) => string | [string, number];
   }
 
   const Blocks: {
@@ -1456,10 +1456,12 @@ declare module Blockly {
   };
 
   const Python: {
-    statementToCode(block: Block, d: 'DO' | 'NAME' | 'VALUE'): string;
+    statementToCode(block: Block, d: 'DO' | 'NAME' | 'VALUE' | 'ifstate'): string;
     addLoopTrap(code: string, id: string): string;
+    valueToCode(block: Block, str: string, n: number): string;
 
     PASS: string;
+    ORDER_ATOMIC: 0;
 
     variableDB_: {
       getName(name: string, type: any): string;
@@ -6039,6 +6041,6 @@ declare module Blockly {
     position(): void;
   }
 
-  
+
 
 }
