@@ -47,6 +47,12 @@ sensehatDefs(Blockly.Blocks);
 sensehatGens(Blockly.Python as any);
 toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'sensehat', 'toolbox.xml'));
 
+import bitioDefs from './bitio/definitions';
+import bitioGens from './bitio/generators';
+sensehatDefs(Blockly.Blocks);
+sensehatGens(Blockly.Python as any);
+toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'bitio', 'toolbox.xml'));
+
 
 
 toolBoxXml += '</xml>';
