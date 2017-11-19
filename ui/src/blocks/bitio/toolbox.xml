@@ -1,4 +1,4 @@
-<category name="Bitio" colour="290">
+<category name="BitIO" colour="290">
     <block type="importmb"></block>
     <block type="displayscrolltext"></block>
     <block type="displayscrollvar"></block>
