@@ -4,7 +4,6 @@
   <block type="while_true"></block>
   <block type="pass"></block>
   <block type="ifinline"></block>
-  <block type="buttonapressed"></block>
   <block type="varprint"></block>
   <block type="df"></block>
   <block type="ifcroc"></block>

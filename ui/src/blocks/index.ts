@@ -17,6 +17,12 @@ displayDefs(Blockly.Blocks);
 displayGens(Blockly.Python as any);
 toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'display', 'toolbox.xml'));
 
+import buttonsDefs from './buttons/definitions';
+import buttonsGens from './buttons/generators';
+buttonsDefs(Blockly.Blocks);
+buttonsGens(Blockly.Python as any);
+toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'buttons', 'toolbox.xml'));
+
 import radioDefs from './radio/definitions';
 import radioGens from './radio/generators';
 radioDefs(Blockly.Blocks);

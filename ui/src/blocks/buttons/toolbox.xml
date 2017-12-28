@@ -1,0 +1,4 @@
+<category name="Buttons" colour="210">
+    <block type="buttonispressed"></block>
+    <block type="buttonwaspressed"></block>
+</category>
