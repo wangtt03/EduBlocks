@@ -23,6 +23,12 @@ buttonsDefs(Blockly.Blocks);
 buttonsGens(Blockly.Python as any);
 toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'buttons', 'toolbox.xml'));
 
+import accelerometerDefs from './accelerometer/definitions';
+import accelerometerGens from './accelerometer/generators';
+accelerometerDefs(Blockly.Blocks);
+accelerometerGens(Blockly.Python as any);
+toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'accelerometer', 'toolbox.xml'));
+
 import radioDefs from './radio/definitions';
 import radioGens from './radio/generators';
 radioDefs(Blockly.Blocks);
@@ -35,7 +41,11 @@ speechDefs(Blockly.Blocks);
 speechGens(Blockly.Python as any);
 toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'speech', 'toolbox.xml'));
 
-
+import musicDefs from './music/definitions';
+import musicGens from './music/generators';
+musicDefs(Blockly.Blocks);
+musicGens(Blockly.Python as any);
+toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'music', 'toolbox.xml'));
 
 
 

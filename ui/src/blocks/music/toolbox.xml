@@ -1,0 +1,9 @@
+<category name="Music" colour="48">
+    <block type="musicimport"></block>
+    <block type="musicplay"></block>
+    <block type="musicpitch"></block>
+    <block type="musictempo"></block>
+    <block type="musicreset"></block>
+    <block type="musicstop"></block>
+    <block type="musicgettempo"></block>
+</category>
