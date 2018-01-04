@@ -1,4 +1,4 @@
-![alt tag](misc/newebheader.png)
+![alt tag](misc/edublocks-header.png)
 
 Welcome to the EduBlocks Github Repository!
 ===========================================
