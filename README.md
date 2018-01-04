@@ -6,6 +6,9 @@ Welcome to the EduBlocks for micro:bit Github Repository!
 About EduBlocks
 ---------------
 EduBlocks is a visual block based programming tool that will hopefully help teachers to introduce text based programming languages, like Python, to children at an earlier age.
+
+#The micro:bit editor can be found at ![https://microbit.edublocks.org](https://microbit.edublocks.org)
+
 ![alt tag](misc/mbscreenshot.png)
 EduBlocks features:
 * Block Format:
@@ -16,6 +19,8 @@ Lots of documentation to get you ready to go quickly. New projects added every 2
 Includes majority of the micropython system.
 * Python View:
 Once you have coded the blocks, you can easily switch to the Python View to see the real Python code.
+* Multi-Device:
+Runs on most computers with a USB port running a web brower.
 
 Status
 ---------------
