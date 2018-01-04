@@ -7,7 +7,7 @@ About EduBlocks
 ---------------
 EduBlocks is a visual block based programming tool that will hopefully help teachers to introduce text based programming languages, like Python, to children at an earlier age.
 
-#The micro:bit editor can be found at ![https://microbit.edublocks.org](https://microbit.edublocks.org)
+# The micro:bit editor can be found at ![https://microbit.edublocks.org](https://microbit.edublocks.org)
 
 ![alt tag](misc/mbscreenshot.png)
 EduBlocks features:
