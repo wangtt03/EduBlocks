@@ -30,41 +30,6 @@ Status
 ### Branch Status
 ![experimental](http://badges.github.io/stability-badges/dist/stable.svg)
 
-Installation
-------------
-Get started with EduBlocks on your Raspberry Pi in these simple steps:
-
-1. Open up a terminal window by clicking on the terminal icon on the top right hand corner of your Raspberry Pi's Screen
-![alt tag](newcommand.png)
-2. Type the following command and then press enter on your keyboard.
-```bash
-curl -sSL get.edublocks.org | bash
-```
-![alt tag](misc/2.png)
-3. When prompted by the installer, press enter to select YES to install.
-![alt tag](misc/3.png)
-4. The installer will now run for a few minutes. This depends on your internet speeds.
-![alt tag](misc/4.png)
-5. You will now be able to see EduBlocks in the Raspberry Pi >> Programming menu. Click on the EduBlocks link to run the program.
-![alt tag](misc/5.png)
-6. After around half a minute, you should be able to see the EduBlocks workspace. Happy Coding.
-![alt tag](misc/6.png)
-
-Did this not work for you? Look at the Support section of this document.
-
-Manual Install
---------------
-
-If you would rather mannually install EduBlocks instead of running our curl command. Here is the commands to do it:
-```
-wget http://edublocks.org/downloads/edublocks-armv6l.tar.xz
-
-tar -xf edublocks-armv6l.tar.xz
-
-edublocks/install-deps.sh
-
-edublocks/install.sh
-```
 
 Developer Instructions
 ----------------------
@@ -81,9 +46,6 @@ Install Yarn:
 
     npm --global install yarn
 
-Install PIP packages:
-
-    pip3 install edupy python-sonic blinkt explorerhat 'ipython==6.0.0'
 
 ### Running Server and Client locally in developer mode on your PC
 
@@ -103,7 +65,7 @@ In the second terminal, run the server:
     yarn
     yarn run watch
 
-EduBlocks UI will now be available at http://localhost:8081/
+EduBlocks micro:bit UI will now be available at http://localhost:8081/
 
 #### Bash on Windows instructions (better instructions will follow)
 
@@ -113,10 +75,10 @@ EduBlocks UI will now be available at http://localhost:8081/
     nvm install 6.10.3
     npm --global install yarn
 
-    git clone git@github.com:AllAboutCode/EduBlocks.git
+    git clone git@github.com:AllAboutCode/EduBlocks/
 
     cd EduBlocks
-
+    git checkout microbit
     cd ui
     ln -s ../../server/src/protocol.ts src/protocol.ts
 
@@ -129,7 +91,7 @@ EduBlocks UI will now be available at http://localhost:8081/
 
 ### Releasing a new version
 
-Increment version, this will automatically tag the current commit as the new version:
+Increment version, this will automatically tag the current commit as the new version. E.G. 0.0.19-microbit:
 
     yarn version
 
