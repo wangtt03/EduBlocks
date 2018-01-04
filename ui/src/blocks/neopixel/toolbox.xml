@@ -1,0 +1,7 @@
+<category name="Neopixel" colour="150">
+  <block type="importneo"></block>
+  <block type="setneo"></block>
+  <block type="neovar"></block>
+  <block type="neoshow"></block>
+  <block type="neoclear"></block>
+</category>

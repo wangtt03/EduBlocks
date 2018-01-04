@@ -29,6 +29,12 @@ accelerometerDefs(Blockly.Blocks);
 accelerometerGens(Blockly.Python as any);
 toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'accelerometer', 'toolbox.xml'));
 
+import compassDefs from './compass/definitions';
+import compassGens from './compass/generators';
+compassDefs(Blockly.Blocks);
+compassGens(Blockly.Python as any);
+toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'compass', 'toolbox.xml'));
+
 import radioDefs from './radio/definitions';
 import radioGens from './radio/generators';
 radioDefs(Blockly.Blocks);
@@ -47,7 +53,17 @@ musicDefs(Blockly.Blocks);
 musicGens(Blockly.Python as any);
 toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'music', 'toolbox.xml'));
 
+import neopixelDefs from './neopixel/definitions';
+import neopixelGens from './neopixel/generators';
+neopixelDefs(Blockly.Blocks);
+neopixelGens(Blockly.Python as any);
+toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'neopixel', 'toolbox.xml'));
 
+import pinsDefs from './pins/definitions';
+import pinsGens from './pins/generators';
+pinsDefs(Blockly.Blocks);
+pinsGens(Blockly.Python as any);
+toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'pins', 'toolbox.xml'));
 
 toolBoxXml += '</xml>';
 

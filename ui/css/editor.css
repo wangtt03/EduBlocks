@@ -2,8 +2,6 @@ body {
   height: auto;
 }
 
-
-
 .loading-message {
   font-size: 100px;
   color: #aaa;
@@ -139,4 +137,8 @@ table.primary td {
 .blocklySvg{
   background-image: url("https://az742082.vo.msecnd.net/pub/psopafpj");
     
+}
+
+.blocklyTreeRow{
+  height: 52px !important
 }

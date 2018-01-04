@@ -1,0 +1,4 @@
+<category name="Compass" colour="280">
+  <block type="compasscalibrate"></block>
+  <block type="compasscalibrated"></block>
+</category>

@@ -1,6 +1,6 @@
 export default function define(Blocks: Blockly.BlockDefinitions) {
 
-  Blocks['musicplay'] = {
+  Blocks['scroll'] = {
     init: function () {
       this.appendDummyInput()
         .appendField('display.scroll("')
