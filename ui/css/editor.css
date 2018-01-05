@@ -129,6 +129,14 @@ table.primary td {
   border: solid 1px #777;
 }
 
+a{
+  color: #00ed00
+}
+
+button{
+  background-color: #00ed00
+}
+
 #term {
   height: calc(100% - 28px);
   background: #333;

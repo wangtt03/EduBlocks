@@ -302,9 +302,9 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
   Blocks['print'] = {
     init: function () {
       this.appendDummyInput()
-        .appendField('print(\'')
+        .appendField('print("')
         .appendField(new Blockly.FieldTextInput(''), 'print')
-        .appendField('\')');
+        .appendField('" )');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
       this.setColour(336);
@@ -381,6 +381,24 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     },
   };
 
+  Blocks['elifinline'] = {
+    init: function () {
+      this.appendValueInput('iftext')
+        .setCheck(null)
+        .appendField('elif');
+      this.appendDummyInput()
+        .appendField(':');
+      this.appendStatementInput('ifstate')
+        .setCheck(null);
+      this.setInputsInline(true);
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour(336);
+      this.setTooltip('ElIf block with inline input');
+      this.setHelpUrl('');
+    },
+  };
+
   Blocks['buttonapressed'] = {
     init: function () {
       this.appendDummyInput()
@@ -393,6 +411,22 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.setTooltip('Button A Pressed');
       this.setHelpUrl('');
     },
+  };
+
+  Blocks['internal'] = {
+    init: function() {
+      this.appendValueInput("first")
+          .setCheck(null);
+      this.appendDummyInput()
+          .appendField(new Blockly.FieldTextInput("=="), "choose");
+      this.appendValueInput("last")
+          .setCheck(null);
+      this.setInputsInline(true);
+      this.setOutput(true, null);
+      this.setColour(336);
+   this.setTooltip("");
+   this.setHelpUrl("");
+    }
   };
 
 

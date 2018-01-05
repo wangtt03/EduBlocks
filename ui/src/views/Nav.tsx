@@ -54,7 +54,7 @@ export default class Nav extends Component<NavProps, {}> {
             Download Py
           </a>
 
-          <a class='button icon-download' title='Download Python Source Code' href='javascript:void(0)' onClick={() => this.props.downloadHex()}>
+          <a class='button icon-download' title='Download file to flash to micro:bit' href='javascript:void(0)' onClick={() => this.props.downloadHex()}>
             Download Hex
           </a>
         </div>
