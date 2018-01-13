@@ -285,6 +285,18 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     },
   };
 
+  Blocks['import_audio'] = {
+    init: function () {
+      this.appendDummyInput()
+        .appendField('import audio');
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour(336);
+      this.setTooltip('Imports the audio library.');
+      this.setHelpUrl('http://www.example.com/');
+    },
+  };
+
   Blocks['sleep'] = {
     init: function () {
       this.appendDummyInput()
@@ -379,6 +391,18 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.setTooltip('If block with inline input');
       this.setHelpUrl('');
     },
+  };
+
+  Blocks['typeanything'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField(new Blockly.FieldTextInput(""), "stuff");
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour(336);
+   this.setTooltip("Type any python code into this block");
+   this.setHelpUrl("");
+    }
   };
 
   Blocks['elifinline'] = {

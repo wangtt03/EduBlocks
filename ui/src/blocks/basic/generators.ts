@@ -150,6 +150,11 @@ export default function define(Python: Blockly.BlockGenerators) {
     return code;
   };
 
+  Python['import_audio'] = function (block) {
+    const code = 'import audio\n';
+    return code;
+  };
+
   Python['sleep'] = function (block) {
     const text_sleeptime = block.getFieldValue('sleep');
     const code = 'sleep(' + text_sleeptime + ')\n';
@@ -207,6 +212,13 @@ export default function define(Python: Blockly.BlockGenerators) {
     // const statements_ifstate = Blockly.Python.statementToCode(block, 'ifstate');
     // TODO: Assemble Python into code variable.
     const code = 'if ' + value_iftext + ':\n' + branch;
+    return code;
+  };
+
+  Python['typeanything'] = function(block) {
+    var text_stuff = block.getFieldValue('stuff');
+    // TODO: Assemble Python into code variable.
+    var code = text_stuff+ '\n';
     return code;
   };
 
