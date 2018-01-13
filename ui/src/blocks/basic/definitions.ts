@@ -221,7 +221,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.appendStatementInput('DO')
         .appendField('');
       this.setPreviousStatement(true, null);
-      this.setNextStatement(false, null);
+      this.setNextStatement(true, null);
       this.setColour(336);
       this.setTooltip('Elif Statement.');
       this.setHelpUrl('');
@@ -235,7 +235,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.appendStatementInput('DO')
         .appendField('');
       this.setPreviousStatement(true, null);
-      this.setNextStatement(false, null);
+      this.setNextStatement(true, null);
       this.setColour(336);
       this.setTooltip('Else statement');
       this.setHelpUrl('https://t.co/PCZC5EFe4D');
