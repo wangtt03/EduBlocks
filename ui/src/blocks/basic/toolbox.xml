@@ -18,6 +18,7 @@
   <block type="elif"></block>
   <block type="else"></block>
   <block type="pass"></block>
+  <block type="class"></block>
   <block type="varprint"></block>
   <block type="ifcroc"></block>
   <block type="varminus"></block>

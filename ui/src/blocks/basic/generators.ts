@@ -37,6 +37,13 @@ export default function define(Python: Blockly.BlockGenerators) {
     return 'if ' + text_const + ':\n' + branch;
   };
 
+  Python['class'] = function (block) {
+    const text_const = block.getFieldValue('var');
+    let branch = Blockly.Python.statementToCode(block, 'DO');
+    branch = Blockly.Python.addLoopTrap(branch, block.id) || Blockly.Python.PASS;
+    return 'class ' + text_const + ':\n' + branch;
+  };
+
   Python['varprint'] = function (block) {
     const text_const = block.getFieldValue('var');
     // TODO: Assemble Python into code variable.

@@ -89,6 +89,22 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     },
   };
 
+  Blocks['class'] = {
+    init: function () {
+      this.appendDummyInput()
+        .appendField('class')
+        .appendField(new Blockly.FieldTextInput('0'), 'var')
+        .appendField(':');
+      this.appendStatementInput('DO')
+        .appendField('');
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour(336);
+      this.setTooltip('Class Statement.');
+      this.setHelpUrl('');
+    },
+  };
+
   Blocks['varprint'] = {
     init: function () {
       this.appendDummyInput()
