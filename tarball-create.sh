@@ -28,7 +28,7 @@ echo ''
 echo 'Downloading / Extracting Node.JS...'
 curl https://nodejs.org/dist/$NODE_VERSION_WANTED/node-$NODE_VERSION_WANTED-linux-$ARCH.tar.xz | tar -xJ -C $TMP_PATH
 
-NODE_TMP_PATH=$TMP_PATH/node-v6.10.2-linux-$ARCH
+NODE_TMP_PATH=$TMP_PATH/node-$NODE_VERSION_WANTED-linux-$ARCH
 
 REPO_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
