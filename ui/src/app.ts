@@ -46,11 +46,13 @@ async function newApp(): Promise<App> {
 
   function getThemes() {
     return [
-      'space',
-      'minecraft',
-      'slate',
-      'circuitboard',
-      'dark',
+      'Default',
+      'Tangerine',
+      'Vivid',
+      'DarkRed',
+      'Celestial',
+      'Pacific',
+      'Dark',
     ];
   }
 
