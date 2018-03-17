@@ -1,7 +1,11 @@
 #!/bin/bash
+ORANGE='\033[0;33m'
+BLUE='\033[0;36m'
+RED='\033[0;31m'
+NC='\033[0m'
 
 if [ $(whoami) == 'root' ]; then
-  echo 'Please do not run me as root'
+  echo "${RED}Please do not run me as root"
   exit 1
 fi
 
@@ -18,16 +22,16 @@ sudo mkdir -p $INSTALL_PATH
 
 sudo cp -r $APP_PATH/* $INSTALL_PATH
 
-echo "Copying the desktop shortcut to your desktop..."
+echo "${BLUE}Copying the desktop shortcut to your desktop...\n"
 cp $APP_PATH/edublocks.desktop ~/Desktop
 
-echo "Copying the icon..."
+echo "${BLUE}Copying the icon...\n"
 sudo cp $APP_PATH/ui/images/logo.png /usr/share/icons/hicolor/scalable/apps/logo.png
 
-echo "Making the program visible in the menu..."
+echo "${BLUE}Making the program visible in the menu...\n"
 sudo cp $APP_PATH/edublocks.desktop /usr/share/applications
 
-echo "Creating symlinks..."
+echo "${BLUE}Creating symlinks...\n"
 
 sudo rm -f $GLOBAL_BIN_PATH/edublocks
 sudo rm -f $GLOBAL_BIN_PATH/edublocks-headless

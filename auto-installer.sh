@@ -1,10 +1,18 @@
-#!/bin/bash
+ORANGE='\033[0;33m'
+BLUE='\033[0;36m'
+RED='\033[0;31m'
+NC='\033[0m'
 
-# Convenience script for one line installation.
-# Not intended to be run from here but rather it should curl'ed from somewhere.
+echo -e "${ORANGE}Welcome to the EduBlocks Raspberry Pi Edition installer!"
+echo -e "${ORANGE}This script will install all the necessary things to setup EduBlocks.\n"
+
+echo -e "${BLUE}Always be careful when running scripts and commands copied
+from the internet. Ensure they are from a trusted source. Although, this is an offical script and is safe to run\n"
+
+echo -e "${NC}Let's get started!\n"
 
 if [ $(whoami) == 'root' ]; then
-  echo 'Please do not run me as root'
+  echo -e "${RED}Please do not run me as root"
   exit 1
 fi
 
@@ -15,40 +23,41 @@ cd ~
 
 if [ -f edublocks-$ARCH.tar.xz ]; then
   echo ''
-  echo 'Removing old download...'
+  echo -e "${BLUE}Removing old download...\n"
   rm -f edublocks-$ARCH.tar.xz
 fi
 
 if [ -d edublocks ]; then
   echo ''
-  echo 'Removing old extract...'
+  echo -e "${BLUE}Removing old extract...\n"
   rm -rf edublocks
 fi
 
 echo ''
-echo 'Downloading package...'
+echo -e "${BLUE}Downloading package...${NC}\n"
 wget http://edublocks.org/downloads/edublocks-$ARCH.tar.xz
 
 echo ''
-echo 'Extracting package...'
+echo -e "${BLUE}Extracting package...\n"
 tar -xf edublocks-$ARCH.tar.xz
 
 echo ''
-echo 'Running install dependencies script...'
+echo -e "${BLUE}Running install dependencies script...\n"
 ~/edublocks/install-deps.sh
 
 echo ''
-echo 'Running install script...'
+echo -e "${BLUE}Running install script..."
 ~/edublocks/install.sh
 
 if [ -f edublocks-$ARCH.tar.xz ]; then
   echo ''
-  echo 'Removing temp download...'
+  echo -e "${BLUE}Removing temp download...\n"
   rm -f edublocks-$ARCH.tar.xz
 fi
 
 if [ -d edublocks ]; then
   echo ''
-  echo 'Removing temp extract...'
+  echo -e "${BLUE}Removing temp extract...\n"
   rm -rf edublocks
+  echo -e "${ORANGE}EduBlocks has installed Successfully. To open EduBlocks, go to Menu > Programming > EduBlocks"
 fi
