@@ -4,7 +4,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     init: function() {
       this.appendDummyInput()
           .appendField("pin")
-          .appendField(new Blockly.FieldDropdown([["0","0"], ["1","1"], ["2","2"]]), "NAME")
+          .appendField(new Blockly.FieldTextInput("0"), "pinno")
           .appendField(".is_touched()");
       this.setOutput(true, null);
       this.setColour(0);
@@ -17,7 +17,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     init: function() {
       this.appendDummyInput()
           .appendField("pin")
-          .appendField(new Blockly.FieldDropdown([["0","0"], ["1","1"], ["2","2"], ["3","3"], ["4","4"], ["10","10"]]), "NAME")
+          .appendField(new Blockly.FieldTextInput("0"), "pinno")
           .appendField(".read_analog()");
       this.setOutput(true, null);
       this.setColour(0);
@@ -30,7 +30,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     init: function() {
       this.appendDummyInput()
           .appendField("pin")
-          .appendField(new Blockly.FieldDropdown([["0","0"], ["1","1"], ["2","2"], ["3","3"], ["4","4"], ["10","10"]]), "NAME")
+          .appendField(new Blockly.FieldTextInput("0"), "pinno")
           .appendField(".read_digital()");
       this.setOutput(true, null);
       this.setColour(0);
@@ -43,7 +43,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     init: function() {
       this.appendDummyInput()
           .appendField("pin")
-          .appendField(new Blockly.FieldDropdown([["0","0"], ["1","1"], ["2","2"], ["3","3"], ["4","4"], ["10","10"]]), "NAME")
+          .appendField(new Blockly.FieldTextInput("0"), "pinno")
           .appendField(".write_analog(")
           .appendField(new Blockly.FieldTextInput(""), "analog")
           .appendField(")");
@@ -59,7 +59,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     init: function() {
       this.appendDummyInput()
           .appendField("pin")
-          .appendField(new Blockly.FieldDropdown([["0","0"], ["1","1"], ["2","2"], ["3","3"], ["4","4"], ["10","10"]]), "NAME")
+          .appendField(new Blockly.FieldTextInput("0"), "pinno")
           .appendField(".write_digital(")
           .appendField(new Blockly.FieldTextInput(""), "digital")
           .appendField(")");

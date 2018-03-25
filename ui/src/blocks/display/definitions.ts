@@ -137,50 +137,50 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
 Blocks['imagecreate'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField(new Blockly.FieldTextInput(""), "var")
-        .appendField("= Image(\"")
-        .appendField(new Blockly.FieldTextInput(""), "11")
-        .appendField(new Blockly.FieldTextInput(""), "12")
-        .appendField(new Blockly.FieldTextInput(""), "13")
-        .appendField(new Blockly.FieldTextInput(""), "14")
-        .appendField(new Blockly.FieldTextInput(""), "15")
+        .appendField(new Blockly.FieldTextInput("image"), "image")
+        .appendField(" = (\"")
+        .appendField(new Blockly.FieldNumber(0, 0, 9), "1")
+        .appendField(new Blockly.FieldNumber(0, 0, 9), "2")
+        .appendField(new Blockly.FieldNumber(0, 0, 9), "3")
+        .appendField(new Blockly.FieldNumber(0, 0, 9), "4")
+        .appendField(new Blockly.FieldNumber(0, 0, 9), "5")
         .appendField(":\"");
     this.appendDummyInput()
-        .appendField("                  \"")
-        .appendField(new Blockly.FieldTextInput(""), "21")
-        .appendField(new Blockly.FieldTextInput(""), "22")
-        .appendField(new Blockly.FieldTextInput(""), "23")
-        .appendField(new Blockly.FieldTextInput(""), "24")
-        .appendField(new Blockly.FieldTextInput(""), "25")
+        .appendField("                  ")
+        .appendField(new Blockly.FieldNumber(0, 0, 9), "6")
+        .appendField(new Blockly.FieldNumber(0, 0, 9), "7")
+        .appendField(new Blockly.FieldNumber(0, 0, 9), "8")
+        .appendField(new Blockly.FieldNumber(0, 0, 9), "9")
+        .appendField(new Blockly.FieldNumber(0, 0, 9), "10")
         .appendField(":\"");
     this.appendDummyInput()
-        .appendField("                  \"")
-        .appendField(new Blockly.FieldTextInput(""), "31")
-        .appendField(new Blockly.FieldTextInput(""), "32")
-        .appendField(new Blockly.FieldTextInput(""), "33")
-        .appendField(new Blockly.FieldTextInput(""), "34")
-        .appendField(new Blockly.FieldTextInput(""), "35")
+        .appendField("                  ")
+        .appendField(new Blockly.FieldNumber(0, 0, 9), "11")
+        .appendField(new Blockly.FieldNumber(0, 0, 9), "12")
+        .appendField(new Blockly.FieldNumber(0, 0, 9), "13")
+        .appendField(new Blockly.FieldNumber(0, 0, 9), "14")
+        .appendField(new Blockly.FieldNumber(0, 0, 9), "15")
         .appendField(":\"");
     this.appendDummyInput()
-        .appendField("                  \"")
-        .appendField(new Blockly.FieldTextInput(""), "41")
-        .appendField(new Blockly.FieldTextInput(""), "42")
-        .appendField(new Blockly.FieldTextInput(""), "43")
-        .appendField(new Blockly.FieldTextInput(""), "44")
-        .appendField(new Blockly.FieldTextInput(""), "45")
+        .appendField("                  ")
+        .appendField(new Blockly.FieldNumber(0, 0, 9), "16")
+        .appendField(new Blockly.FieldNumber(0, 0, 9), "17")
+        .appendField(new Blockly.FieldNumber(0, 0, 9), "18")
+        .appendField(new Blockly.FieldNumber(0, 0, 9), "19")
+        .appendField(new Blockly.FieldNumber(0, 0, 9), "20")
         .appendField(":\"");
     this.appendDummyInput()
-        .appendField("                  \"")
-        .appendField(new Blockly.FieldTextInput(""), "51")
-        .appendField(new Blockly.FieldTextInput(""), "52")
-        .appendField(new Blockly.FieldTextInput(""), "53")
-        .appendField(new Blockly.FieldTextInput(""), "54")
-        .appendField(new Blockly.FieldTextInput(""), "55")
+        .appendField("                  ")
+        .appendField(new Blockly.FieldNumber(0, 0, 9), "16")
+        .appendField(new Blockly.FieldNumber(0, 0, 9), "17")
+        .appendField(new Blockly.FieldNumber(0, 0, 9), "18")
+        .appendField(new Blockly.FieldNumber(0, 0, 9), "19")
+        .appendField(new Blockly.FieldNumber(0, 0, 9), "20")
         .appendField("\")");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(75);
- this.setTooltip("Create a custom image");
+    this.setColour(70);
+ this.setTooltip("");
  this.setHelpUrl("");
   }
 };
