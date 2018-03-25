@@ -15,6 +15,6 @@
     <block type="blinktsetbrightness"></block>
     <block type="blinktsetall"></block>
     <block type="blinktsetallbright"></block>
-    <block type="blinktclear"></block>
+    <block type="blinktclear"></block> 
   </category>
 </category>
