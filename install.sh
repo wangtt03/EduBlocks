@@ -22,16 +22,16 @@ sudo mkdir -p $INSTALL_PATH
 
 sudo cp -r $APP_PATH/* $INSTALL_PATH
 
-echo "${BLUE}Copying the desktop shortcut to your desktop...\n"
+echo "${BLUE} Copying the desktop shortcut to your desktop... \n"
 cp $APP_PATH/edublocks.desktop ~/Desktop
 
-echo "${BLUE}Copying the icon...\n"
+echo "${BLUE} Copying the icon...\n"
 sudo cp $APP_PATH/ui/images/logo.png /usr/share/icons/hicolor/scalable/apps/logo.png
 
-echo "${BLUE}Making the program visible in the menu...\n"
+echo "${BLUE} Making the program visible in the menu...\n"
 sudo cp $APP_PATH/edublocks.desktop /usr/share/applications
 
-echo "${BLUE}Creating symlinks...\n"
+echo "${BLUE} Creating symlinks... \n"
 
 sudo rm -f $GLOBAL_BIN_PATH/edublocks
 sudo rm -f $GLOBAL_BIN_PATH/edublocks-headless
