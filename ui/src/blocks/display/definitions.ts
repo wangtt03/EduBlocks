@@ -171,11 +171,11 @@ Blocks['imagecreate'] = {
         .appendField(":\"");
     this.appendDummyInput()
         .appendField("                  ")
-        .appendField(new Blockly.FieldNumber(0, 0), "16")
-        .appendField(new Blockly.FieldNumber(0, 0), "17")
-        .appendField(new Blockly.FieldNumber(0, 0), "18")
-        .appendField(new Blockly.FieldNumber(0, 0), "19")
-        .appendField(new Blockly.FieldNumber(0, 0), "20")
+        .appendField(new Blockly.FieldNumber(0, 0), "21")
+        .appendField(new Blockly.FieldNumber(0, 0), "22")
+        .appendField(new Blockly.FieldNumber(0, 0), "23")
+        .appendField(new Blockly.FieldNumber(0, 0), "24")
+        .appendField(new Blockly.FieldNumber(0, 0), "25")
         .appendField("\")");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);

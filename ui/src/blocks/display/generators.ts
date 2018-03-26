@@ -88,8 +88,13 @@ Python['imagecreate'] = function(block) {
   var number_18 = block.getFieldValue('18');
   var number_19 = block.getFieldValue('19');
   var number_20 = block.getFieldValue('20');
+  var number_21 = block.getFieldValue('21');
+  var number_22 = block.getFieldValue('22');
+  var number_23 = block.getFieldValue('23');
+  var number_24 = block.getFieldValue('24');
+  var number_25 = block.getFieldValue('25');
   // TODO: Assemble Python into code variable.
-  var code = text_image +' = Image("'+number_1+number_2+number_3+number_4+number_5+':'+number_6+number_7+number_8+number_9+number_10+':'+number_11+number_12+number_13+number_14+number_15+':'+number_16+number_17+number_18+number_19+number_20+'")\n';
+  var code = text_image +' = Image("'+number_1+number_2+number_3+number_4+number_5+':'+number_6+number_7+number_8+number_9+number_10+':'+number_11+number_12+number_13+number_14+number_15+':'+number_16+number_17+number_18+number_19+number_20+':'+number_21+number_22+number_23+number_24+number_25+'")\n';
   return code;
 };
 
