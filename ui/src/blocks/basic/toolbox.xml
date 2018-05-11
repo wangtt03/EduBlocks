@@ -1,7 +1,7 @@
 <category name="Basic" colour="336">
-  <block type="import_microbit"></block>
-  <block type="import_math"></block>
-  <block type="import_audio"></block>
+  <block type="import_board"></block>
+  <block type="import_time"></block>
+  <block type="importneo"></block>
   <block type="print"></block>
   <block type="sleep"></block>
   <block type="random"></block>

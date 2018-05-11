@@ -1,72 +1,56 @@
 export default function define(Blocks: Blockly.BlockDefinitions) {
 
-  Blocks['pintouched'] = {
-    init: function() {
+  Blocks['import_digitalio'] = {
+    init: function () {
       this.appendDummyInput()
-          .appendField("pin")
-          .appendField(new Blockly.FieldTextInput("0"), "pinno")
-          .appendField(".is_touched()");
-      this.setOutput(true, null);
+        .appendField('from digitalio import *');
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
       this.setColour(0);
-   this.setTooltip("If this pin is touched");
-   this.setHelpUrl("");
-    }
-  };
-  
-  Blocks['analogread'] = {
-    init: function() {
-      this.appendDummyInput()
-          .appendField("pin")
-          .appendField(new Blockly.FieldTextInput("0"), "pinno")
-          .appendField(".read_analog()");
-      this.setOutput(true, null);
-      this.setColour(0);
-   this.setTooltip("Read Analog");
-   this.setHelpUrl("");
-    }
+      this.setTooltip('Imports the DigitalIO library.');
+      this.setHelpUrl('http://www.example.com/');
+    },
   };
 
-  Blocks['digitalread'] = {
+  Blocks['pinconfig'] = {
     init: function() {
       this.appendDummyInput()
-          .appendField("pin")
-          .appendField(new Blockly.FieldTextInput("0"), "pinno")
-          .appendField(".read_digital()");
-      this.setOutput(true, null);
-      this.setColour(0);
-   this.setTooltip("Read Digital");
-   this.setHelpUrl("");
-    }
-  };
-
-  Blocks['writeanalog'] = {
-    init: function() {
-      this.appendDummyInput()
-          .appendField("pin")
-          .appendField(new Blockly.FieldTextInput("0"), "pinno")
-          .appendField(".write_analog(")
-          .appendField(new Blockly.FieldTextInput(""), "analog")
+          .appendField(new Blockly.FieldVariable("pin"), "pin")
+          .appendField(" = DigitalInOut(")
+          .appendField(new Blockly.FieldTextInput(""), "pinno")
           .appendField(")");
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
       this.setColour(0);
-   this.setTooltip("Write Analog");
+   this.setTooltip("");
    this.setHelpUrl("");
     }
   };
 
-  Blocks['writedigital'] = {
+  Blocks['pindirection'] = {
     init: function() {
       this.appendDummyInput()
-          .appendField("pin")
-          .appendField(new Blockly.FieldTextInput("0"), "pinno")
-          .appendField(".write_digital(")
-          .appendField(new Blockly.FieldTextInput(""), "digital")
-          .appendField(")");
+          .appendField(new Blockly.FieldVariable("pin"), "pin")
+          .appendField(".direction = ")
+          .appendField(new Blockly.FieldTextInput(""), "direction");
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
       this.setColour(0);
-   this.setTooltip("Write Digital");
+   this.setTooltip("");
+   this.setHelpUrl("");
+    }
+  };
+
+  Blocks['pinvalue'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField(new Blockly.FieldVariable("pin"), "pin")
+          .appendField(".value = ")
+          .appendField(new Blockly.FieldDropdown([["True","True"], ["False","False"]]), "value");
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour(0);
+   this.setTooltip("");
    this.setHelpUrl("");
     }
   };
