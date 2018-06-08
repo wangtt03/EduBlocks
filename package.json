@@ -1,6 +1,6 @@
 {
     "name": "edublocks",
-    "version": "2.1.0",
+    "version": "2.1.1",
     "description": "EduBlocks is a visual block based programming tool",
     "main": "index.js",
     "scripts": {
