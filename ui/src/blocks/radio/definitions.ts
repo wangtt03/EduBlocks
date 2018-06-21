@@ -53,7 +53,36 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     },
   };
 
+  Blocks['ifradio'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField("if ")
+          .appendField(new Blockly.FieldVariable("incoming"), "incoming")
+          .appendField(" == ")
+          .appendField(new Blockly.FieldTextInput(""), "sentitem")
+          .appendField(":");
+      this.appendStatementInput("DO")
+          .setCheck(null);
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour(90);
+   this.setTooltip("Check if there is an incoming radio command.");
+   this.setHelpUrl("");
+    }
+  };
 
+  Blocks['incoming'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField(new Blockly.FieldVariable("incoming"), "incoming")
+          .appendField(" = radio.receive()");
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour(90);
+   this.setTooltip("Initialize receiver");
+   this.setHelpUrl("");
+    }
+  };
 
 
 
