@@ -24,7 +24,7 @@ export default function define(Python: Blockly.BlockGenerators) {
 
   Python['ifradio'] = function(block) {
     const variable_incoming = Blockly.Python.variableDB_.getName(block.getFieldValue('incoming'), Blockly.Variables.NAME_TYPE);
-    const statements_name = Blockly.Python.statementToCode(block, 'DO');
+    // const statements_name = Blockly.Python.statementToCode(block, 'DO');
     const text_sentitem = block.getFieldValue('sentitem');
     let branch = Blockly.Python.statementToCode(block, 'DO');
     branch = Blockly.Python.addLoopTrap(branch, block.id) || Blockly.Python.PASS;
