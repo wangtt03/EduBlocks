@@ -6,7 +6,7 @@ import { newApp } from './app';
 async function main() {
   const app = await newApp();
   Blockly.HSV_VALUE = 0.9;
-  
+
 
   const pageDiv = getElementByIdSafe('page');
 
@@ -28,3 +28,7 @@ async function main() {
 }
 
 window.addEventListener('load', main);
+
+if (window.location.hostname !== 'localhost' && window.location.protocol !== 'https:') {
+  window.location.href = window.location.href.replace('http://', 'https://');
+}
