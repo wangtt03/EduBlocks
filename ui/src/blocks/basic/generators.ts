@@ -8,6 +8,11 @@ export default function define(Python: Blockly.BlockGenerators) {
     const code = 'from signal import pause\n';
     return code;
   };
+
+  Python['import_colorsys'] = function (block) {
+    const code = 'import colorsys\n';
+    return code;
+  };
    
    Python['pause_s'] = function (block) {
     const code = 'pause()\n';

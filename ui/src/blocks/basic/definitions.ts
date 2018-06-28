@@ -23,6 +23,18 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     },
   };
 
+  Blocks['import_colorsys'] = {
+    init: function () {
+      this.appendDummyInput()
+        .appendField('import colorsys');
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour(336);
+      this.setTooltip('Imports the colorsys library.');
+      this.setHelpUrl('http://www.example.com/');
+    },
+  };
+
   Blocks['pause_s'] = {
     init: function () {
       this.appendDummyInput()
