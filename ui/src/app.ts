@@ -56,6 +56,13 @@ async function newApp(): Promise<App> {
     ];
   }
 
+  function getExtensions() {
+    return [
+      'scroll:bit',
+      'enviro:bit',
+    ];
+  }
+
   return {
     runCode,
     openFile,
@@ -63,6 +70,7 @@ async function newApp(): Promise<App> {
     saveHex,
     assignTerminal,
     getThemes,
+    getExtensions,
     ...samples,
   };
 }

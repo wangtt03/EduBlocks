@@ -3,6 +3,7 @@ import { Component } from 'preact';
 
 interface NavProps {
   openSamples(): void;
+  openExtensions(): void;
   openThemes(): void;
   downloadPython(): void;
   downloadHex(): void;
@@ -28,15 +29,6 @@ export default class Nav extends Component<NavProps, {}> {
         <label for='bmenub' class='burger pseudo button'>menu</label>
 
         <div class='menu'>
-          <a class='button' title='Themes' href='javascript:void(0)' onClick={() => this.props.openThemes()}>
-            Themes
-          </a>
-
-          <a class='button' title='Samples' href='javascript:void(0)' onClick={() => this.props.openSamples()}>
-            Samples
-          </a>
-
-
           <a class='button icon-plus' title='New' href='javascript:void(0)' onClick={() => this.props.newCode()}>
             New
           </a>
@@ -48,14 +40,28 @@ export default class Nav extends Component<NavProps, {}> {
           <a class='button icon-floppy' title='Save a file' href='javascript:void(0)' onClick={() => this.props.saveCode()}>
             Save
           </a>
+          
+          <a class='button icon-flash' title='Download file to flash to micro:bit' href='javascript:void(0)' onClick={() => this.props.downloadHex()}>
+            Download
+          </a>
 
           <a class='button icon-download' title='Download Python Source Code' href='javascript:void(0)' onClick={() => this.props.downloadPython()}>
-            Download Py
+            Python
           </a>
 
-          <a class='button icon-download' title='Download file to flash to micro:bit' href='javascript:void(0)' onClick={() => this.props.downloadHex()}>
-            Download Hex
+          <a class='button icon-puzzle' title='Add an extension' href='javascript:void(0)' onClick={() => this.props.openExtensions()}>
+            Extensions
           </a>
+
+          <a class='button' title='Themes' href='javascript:void(0)' onClick={() => this.props.openThemes()}>
+            Themes
+          </a>
+
+          <a class='button' title='Samples' href='javascript:void(0)' onClick={() => this.props.openSamples()}>
+            Samples
+          </a>
+
+          
         </div>
       </nav>
     );

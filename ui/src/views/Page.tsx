@@ -7,9 +7,10 @@ import PythonView from './PythonView';
 import TerminalView from './TerminalView';
 import SelectModal from './SelectModal';
 
+
 import { App } from '../types';
 
-const ViewModeBlockly = 'blockly';
+const ViewModeBlockly = 'blocks';
 const ViewModePython = 'python';
 
 type ViewMode = typeof ViewModeBlockly | typeof ViewModePython;
@@ -29,6 +30,7 @@ interface PageState {
   terminalOpen: boolean;
   samplesOpen: boolean;
   themesOpen: boolean;
+  extensionsOpen: boolean;
 
   doc: Readonly<DocumentState>;
 }
@@ -46,6 +48,7 @@ export default class Page extends Component<PageProps, PageState> {
       terminalOpen: false,
       samplesOpen: false,
       themesOpen: false,
+      extensionsOpen: false,
 
       doc: {
         xml: null,
@@ -111,7 +114,7 @@ export default class Page extends Component<PageProps, PageState> {
 
     this.setState({ doc });
 
-    this.switchView('blockly');
+    this.switchView('blocks');
   }
 
   protected componentDidMount() {
@@ -131,7 +134,7 @@ export default class Page extends Component<PageProps, PageState> {
   private switchView(viewMode: ViewMode): 0 {
     switch (viewMode) {
       case ViewModeBlockly:
-        this.setState({ viewMode: 'blockly' });
+        this.setState({ viewMode: 'blocks' });
 
         return 0;
 
@@ -228,6 +231,20 @@ export default class Page extends Component<PageProps, PageState> {
     document.body.className = `theme-${theme}`;
   }
 
+  private openExtensions() {
+    this.setState({ extensionsOpen: true });
+  }
+
+  private closeExtensions() {
+    this.setState({ extensionsOpen: false });
+  }
+
+  private selectExtension(extensionsext: string) {
+    this.closeExtensions();
+
+    window.alert("Hello World")
+  }
+
   private onTerminalClose() {
     this.setState({ terminalOpen: false });
   }
@@ -245,6 +262,7 @@ export default class Page extends Component<PageProps, PageState> {
           saveCode={() => this.saveFile()}
           newCode={() => this.new()}
           openSamples={() => this.openSamples()}
+          openExtensions={() => this.openExtensions()}
           openThemes={() => this.openThemes()} />
 
         <section id='workspace'>
@@ -258,7 +276,7 @@ export default class Page extends Component<PageProps, PageState> {
 
           <BlocklyView
             ref={(c) => this.blocklyView = c}
-            visible={this.state.viewMode === 'blockly'}
+            visible={this.state.viewMode === 'blocks'}
             xml={this.state.doc.xml}
             onChange={(xml, python) => this.onBlocklyChange(xml, python)} />
 
@@ -287,6 +305,13 @@ export default class Page extends Component<PageProps, PageState> {
           visible={this.state.themesOpen}
           onSelect={(theme) => this.selectTheme(theme)}
           onCancel={() => this.closeThemes()} />
+         
+         <SelectModal
+          title='Extensions'
+          options={this.props.app.getExtensions()}
+          visible={this.state.extensionsOpen}
+          onSelect={(theme) => this.selectExtension(theme)}
+          onCancel={() => this.closeExtensions()} />
       </div>
     );
   }
