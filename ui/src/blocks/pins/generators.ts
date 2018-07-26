@@ -12,7 +12,7 @@ export default function define(Python: Blockly.BlockGenerators) {
   Python['analogread'] = function(block) {
     var text_pinno = block.getFieldValue('pinno');
     // TODO: Assemble Python into code variable.
-    var code = 'pin'+text_pinno+'.read_anaglog()';
+    var code = 'pin'+text_pinno+'.read_analog()';
     // TODO: Change ORDER_NONE to the correct strength.
     return [code, Blockly.Python.ORDER_ATOMIC];
   };
