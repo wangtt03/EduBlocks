@@ -13,7 +13,7 @@ Easy and simple interface that uses a building block format to code.
 * Extensive Documentation:
 Lots of documentation to get you ready to go quickly. New projects added every 2 weeks.
 * Range of libraries:
-EduBlocks has a range of libraies like EduPython, Minecraft & Sonic Pi. (COMING SOON: GpioZERO, Sense Hat)
+EduBlocks has a range of libraies like GPIOzero, Minecraft & Sonic Pi. 
 * Python View:
 Once you have coded the blocks, you can easily switch to the Python View to see the real Python code.
 
@@ -30,19 +30,18 @@ Installation
 Get started with EduBlocks on your Raspberry Pi in these simple steps:
 
 1. Open up a terminal window by clicking on the terminal icon on the top right hand corner of your Raspberry Pi's Screen
-![alt tag](misc/1.png)
+![alt tag](misc/step1new.png)
 2. Type the following command and then press enter on your keyboard.
+![alt tag](misc/step2new.png)
 ```bash
 curl -sSL get.edublocks.org | bash
 ```
-3. When promted by the installer, press enter to select YES to install.
-![alt tag](misc/3.png)
 4. The installer will now run for a few minutes. This depends on your internet speeds.
-![alt tag](misc/4.png)
+![alt tag](misc/step3new.png)
 5. You will now be able to see EduBlocks in the Raspberry Pi >> Programming menu. Click on the EduBlocks link to run the program.
-![alt tag](misc/5.png)
+![alt tag](misc/step4new.png)
 6. After around half a minute, you should be able to see the EduBlocks workspace. Happy Coding.
-![alt tag](misc/6.png)
+![alt tag](misc/step5new.png)
 
 Did this not work for you? Look at the Support section of this document.
 
