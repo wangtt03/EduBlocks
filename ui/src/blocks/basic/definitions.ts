@@ -469,5 +469,33 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     }
   };
 
+  Blocks['textinline'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField(new Blockly.FieldTextInput(""), "text");
+      this.setInputsInline(true);
+      this.setOutput(true, null);
+      this.setColour(336);
+   this.setTooltip("Text input for inline input");
+   this.setHelpUrl("");
+    }
+  };
+
+  Blocks['varinlines'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField(new Blockly.FieldVariable("variable"), "NAME")
+          .appendField(new Blockly.FieldTextInput("="), "text");
+      this.appendValueInput("NAME")
+          .setCheck(null);
+      this.setInputsInline(true);
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour(336);
+   this.setTooltip("Variable with inline");
+   this.setHelpUrl("");
+    }
+  };
+
 
 }

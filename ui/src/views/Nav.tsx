@@ -42,17 +42,14 @@ export default class Nav extends Component<NavProps, {}> {
           </a>
           
           <a class='button icon-flash' title='Download file to flash to micro:bit' href='javascript:void(0)' onClick={() => this.props.downloadHex()}>
-            Download
+            Download Hex
           </a>
 
           <a class='button icon-download' title='Download Python Source Code' href='javascript:void(0)' onClick={() => this.props.downloadPython()}>
             Python
           </a>
 
-          <a class='button icon-puzzle' title='Add an extension' href='javascript:void(0)' onClick={() => this.props.openExtensions()}>
-            Extensions
-          </a>
-
+          
           <a class='button' title='Themes' href='javascript:void(0)' onClick={() => this.props.openThemes()}>
             Themes
           </a>

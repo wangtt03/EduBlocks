@@ -12,6 +12,8 @@
   <block type="internal"></block>
   <block type="if"></block>
   <block type="typeanything"></block>
+  <block type="textinline"></block>
+  <block type="varinlines"></block>
   <block type="define"></block>
   <block type="df"></block>
   <block type="for"></block>
