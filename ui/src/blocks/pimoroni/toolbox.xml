@@ -1,5 +1,5 @@
-<category name="Pimoroni" colour="24"> 
-  <category name="Explorer Hat" colour="240">
+<category name="Pimoroni" colour="843"> 
+  <category name="Explorer Hat" colour="843">
     <block type="ehimport"></block>
     <block type="ehtouch"></block>
     <block type="ehinput"></block>

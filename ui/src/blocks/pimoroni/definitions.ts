@@ -5,7 +5,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField('import explorerhat');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(240);
+      
       this.setTooltip('Import the Explorer Hat library');
       this.setHelpUrl('');
     },
@@ -23,7 +23,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField(')');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(240);
+      
       this.setTooltip('Control the eight cap touch buttons on Explorer Hat');
       this.setHelpUrl('');
     },
@@ -41,7 +41,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField(')');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(240);
+      
       this.setTooltip('Control the 4 inputs on Explorer Hat');
       this.setHelpUrl('');
     },
@@ -59,7 +59,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField(')');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(240);
+      
       this.setTooltip('Contol the 4 outputs on Explorer Hat');
       this.setHelpUrl('');
     },
@@ -77,7 +77,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField(')');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(240);
+      
       this.setTooltip('Control the 4 lights on Explorer Hat');
       this.setHelpUrl('');
     },
@@ -95,7 +95,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField(')');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(240);
+      
       this.setTooltip('Control the 4 Analog Inputs on Explorer Hat');
       this.setHelpUrl('');
     },
@@ -113,7 +113,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField(')');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(240);
+      
       this.setTooltip('Control the 2 motor outputs on Explorer Hat');
       this.setHelpUrl('');
     },

@@ -53,6 +53,12 @@ bitioDefs(Blockly.Blocks);
 bitioGens(Blockly.Python as any);
 toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'bitio', 'toolbox.xml'));
 
+import turtleDefs from './turtle/definitions';
+import turtleGens from './turtle/generators';
+turtleDefs(Blockly.Blocks);
+turtleGens(Blockly.Python as any);
+toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'turtle', 'toolbox.xml'));
+
 
 
 toolBoxXml += '</xml>';
