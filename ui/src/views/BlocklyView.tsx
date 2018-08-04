@@ -2,7 +2,7 @@ import React = require('preact');
 import { Component } from 'preact';
 import { getToolBoxXml } from '../blocks';
 
-const Blockly = (self as any).Blockly;
+// const Blockly = (self as any).Blockly;
 
 interface BlocklyViewProps {
   visible: boolean;
@@ -30,7 +30,7 @@ export default class BlocklyView extends Component<BlocklyViewProps, {}> {
       const workspace = Blockly.inject(this.blocklyDiv, {
         media: 'blockly/media/',
         toolbox,
-      });
+      }) as Blockly.WorkspaceSvg;
 
       workspace.addChangeListener(() => {
         const xml = this.getXml();
@@ -52,7 +52,7 @@ export default class BlocklyView extends Component<BlocklyViewProps, {}> {
   }
 
   private getPython(): string {
-    return Blockly.Python.workspaceToCode();
+    return Blockly.Python.workspaceToCode(Blockly.mainWorkspace);
   }
 
   private setXml(xml: string | null) {
