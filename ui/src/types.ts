@@ -3,7 +3,7 @@ interface App {
 
   openFile(): Promise<string>;
   saveFile(data: string | Uint8Array, ext: string, type: string): Promise<void>;
-  saveHex(python: string): Promise<void>;
+  saveHex(python: string, extensions: Extension[]): Promise<void>;
 
   assignTerminal(term: TerminalInterface): void;
 

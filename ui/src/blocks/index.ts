@@ -89,6 +89,13 @@ function getToolBoxXml(extensions: Extension[]) {
   return toolBoxXml;
 }
 
+function getBeforeScript(extensions: Extension[]) {
+  if (extensions.indexOf('scroll:bit') !== -1) {
+    return fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'neopixel', 'before.py'));
+  }
+}
+
 export {
   getToolBoxXml,
+  getBeforeScript,
 };

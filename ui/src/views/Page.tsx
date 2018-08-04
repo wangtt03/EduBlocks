@@ -203,7 +203,7 @@ export default class Page extends Component<PageProps, PageState> {
     const python = this.state.doc.python;
 
     if (python) {
-      await this.props.app.saveHex(python);
+      await this.props.app.saveHex(python, this.state.extensionsActive);
     }
   }
 
