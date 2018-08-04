@@ -250,16 +250,12 @@ export default class Page extends Component<PageProps, PageState> {
 
   private selectExtension(extension: Extension) {
     this.closeExtensions();
-    if (confirm('By importing an extension, your blocks will be overwritten, Have you saved your code?')) {
-      
-      const { extensionsActive } = this.state;
 
-      this.setState({
-        extensionsActive: [...extensionsActive, extension],
+    const { extensionsActive } = this.state;
+
+    this.setState({
+      extensionsActive: [...extensionsActive, extension],
     });
-    } else {
-      // Do Nothing
-    }
   }
 
 

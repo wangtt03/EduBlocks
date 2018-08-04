@@ -22,11 +22,11 @@ export default class BlocklyView extends Component<BlocklyViewProps, {}> {
       if (this.xml !== nextProps.xml) {
         this.setXml(nextProps.xml);
       }
-    }
 
-    // Reload blockly if the extensions have changed
-    if (!_.isEqual(this.props.extensionsActive, nextProps.extensionsActive)) {
-      this.loadBlockly(nextProps.extensionsActive);
+      // Reload blockly if the extensions have changed
+      if (!_.isEqual(this.props.extensionsActive, nextProps.extensionsActive)) {
+        this.loadBlockly(nextProps.extensionsActive);
+      }
     }
   }
 
@@ -35,8 +35,6 @@ export default class BlocklyView extends Component<BlocklyViewProps, {}> {
   }
 
   private loadBlockly(extensionsActive: Extension[]) {
-    console.log('loadBlockly', extensionsActive);
-
     if (this.blocklyDiv) {
       // Kill the old workspace if it's already there...
       if (this.workspace) {
@@ -60,6 +58,8 @@ export default class BlocklyView extends Component<BlocklyViewProps, {}> {
       });
 
       Blockly.svgResize(this.workspace);
+
+      this.setXml(this.xml);
     }
   }
 
