@@ -23,4 +23,15 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
    this.setHelpUrl("https://github.com/pimoroni/micropython-scrollbit");
     }
   };
+
+  Blocks['scrollbit_show'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField("scrollbit.show()")
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+   this.setTooltip("Show text on scroll:bit");
+   this.setHelpUrl("https://github.com/pimoroni/micropython-scrollbit");
+    }
+  };
 }
