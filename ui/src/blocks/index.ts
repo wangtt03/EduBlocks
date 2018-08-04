@@ -57,10 +57,16 @@ const neopixel = fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks
 
 import pinsDefs from './pins/definitions';
 import pinsGens from './pins/generators';
-import { Extension } from '../types';
 pinsDefs(Blockly.Blocks);
 pinsGens(Blockly.Python as any);
 const pins = fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'pins', 'toolbox.xml'));
+
+import scrollbitDefs from './scrollbit/definitions';
+import scrollbitGens from './scrollbit/generators';
+import { Extension } from '../types';
+scrollbitDefs(Blockly.Blocks);
+scrollbitGens(Blockly.Python as any);
+const scrollbit = fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'scrollbit', 'toolbox.xml'));
 
 function getToolBoxXml(extensions: Extension[]) {
   let toolBoxXml = '';
@@ -75,14 +81,13 @@ function getToolBoxXml(extensions: Extension[]) {
   toolBoxXml += radio;
   toolBoxXml += speech;
   toolBoxXml += music;
+  toolBoxXml += neopixel;
+  toolBoxXml += pins;
 
   if (extensions.indexOf('scroll:bit') !== -1) {
-    toolBoxXml += neopixel;
+    toolBoxXml += scrollbit;
   }
 
-  if (extensions.indexOf('enviro:bit') !== -1) {
-    toolBoxXml += pins;
-  }
 
   toolBoxXml += '</xml>';
 
@@ -91,7 +96,7 @@ function getToolBoxXml(extensions: Extension[]) {
 
 function getBeforeScript(extensions: Extension[]) {
   if (extensions.indexOf('scroll:bit') !== -1) {
-    return fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'neopixel', 'before.py'));
+    return fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'scrollbit', 'scrollbit.py'));
   }
 }
 
