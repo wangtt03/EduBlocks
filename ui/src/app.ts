@@ -1,5 +1,5 @@
 // import { newServer } from './server';
-import { App, TerminalInterface } from './types';
+import { App, TerminalInterface, Extension } from './types';
 import { getIo } from './io';
 import { newSamples } from './samples';
 import { getHexFile } from './lib/hexlify';
@@ -56,7 +56,7 @@ async function newApp(): Promise<App> {
     ];
   }
 
-  function getExtensions() {
+  function getExtensions(): Extension[] {
     return [
       'scroll:bit',
       'enviro:bit',

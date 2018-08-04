@@ -8,7 +8,7 @@ interface App {
   assignTerminal(term: TerminalInterface): void;
 
   getThemes(): string[];
-  getExtensions(): string[];
+  getExtensions(): Extension[];
 
   getSamples(): string[];
   getSample(file: string): string;
@@ -30,8 +30,11 @@ interface TerminalInterface {
   rows: number;
 }
 
+type Extension = 'scroll:bit' | 'enviro:bit';
+
 export {
   App,
   TerminalEvents,
   TerminalInterface,
+  Extension,
 };
