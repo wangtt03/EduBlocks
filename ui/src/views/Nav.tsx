@@ -54,9 +54,9 @@ export default class Nav extends Component<NavProps, {}> {
             Themes
           </a>
           
-          <a class='button icon-puzzle' title='Themes' href='javascript:void(0)' onClick={() => this.props.openExtensions()}>
+          {/* <a class='button icon-puzzle' title='Themes' href='javascript:void(0)' onClick={() => this.props.openExtensions()}>
             Extensions
-          </a>
+           </a>*/}
           
           <a class='button' title='Samples' href='javascript:void(0)' onClick={() => this.props.openSamples()}>
             Samples
