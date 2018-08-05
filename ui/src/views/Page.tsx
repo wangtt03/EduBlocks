@@ -195,7 +195,7 @@ export default class Page extends Component<PageProps, PageState> {
     const python = this.state.doc.python;
 
     if (python) {
-      await this.props.app.saveFile(python, 'py', 'text/python;charset=utf-8');
+      await this.props.app.exportPython(python, this.state.extensionsActive);
     }
   }
 

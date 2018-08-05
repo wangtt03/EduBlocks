@@ -22,16 +22,26 @@ async function newApp(): Promise<App> {
     return io.saveFile(data, ext, type);
   }
 
-  function saveHex(python: string, extensions: Extension[]) {
+  function getCombinedScript(python: string, extensions: Extension[]) {
     const beforeScript = getBeforeScript(extensions);
 
     const combinedScript = (beforeScript ? (beforeScript + '\n\n') : '') + python;
 
-    // alert(combinedScript);
+    return combinedScript;
+  }
+
+  async function exportPython(python: string, extensions: Extension[]) {
+    const combinedScript = getCombinedScript(python, extensions);
+
+    await io.saveFile(combinedScript, 'py', 'text/python;charset=utf-8');
+  }
+
+  async function saveHex(python: string, extensions: Extension[]) {
+    const combinedScript = getCombinedScript(python, extensions);
 
     const hex = getHexFile(combinedScript);
 
-    return io.saveFile(hex, 'hex', 'application/octet-stream');
+    await io.saveFile(hex, 'hex', 'application/octet-stream');
   }
 
   function assignTerminal(terminal: TerminalInterface) {
@@ -74,6 +84,7 @@ async function newApp(): Promise<App> {
     runCode,
     openFile,
     saveFile,
+    exportPython,
     saveHex,
     assignTerminal,
     getThemes,

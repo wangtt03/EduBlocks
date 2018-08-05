@@ -7,10 +7,10 @@ function getIo() {
 function getWebIo() {
   function openFile() {
     return new Promise<string>((resolve, reject) => {
-      const fileInput = document.createElement("input");
-      fileInput.type = "file";
-      fileInput.accept = ".xml";
-      fileInput.addEventListener("change", readSingleFile, false);
+      const fileInput = document.createElement('input');
+      fileInput.type = 'file';
+      fileInput.accept = '.xml';
+      fileInput.addEventListener('change', readSingleFile, false);
       fileInput.click();
 
       function readSingleFile(e: Event) {
@@ -39,7 +39,7 @@ function getWebIo() {
    * @param ext Suggested file name extension, i.e. 'xml'
    */
   function saveFile(data: string | Uint8Array, ext: string, type: string) {
-    let fileName = "microbit-edublocks";
+    let fileName = 'microbit-edublocks';
     let disableAutoBOM = true;
 
     if (!fileName) return Promise.resolve(void 0);
@@ -59,4 +59,4 @@ function getWebIo() {
 
 export {
   getIo,
-}
+};
