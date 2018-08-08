@@ -76,6 +76,7 @@ async function newApp(): Promise<App> {
   function getExtensions(): Extension[] {
     return [
       'scroll:bit',
+      'gigglebot',
     ];
   }
 

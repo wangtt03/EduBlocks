@@ -1,0 +1,19 @@
+<category name="GiggleBot" colour="21">
+
+ <block type="import_gigglebot"></block>
+ <block type="drive_x_seconds">
+    <value name="seconds">
+    <shadow type="math_number">
+        <field name="NUM">1</field>
+    </shadow>
+    </value>
+ </block>
+ <block type="turn_x_seconds">
+    <value name="seconds">
+    <shadow type="math_number">
+        <field name="NUM">1</field>
+    </shadow>
+    </value>
+ </block>
+ <block type="stop"></block>
+</category>
