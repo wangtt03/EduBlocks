@@ -2,7 +2,7 @@ export default function define(Python: Blockly.BlockGenerators) {
 
   Python['scrollbit_import'] = function (block) {
     // TODO: Assemble Python into code variable.
-    const code = 'import scrollbit\n';
+    const code = '';
     return code;
   };
 
