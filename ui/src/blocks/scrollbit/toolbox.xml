@@ -1,5 +1,9 @@
 <category name="scroll:bit" colour="843">
     <block type="scrollbit_import"></block>
     <block type="scrollbit_scroll"></block>
+    <block type="scrollbit_write"></block>
+    <block type="scrollbit_draw"></block>
+    <block type="scrollbit_pixel"></block>
     <block type="scrollbit_show"></block>
+    <block type="scrollbit_clear"></block>
 </category>
