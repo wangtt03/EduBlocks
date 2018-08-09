@@ -23,14 +23,18 @@ async function newApp(): Promise<App> {
   }
 
   function getCombinedScript(python: string, extensions: Extension[]) {
+    
     const beforeScript = getBeforeScript(extensions);
+    var removeimport = 'from scrollbit import *'
+    var newpython = python.replace(removeimport, '')
 
-    const combinedScript = (beforeScript ? (beforeScript + '\n\n') : '') + python;
+    const combinedScript = (beforeScript ? (beforeScript + '\n\n') : '') + newpython;
 
     return combinedScript;
   }
 
   async function exportPython(python: string, extensions: Extension[]) {
+    
     const combinedScript = getCombinedScript(python, extensions);
 
     await io.saveFile(combinedScript, 'py', 'text/python;charset=utf-8');
