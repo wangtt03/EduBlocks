@@ -25,8 +25,8 @@ async function newApp(): Promise<App> {
   function getCombinedScript(python: string, extensions: Extension[]) {
     
     const beforeScript = getBeforeScript(extensions);
-    var removeimport = 'from scrollbit import *'
-    var newpython = python.replace(removeimport, '')
+    var scrollbit = 'from scrollbit import *'
+    var newpython = python.replace(scrollbit, '')
 
     const combinedScript = (beforeScript ? (beforeScript + '\n\n') : '') + newpython;
 
