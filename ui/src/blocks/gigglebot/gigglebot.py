@@ -120,7 +120,7 @@ def set_eye_color_on_start():
         neopixelstrip[1]= DEFAULT_EYE_COLOR
     neopixelstrip.show()
 
-def read_sensors(which_sensor, which_side):
+def read_sensor(which_sensor, which_side):
     if (which_side == LEFT):
         return _get_sensors(which_sensor)[0]
     elif (which_side == RIGHT):
