@@ -77,16 +77,15 @@ export default function define(Python: Blockly.BlockGenerators) {
     };
 
     Python['read_sensor'] = function(block) {
-        var dropdown_sensor = block.getFieldValue('dir');
-        var dropdown_which = block.getFieldValue('dir');
-        var code = 'read_sensor('+ dropdown_sensor + ', '+ dropdown_which + ')\n';
-        return code;
+        var dropdown_sensor = block.getFieldValue('sensor');
+        var dropdown_which = block.getFieldValue('which');
+        var code = 'read_sensor('+ dropdown_sensor + ', '+ dropdown_which + ')';
+        return [code, Blockly.Python.ORDER_ATOMIC];
     };
     
     Python['volt'] = function(block) {
-        // TODO: Assemble Python into code variable.
-        var code = 'volt()\n';
-        return code;
+        var code = 'volt()';
+        return [code, Blockly.Python.ORDER_ATOMIC];
     };
 
 

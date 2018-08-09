@@ -2,16 +2,16 @@ import neopixel
 import microbit
 import time
 
-I2C_GET_FIRMWARE_VERSION = 1
-# I2C_GET_MANUFACTURER = 2
-I2C_GET_BOARD = 3
-I2C_GET_VOLTAGE_BATTERY = 4
-I2C_GET_LINE_SENSORS = 5
-I2C_GET_LIGHT_SENSORS = 6
-# I2C_GET_MOTOR_STATUS_RIGHT = 7
-# I2C_GET_MOTOR_STATUS_LEFT = 8
-# I2C_SET_MOTOR_POWER = 9
-I2C_SET_MOTOR_POWERS = 10
+GET_FIRMWARE_VERSION = 1
+# GET_MANUFACTURER = 2
+GET_BOARD = 3
+GET_VOLTAGE_BATTERY = 4
+GET_LINE_SENSORS = 5
+GET_LIGHT_SENSORS = 6
+# GET_MOTOR_STATUS_RIGHT = 7
+# GET_MOTOR_STATUS_LEFT = 8
+# SET_MOTOR_POWER = 9
+SET_MOTOR_POWERS = 10
 LEFT = 0
 RIGHT = 1
 BOTH = 2
@@ -49,19 +49,19 @@ def _get_sensors(reg, repeat=False):
     return outbuf
 
 def volt():
-    return (_read16(I2C_GET_VOLTAGE_BATTERY)/1000)
+    return (_read16(GET_VOLTAGE_BATTERY)/1000)
 
 def drive(dir=FORWARD, seconds=-1):
-    _write8(I2C_SET_MOTOR_POWERS, motor_power_left*dir, motor_power_right*dir)
+    _write8(SET_MOTOR_POWERS, motor_power_left*dir, motor_power_right*dir)
     if seconds >= 0:
         time.sleep(seconds)
         stop()
 
 def turn(dir=LEFT, seconds=-1):
     if dir==LEFT:
-        _write8(I2C_SET_MOTOR_POWERS, motor_power_left, 0)
+        _write8(SET_MOTOR_POWERS, motor_power_left, 0)
     if dir==RIGHT:
-        _write8(I2C_SET_MOTOR_POWERS, 0, motor_power_right)
+        _write8(SET_MOTOR_POWERS, 0, motor_power_right)
     if seconds >= 0:
         time.sleep(seconds)
         stop()        
@@ -72,7 +72,7 @@ def set_speed(power_left, power_right):
     motor_power_right = power_right
 
 def stop():
-        _write8(I2C_SET_MOTOR_POWERS, 0, 0)
+        _write8(SET_MOTOR_POWERS, 0, 0)
 
 def set_servo(which, degrees):
     '''
@@ -112,7 +112,7 @@ def set_eyes(which=BOTH, R=0, G=0, B=10):
     neopixelstrip.show()
 
 def set_eye_color_on_start():
-    if _read16(I2C_GET_VOLTAGE_BATTERY) < 4000:
+    if _read16(GET_VOLTAGE_BATTERY) < 4000:
         neopixelstrip[0] = LOW_VOLTAGE_EYE_COLOR
         neopixelstrip[1]= LOW_VOLTAGE_EYE_COLOR
     else:

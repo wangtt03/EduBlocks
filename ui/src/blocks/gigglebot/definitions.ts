@@ -86,8 +86,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       Blocks['set_speed'] = {
         init: function() {
           this.appendDummyInput()
-              .appendField("set_speed(")
-              .appendField(", power_left=")
+              .appendField("set_speed( power_left=")
               .appendField(new Blockly.FieldNumber(0, 0), "power_left")
               .appendField(", power_right=")
               .appendField(new Blockly.FieldNumber(0, 0), "power_right")
@@ -134,8 +133,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       Blocks['set_smile'] = {
         init: function() {
           this.appendDummyInput()
-              .appendField("set_smile(")
-              .appendField(", R=")
+              .appendField("set_smile( R=")
               .appendField(new Blockly.FieldNumber(0, 0), "R")
               .appendField(", G=")
               .appendField(new Blockly.FieldNumber(0, 0), "G")
@@ -145,7 +143,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
           this.setPreviousStatement(true, null);
           this.setNextStatement(true, null);
           this.setColour(21);
-       this.setTooltip("Adjusts the speed of each motor");
+       this.setTooltip("Sets colour for the smile");
        this.setHelpUrl("");
         }
       };
@@ -165,7 +163,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
           this.setPreviousStatement(true, null);
           this.setNextStatement(true, null);
           this.setColour(21);
-       this.setTooltip("Adjusts the speed of each motor");
+       this.setTooltip("Sets colour for each eye");
        this.setHelpUrl("");
         }
       };
@@ -175,12 +173,12 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         init: function() {
           this.appendDummyInput()
               .appendField("read_sensor(")
-              .appendField(new Blockly.FieldDropdown([["I2C_GET_LINE_SENSORS","I2C_GET_LINE_SENSORS"], ["I2C_GET_LIGHT_SENSORS","I2C_GET_LIGHT_SENSORS"]]), "c")
+              .appendField(new Blockly.FieldDropdown([["GET_LINE_SENSORS","GET_LINE_SENSORS"], ["GET_LIGHT_SENSORS","GET_LIGHT_SENSORS"]]), "sensor")
               .appendField(new Blockly.FieldDropdown([["LEFT","LEFT"], ["RIGHT","RIGHT"], ["BOTH","BOTH"]]), "which")
               .appendField(")");
           this.setOutput(true, "Number");
           this.setColour(21);
-       this.setTooltip("Removes power from one or both servos ");
+       this.setTooltip("Get a reading from line sensors or light sensors ");
        this.setHelpUrl("");
         }
       };
@@ -189,8 +187,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         init: function() {
           this.appendDummyInput()
               .appendField("volt()");
-          this.setPreviousStatement(true, null);
-          this.setNextStatement(true, null);
+          this.setOutput(true, "Number");
           this.setColour(21);
        this.setTooltip("Gets a level reading from the batteries");
        this.setHelpUrl("");
