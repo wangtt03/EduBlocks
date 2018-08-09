@@ -134,7 +134,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       Blocks['set_smile'] = {
         init: function() {
           this.appendDummyInput()
-              .appendField("set_speed(")
+              .appendField("set_smile(")
               .appendField(", R=")
               .appendField(new Blockly.FieldNumber(0, 0), "R")
               .appendField(", G=")
