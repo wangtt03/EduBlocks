@@ -61,9 +61,11 @@ pinsDefs(Blockly.Blocks);
 pinsGens(Blockly.Python as any);
 const pins = fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'pins', 'toolbox.xml'));
 
+
+import { Extension } from '../types';
+
 import scrollbitDefs from './scrollbit/definitions';
 import scrollbitGens from './scrollbit/generators';
-import { Extension } from '../types';
 scrollbitDefs(Blockly.Blocks);
 scrollbitGens(Blockly.Python as any);
 const scrollbit = fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'scrollbit', 'toolbox.xml'));

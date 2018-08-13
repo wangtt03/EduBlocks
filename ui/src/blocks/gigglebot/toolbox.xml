@@ -1,4 +1,4 @@
-<category name="GiggleBot" colour="21">
+<category name="GiggleBot" colour="173">
 
  <block type="import_gigglebot"></block>
  <block type="drive"></block>
