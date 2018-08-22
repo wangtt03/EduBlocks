@@ -1,8 +1,0 @@
-<category name="Radio" colour="90">
-  <block type="imradio"></block>
-  <block type="radioon"></block>
-  <block type="radiosend"></block>
-  <block type="radioconf"></block>
-  <block type="ifradio"></block>
-  <block type="incoming"></block>
-</category>
