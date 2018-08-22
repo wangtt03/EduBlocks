@@ -26,13 +26,13 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         }
       };
 
-    Blocks['drive_x_seconds'] = {
+    Blocks['drive_x_milliseconds'] = {
         init: function() {
           this.appendDummyInput()
               .appendField("drive (")
               .appendField(new Blockly.FieldDropdown([["FORWARD","FORWARD"], ["BACKWARD","BACKWARD"]]), "dir")
-              .appendField(", seconds=");
-          this.appendValueInput("seconds")
+              .appendField(", milliseconds=");
+          this.appendValueInput("milliseconds")
               .setCheck(null);
           this.appendDummyInput()
               .appendField(")");
@@ -58,13 +58,13 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
        this.setHelpUrl("");
         }
       };
-    Blocks['turn_x_seconds'] = {
+    Blocks['turn_x_milliseconds'] = {
         init: function() {
           this.appendDummyInput()
               .appendField("turn (")
               .appendField(new Blockly.FieldDropdown([["LEFT","LEFT"], ["RIGHT","RIGHT"]]), "dir")
-              .appendField(", seconds=");
-          this.appendValueInput("seconds")
+              .appendField(", milliseconds=");
+          this.appendValueInput("milliseconds")
               .setCheck(null);
           this.appendDummyInput()
               .appendField(")");

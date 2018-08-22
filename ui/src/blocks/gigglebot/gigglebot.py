@@ -50,19 +50,19 @@ def _get_sensors(reg, repeat=False):
 def volt():
     return (_read16(GET_VOLTAGE_BATTERY)/1000)
 
-def drive(dir=FORWARD, seconds=-1):
+def drive(dir=FORWARD, milliseconds=-1):
     _write8(SET_MOTOR_POWERS, motor_power_left*dir, motor_power_right*dir)
-    if seconds >= 0:
-        microbit.sleep(seconds)
+    if milliseconds >= 0:
+        microbit.sleep(milliseconds)
         stop()
 
-def turn(dir=LEFT, seconds=-1):
+def turn(dir=LEFT, milliseconds=-1):
     if dir==LEFT:
         _write8(SET_MOTOR_POWERS, motor_power_left, 0)
     if dir==RIGHT:
         _write8(SET_MOTOR_POWERS, 0, motor_power_right)
-    if seconds >= 0:
-        microbit.sleep(seconds)
+    if milliseconds >= 0:
+        microbit.sleep(milliseconds)
         stop()        
 
 def set_speed(power_left, power_right):
