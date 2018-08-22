@@ -34,6 +34,8 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
               .appendField(", seconds=");
           this.appendValueInput("seconds")
               .setCheck(null);
+          this.appendDummyInput()
+              .appendField(")");
           this.setInputsInline(true);
           this.setPreviousStatement(true, null);
           this.setNextStatement(true, null);
@@ -61,9 +63,12 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
           this.appendDummyInput()
               .appendField("turn (")
               .appendField(new Blockly.FieldDropdown([["LEFT","LEFT"], ["RIGHT","RIGHT"]]), "dir")
-              .appendField(", seconds=")
-              .appendField(new Blockly.FieldNumber(0, 0), "seconds")
+              .appendField(", seconds=");
+          this.appendValueInput("seconds")
+              .setCheck(null);
+          this.appendDummyInput()
               .appendField(")");
+          this.setInputsInline(true);
           this.setPreviousStatement(true, null);
           this.setNextStatement(true, null);
           this.setColour(gigglebot_HUE);
