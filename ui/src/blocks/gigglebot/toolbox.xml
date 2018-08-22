@@ -2,20 +2,20 @@
 
  <block type="import_gigglebot"></block>
  <block type="drive"></block>
-<block type="drive_x_seconds">
-    <value name="seconds">
+<block type="drive_x_milliseconds">
+    <value name="milliseconds">
     <shadow type="textinline">
-        <field name="text">1</field>
+        <field name="text">1000</field>
     </shadow>
     </value>
 </block>
 
 <block type="turn"></block>
 
-<block type="turn_x_seconds">
-    <value name="seconds">
+<block type="turn_x_milliseconds">
+    <value name="milliseconds">
     <shadow type="textinline">
-        <field name="text">1</field>
+        <field name="text">1000</field>
     </shadow>
     </value>
 </block>
