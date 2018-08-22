@@ -1,6 +1,5 @@
 import neopixel
 import microbit
-import time
 
 GET_FIRMWARE_VERSION = 1
 # GET_MANUFACTURER = 2
@@ -54,7 +53,7 @@ def volt():
 def drive(dir=FORWARD, seconds=-1):
     _write8(SET_MOTOR_POWERS, motor_power_left*dir, motor_power_right*dir)
     if seconds >= 0:
-        time.sleep(seconds)
+        microbit.sleep(seconds)
         stop()
 
 def turn(dir=LEFT, seconds=-1):
@@ -63,7 +62,7 @@ def turn(dir=LEFT, seconds=-1):
     if dir==RIGHT:
         _write8(SET_MOTOR_POWERS, 0, motor_power_right)
     if seconds >= 0:
-        time.sleep(seconds)
+        microbit.sleep(seconds)
         stop()        
 
 def set_speed(power_left, power_right):
