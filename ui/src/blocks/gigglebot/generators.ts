@@ -49,7 +49,7 @@ export default function define(Python: Blockly.BlockGenerators) {
     Python['set_servo'] = function(block) {
         var dropdown_which = block.getFieldValue('which');
         var number_degrees = block.getFieldValue('degrees');
-        var code = 'drive('+dropdown_which+', degrees='+number_degrees+')\n';
+        var code = 'set_servo('+dropdown_which+', degrees='+number_degrees+')\n';
         return code;
     };
 
