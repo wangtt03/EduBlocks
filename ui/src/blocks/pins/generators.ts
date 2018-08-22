@@ -1,33 +1,43 @@
 export default function define(Python: Blockly.BlockGenerators) {
 
 
-  Python['import_digitalio'] = function (block) {
-    const code = 'from digitalio import *\n';
-    return code;
-  };
-
-  Python['pinconfig'] = function(block) {
-    var variable_pin = Blockly.Python.variableDB_.getName(block.getFieldValue('pin'), Blockly.Variables.NAME_TYPE);
+  Python['pintouched'] = function(block) {
     var text_pinno = block.getFieldValue('pinno');
     // TODO: Assemble Python into code variable.
-    var code = variable_pin+ ' = DigitalInOut(' +text_pinno+ ')\n';
-    return code;
+    var code = 'pin'+text_pinno+'.is_touched()';
+    // TODO: Change ORDER_NONE to the correct strength.
+    return [code, Blockly.Python.ORDER_ATOMIC];
   };
 
-  Python['pindirection'] = function(block) {
-    var variable_pin = Blockly.Python.variableDB_.getName(block.getFieldValue('pin'), Blockly.Variables.NAME_TYPE);
-    var text_direction = block.getFieldValue('direction');
+  Python['analogread'] = function(block) {
+    var text_pinno = block.getFieldValue('pinno');
     // TODO: Assemble Python into code variable.
-    var code = variable_pin+ '.direction = ' +text_direction+ '\n';
-    return code;
+    var code = 'pin'+text_pinno+'.read_analog()';
+    // TODO: Change ORDER_NONE to the correct strength.
+    return [code, Blockly.Python.ORDER_ATOMIC];
   };
 
-  Python['pinvalue'] = function(block) {
-    var variable_pin = Blockly.Python.variableDB_.getName(block.getFieldValue('pin'), Blockly.Variables.NAME_TYPE);
-    var dropdown_value = block.getFieldValue('value');
+  Python['digitalread'] = function(block) {
+    var text_pinno = block.getFieldValue('pinno');
     // TODO: Assemble Python into code variable.
-    var code = variable_pin+ '.value = ' +dropdown_value+ '\n';
-    return code;
+    var code = 'pin'+text_pinno+'.read_digital()';
+    // TODO: Change ORDER_NONE to the correct strength.
+    return [code, Blockly.Python.ORDER_ATOMIC];
   };
 
+  Python['writeanalog'] = function(block) {
+    var text_pinno = block.getFieldValue('pinno');
+    var text_analog = block.getFieldValue('analog');
+    // TODO: Assemble Python into code variable.
+    var code = 'pin' +text_pinno+ '.write_analog(' +text_analog+ ')\n';
+    return code;
+  };
+  
+  Python['writedigital'] = function(block) {
+    var text_pinno = block.getFieldValue('pinno');
+    var text_digital = block.getFieldValue('digital');
+    // TODO: Assemble Python into code variable.
+    var code = 'pin' +text_pinno+ '.write_digital(' +text_digital+ ')\n';
+    return code;
+  };
 }
