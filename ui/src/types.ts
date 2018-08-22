@@ -31,7 +31,7 @@ interface TerminalInterface {
   rows: number;
 }
 
-type Extension = 'scroll:bit' | 'enviro:bit' | 'gigglebot';
+type Extension = 'scroll:bit' | 'enviro:bit' | 'GiggleBot' | 'Pi Supply IoT LoRa Node';
 
 export {
   App,

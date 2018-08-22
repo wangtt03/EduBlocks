@@ -26,8 +26,10 @@ async function newApp(): Promise<App> {
     const beforeScript = getBeforeScript(extensions);
     var scrollbit = 'from scrollbit import *'
     var gigglebot = 'from gigglebot import *'
+    var iotloranode = 'from iotloranode import *'
     var newpython = python.replace(scrollbit, '')
     newpython = python.replace(gigglebot, '')
+    newpython = python.replace(iotloranode, '')
     const combinedScript = (beforeScript ? (beforeScript + '\n\n') : '') + newpython;
 
     return combinedScript;
@@ -79,7 +81,8 @@ async function newApp(): Promise<App> {
   function getExtensions(): Extension[] {
     return [
       'scroll:bit',
-      'gigglebot',
+      'GiggleBot',
+      'Pi Supply IoT LoRa Node',
     ];
   }
 
