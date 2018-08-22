@@ -21,5 +21,21 @@ export default function define(Python: Blockly.BlockGenerators) {
     let code = 'radio.on()\n';
     return code;
   };
+
+  Python['ifradio'] = function(block) {
+    const variable_incoming = Blockly.Python.variableDB_.getName(block.getFieldValue('incoming'), Blockly.Variables.NAME_TYPE);
+    // const statements_name = Blockly.Python.statementToCode(block, 'DO');
+    const text_sentitem = block.getFieldValue('sentitem');
+    let branch = Blockly.Python.statementToCode(block, 'DO');
+    branch = Blockly.Python.addLoopTrap(branch, block.id) || Blockly.Python.PASS;
+    // TODO: Assemble Python into code variable.
+    return 'if ' +variable_incoming+ ' == ' +text_sentitem+ ':\n' +branch;
+  };
   
+  Python['incoming'] = function(block) {
+    var variable_incoming = Blockly.Python.variableDB_.getName(block.getFieldValue('incoming'), Blockly.Variables.NAME_TYPE);
+    // TODO: Assemble Python into code variable.
+    var code = variable_incoming+ ' = radio.receive()\n';
+    return code;
+  };
 }

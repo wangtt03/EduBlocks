@@ -7,9 +7,10 @@ import PythonView from './PythonView';
 import TerminalView from './TerminalView';
 import SelectModal from './SelectModal';
 
-import { App } from '../types';
 
-const ViewModeBlockly = 'blockly';
+import { App, Extension } from '../types';
+
+const ViewModeBlockly = 'blocks';
 const ViewModePython = 'python';
 
 type ViewMode = typeof ViewModeBlockly | typeof ViewModePython;
@@ -26,9 +27,13 @@ interface DocumentState {
 
 interface PageState {
   viewMode: ViewMode;
+
   terminalOpen: boolean;
   samplesOpen: boolean;
   themesOpen: boolean;
+  extensionsOpen: boolean;
+
+  extensionsActive: Extension[];
 
   doc: Readonly<DocumentState>;
 }
@@ -43,9 +48,13 @@ export default class Page extends Component<PageProps, PageState> {
 
     this.state = {
       viewMode: ViewModeBlockly,
+
       terminalOpen: false,
       samplesOpen: false,
       themesOpen: false,
+      extensionsOpen: false,
+
+      extensionsActive: [],
 
       doc: {
         xml: null,
@@ -111,7 +120,7 @@ export default class Page extends Component<PageProps, PageState> {
 
     this.setState({ doc });
 
-    this.switchView('blockly');
+    this.switchView('blocks');
   }
 
   protected componentDidMount() {
@@ -131,7 +140,7 @@ export default class Page extends Component<PageProps, PageState> {
   private switchView(viewMode: ViewMode): 0 {
     switch (viewMode) {
       case ViewModeBlockly:
-        this.setState({ viewMode: 'blockly' });
+        this.setState({ viewMode: 'blocks' });
 
         return 0;
 
@@ -186,7 +195,7 @@ export default class Page extends Component<PageProps, PageState> {
     const python = this.state.doc.python;
 
     if (python) {
-      await this.props.app.saveFile(python, 'py', 'text/python;charset=utf-8');
+      await this.props.app.exportPython(python, this.state.extensionsActive);
     }
   }
 
@@ -194,9 +203,10 @@ export default class Page extends Component<PageProps, PageState> {
     const python = this.state.doc.python;
 
     if (python) {
-      await this.props.app.saveHex(python);
+      await this.props.app.saveHex(python, this.state.extensionsActive);
     }
   }
+
 
   private openSamples() {
     this.setState({ samplesOpen: true });
@@ -214,6 +224,7 @@ export default class Page extends Component<PageProps, PageState> {
     this.readBlocklyContents(xml);
   }
 
+
   private openThemes() {
     this.setState({ themesOpen: true });
   }
@@ -227,6 +238,26 @@ export default class Page extends Component<PageProps, PageState> {
 
     document.body.className = `theme-${theme}`;
   }
+
+
+  private openExtensions() {
+    this.setState({ extensionsOpen: true });
+  }
+
+  private closeExtensions() {
+    this.setState({ extensionsOpen: false });
+  }
+
+  private selectExtension(extension: Extension) {
+    this.closeExtensions();
+
+    const { extensionsActive } = this.state;
+
+    this.setState({
+      extensionsActive: [...extensionsActive, extension],
+    });
+  }
+
 
   private onTerminalClose() {
     this.setState({ terminalOpen: false });
@@ -245,6 +276,7 @@ export default class Page extends Component<PageProps, PageState> {
           saveCode={() => this.saveFile()}
           newCode={() => this.new()}
           openSamples={() => this.openSamples()}
+          openExtensions={() => this.openExtensions()}
           openThemes={() => this.openThemes()} />
 
         <section id='workspace'>
@@ -258,8 +290,9 @@ export default class Page extends Component<PageProps, PageState> {
 
           <BlocklyView
             ref={(c) => this.blocklyView = c}
-            visible={this.state.viewMode === 'blockly'}
+            visible={this.state.viewMode === 'blocks'}
             xml={this.state.doc.xml}
+            extensionsActive={this.state.extensionsActive}
             onChange={(xml, python) => this.onBlocklyChange(xml, python)} />
 
           <PythonView
@@ -287,6 +320,13 @@ export default class Page extends Component<PageProps, PageState> {
           visible={this.state.themesOpen}
           onSelect={(theme) => this.selectTheme(theme)}
           onCancel={() => this.closeThemes()} />
+
+        <SelectModal
+          title='Extensions'
+          options={this.props.app.getExtensions()}
+          visible={this.state.extensionsOpen}
+          onSelect={(extension) => this.selectExtension(extension as Extension)}
+          onCancel={() => this.closeExtensions()} />
       </div>
     );
   }

@@ -1,5 +1,6 @@
 export default function define(Python: Blockly.BlockGenerators) {
 
+
   Python['import_digitalio'] = function (block) {
     const code = 'from digitalio import *\n';
     return code;

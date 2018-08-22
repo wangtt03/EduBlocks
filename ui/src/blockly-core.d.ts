@@ -1459,6 +1459,7 @@ declare module Blockly {
     statementToCode(block: Block, d: 'DO' | 'NAME' | 'VALUE' | 'ifstate'): string;
     addLoopTrap(code: string, id: string): string;
     valueToCode(block: Block, str: string, n: number): string;
+    workspaceToCode(workspace: Blockly.Workspace): string;
 
     PASS: string;
     ORDER_ATOMIC: 0;
@@ -5922,7 +5923,7 @@ declare module Blockly.Xml {
    * @param {!Blockly.Workspace} workspace The workspace.
    * @param {!Element} xml XML DOM.
    */
-  function domToWorkspace(workspace: Blockly.Workspace, xml: Element): void;
+  function domToWorkspace(xml: Element, workspace: Blockly.Workspace): void;
 
   /**
    * Decode an XML block tag and create a block (and possibly sub blocks) on the

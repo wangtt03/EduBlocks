@@ -3,20 +3,20 @@ import path = require('path');
 
 const firmware = fs.readFileSync(path.join(__dirname, '..', '..', 'binaries', 'micropython.hex'), 'utf8');
 
-function hexlify(script: string) {
-  function hexlifyLine(ar: Uint8Array) {
-    let result = '';
+function hexlifyLine(ar: Uint8Array) {
+  let result = '';
 
-    for (let i = 0; i < ar.length; ++i) {
-      if (ar[i] < 16) {
-        result += '0';
-      }
-      result += ar[i].toString(16);
+  for (let i = 0; i < ar.length; ++i) {
+    if (ar[i] < 16) {
+      result += '0';
     }
-
-    return result;
+    result += ar[i].toString(16);
   }
 
+  return result;
+}
+
+function hexlify(script: string) {
   // add header, pad to multiple of 16 bytes
   const data = new Uint8Array(4 + script.length + (16 - (4 + script.length) % 16));
 

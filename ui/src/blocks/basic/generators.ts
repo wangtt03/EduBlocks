@@ -258,4 +258,22 @@ export default function define(Python: Blockly.BlockGenerators) {
     // TODO: Change ORDER_NONE to the correct strength.
     return [code, Blockly.Python.ORDER_ATOMIC];
   };
+
+  Python['textinline'] = function(block) {
+    var text_text = block.getFieldValue('text');
+    // TODO: Assemble Python into code variable.
+    var code = text_text;
+    // TODO: Change ORDER_NONE to the correct strength.
+    return [code, Blockly.Python.ORDER_ATOMIC];
+  };
+
+  Python['varinlines'] = function(block) {
+    var variable_name = Blockly.Python.variableDB_.getName(block.getFieldValue('NAME'), Blockly.Variables.NAME_TYPE);
+    var text_text = block.getFieldValue('text');
+    var value_name = Blockly.Python.valueToCode(block, 'NAME', Blockly.Python.ORDER_ATOMIC);
+    // TODO: Assemble Python into code variable.
+    var code = variable_name + ' ' +text_text+ ' ' +value_name+ '\n';
+    return code;
+  };
+
 }

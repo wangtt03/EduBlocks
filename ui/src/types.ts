@@ -3,11 +3,13 @@ interface App {
 
   openFile(): Promise<string>;
   saveFile(data: string | Uint8Array, ext: string, type: string): Promise<void>;
-  saveHex(python: string): Promise<void>;
+  exportPython(python: string, extensions: Extension[]): Promise<void>;
+  saveHex(python: string, extensions: Extension[]): Promise<void>;
 
   assignTerminal(term: TerminalInterface): void;
 
   getThemes(): string[];
+  getExtensions(): Extension[];
 
   getSamples(): string[];
   getSample(file: string): string;
@@ -29,8 +31,11 @@ interface TerminalInterface {
   rows: number;
 }
 
+type Extension = 'scroll:bit' | 'enviro:bit' | 'gigglebot';
+
 export {
   App,
   TerminalEvents,
   TerminalInterface,
+  Extension,
 };
