@@ -111,7 +111,7 @@ def set_eyes(which=BOTH, R=0, G=0, B=10):
     neopixelstrip.show()
 
 def set_eye_color_on_start():
-    if _read16(GET_VOLTAGE_BATTERY) < 3600:
+    if _read16(GET_VOLTAGE_BATTERY) < 3400:
         neopixelstrip[0] = LOW_VOLTAGE_EYE_COLOR
         neopixelstrip[1]= LOW_VOLTAGE_EYE_COLOR
     else:
