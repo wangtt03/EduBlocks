@@ -1,4 +1,4 @@
-let gigglebot_HUE = "#33C2B2"
+let gigglebot_HUE = "#46BFB1"
 export default function define(Blocks: Blockly.BlockDefinitions) {
     Blocks['import_gigglebot'] = {
         init: function() {
