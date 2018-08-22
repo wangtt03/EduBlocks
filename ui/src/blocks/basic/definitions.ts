@@ -1,24 +1,49 @@
 export default function define(Blocks: Blockly.BlockDefinitions) {
-  Blocks['import_microbit'] = {
+  Blocks['import_board'] = {
     init: function () {
       this.appendDummyInput()
-        .appendField('from microbit import *');
+        .appendField('from board import *');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
       this.setColour(336);
-      this.setTooltip('Imports the microbit library.');
+      this.setTooltip('Imports the Board library.');
       this.setHelpUrl('http://www.example.com/');
     },
   };
 
-  Blocks['import_signal'] = {
-    init: function () {
+  Blocks['importneo'] = {
+    init: function() {
       this.appendDummyInput()
-        .appendField('from signal import pause');
+          .appendField("import neopixel")
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
       this.setColour(336);
-      this.setTooltip('Imports the signal library.');
+   this.setTooltip("Import Neopixel Library");
+   this.setHelpUrl("");
+    }
+  };
+
+  Blocks['import_digitalio'] = {
+    init: function () {
+      this.appendDummyInput()
+        .appendField('import digitalio');
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour(336);
+      this.setTooltip('Imports the DigitalIO library.');
+      this.setHelpUrl('http://www.example.com/');
+    },
+  };
+
+
+  Blocks['import_time'] = {
+    init: function () {
+      this.appendDummyInput()
+        .appendField('import time');
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour(336);
+      this.setTooltip('Imports the Time library.');
       this.setHelpUrl('http://www.example.com/');
     },
   };
@@ -262,7 +287,9 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     init: function () {
       this.appendDummyInput()
         .appendField(new Blockly.FieldTextInput('def'), 'def')
-        .appendField('()');
+        .appendField('(')
+        .appendField(new Blockly.FieldTextInput(''), 'ins')
+        .appendField(')')
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
       this.setColour(336);
@@ -316,7 +343,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
   Blocks['sleep'] = {
     init: function () {
       this.appendDummyInput()
-        .appendField('sleep(')
+        .appendField('time.sleep(')
         .appendField(new Blockly.FieldTextInput(''), 'sleep')
         .appendField(')');
       this.setPreviousStatement(true, null);

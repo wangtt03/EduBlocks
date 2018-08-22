@@ -1,0 +1,7 @@
+<category name="Dotstar" colour="70">
+  <block type="import_dotstar"></block>
+  <block type="vardotstar"></block>
+  <block type="dsbrightness"></block>
+  <block type="dsvar"></block>
+  <block type="ledfill"></block>
+</category>

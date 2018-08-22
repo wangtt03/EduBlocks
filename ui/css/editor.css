@@ -4,7 +4,7 @@ body {
 
 .loading-message {
   font-size: 100px;
-  color: #aaa;
+  color: #43464b;
   text-align: center;
 }
 
@@ -14,11 +14,10 @@ body {
 }
 
 nav {
-  background: #32deff; /* For browsers that do not support gradients */        
-  background: -webkit-linear-gradient(90deg, #00ed00, #32deff); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(90deg, #00ed00, #32deff); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(90deg, #00ed00, #32deff); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(90deg, #00ed00, #32deff); /* Standard syntax (must be last) */
+  background: #232526;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
   }
 
 nav .brand{
@@ -31,7 +30,7 @@ button {
 
 .button {
   background-color: white;
-  color: black;
+  color: #43464b;
 }
 
 table.primary td {
@@ -130,11 +129,11 @@ table.primary td {
 }
 
 a{
-  color: #00ed00
+  color: #43464b
 }
 
 button{
-  background-color: #00ed00
+  background-color: #43464b 
 }
 
 #term {
@@ -143,7 +142,7 @@ button{
 }
 
 .blocklySvg{
-  background-image: url("https://az742082.vo.msecnd.net/pub/psopafpj");
+  background-image: url("CPXBacking.png");
     
 }
 

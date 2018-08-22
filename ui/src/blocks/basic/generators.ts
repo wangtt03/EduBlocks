@@ -1,11 +1,21 @@
 export default function define(Python: Blockly.BlockGenerators) {
-  Python['import_microbit'] = function (block) {
-    const code = 'from microbit import *\n';
+  Python['import_board'] = function (block) {
+    const code = 'from board import *\n';
     return code;
   };
 
-  Python['import_signal'] = function (block) {
-    const code = 'from signal import pause\n';
+  Python['import_digitalio'] = function (block) {
+    const code = 'import digitalio\n';
+    return code;
+  };
+
+  Python['importneo'] = function(block) {
+    let code = 'import neopixel\n';
+    return code;
+  };
+
+  Python['import_time'] = function (block) {
+    const code = 'import time\n';
     return code;
   };
 
@@ -164,7 +174,7 @@ export default function define(Python: Blockly.BlockGenerators) {
 
   Python['sleep'] = function (block) {
     const text_sleeptime = block.getFieldValue('sleep');
-    const code = 'sleep(' + text_sleeptime + ')\n';
+    const code = 'time.sleep(' + text_sleeptime + ')\n';
     return code;
   };
 

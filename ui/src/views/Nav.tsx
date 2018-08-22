@@ -21,7 +21,7 @@ export default class Nav extends Component<NavProps, {}> {
     return (
       <nav>
         <a class='brand'>
-          <img class='logo' src='/images/ebmblogo.png' />
+          <img class='logo' src='/images/cplogo.png' />
           {/*<span class='filename'>({this.props.sync ? 'In sync' : 'Out of sync'})</span>*/}
         </a>
 
@@ -41,12 +41,9 @@ export default class Nav extends Component<NavProps, {}> {
             Save
           </a>
 
-          <a class='button icon-flash' title='Download file to flash to micro:bit' href='javascript:void(0)' onClick={() => this.props.downloadHex()}>
-            Download Hex
-          </a>
 
           <a class='button icon-download' title='Download Python Source Code' href='javascript:void(0)' onClick={() => this.props.downloadPython()}>
-            Python
+            Download
           </a>
 
 

@@ -1,7 +1,6 @@
 <category name="Pins" colour="0">
-  <block type="pintouched"></block>
-  <block type="analogread"></block>
-  <block type="digitalread"></block>
-  <block type="writeanalog"></block>
-  <block type="writedigital"></block>
+  <block type="import_digitalio"></block>
+  <block type="pinconfig"></block>
+  <block type="pindirection"></block>
+  <block type="pinvalue"></block>
 </category>
