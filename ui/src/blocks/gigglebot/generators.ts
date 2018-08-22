@@ -11,12 +11,12 @@ export default function define(Python: Blockly.BlockGenerators) {
         return code;
     };
 
-    Python['drive_x_seconds'] = function(block) {
+    Python['drive_x_milliseconds'] = function(block) {
         var dropdown_dir = block.getFieldValue('dir');
-        // var number_seconds = block.getFieldValue('seconds') || 0;
-        var value_seconds = Blockly.Python.valueToCode(block, 'seconds', Blockly.Python.ORDER_ATOMIC)
+        // var number_seconds = block.getFieldValue('milliseconds') || 0;
+        var value_milliseconds = Blockly.Python.valueToCode(block, 'milliseconds', Blockly.Python.ORDER_ATOMIC)
                              || '0';
-        var code = 'drive('+dropdown_dir+', seconds='+value_seconds+')\n';
+        var code = 'drive('+dropdown_dir+', milliseconds='+value_milliseconds+')\n';
         return code;
     };
 
@@ -26,10 +26,10 @@ export default function define(Python: Blockly.BlockGenerators) {
         return code;
     };
 
-    Python['turn_x_seconds'] = function(block) {
+    Python['turn_x_milliseconds'] = function(block) {
         var dropdown_dir = block.getFieldValue('dir');
-        var number_seconds = block.getFieldValue('seconds');
-        var code = 'turn('+dropdown_dir+', seconds='+number_seconds+')\n';
+        var number_milliseconds = Blockly.Python.valueToCode(block, 'milliseconds', Blockly.Python.ORDER_ATOMIC)
+        var code = 'turn('+dropdown_dir+', milliseconds='+number_milliseconds+')\n';
         return code;
     };
 
