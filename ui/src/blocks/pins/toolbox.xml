@@ -1,4 +1,4 @@
-<category name="Pins" colour="0">
+<category name="Pins" colour="#FF4A60">
   <block type="import_digitalio"></block>
   <block type="pinconfig"></block>
   <block type="pindirection"></block>
