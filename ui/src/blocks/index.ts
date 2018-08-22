@@ -61,12 +61,20 @@ pinsDefs(Blockly.Blocks);
 pinsGens(Blockly.Python as any);
 const pins = fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'pins', 'toolbox.xml'));
 
+
+import { Extension } from '../types';
+
 import scrollbitDefs from './scrollbit/definitions';
 import scrollbitGens from './scrollbit/generators';
-import { Extension } from '../types';
 scrollbitDefs(Blockly.Blocks);
 scrollbitGens(Blockly.Python as any);
 const scrollbit = fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'scrollbit', 'toolbox.xml'));
+
+import gigglebotDefs from './gigglebot/definitions';
+import gigglebotGens from './gigglebot/generators';
+gigglebotDefs(Blockly.Blocks);
+gigglebotGens(Blockly.Python as any);
+const gigglebot = fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'gigglebot', 'toolbox.xml'));
 
 function getToolBoxXml(extensions: Extension[]) {
   let toolBoxXml = '';
@@ -88,6 +96,9 @@ function getToolBoxXml(extensions: Extension[]) {
     toolBoxXml += scrollbit;
   }
 
+  if (extensions.indexOf('gigglebot') !== -1 ) {
+    toolBoxXml += gigglebot;
+  }
 
   toolBoxXml += '</xml>';
 
@@ -97,6 +108,9 @@ function getToolBoxXml(extensions: Extension[]) {
 function getBeforeScript(extensions: Extension[]) {
   if (extensions.indexOf('scroll:bit') !== -1) {
     return fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'scrollbit', 'scrollbit.py'));
+  }
+  if (extensions.indexOf('gigglebot') !== -1) {
+    return fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'gigglebot', 'gigglebot.py'));
   }
 }
 
