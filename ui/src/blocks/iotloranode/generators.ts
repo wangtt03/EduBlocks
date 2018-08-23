@@ -1,92 +1,61 @@
 export default function define(Python: Blockly.BlockGenerators) {
-    Python['import_gigglebot'] = function(block) {
+    Python['import_iotloranode'] = function(block) {
         // TODO: Assemble Python into code variable.
-        var code = 'from gigglebot import *\n';
+        var code = 'from iotloranode import loraNode\n';
         return code;
     };
 
-    Python['drive'] = function(block) {
-        var dropdown_dir = block.getFieldValue('dir');
-        var code = 'drive('+dropdown_dir+')\n';
-        return code;
-    };
-
-    Python['drive_x_milliseconds'] = function(block) {
-        var dropdown_dir = block.getFieldValue('dir');
-        // var number_seconds = block.getFieldValue('milliseconds') || 0;
-        var value_milliseconds = Blockly.Python.valueToCode(block, 'milliseconds', Blockly.Python.ORDER_ATOMIC)
-                             || '0';
-        var code = 'drive('+dropdown_dir+', milliseconds='+value_milliseconds+')\n';
-        return code;
-    };
-
-    Python['turn'] = function(block) {
-        var dropdown_dir = block.getFieldValue('dir');
-        var code = 'turn('+dropdown_dir+')\n';
-        return code;
-    };
-
-    Python['turn_x_milliseconds'] = function(block) {
-        var dropdown_dir = block.getFieldValue('dir');
-        var number_milliseconds = Blockly.Python.valueToCode(block, 'milliseconds', Blockly.Python.ORDER_ATOMIC)
-        var code = 'turn('+dropdown_dir+', milliseconds='+number_milliseconds+')\n';
-        return code;
-    };
-
-    Python['stop'] = function(block) {
+    Python['lora_init'] = function(block) {
+        var variable_node = Blockly.Python.variableDB_.getName(block.getFieldValue('node'), Blockly.Variables.NAME_TYPE);
         // TODO: Assemble Python into code variable.
-        var code = 'stop()\n';
+        var code = variable_node + ' = loraNode()\n';
         return code;
     };
 
-    Python['set_speed'] = function(block) {
-        var number_left = block.getFieldValue('power_left');
-        var number_rigth = block.getFieldValue('power_right');
-        var code = 'set_speed(' + number_left + ', ' + number_rigth + ')\n';
-        return code;
-    };
-
-    Python['set_servo'] = function(block) {
-        var dropdown_which = block.getFieldValue('which');
-        var number_degrees = block.getFieldValue('degrees');
-        var code = 'set_servo('+dropdown_which+', degrees='+number_degrees+')\n';
-        return code;
-    };
-
-    Python['servo_off'] = function(block) {
-        var dropdown_which = block.getFieldValue('which');
-        var code = 'servo_off('+dropdown_which+')\n';
-        return code;
-    };
-
-    Python['set_smile'] = function(block) {
-        var number_R = block.getFieldValue('R');
-        var number_G = block.getFieldValue('G');
-        var number_B = block.getFieldValue('B');
-        var code = 'set_smile(R=' + number_R + ', G=' + number_G + ', B=' + number_B + ')\n';
-        return code;
-    };
-
-    Python['set_eyes'] = function(block) {
-        var dropdown_which = block.getFieldValue('which');
-        var number_R = block.getFieldValue('R');
-        var number_G = block.getFieldValue('G');
-        var number_B = block.getFieldValue('B');
-        var code = 'set_eyes('+ dropdown_which + ', R=' + number_R + ', G=' + number_G + ', B=' + number_B + ')\n';
-        return code;
-    };
-
-    Python['read_sensor'] = function(block) {
-        var dropdown_sensor = block.getFieldValue('sensor');
-        var dropdown_which = block.getFieldValue('which');
-        var code = 'read_sensor('+ dropdown_sensor + ', '+ dropdown_which + ')';
-        return [code, Blockly.Python.ORDER_ATOMIC];
-    };
-    
-    Python['volt'] = function(block) {
-        var code = 'volt()';
+    Python['quote_shadow'] = function(block) {
+        var text_add = block.getFieldValue('add');
+        // TODO: Assemble Python into code variable.
+        var code = '...';
+        // TODO: Change ORDER_NONE to the correct strength.
         return [code, Blockly.Python.ORDER_ATOMIC];
     };
 
+    Python['lora_devadd'] = function(block) {
+        var variable_node = Blockly.Python.variableDB_.getName(block.getFieldValue('node'), Blockly.Variables.NAME_TYPE);
+        var value_address = Blockly.Python.valueToCode(block, 'address', Blockly.Python.ORDER_ATOMIC);
+        // TODO: Assemble Python into code variable.
+        var code = variable_node+'.set_devAddr(' +value_address+ ')\n';
+        return code;
+    };
 
+    Python['lora_netkey'] = function(block) {
+        var variable_node = Blockly.Python.variableDB_.getName(block.getFieldValue('node'), Blockly.Variables.NAME_TYPE);
+        var value_address = Blockly.Python.valueToCode(block, 'address', Blockly.Python.ORDER_ATOMIC);
+        // TODO: Assemble Python into code variable.
+        var code = variable_node+'.set_networkKey(' +value_address+ ')\n';
+        return code;
+    };
+
+    Python['lora_appkey'] = function(block) {
+        var variable_node = Blockly.Python.variableDB_.getName(block.getFieldValue('node'), Blockly.Variables.NAME_TYPE);
+        var value_address = Blockly.Python.valueToCode(block, 'address', Blockly.Python.ORDER_ATOMIC);
+        // TODO: Assemble Python into code variable.
+        var code = variable_node+'.set_networkKey(' +value_address+ ')\n';
+        return code;
+    };
+
+    Python['lora_join'] = function(block) {
+        var variable_node = Blockly.Python.variableDB_.getName(block.getFieldValue('node'), Blockly.Variables.NAME_TYPE);
+        // TODO: Assemble Python into code variable.
+        var code = variable_node = '.join(' +variable_node+ '.adp)\n';
+        return code;
+    };
+
+    Python['lora_sendstring'] = function(block) {
+        var variable_node = Blockly.Python.variableDB_.getName(block.getFieldValue('node'), Blockly.Variables.NAME_TYPE);
+        var value_address = Blockly.Python.valueToCode(block, 'address', Blockly.Python.ORDER_ATOMIC);
+        // TODO: Assemble Python into code variable.
+        var code = variable_node+'.send_string_packet(' +value_address+ ')\n';
+        return code;
+    };
 }

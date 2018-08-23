@@ -1,31 +1,38 @@
 <category name="IoT LoRa Node" colour="#8bc34a">
 
- <block type="import_gigglebot"></block>
- <block type="drive"></block>
-<block type="drive_x_milliseconds">
-    <value name="milliseconds">
-    <shadow type="textinline">
-        <field name="text">1000</field>
-    </shadow>
-    </value>
+ <block type="import_iotloranode"></block>
+ <block type="lora_init"></block>
+ <block type="lora_devadd">
+      <field name="node" id="cefvQQFzD!dQpOC:uU/!" variabletype="">node</field>
+      <value name="address">
+        <shadow type="quote_shadow">
+          <field name="add"></field>
+        </shadow>
+      </value>
 </block>
-
-<block type="turn"></block>
-
-<block type="turn_x_milliseconds">
-    <value name="milliseconds">
-    <shadow type="textinline">
-        <field name="text">1000</field>
-    </shadow>
-    </value>
+<block type="lora_netkey">
+      <field name="node" id="cefvQQFzD!dQpOC:uU/!" variabletype="">node</field>
+      <value name="address">
+        <shadow type="quote_shadow">
+          <field name="add"></field>
+        </shadow>
+      </value>
 </block>
-
-<block type="stop"></block>
-<block type="set_speed"></block>
-<block type="set_servo"></block>
-<block type="servo_off"></block>
-<block type="set_smile"></block>
-<block type="set_eyes"></block>
-<block type="read_sensor"></block>
-<block type="volt"></block>
+<block type="lora_appkey">
+      <field name="node" id="cefvQQFzD!dQpOC:uU/!" variabletype="">node</field>
+      <value name="address">
+        <shadow type="quote_shadow">
+          <field name="add"></field>
+        </shadow>
+      </value>
+</block>
+<block type="lora_join"></block>
+<block type="lora_sendstring">
+      <field name="node" id="cefvQQFzD!dQpOC:uU/!" variabletype="">node</field>
+      <value name="address">
+        <shadow type="quote_shadow">
+          <field name="add"></field>
+        </shadow>
+      </value>
+</block>
 </category>

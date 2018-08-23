@@ -1,202 +1,128 @@
-let gigglebot_HUE = "#46BFB1"
+let lora_HUE = "#8bc34a"
 export default function define(Blocks: Blockly.BlockDefinitions) {
-    Blocks['import_gigglebot'] = {
+    Blocks['import_iotloranode'] = {
         init: function() {
           this.appendDummyInput()
-              .appendField("from gigglebot import *");
+              .appendField("from iotloranode import loraNode");
           this.setPreviousStatement(true, null);
           this.setNextStatement(true, null);
-          this.setColour(gigglebot_HUE);
-       this.setTooltip("Imports gigglebot");
+          this.setColour(lora_HUE);
+       this.setTooltip("Imports iotloranode");
+       this.setHelpUrl("");
+        }
+      };
+    
+      Blocks['lora_init'] = {
+        init: function() {
+          this.appendDummyInput()
+              .appendField(new Blockly.FieldVariable("node"), "node")
+              .appendField(" = loraNode()");
+          this.setPreviousStatement(true, null);
+          this.setNextStatement(true, null);
+          this.setColour(lora_HUE);
+       this.setTooltip("Initalize the LoRa Node");
        this.setHelpUrl("");
         }
       };
 
-    Blocks['drive'] = {
+      Blocks['lora_devadd'] = {
         init: function() {
           this.appendDummyInput()
-              .appendField("drive (")
-              .appendField(new Blockly.FieldDropdown([["FORWARD","FORWARD"], ["BACKWARD","BACKWARD"]]), "dir")
-              .appendField(")");
-          this.setPreviousStatement(true, null);
-          this.setNextStatement(true, null);
-          this.setColour(gigglebot_HUE);
-       this.setTooltip("The robot will drive until otherwise interrupted.");
-       this.setHelpUrl("");
-        }
-      };
-
-    Blocks['drive_x_milliseconds'] = {
-        init: function() {
-          this.appendDummyInput()
-              .appendField("drive (")
-              .appendField(new Blockly.FieldDropdown([["FORWARD","FORWARD"], ["BACKWARD","BACKWARD"]]), "dir")
-              .appendField(", milliseconds=");
-          this.appendValueInput("milliseconds")
+              .appendField(new Blockly.FieldVariable("node"), "node")
+              .appendField(".set_devAddr(");
+          this.appendValueInput("address")
               .setCheck(null);
           this.appendDummyInput()
               .appendField(")");
           this.setInputsInline(true);
           this.setPreviousStatement(true, null);
           this.setNextStatement(true, null);
-          this.setColour(gigglebot_HUE);
-       this.setTooltip("Setting the delay to -1 means the robot will drive until otherwise interrupted.");
+          this.setColour(lora_HUE);
+       this.setTooltip("Set LoRa Dev Address");
+       this.setHelpUrl("");
+        }
+      };
+      
+      Blocks['quote_shadow'] = {
+        init: function() {
+          this.appendDummyInput()
+              .appendField("\"")
+              .appendField(new Blockly.FieldTextInput(""), "add")
+              .appendField("\"");
+          this.setOutput(true, null);
+          this.setColour(lora_HUE);
        this.setHelpUrl("");
         }
       };
 
-    Blocks['turn'] = {
+      Blocks['lora_netkey'] = {
         init: function() {
           this.appendDummyInput()
-              .appendField("turn (")
-              .appendField(new Blockly.FieldDropdown([["LEFT","LEFT"], ["RIGHT","RIGHT"]]), "dir")
-              .appendField(")");
-          this.setPreviousStatement(true, null);
-          this.setNextStatement(true, null);
-          this.setColour(gigglebot_HUE);
-       this.setTooltip("The robot will turn until otherwise interrupted.");
-       this.setHelpUrl("");
-        }
-      };
-    Blocks['turn_x_milliseconds'] = {
-        init: function() {
-          this.appendDummyInput()
-              .appendField("turn (")
-              .appendField(new Blockly.FieldDropdown([["LEFT","LEFT"], ["RIGHT","RIGHT"]]), "dir")
-              .appendField(", milliseconds=");
-          this.appendValueInput("milliseconds")
+              .appendField(new Blockly.FieldVariable("node"), "node")
+              .appendField(".set_networkKey(");
+          this.appendValueInput("address")
               .setCheck(null);
           this.appendDummyInput()
               .appendField(")");
           this.setInputsInline(true);
           this.setPreviousStatement(true, null);
           this.setNextStatement(true, null);
-          this.setColour(gigglebot_HUE);
-       this.setTooltip("Setting the delay to -1 means the robot will turn until otherwise interrupted.");
+          this.setColour(lora_HUE);
+       this.setTooltip("Set LoRa Net Key");
        this.setHelpUrl("");
         }
       };
 
-    Blocks['stop'] = {
+      Blocks['lora_appkey'] = {
         init: function() {
           this.appendDummyInput()
-              .appendField("stop()");
+              .appendField(new Blockly.FieldVariable("node"), "node")
+              .appendField("set_appSessionKey(");
+          this.appendValueInput("address")
+              .setCheck(null);
+          this.appendDummyInput()
+              .appendField(")");
+          this.setInputsInline(true);
           this.setPreviousStatement(true, null);
           this.setNextStatement(true, null);
-          this.setColour(gigglebot_HUE);
-       this.setTooltip("Stops the GiggleBot");
+          this.setColour(lora_HUE);
+       this.setTooltip("Set LoRa App Key");
        this.setHelpUrl("");
         }
       };
 
-      Blocks['set_speed'] = {
+      Blocks['lora_join'] = {
         init: function() {
           this.appendDummyInput()
-              .appendField("set_speed( power_left=")
-              .appendField(new Blockly.FieldNumber(0, 0), "power_left")
-              .appendField(", power_right=")
-              .appendField(new Blockly.FieldNumber(0, 0), "power_right")
-              .appendField(")");
+              .appendField(new Blockly.FieldVariable("node"), "node")
+              .appendField(".join(")
+              .appendField(new Blockly.FieldVariable("node"), "node1")
+              .appendField(".adp)");
+          this.setInputsInline(true);
           this.setPreviousStatement(true, null);
           this.setNextStatement(true, null);
-          this.setColour(gigglebot_HUE);
-       this.setTooltip("Adjusts the speed of each motor");
+          this.setColour(lora_HUE);
+       this.setTooltip("LoRa Join Command");
        this.setHelpUrl("");
         }
       };
 
-      Blocks['set_servo'] = {
+      Blocks['lora_sendstring'] = {
         init: function() {
           this.appendDummyInput()
-              .appendField("set_servo(")
-              .appendField(new Blockly.FieldDropdown([["LEFT","LEFT"], ["RIGHT","RIGHT"], ["BOTH","BOTH"]]), "which")
-              .appendField(", degrees=")
-              .appendField(new Blockly.FieldNumber(0, 0), "degrees")
+              .appendField(new Blockly.FieldVariable("node"), "node")
+              .appendField(".send_string_packet(");
+          this.appendValueInput("address")
+              .setCheck(null);
+          this.appendDummyInput()
               .appendField(")");
+          this.setInputsInline(true);
           this.setPreviousStatement(true, null);
           this.setNextStatement(true, null);
-          this.setColour(gigglebot_HUE);
-       this.setTooltip("Controls one or both of the servos");
+          this.setColour(lora_HUE);
+       this.setTooltip("Set LoRa App Key");
        this.setHelpUrl("");
         }
       };
-
-      Blocks['servo_off'] = {
-        init: function() {
-          this.appendDummyInput()
-              .appendField("servo_off(")
-              .appendField(new Blockly.FieldDropdown([["LEFT","LEFT"], ["RIGHT","RIGHT"], ["BOTH","BOTH"]]), "which")
-              .appendField(")");
-          this.setPreviousStatement(true, null);
-          this.setNextStatement(true, null);
-          this.setColour(gigglebot_HUE);
-       this.setTooltip("Removes power from one or both servos ");
-       this.setHelpUrl("");
-        }
-      };
-
-
-      Blocks['set_smile'] = {
-        init: function() {
-          this.appendDummyInput()
-              .appendField("set_smile( R=")
-              .appendField(new Blockly.FieldNumber(0, 0), "R")
-              .appendField(", G=")
-              .appendField(new Blockly.FieldNumber(0, 0), "G")
-              .appendField(", B=")
-              .appendField(new Blockly.FieldNumber(0, 0), "B")
-              .appendField(")");
-          this.setPreviousStatement(true, null);
-          this.setNextStatement(true, null);
-          this.setColour(gigglebot_HUE);
-       this.setTooltip("Sets colour for the smile");
-       this.setHelpUrl("");
-        }
-      };
-
-      Blocks['set_eyes'] = {
-        init: function() {
-          this.appendDummyInput()
-              .appendField("set_eyes(")
-              .appendField(new Blockly.FieldDropdown([["LEFT","LEFT"], ["RIGHT","RIGHT"], ["BOTH","BOTH"]]), "which")
-              .appendField(", R=")
-              .appendField(new Blockly.FieldNumber(0, 0), "R")
-              .appendField(", G=")
-              .appendField(new Blockly.FieldNumber(0, 0), "G")
-              .appendField(", B=")
-              .appendField(new Blockly.FieldNumber(0, 0), "B")
-              .appendField(")");
-          this.setPreviousStatement(true, null);
-          this.setNextStatement(true, null);
-          this.setColour(gigglebot_HUE);
-       this.setTooltip("Sets colour for each eye");
-       this.setHelpUrl("");
-        }
-      };
-
-
-      Blocks['read_sensor'] = {
-        init: function() {
-          this.appendDummyInput()
-              .appendField("read_sensor(")
-              .appendField(new Blockly.FieldDropdown([["GET_LINE_SENSORS","GET_LINE_SENSORS"], ["GET_LIGHT_SENSORS","GET_LIGHT_SENSORS"]]), "sensor")
-              .appendField(new Blockly.FieldDropdown([["LEFT","LEFT"], ["RIGHT","RIGHT"], ["BOTH","BOTH"]]), "which")
-              .appendField(")");
-          this.setOutput(true, "Number");
-          this.setColour(gigglebot_HUE);
-       this.setTooltip("Get a reading from line sensors or light sensors ");
-       this.setHelpUrl("");
-        }
-      };
-
-      Blocks['volt'] = {
-        init: function() {
-          this.appendDummyInput()
-              .appendField("volt()");
-          this.setOutput(true, "Number");
-          this.setColour(gigglebot_HUE);
-       this.setTooltip("Gets a level reading from the batteries");
-       this.setHelpUrl("");
-        }
-      };
+      
 }
