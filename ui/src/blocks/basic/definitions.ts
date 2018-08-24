@@ -480,7 +480,8 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
             ['<', '<'],
             ['<=', '<='],
             ['>', '>'],
-            ['=>', '=>']
+            ['=>', '=>'],
+            ['and', 'and']
           ];
           var OPERATORS = ltrOperators;
       this.appendValueInput("first")
