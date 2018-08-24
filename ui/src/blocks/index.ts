@@ -76,11 +76,6 @@ gigglebotDefs(Blockly.Blocks);
 gigglebotGens(Blockly.Python as any);
 const gigglebot = fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'gigglebot', 'toolbox.xml'));
 
-import iotloranodeDefs from './iotloranode/definitions';
-import iotloranodeGens from './iotloranode/generators';
-iotloranodeDefs(Blockly.Blocks);
-iotloranodeGens(Blockly.Python as any);
-const iotloranode = fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'iotloranode', 'toolbox.xml'));
 
 function getToolBoxXml(extensions: Extension[]) {
   let toolBoxXml = '';
@@ -102,15 +97,11 @@ function getToolBoxXml(extensions: Extension[]) {
     toolBoxXml += scrollbit;
   }
 
-  if (extensions.indexOf('gigglebot') !== -1 ) {
+  if (extensions.indexOf('GiggleBot') !== -1 ) {
     toolBoxXml += gigglebot;
   }
 
-  if (extensions.indexOf('Pi Supply IoT LoRa Node') !== -1 ) {
-    toolBoxXml += iotloranode;
-  }
-
-  toolBoxXml += '</xml>';
+    toolBoxXml += '</xml>';
 
   return toolBoxXml;
 }
@@ -119,7 +110,7 @@ function getBeforeScript(extensions: Extension[]) {
   if (extensions.indexOf('scroll:bit') !== -1) {
     return fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'scrollbit', 'scrollbit.py'));
   }
-  if (extensions.indexOf('gigglebot') !== -1) {
+  if (extensions.indexOf('GiggleBot') !== -1) {
     return fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'gigglebot', 'gigglebot.py'));
   }
   if (extensions.indexOf('Pi Supply IoT LoRa Node') !== -1) {

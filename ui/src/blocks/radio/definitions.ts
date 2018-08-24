@@ -4,9 +4,9 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
   Blocks['radiosend'] = {
     init: function () {
       this.appendDummyInput()
-        .appendField('radio.send("')
-        .appendField(new Blockly.FieldTextInput(''), 'send')
-        .appendField('")');
+        .appendField('radio.send(')
+        .appendField(new Blockly.FieldTextInput('"hello"'), 'send')
+        .appendField(')');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
       this.setColour(90);

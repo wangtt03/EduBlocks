@@ -82,7 +82,6 @@ async function newApp(): Promise<App> {
     return [
       'scroll:bit',
       'GiggleBot',
-      'Pi Supply IoT LoRa Node',
     ];
   }
 
