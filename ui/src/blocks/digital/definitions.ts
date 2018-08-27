@@ -1,3 +1,4 @@
+let digitalcol = "#2C97DF"
 export default function define(Blocks: Blockly.BlockDefinitions) {
 
   Blocks['import_digitalio'] = {
@@ -6,7 +7,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField('from digitalio import *');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(0);
+      this.setColour(digitalcol);
       this.setTooltip('Imports the DigitalIO library.');
       this.setHelpUrl('http://www.example.com/');
     },
@@ -21,7 +22,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
           .appendField(")");
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(0);
+      this.setColour(digitalcol);
    this.setTooltip("");
    this.setHelpUrl("");
     }
@@ -35,7 +36,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
           .appendField(new Blockly.FieldTextInput(""), "direction");
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(0);
+      this.setColour(digitalcol);
    this.setTooltip("");
    this.setHelpUrl("");
     }
@@ -49,7 +50,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
           .appendField(new Blockly.FieldDropdown([["True","True"], ["False","False"]]), "value");
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(0);
+      this.setColour(digitalcol);
    this.setTooltip("");
    this.setHelpUrl("");
     }

@@ -578,11 +578,8 @@ declare module Blockly {
      */
     moveBy(dx: number, dy: number): void;
 
-    /**
-     * Snap this block to the nearest grid point.
-     * @private
-     */
-    snapToGrid_(): void;
+    
+
 
     /**
      * Returns a bounding box describing the dimensions of this block
@@ -5869,11 +5866,7 @@ declare module Blockly {
      */
     zoomReset(e: Event): void;
 
-    /**
-     * Updates the grid pattern.
-     * @private
-     */
-    updateGridPattern_(): void;
+   
   }
 
 }

@@ -44,7 +44,13 @@ export default class BlocklyView extends Component<BlocklyViewProps, {}> {
       const toolbox = getToolBoxXml(extensionsActive);
 
       this.workspace = Blockly.inject(this.blocklyDiv, {
-     zoom:
+        grid:
+        {spacing: 40,
+         length: 1,
+         colour: '#ccc',
+         snap: false},
+
+        zoom:
           {controls: true,
           wheel: true,
           startScale: 1.0,

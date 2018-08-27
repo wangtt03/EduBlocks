@@ -1,6 +1,7 @@
 <category name="Analog" colour="#E67D21">
-  <block type="import_digitalio"></block>
-  <block type="pinconfig"></block>
-  <block type="pindirection"></block>
-  <block type="pinvalue"></block>
+  <block type="import_analogio"></block>
+  <block type="analog_in"></block>
+  <block type="analogpindirection"></block>
+  <block type="analogpinvalue"></block>
+  <block type="varinline"></block>
 </category>

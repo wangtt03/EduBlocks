@@ -29,6 +29,7 @@ export default class Nav extends Component<NavProps, {}> {
         <label for='bmenub' class='burger pseudo button'>menu</label>
 
         <div class='menu'>
+        
           <a class='button icon-plus' title='New' href='javascript:void(0)' onClick={() => this.props.newCode()}>
             New
           </a>
