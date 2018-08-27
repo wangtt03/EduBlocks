@@ -33,7 +33,21 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.appendDummyInput()
           .appendField(new Blockly.FieldVariable("pin"), "pin")
           .appendField(".direction = ")
-          .appendField(new Blockly.FieldTextInput(""), "direction");
+          .appendField(new Blockly.FieldTextInput("Direction.OUTPUT"), "direction");
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour(digitalcol);
+   this.setTooltip("");
+   this.setHelpUrl("");
+    }
+  };
+
+  Blocks['pull'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField(new Blockly.FieldVariable("pin"), "pin")
+          .appendField(".pull")
+          .appendField(new Blockly.FieldTextInput("Pull.DOWN"), "direction");
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
       this.setColour(digitalcol);
@@ -50,6 +64,18 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
           .appendField(new Blockly.FieldDropdown([["True","True"], ["False","False"]]), "value");
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
+      this.setColour(digitalcol);
+   this.setTooltip("");
+   this.setHelpUrl("");
+    }
+  };
+
+  Blocks['valuein'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField(new Blockly.FieldVariable("pin"), "pin")
+          .appendField(".value");
+      this.setOutput(true, null);
       this.setColour(digitalcol);
    this.setTooltip("");
    this.setHelpUrl("");

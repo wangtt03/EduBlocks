@@ -2,5 +2,7 @@
   <block type="import_digitalio"></block>
   <block type="pinconfig"></block>
   <block type="pindirection"></block>
+  <block type="pull"></block>
   <block type="pinvalue"></block>
+  <block type="valuein"></block>
 </category>

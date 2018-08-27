@@ -11,29 +11,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     },
   };
 
-  Blocks['importneo'] = {
-    init: function() {
-      this.appendDummyInput()
-          .appendField("import neopixel")
-      this.setPreviousStatement(true, null);
-      this.setNextStatement(true, null);
-      this.setColour(336);
-   this.setTooltip("Import Neopixel Library");
-   this.setHelpUrl("");
-    }
-  };
-
-  Blocks['import_digitalio'] = {
-    init: function () {
-      this.appendDummyInput()
-        .appendField('import digitalio');
-      this.setPreviousStatement(true, null);
-      this.setNextStatement(true, null);
-      this.setColour(336);
-      this.setTooltip('Imports the DigitalIO library.');
-      this.setHelpUrl('http://www.example.com/');
-    },
-  };
+  
 
 
   Blocks['import_time'] = {
