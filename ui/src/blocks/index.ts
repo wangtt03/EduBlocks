@@ -78,9 +78,15 @@ function getToolBoxXml(extensions: Extension[]) {
   toolBoxXml += '<xml>';
 
   toolBoxXml += basic;
-  
-  toolBoxXml += pins;
-
+  toolBoxXml += digital;
+  toolBoxXml += analog;
+  toolBoxXml += neopixel;
+  toolBoxXml += touch;
+  toolBoxXml += servo;
+  toolBoxXml += audio;
+  toolBoxXml += pwm;
+  toolBoxXml += i2c;
+  toolBoxXml += dotstar;
   toolBoxXml += '</xml>';
 
   return toolBoxXml;

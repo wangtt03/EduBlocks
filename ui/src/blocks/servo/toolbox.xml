@@ -1,4 +1,4 @@
-<category name="Pins" colour="0">
+<category name="Servo" colour="#9C56B8">
   <block type="import_digitalio"></block>
   <block type="pinconfig"></block>
   <block type="pindirection"></block>

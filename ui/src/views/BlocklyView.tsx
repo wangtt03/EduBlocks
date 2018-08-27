@@ -44,9 +44,18 @@ export default class BlocklyView extends Component<BlocklyViewProps, {}> {
       const toolbox = getToolBoxXml(extensionsActive);
 
       this.workspace = Blockly.inject(this.blocklyDiv, {
+     zoom:
+          {controls: true,
+          wheel: true,
+          startScale: 1.0,
+          maxScale: 3,
+          minScale: 0.3,
+          scaleSpeed: 1.2},
         media: 'blockly/media/',
         toolbox,
       }) as Blockly.WorkspaceSvg;
+
+      
 
       this.workspace.addChangeListener(() => {
         const xml = this.getXml();

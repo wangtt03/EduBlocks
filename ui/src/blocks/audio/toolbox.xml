@@ -1,4 +1,4 @@
-<category name="Pins" colour="0">
+<category name="Audio" colour="#4CE254">
   <block type="import_digitalio"></block>
   <block type="pinconfig"></block>
   <block type="pindirection"></block>
