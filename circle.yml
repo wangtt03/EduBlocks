@@ -1,3 +1,4 @@
+"""
 machine:
   node:
     version: 6.10.2
@@ -41,3 +42,4 @@ deployment:
   #     - scp edublocks-armv6l.tar.xz Josh@edublocks.org:downloads
   #     - scp auto-installer.sh Josh@edublocks.org:downloads
   #     - echo $CIRCLE_TAG | ssh Josh@edublocks.org 'cat > downloads/version.txt'
+"""
