@@ -1,6 +1,6 @@
 export default function define(Python: Blockly.BlockGenerators) {
   Python['import_board'] = function (block) {
-    const code = 'from board import *\n';
+    const code = 'import board\n';
     return code;
   };
 

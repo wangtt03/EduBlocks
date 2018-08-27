@@ -15,6 +15,22 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     }
   };
 
+  Blocks['fill'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField(new Blockly.FieldVariable("np"), "NAME")
+          .appendField(".fill(")
+          .appendField(new Blockly.FieldTextInput(""), "inputneo")
+          .appendField(")");
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour(150);
+   this.setTooltip("Configure Neopixels");
+   this.setHelpUrl("");
+    }
+  };
+  
+
   Blocks['neovar'] = {
     init: function() {
       this.appendDummyInput()

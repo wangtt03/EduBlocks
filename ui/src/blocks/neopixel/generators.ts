@@ -8,6 +8,13 @@ export default function define(Python: Blockly.BlockGenerators) {
     return code;
   };
 
+  Python['fill'] = function(block) {
+    let variable_name = Blockly.Python.variableDB_.getName(block.getFieldValue('NAME'), Blockly.Variables.NAME_TYPE);
+    let text_inputneo = block.getFieldValue('inputneo');
+    let code = variable_name+ '.fill(' +text_inputneo+ ')\n';
+    return code;
+  };
+
   Python['importneo'] = function(block) {
     let code = 'import neopixel\n';
     return code;

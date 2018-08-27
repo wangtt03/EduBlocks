@@ -61,11 +61,6 @@ dotstarDefs(Blockly.Blocks);
 dotstarGens(Blockly.Python as any);
 const dotstar = fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'dotstar', 'toolbox.xml'));
 
-import pinsDefs from './pins/definitions';
-import pinsGens from './pins/generators';
-pinsDefs(Blockly.Blocks);
-pinsGens(Blockly.Python as any);
-const pins = fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'pins', 'toolbox.xml'));
 
 
 import { Extension } from '../types';

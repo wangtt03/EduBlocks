@@ -2,6 +2,7 @@
   <block type="importneo"></block>
   <block type="setneo"></block>
   <block type="neovar"></block>
+  <block type="fill"></block>
   <block type="neoshow"></block>
   <block type="neoclear"></block>
 </category>
