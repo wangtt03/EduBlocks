@@ -78,6 +78,28 @@ Install PIP packages:
 
     pip3 install edupy python-sonic blinkt explorerhat 'ipython==6.0.0'
 
+#### Full Developer Instuctions
+
+    sudo apt install git build-essential
+    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
+    . ~/.nvm/nvm.sh
+    nvm install 6.10.3
+    npm --global install yarn
+    
+    git clone git@github.com:AllAboutCode/EduBlocks.git
+
+    cd EduBlocks
+
+    cd ui
+    ln -s ../../server/src/protocol.ts src/protocol.ts
+
+    yarn
+    yarn run build
+
+    cd ../server
+    yarn
+    yarn run watch
+
 ### Running Server and Client locally in developer mode on your PC
 
 Developer mode allows you to run EduBlocks on your PC and watch for live code changes for developer convenience.
@@ -98,27 +120,7 @@ In the second terminal, run the server:
 
 EduBlocks UI will now be available at http://localhost:8081/
 
-#### Bash on Windows instructions (better instructions will follow)
 
-    sudo apt install git build-essential
-    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
-    . ~/.nvm/nvm.sh
-    nvm install 6.10.2
-    npm --global install yarn
-    
-    git clone git@github.com:AllAboutCode/EduBlocks.git
-
-    cd EduBlocks
-
-    cd ui
-    ln -s ../../server/src/protocol.ts src/protocol.ts
-
-    yarn
-    yarn run build
-
-    cd ../server
-    yarn
-    yarn run watch
 
 ### Releasing a new version
 
