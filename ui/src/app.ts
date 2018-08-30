@@ -11,7 +11,7 @@ async function newApp(): Promise<App> {
   const samples = newSamples();
 
   function runCode(code: string) {
-    // return client.runCode(code);
+    // return client.runCode(code); 
   }
 
   function openFile() {
