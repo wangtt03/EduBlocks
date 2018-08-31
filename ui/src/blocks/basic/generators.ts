@@ -132,16 +132,15 @@ export default function define(Python: Blockly.BlockGenerators) {
 
   Python['df'] = function (block) {
     const text_def = block.getFieldValue('def');
-    // TODO: Assemble Python into code variable.
     const code = text_def + '()\n';
     return code;
   };
 
   Python['whileout'] = function (block) {
-    const text_1 = block.getFieldValue('1');
+    var text_1 = Blockly.Python.valueToCode(block, 'cond', Blockly.Python.ORDER_ATOMIC)
+    || 'True';
     let branch = Blockly.Python.statementToCode(block, 'DO');
     branch = Blockly.Python.addLoopTrap(branch, block.id) || Blockly.Python.PASS;
-    // TODO: Assemble Python into code variable.
     const code = 'while ' + text_1 + ':\n' + branch;
     return code;
   };
@@ -215,9 +214,7 @@ export default function define(Python: Blockly.BlockGenerators) {
   Python['ifinline'] = function (block) {
     let branch = Blockly.Python.statementToCode(block, 'ifstate');
     branch = Blockly.Python.addLoopTrap(branch, block.id) || Blockly.Python.PASS;
-    const value_iftext = Blockly.Python.valueToCode(block, 'iftext', Blockly.Python.ORDER_ATOMIC);
-    // const statements_ifstate = Blockly.Python.statementToCode(block, 'ifstate');
-    // TODO: Assemble Python into code variable.
+    const value_iftext = Blockly.Python.valueToCode(block, 'iftext', Blockly.Python.ORDER_ATOMIC) || 'True';
     const code = 'if ' + value_iftext + ':\n' + branch;
     return code;
   };
