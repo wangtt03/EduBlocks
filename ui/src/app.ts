@@ -11,7 +11,7 @@ async function newApp(): Promise<App> {
   const samples = newSamples();
 
   function runCode(code: string) {
-    // return client.runCode(code);
+    // return client.runCode(code); 
   }
 
   function openFile() {
@@ -23,18 +23,17 @@ async function newApp(): Promise<App> {
   }
 
   function getCombinedScript(python: string, extensions: Extension[]) {
-    
     const beforeScript = getBeforeScript(extensions);
-    var scrollbit = 'from scrollbit import *'
-    var newpython = python.replace(scrollbit, '')
+    const newpy = python
+    newpy = newpy.replace('from gigglebot import *', '');
+    newpy = newpy.replace('from scrollbit import *', '');
 
-    const combinedScript = (beforeScript ? (beforeScript + '\n\n') : '') + newpython;
+    const combinedScript = (beforeScript ? (beforeScript + '\n\n') : '') + newpy;
 
     return combinedScript;
   }
 
   async function exportPython(python: string, extensions: Extension[]) {
-    
     const combinedScript = getCombinedScript(python, extensions);
 
     await io.saveFile(combinedScript, 'py', 'text/python;charset=utf-8');
@@ -80,6 +79,7 @@ async function newApp(): Promise<App> {
   function getExtensions(): Extension[] {
     return [
       'scroll:bit',
+      'GiggleBot',
     ];
   }
 

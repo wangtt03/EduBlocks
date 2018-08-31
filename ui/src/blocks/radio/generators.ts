@@ -2,7 +2,7 @@ export default function define(Python: Blockly.BlockGenerators) {
 
   Python['radiosend'] = function (block) {
     let text_send = block.getFieldValue('send');
-    let code = 'radio.send("' + text_send + '") \n';
+    let code = 'radio.send(' + text_send + ') \n';
     return code;
   };
 

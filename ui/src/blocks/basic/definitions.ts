@@ -47,6 +47,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     },
   };
 
+//   deprecated
   Blocks['while_true'] = {
     init: function () {
       this.appendDummyInput()
@@ -73,6 +74,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     },
   };
 
+//   deprecated
   Blocks['if'] = {
     init: function () {
       this.appendDummyInput()
@@ -119,6 +121,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     },
   };
 
+//   deprecated
   Blocks['ifcroc'] = {
     init: function () {
       this.appendDummyInput()
@@ -186,6 +189,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     },
   };
 
+//   deprecated
   Blocks['ifequals'] = {
     init: function () {
       this.appendDummyInput()
@@ -228,6 +232,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     },
   };
 
+//   deprecated
   Blocks['elif'] = {
     init: function () {
       this.appendDummyInput()
@@ -274,8 +279,10 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
   Blocks['whileout'] = {
     init: function () {
       this.appendDummyInput()
-        .appendField('while')
-        .appendField(new Blockly.FieldTextInput(''), '1')
+        .appendField('while');
+      this.appendValueInput("cond")
+        .setCheck(null);
+      this.appendDummyInput()
         .appendField(':');
       this.appendStatementInput('DO')
         .appendField('');
@@ -373,6 +380,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     },
   };
 
+//   deprecated
   Blocks['greater'] = {
     init: function () {
       this.appendDummyInput()
@@ -393,9 +401,10 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
 
   Blocks['ifinline'] = {
     init: function () {
-      this.appendValueInput('iftext')
-        .setCheck(null)
+      this.appendDummyInput()
         .appendField('if');
+      this.appendValueInput("iftext")
+        .setCheck(null);
       this.appendDummyInput()
         .appendField(':');
       this.appendStatementInput('ifstate')
@@ -423,9 +432,10 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
 
   Blocks['elifinline'] = {
     init: function () {
+      this.appendDummyInput()
+        .appendField('elif');
       this.appendValueInput('iftext')
         .setCheck(null)
-        .appendField('elif');
       this.appendDummyInput()
         .appendField(':');
       this.appendStatementInput('ifstate')
@@ -455,10 +465,29 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
 
   Blocks['internal'] = {
     init: function() {
+        // should you translate to other languages
+        // var rtlOperators = [
+        //     // ['=', 'EQ'],
+        //     // ['\u2260', 'NEQ'],
+        //     ['\u200F<\u200F', 'LT'],
+        //     ['\u200F\u2264\u200F', 'LTE'],
+        //     ['\u200F>\u200F', 'GT'],
+        //     ['\u200F\u2265\u200F', 'GTE']
+        //   ];
+          var ltrOperators = [
+            ['==', '=='],
+            ['!=', '!='],
+            ['<', '<'],
+            ['<=', '<='],
+            ['>', '>'],
+            ['=>', '=>'],
+            ['and', 'and']
+          ];
+          var OPERATORS = ltrOperators;
       this.appendValueInput("first")
           .setCheck(null);
       this.appendDummyInput()
-          .appendField(new Blockly.FieldTextInput("=="), "choose");
+          .appendField(new Blockly.FieldDropdown(OPERATORS), "choose")
       this.appendValueInput("last")
           .setCheck(null);
       this.setInputsInline(true);

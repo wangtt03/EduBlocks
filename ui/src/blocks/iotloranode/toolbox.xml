@@ -1,0 +1,38 @@
+<category name="IoT LoRa Node" colour="#8bc34a">
+
+ <block type="import_iotloranode"></block>
+ <block type="lora_init"></block>
+ <block type="lora_devadd">
+      <field name="node" id="cefvQQFzD!dQpOC:uU/!" variabletype="">node</field>
+      <value name="address">
+        <shadow type="quote_shadow">
+          <field name="add"></field>
+        </shadow>
+      </value>
+</block>
+<block type="lora_netkey">
+      <field name="node" id="cefvQQFzD!dQpOC:uU/!" variabletype="">node</field>
+      <value name="address">
+        <shadow type="quote_shadow">
+          <field name="add"></field>
+        </shadow>
+      </value>
+</block>
+<block type="lora_appkey">
+      <field name="node" id="cefvQQFzD!dQpOC:uU/!" variabletype="">node</field>
+      <value name="address">
+        <shadow type="quote_shadow">
+          <field name="add"></field>
+        </shadow>
+      </value>
+</block>
+<block type="lora_join"></block>
+<block type="lora_sendstring">
+      <field name="node" id="cefvQQFzD!dQpOC:uU/!" variabletype="">node</field>
+      <value name="address">
+        <shadow type="quote_shadow">
+          <field name="add"></field>
+        </shadow>
+      </value>
+</block>
+</category>
