@@ -21,11 +21,60 @@
 </block>
 
 <block type="stop"></block>
-<block type="set_speed"></block>
-<block type="set_servo"></block>
+<block type="set_speed">
+    <value name="power_left">
+    <shadow type="textinline">
+        <field name="text">100</field>
+    </shadow>
+    </value>
+    <value name="power_right">
+    <shadow type="textinline">
+        <field name="text">100</field>
+    </shadow>
+    </value>
+</block>
+<block type="set_servo">
+    <value name="degrees">
+    <shadow type="textinline">
+        <field name="text">90</field>
+    </shadow>
+    </value>
+</block>
 <block type="servo_off"></block>
-<block type="set_smile"></block>
-<block type="set_eyes"></block>
+<block type="set_smile">
+    <value name="R">
+    <shadow type="textinline">
+        <field name="text">0</field>
+    </shadow>
+    </value>
+    <value name="G">
+    <shadow type="textinline">
+        <field name="text">0</field>
+    </shadow>
+    </value>
+    <value name="B">
+    <shadow type="textinline">
+        <field name="text">0</field>
+    </shadow>
+    </value>
+</block>
+<block type="set_eyes">
+    <value name="R">
+    <shadow type="textinline">
+        <field name="text">0</field>
+    </shadow>
+    </value>
+    <value name="G">
+    <shadow type="textinline">
+        <field name="text">0</field>
+    </shadow>
+    </value>
+    <value name="B">
+    <shadow type="textinline">
+        <field name="text">0</field>
+    </shadow>
+    </value>
+</block>
 <block type="read_sensor"></block>
 <block type="volt"></block>
 </category>
