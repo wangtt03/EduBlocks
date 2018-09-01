@@ -4,16 +4,6 @@ export default function define(Python: Blockly.BlockGenerators) {
     return code;
   };
 
-  Python['import_digitalio'] = function (block) {
-    const code = 'import digitalio\n';
-    return code;
-  };
-
-  Python['importneo'] = function(block) {
-    let code = 'import neopixel\n';
-    return code;
-  };
-
   Python['import_time'] = function (block) {
     const code = 'import time\n';
     return code;
@@ -142,17 +132,26 @@ export default function define(Python: Blockly.BlockGenerators) {
 
   Python['df'] = function (block) {
     const text_def = block.getFieldValue('def');
-    // TODO: Assemble Python into code variable.
     const code = text_def + '()\n';
     return code;
   };
 
   Python['whileout'] = function (block) {
-    const text_1 = block.getFieldValue('1');
+    var text_1 = Blockly.Python.valueToCode(block, 'cond', Blockly.Python.ORDER_ATOMIC)
+    || 'True';
     let branch = Blockly.Python.statementToCode(block, 'DO');
     branch = Blockly.Python.addLoopTrap(branch, block.id) || Blockly.Python.PASS;
-    // TODO: Assemble Python into code variable.
     const code = 'while ' + text_1 + ':\n' + branch;
+    return code;
+  };
+
+  Python['newdef'] = function (block) {
+    const text_def = block.getFieldValue('def');
+    var text_1 = Blockly.Python.valueToCode(block, 'cond', Blockly.Python.ORDER_ATOMIC)
+    || '';
+    let branch = Blockly.Python.statementToCode(block, 'DO');
+    branch = Blockly.Python.addLoopTrap(branch, block.id) || Blockly.Python.PASS;
+    const code = 'def ' +text_def+ '(' + text_1 + '):\n' + branch;
     return code;
   };
 
@@ -195,12 +194,12 @@ export default function define(Python: Blockly.BlockGenerators) {
 
   Python['define'] = function (block) {
     const text_1 = block.getFieldValue('1');
-    const text_2 = block.getFieldValue('2');
+    const value_def = Blockly.Python.valueToCode(block, 'def', Blockly.Python.ORDER_ATOMIC);
     let branch = Blockly.Python.statementToCode(block, 'DO');
     branch = Blockly.Python.addLoopTrap(branch, block.id) || Blockly.Python.PASS;
     // const statements_name = Blockly.Python.statementToCode(block, 'NAME');
     // TODO: Assemble Python into code variable.
-    const code = 'def ' + text_1 + '(' + text_2 + '):\n' + branch;
+    const code = 'def ' + text_1 + '(' +value_def+ '):\n' + branch;
     return code;
   };
 
@@ -225,9 +224,7 @@ export default function define(Python: Blockly.BlockGenerators) {
   Python['ifinline'] = function (block) {
     let branch = Blockly.Python.statementToCode(block, 'ifstate');
     branch = Blockly.Python.addLoopTrap(branch, block.id) || Blockly.Python.PASS;
-    const value_iftext = Blockly.Python.valueToCode(block, 'iftext', Blockly.Python.ORDER_ATOMIC);
-    // const statements_ifstate = Blockly.Python.statementToCode(block, 'ifstate');
-    // TODO: Assemble Python into code variable.
+    const value_iftext = Blockly.Python.valueToCode(block, 'iftext', Blockly.Python.ORDER_ATOMIC) || 'True';
     const code = 'if ' + value_iftext + ':\n' + branch;
     return code;
   };
@@ -274,6 +271,29 @@ export default function define(Python: Blockly.BlockGenerators) {
     // TODO: Assemble Python into code variable.
     var code = variable_name + ' ' +text_text+ ' ' +value_name+ '\n';
     return code;
+  };
+
+  Python['return'] = function(block) {
+    var value_returnin = Blockly.Python.valueToCode(block, 'returnin', Blockly.Python.ORDER_ATOMIC);
+    // TODO: Assemble Python into code variable.
+    var code = 'return(' +value_returnin+ ')\n';
+    return code;
+  };
+
+  Python['returndiv'] = function(block) {
+    var value_returnin2 = Blockly.Python.valueToCode(block, 'returnin2', Blockly.Python.ORDER_ATOMIC);
+    var text_div = block.getFieldValue('div');
+    // TODO: Assemble Python into code variable.
+    var code = 'return(' +value_returnin2+  ') / ' +text_div+ '\n';
+    return code;
+  };
+
+  Python['valinline'] = function(block) {
+    var variable_variable = Blockly.Python.variableDB_.getName(block.getFieldValue('variable'), Blockly.Variables.NAME_TYPE);
+    // TODO: Assemble Python into code variable.
+    var code = variable_variable+ '.value';
+    // TODO: Change ORDER_NONE to the correct strength.
+    return [code, Blockly.Python.ORDER_ATOMIC];
   };
 
 }

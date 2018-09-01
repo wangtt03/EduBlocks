@@ -26,38 +26,11 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     }
   };
 
-  Blocks['analogpindirection'] = {
+  Blocks['valinline'] = {
     init: function() {
       this.appendDummyInput()
           .appendField(new Blockly.FieldVariable("pin"), "pin")
-          .appendField(".direction = ")
-          .appendField(new Blockly.FieldTextInput(""), "direction");
-      this.setPreviousStatement(true, null);
-      this.setNextStatement(true, null);
-      this.setColour("#E67D21");
-   this.setTooltip("");
-   this.setHelpUrl("");
-    }
-  };
-
-  Blocks['analogpinvalue'] = {
-    init: function() {
-      this.appendDummyInput()
-          .appendField(new Blockly.FieldVariable("pin"), "pin")
-          .appendField(".value = ")
-          .appendField(new Blockly.FieldDropdown([["True","True"], ["False","False"]]), "value");
-      this.setPreviousStatement(true, null);
-      this.setNextStatement(true, null);
-      this.setColour("#E67D21");
-   this.setTooltip("");
-   this.setHelpUrl("");
-    }
-  };
-
-  Blocks['varinline'] = {
-    init: function() {
-      this.appendDummyInput()
-          .appendField(new Blockly.FieldVariable("pin"), "pin");
+          .appendField(".value");
       this.setOutput(true, null);
       this.setColour("#E67D21");
    this.setTooltip("");

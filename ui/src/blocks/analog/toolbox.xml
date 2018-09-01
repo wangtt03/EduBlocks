@@ -1,7 +1,5 @@
 <category name="Analog" colour="#E67D21">
   <block type="import_analogio"></block>
   <block type="analog_in"></block>
-  <block type="analogpindirection"></block>
-  <block type="analogpinvalue"></block>
-  <block type="varinline"></block>
+  <block type="valinline"></block>
 </category>

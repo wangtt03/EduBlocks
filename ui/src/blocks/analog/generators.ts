@@ -2,7 +2,7 @@ export default function define(Python: Blockly.BlockGenerators) {
 
 
   Python['import_analogio'] = function (block) {
-    const code = 'from digitalio import *\n';
+    const code = 'from analogio import *\n';
     return code;
   };
 
@@ -15,26 +15,12 @@ export default function define(Python: Blockly.BlockGenerators) {
     return code;
   };
 
-  Python['analogpindirection'] = function(block) {
-    var variable_pin = Blockly.Python.variableDB_.getName(block.getFieldValue('pin'), Blockly.Variables.NAME_TYPE);
-    var text_direction = block.getFieldValue('direction');
-    // TODO: Assemble Python into code variable.
-    var code = variable_pin+ '.direction = ' +text_direction+ '\n';
-    return code;
-  };
+  
 
-  Python['analogpinvalue'] = function(block) {
-    var variable_pin = Blockly.Python.variableDB_.getName(block.getFieldValue('pin'), Blockly.Variables.NAME_TYPE);
-    var dropdown_value = block.getFieldValue('value');
-    // TODO: Assemble Python into code variable.
-    var code = variable_pin+ '.value = ' +dropdown_value+ '\n';
-    return code;
-  };
-
-  Python['varinline'] = function(block) {
+  Python['valinline'] = function(block) {
     var variable_pin = Blockly.Python.variableDB_.getName(block.getFieldValue('pin'), Blockly.Variables.NAME_TYPE);
     // TODO: Assemble Python into code variable.
-    var code = variable_pin;
+    var code = variable_pin+".value";
     // TODO: Change ORDER_NONE to the correct strength.
     return [code, Blockly.Python.ORDER_ATOMIC];
   };

@@ -1,31 +1,84 @@
 <category name="Basic" colour="336">
+  <label text="Imports:"></label>
   <block type="import_board"></block>
   <block type="import_time"></block>
+  <block type="random"></block>
   <block type="print"></block>
   <block type="sleep"></block>
-  <block type="random"></block>
-  <block type="while_true"></block>
   <block type="equalsblock"></block>
-  <block type="ifinline"></block>
-  <block type="elifinline"></block>
-  <block type="internal"></block>
-  <block type="if"></block>
+  <!-- <block type="while_true"></block> -->
+  <label text="Test:"></label>
+  <block type="internal">
+      <value name="first">
+        <shadow type="textinline">
+          <field name="text">0</field>
+        </shadow>
+      </value>
+      <value name="last">
+        <shadow type="textinline">
+          <field name="text">0</field>
+        </shadow>
+      </value>
+  </block>
+
+  <block type="whileout">
+    <value name="cond">
+      <shadow type="textinline">
+        <field name="text">True</field>
+      </shadow>
+    </value>
+  </block>
+
+  <block type="ifinline">
+    <value name="iftext">
+      <shadow type="textinline">
+        <field name="text">True</field>
+      </shadow>
+    </value>
+  </block>
+  <block type="elifinline">
+    <value name="iftext">
+      <shadow type="textinline">
+        <field name="text">True</field>
+      </shadow>
+    </value>
+  </block>
+  <block type="else"></block>
+  <!-- <block type="if"></block> -->
   <block type="typeanything"></block>
   <block type="textinline"></block>
+  <block type="inlinevar"></block>
   <block type="varinlines"></block>
-  <block type="define"></block>
+  <block type="newdef">
+    <value name="cond">
+      <shadow type="textinline">
+        <field name="text"></field>
+      </shadow>
+    </value>
+  </block>
   <block type="df"></block>
   <block type="for"></block>
-  <block type="elif"></block>
-  <block type="else"></block>
+  <!-- <block type="elif"></block> -->
   <block type="pass"></block>
   <block type="class"></block>
   <block type="varprint"></block>
-  <block type="ifcroc"></block>
+  <!-- <block type="ifcroc"></block> -->
   <block type="varminus"></block>
   <block type="advancedforloops"></block>
-  <block type="ifequals"></block>
-  <block type="return2"></block>
-  <block type="whileout"></block>
-  <block type="greater"></block>
+  <!-- <block type="ifequals"></block> -->
+  <!-- <block type="greater"></block> -->
+  <block type="return">
+    <value name="returnin">
+      <shadow type="textinline">
+        <field name="text">0</field>
+      </shadow>
+    </value>
+  </block>
+  <block type="returndiv">
+    <value name="returnin2">
+      <shadow type="textinline">
+        <field name="text">0</field>
+      </shadow>
+    </value>
+  </block>
 </category>
