@@ -1,3 +1,7 @@
 <category name="Audio" colour="#4CE254">
-
+    <block type="import_audio"></block>
+    <block type="audio_conf"></block>
+    <block type="audio_raw"></block>
+    <block type="audio_play"></block>
+    <block type="audio_stop"></block>
 </category>

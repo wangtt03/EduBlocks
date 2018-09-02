@@ -1,32 +1,39 @@
 export default function define(Python: Blockly.BlockGenerators) {
 
 
-  Python['import_digitalio'] = function (block) {
-    const code = 'from digitalio import *\n';
+  Python['import_audio'] = function (block) {
+    const code = 'import audioio\n';
     return code;
   };
 
-  Python['pinconfig'] = function(block) {
+  Python['audio_conf'] = function(block) {
     var variable_pin = Blockly.Python.variableDB_.getName(block.getFieldValue('pin'), Blockly.Variables.NAME_TYPE);
     var text_pinno = block.getFieldValue('pinno');
     // TODO: Assemble Python into code variable.
-    var code = variable_pin+ ' = DigitalInOut(' +text_pinno+ ')\n';
+    var code = variable_pin+ ' = audioio.AudioOut(' +text_pinno+ ')\n';
     return code;
   };
 
-  Python['pindirection'] = function(block) {
+  Python['audio_raw'] = function(block) {
     var variable_pin = Blockly.Python.variableDB_.getName(block.getFieldValue('pin'), Blockly.Variables.NAME_TYPE);
-    var text_direction = block.getFieldValue('direction');
+    var text_pinno = block.getFieldValue('pinno');
     // TODO: Assemble Python into code variable.
-    var code = variable_pin+ '.direction = ' +text_direction+ '\n';
+    var code = variable_pin+ ' = audioio.RawSample(' +text_pinno+ ')\n';
     return code;
   };
 
-  Python['pinvalue'] = function(block) {
+  Python['audio_play'] = function(block) {
     var variable_pin = Blockly.Python.variableDB_.getName(block.getFieldValue('pin'), Blockly.Variables.NAME_TYPE);
-    var dropdown_value = block.getFieldValue('value');
+    var text_pinno = block.getFieldValue('pinno');
     // TODO: Assemble Python into code variable.
-    var code = variable_pin+ '.value = ' +dropdown_value+ '\n';
+    var code = variable_pin+ '.play(' +text_pinno+ ')\n';
+    return code;
+  };
+
+  Python['audio_stop'] = function(block) {
+    var variable_pin = Blockly.Python.variableDB_.getName(block.getFieldValue('pin'), Blockly.Variables.NAME_TYPE);
+    // TODO: Assemble Python into code variable.
+    var code = variable_pin+ '.stop()\n';
     return code;
   };
 

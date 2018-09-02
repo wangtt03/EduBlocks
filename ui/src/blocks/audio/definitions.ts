@@ -1,58 +1,74 @@
 export default function define(Blocks: Blockly.BlockDefinitions) {
-  let digitalcol = "#2C97DF"
-  Blocks['import_digitalio'] = {
+  let audiocol = "#4CE254"
+  Blocks['import_audio'] = {
     init: function () {
       this.appendDummyInput()
-        .appendField('from digitalio import *');
+        .appendField('import audioio');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(digitalcol);
+      this.setColour(audiocol);
       this.setTooltip('Imports the DigitalIO library.');
       this.setHelpUrl('http://www.example.com/');
     },
   };
 
-  Blocks['pinconfig'] = {
+  Blocks['audio_conf'] = {
     init: function() {
       this.appendDummyInput()
-          .appendField(new Blockly.FieldVariable("pin"), "pin")
-          .appendField(" = DigitalInOut(")
+          .appendField(new Blockly.FieldVariable("audio"), "pin")
+          .appendField(" = audioio.AudioOut(")
           .appendField(new Blockly.FieldTextInput(""), "pinno")
           .appendField(")");
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(digitalcol);
+      this.setColour(audiocol);
    this.setTooltip("");
    this.setHelpUrl("");
     }
   };
 
-  Blocks['pindirection'] = {
+  Blocks['audio_raw'] = {
     init: function() {
       this.appendDummyInput()
-          .appendField(new Blockly.FieldVariable("pin"), "pin")
-          .appendField(".direction = ")
-          .appendField(new Blockly.FieldTextInput(""), "direction");
+          .appendField(new Blockly.FieldVariable("sample"), "pin")
+          .appendField(" = audioio.RawSample(")
+          .appendField(new Blockly.FieldTextInput(""), "pinno")
+          .appendField(")");
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(digitalcol);
+      this.setColour(audiocol);
    this.setTooltip("");
    this.setHelpUrl("");
     }
   };
 
-  Blocks['pinvalue'] = {
+  Blocks['audio_play'] = {
     init: function() {
       this.appendDummyInput()
-          .appendField(new Blockly.FieldVariable("pin"), "pin")
-          .appendField(".value = ")
-          .appendField(new Blockly.FieldDropdown([["True","True"], ["False","False"]]), "value");
+          .appendField(new Blockly.FieldVariable("audio"), "pin")
+          .appendField(".play")
+          .appendField(new Blockly.FieldTextInput(""), "pinno")
+          .appendField(")");
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(digitalcol);
+      this.setColour(audiocol);
    this.setTooltip("");
    this.setHelpUrl("");
     }
   };
+
+  Blocks['audio_stop'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField(new Blockly.FieldVariable("audio"), "pin")
+          .appendField(".stop()");
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour(audiocol);
+   this.setTooltip("");
+   this.setHelpUrl("");
+    }
+  };
+
 
 }

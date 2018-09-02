@@ -1,55 +1,42 @@
 export default function define(Blocks: Blockly.BlockDefinitions) {
-  let digitalcol = "#2C97DF"
-  Blocks['import_digitalio'] = {
+  let servocol = "#9C56B8"
+  
+  Blocks['import_servo'] = {
     init: function () {
       this.appendDummyInput()
-        .appendField('from digitalio import *');
+        .appendField('from adafruit_motor import servo');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(digitalcol);
-      this.setTooltip('Imports the DigitalIO library.');
+      this.setColour(servocol);
+      this.setTooltip('Imports the Adafruit Motor Servo library.');
       this.setHelpUrl('http://www.example.com/');
     },
   };
 
-  Blocks['pinconfig'] = {
+  Blocks['servo_conf'] = {
     init: function() {
       this.appendDummyInput()
-          .appendField(new Blockly.FieldVariable("pin"), "pin")
-          .appendField(" = DigitalInOut(")
+          .appendField(new Blockly.FieldVariable("my_servo"), "pin")
+          .appendField(" = servo.Servo(")
           .appendField(new Blockly.FieldTextInput(""), "pinno")
           .appendField(")");
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(digitalcol);
+      this.setColour(servocol);
    this.setTooltip("");
    this.setHelpUrl("");
     }
   };
 
-  Blocks['pindirection'] = {
+  Blocks['servo_value'] = {
     init: function() {
       this.appendDummyInput()
-          .appendField(new Blockly.FieldVariable("pin"), "pin")
-          .appendField(".direction = ")
-          .appendField(new Blockly.FieldTextInput(""), "direction");
-      this.setPreviousStatement(true, null);
-      this.setNextStatement(true, null);
-      this.setColour(digitalcol);
-   this.setTooltip("");
-   this.setHelpUrl("");
-    }
-  };
-
-  Blocks['pinvalue'] = {
-    init: function() {
-      this.appendDummyInput()
-          .appendField(new Blockly.FieldVariable("pin"), "pin")
+          .appendField(new Blockly.FieldVariable("my_servo"), "pin")
           .appendField(".value = ")
-          .appendField(new Blockly.FieldDropdown([["True","True"], ["False","False"]]), "value");
+          .appendField(new Blockly.FieldTextInput("angle"), "angle");
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(digitalcol);
+      this.setColour(servocol);
    this.setTooltip("");
    this.setHelpUrl("");
     }

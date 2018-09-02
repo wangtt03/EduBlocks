@@ -1,3 +1,5 @@
 <category name="Servo" colour="#9C56B8">
-  
+    <block type="import_servo"></block>
+    <block type="servo_conf"></block>
+    <block type="servo_value"></block>
 </category>

@@ -1,13 +1,13 @@
 export default function define(Blocks: Blockly.BlockDefinitions) {
   let digitalcol = "#2C97DF"
-  Blocks['import_digitalio'] = {
+  Blocks['import_pulseio'] = {
     init: function () {
       this.appendDummyInput()
-        .appendField('from digitalio import *');
+        .appendField('import pulseio');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
       this.setColour(digitalcol);
-      this.setTooltip('Imports the DigitalIO library.');
+      this.setTooltip('Imports the PulseIO library.');
       this.setHelpUrl('http://www.example.com/');
     },
   };
