@@ -1,66 +1,39 @@
 export default function define(Blocks: Blockly.BlockDefinitions) {
-  let digitalcol = "#2C97DF"
-  Blocks['sdfsdf'] = {
+  let touchcol = "#E84C3D"
+  Blocks['import_touchio'] = {
     init: function () {
       this.appendDummyInput()
-        .appendField('from analogio import *');
+        .appendField('import touchio');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(digitalcol);
-      this.setTooltip('Imports the DigitalIO library.');
+      this.setColour(touchcol);
+      this.setTooltip('Imports the TouchIO library.');
       this.setHelpUrl('http://www.example.com/');
     },
   };
 
-  Blocks['sdfsdfs'] = {
+  Blocks['touch_conf'] = {
     init: function() {
       this.appendDummyInput()
-          .appendField(new Blockly.FieldVariable("pin"), "pin")
-          .appendField(" = AnalogIn(")
+          .appendField(new Blockly.FieldVariable("touch1"), "pin")
+          .appendField(" = touchio.TouchIn(")
           .appendField(new Blockly.FieldTextInput("board.A1"), "pinno")
           .appendField(")");
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(digitalcol);
+      this.setColour(touchcol);
    this.setTooltip("");
    this.setHelpUrl("");
     }
   };
 
-  Blocks['pindirection'] = {
+  Blocks['touch_valinline'] = {
     init: function() {
       this.appendDummyInput()
           .appendField(new Blockly.FieldVariable("pin"), "pin")
-          .appendField(".direction = ")
-          .appendField(new Blockly.FieldTextInput(""), "direction");
-      this.setPreviousStatement(true, null);
-      this.setNextStatement(true, null);
-      this.setColour(digitalcol);
-   this.setTooltip("");
-   this.setHelpUrl("");
-    }
-  };
-
-  Blocks['pinvalue'] = {
-    init: function() {
-      this.appendDummyInput()
-          .appendField(new Blockly.FieldVariable("pin"), "pin")
-          .appendField(".value = ")
-          .appendField(new Blockly.FieldDropdown([["True","True"], ["False","False"]]), "value");
-      this.setPreviousStatement(true, null);
-      this.setNextStatement(true, null);
-      this.setColour(digitalcol);
-   this.setTooltip("");
-   this.setHelpUrl("");
-    }
-  };
-
-  Blocks['sdfsdfsdf'] = {
-    init: function() {
-      this.appendDummyInput()
-          .appendField(new Blockly.FieldVariable("pin"), "pin");
+          .appendField(".value");
       this.setOutput(true, null);
-      this.setColour(digitalcol);
+      this.setColour(touchcol);
    this.setTooltip("");
    this.setHelpUrl("");
     }
