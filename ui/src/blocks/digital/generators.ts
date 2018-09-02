@@ -32,9 +32,9 @@ export default function define(Python: Blockly.BlockGenerators) {
 
   Python['pinvalue'] = function(block) {
     var variable_pin = Blockly.Python.variableDB_.getName(block.getFieldValue('pin'), Blockly.Variables.NAME_TYPE);
-    var dropdown_value = block.getFieldValue('value');
+    var text_text = block.getFieldValue('text');
     // TODO: Assemble Python into code variable.
-    var code = variable_pin+ '.value = ' +dropdown_value+ '\n';
+    var code = variable_pin+ '.value = ' +text_text+ '\n';
     return code;
   };
 

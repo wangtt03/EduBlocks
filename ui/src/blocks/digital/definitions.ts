@@ -61,7 +61,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.appendDummyInput()
           .appendField(new Blockly.FieldVariable("pin"), "pin")
           .appendField(".value = ")
-          .appendField(new Blockly.FieldDropdown([["True","True"], ["False","False"]]), "value");
+          .appendField(new Blockly.FieldTextInput("True"), "text")
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
       this.setColour(digitalcol);
