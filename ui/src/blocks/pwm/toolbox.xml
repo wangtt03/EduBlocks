@@ -1,3 +1,9 @@
-<category name="PWM" colour="0">
-
+<category name="PWM" colour="#FF4A60">
+    <block type="import_pulseio"></block>
+    <block type="import_simpleio"></block>
+    <block type="pwm_conf"></block>
+    <block type="pwm_conf2"></block>
+    <block type="pwm_dc"></block>
+    <block type="pwm_freq"></block>
+    <block type="simple_tone"></block>
 </category>
