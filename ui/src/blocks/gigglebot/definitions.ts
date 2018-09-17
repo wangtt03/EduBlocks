@@ -7,10 +7,23 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
           this.setPreviousStatement(true, null);
           this.setNextStatement(true, null);
           this.setColour(gigglebot_HUE);
-       this.setTooltip("Imports gigglebot");
-       this.setHelpUrl("");
+          this.setTooltip("Imports gigglebot library.");
+          this.setHelpUrl("");
         }
-      };
+    };
+
+    Blocks['gigglebot_init'] = {
+        init: function() {
+          this.appendDummyInput()
+              .appendField("init()");
+          this.setPreviousStatement(true, null);
+          this.setNextStatement(true, null);
+          this.setColour(gigglebot_HUE);
+          this.setTooltip("Initializes the leds.");
+          this.setHelpUrl("");
+        }
+    };
+
 
     Blocks['drive'] = {
         init: function() {
