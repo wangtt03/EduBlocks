@@ -76,6 +76,11 @@ gigglebotDefs(Blockly.Blocks);
 gigglebotGens(Blockly.Python as any);
 const gigglebot = fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'gigglebot', 'toolbox.xml'));
 
+import envirobitDefs from './envirobit/definitions';
+import envirobitGens from './envirobit/generators';
+envirobitDefs(Blockly.Blocks);
+envirobitGens(Blockly.Python as any);
+const envirobit = fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'envirobit', 'toolbox.xml'));
 
 function getToolBoxXml(extensions: Extension[]) {
   let toolBoxXml = '';
@@ -101,7 +106,11 @@ function getToolBoxXml(extensions: Extension[]) {
     toolBoxXml += gigglebot;
   }
 
-    toolBoxXml += '</xml>';
+  if (extensions.indexOf('EnviroBit') !== -1 ) {
+      toolBoxXml += envirobit;
+  }
+
+  toolBoxXml += '</xml>';
 
   return toolBoxXml;
 }
@@ -115,6 +124,9 @@ function getBeforeScript(extensions: Extension[]) {
   }
   if (extensions.indexOf('Pi Supply IoT LoRa Node') !== -1) {
     return fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'iotloranode', 'iotloranode.py'));
+  }
+  if (extensions.indexOf('EnviroBit') !== -1) {
+      return fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'envirobit', 'envirobit.py'));
   }
 }
 

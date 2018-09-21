@@ -11,7 +11,7 @@ async function newApp(): Promise<App> {
   const samples = newSamples();
 
   function runCode(code: string) {
-    // return client.runCode(code); 
+    // return client.runCode(code);
   }
 
   function openFile() {
@@ -24,9 +24,10 @@ async function newApp(): Promise<App> {
 
   function getCombinedScript(python: string, extensions: Extension[]) {
     const beforeScript = getBeforeScript(extensions);
-    const newpy = python
+    let newpy = python
     newpy = newpy.replace('from gigglebot import *', '');
     newpy = newpy.replace('from scrollbit import *', '');
+    newpy = newpy.replace('from envirobit import *', '');
 
     const combinedScript = (beforeScript ? (beforeScript + '\n\n') : '') + newpy;
 
@@ -80,6 +81,7 @@ async function newApp(): Promise<App> {
     return [
       'scroll:bit',
       'GiggleBot',
+      'EnviroBit',
     ];
   }
 
