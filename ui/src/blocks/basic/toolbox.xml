@@ -1,5 +1,4 @@
-<category name="Basic" colour="336">
-  <label text="Imports:"></label>
+<category name="Basic" colour="#ff0066">
   <block type="import_microbit"></block>
   <block type="import_math"></block>
   <block type="random"></block>
@@ -8,7 +7,6 @@
   <block type="sleep"></block>
   <block type="equalsblock"></block>
   <!-- <block type="while_true"></block> -->
-  <label text="Test:"></label>
   <block type="internal">
       <value name="first">
         <shadow type="textinline">

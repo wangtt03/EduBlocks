@@ -1,4 +1,4 @@
-<category name="Display" colour="70">
+<category name="Display" colour="#C3E516">
   <block type="scroll"></block>
   <block type="scrollvar"></block>
   <block type="image"></block>
