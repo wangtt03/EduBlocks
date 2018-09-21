@@ -22,11 +22,11 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
        this.setHelpUrl("");
         }
       };
-    
+
     Blocks['pressure'] = {
         init: function() {
           this.appendDummyInput()
-              .appendField("temperature()");
+              .appendField("pressure()");
           this.setInputsInline(false);
           this.setOutput(true, null);
           this.setColour(230);
@@ -46,4 +46,31 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
        this.setHelpUrl("");
         }
       };
+
+     Blocks['altitude'] = {
+         init: function () {
+             this.appendDummyInput()
+                 .appendField("altitude()");
+             this.setOutput(true, null);
+             this.setColour(230);
+             this.setTooltip("");
+             this.setHelpUrl("");
+         },
+     };
+
+     Blocks['set_qnh'] = {
+         init: function() {
+             this.appendDummyInput()
+                 .appendField("set_qnh(");
+             this.appendValueInput("VALUE")
+                 .setCheck(null);
+             this.appendDummyInput()
+                 .appendField(")");
+             this.setOutput(true, null);
+             this.setColour(230);
+             this.setTooltip("");
+             this.setHelpUrl("");
+         }
+    };
+
 }
