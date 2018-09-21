@@ -3,8 +3,10 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
   Blocks['scroll'] = {
     init: function () {
       this.appendDummyInput()
-        .appendField('display.scroll("')
-        .appendField(new Blockly.FieldTextInput('Hello World'), 'message')
+        .appendField('display.scroll("'); 
+      this.appendValueInput("displaytext")
+        .setCheck(null);
+      this.appendDummyInput()
         .appendField('")');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);

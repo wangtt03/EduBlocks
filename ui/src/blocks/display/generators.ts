@@ -2,9 +2,10 @@ export default function define(Python: Blockly.BlockGenerators) {
 
 
   Python['scroll'] = function (block) {
-    let text_message = block.getFieldValue('message');
+    var text_message = Blockly.Python.valueToCode(block, 'displaytext', Blockly.Python.ORDER_ATOMIC)
+    || 'True';
     let code = 'display.scroll("' + text_message + '") \n';
-    return code;
+    return code; 
   };
 
   Python['scrollvar'] = function (block) {

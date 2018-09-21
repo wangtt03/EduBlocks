@@ -1,5 +1,11 @@
-<category name="Display" colour="#C3E516">
-  <block type="scroll"></block>
+<category name="Display" colour="#C3E516"> 
+  <block type="scroll">
+    <value name="displaytext">
+      <shadow type="textinline">
+        <field name="text">Hello World</field>
+      </shadow>
+    </value>
+  </block>
   <block type="scrollvar"></block>
   <block type="image"></block>
   <block type="setpixel"></block>
