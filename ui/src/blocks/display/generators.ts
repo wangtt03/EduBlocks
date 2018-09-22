@@ -1,6 +1,15 @@
 export default function define(Python: Blockly.BlockGenerators) {
 
 
+  Python['scrollnew'] = function (block) {
+    var text_message = Blockly.Python.valueToCode(block, 'displaytext', Blockly.Python.ORDER_ATOMIC)
+    || 'True';
+    let code = 'display.scroll("' + text_message + '") \n';
+    return code; 
+  };
+
+  //deprecated
+
   Python['scroll'] = function (block) {
     var text_message = Blockly.Python.valueToCode(block, 'displaytext', Blockly.Python.ORDER_ATOMIC)
     || 'True';
@@ -12,6 +21,13 @@ export default function define(Python: Blockly.BlockGenerators) {
     let text_message = block.getFieldValue('message');
     let code = 'display.scroll(' + text_message + ') \n';
     return code;
+  };
+
+  Python['scrollvarnew'] = function (block) {
+    var text_message = Blockly.Python.valueToCode(block, 'displaytextvar', Blockly.Python.ORDER_ATOMIC)
+    || '0';
+    let code = 'display.scroll(' + text_message + ') \n';
+    return code; 
   };
 
   Python['image'] = function (block) {

@@ -1,4 +1,3 @@
-let gigglebot_HUE = "#46BFB1"
 export default function define(Blocks: Blockly.BlockDefinitions) {
     Blocks['import_gigglebot'] = {
         init: function() {
@@ -6,7 +5,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
               .appendField("from gigglebot import *");
           this.setPreviousStatement(true, null);
           this.setNextStatement(true, null);
-          this.setColour(gigglebot_HUE);
+          this.setColour("#46BFB1","#46BFB1","#46BFB1");
        this.setTooltip("Imports gigglebot");
        this.setHelpUrl("");
         }
@@ -20,7 +19,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
               .appendField(")");
           this.setPreviousStatement(true, null);
           this.setNextStatement(true, null);
-          this.setColour(gigglebot_HUE);
+          this.setColour("#46BFB1","#46BFB1","#46BFB1");
        this.setTooltip("The robot will drive until otherwise interrupted.");
        this.setHelpUrl("");
         }
@@ -39,7 +38,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
           this.setInputsInline(true);
           this.setPreviousStatement(true, null);
           this.setNextStatement(true, null);
-          this.setColour(gigglebot_HUE);
+          this.setColour("#46BFB1","#46BFB1","#46BFB1");
        this.setTooltip("Setting the delay to -1 means the robot will drive until otherwise interrupted.");
        this.setHelpUrl("");
         }
@@ -53,7 +52,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
               .appendField(")");
           this.setPreviousStatement(true, null);
           this.setNextStatement(true, null);
-          this.setColour(gigglebot_HUE);
+          this.setColour("#46BFB1","#46BFB1","#46BFB1");
        this.setTooltip("The robot will turn until otherwise interrupted.");
        this.setHelpUrl("");
         }
@@ -71,7 +70,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
           this.setInputsInline(true);
           this.setPreviousStatement(true, null);
           this.setNextStatement(true, null);
-          this.setColour(gigglebot_HUE);
+          this.setColour("#46BFB1","#46BFB1","#46BFB1");
        this.setTooltip("Setting the delay to -1 means the robot will turn until otherwise interrupted.");
        this.setHelpUrl("");
         }
@@ -83,7 +82,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
               .appendField("stop()");
           this.setPreviousStatement(true, null);
           this.setNextStatement(true, null);
-          this.setColour(gigglebot_HUE);
+          this.setColour("#46BFB1","#46BFB1","#46BFB1");
        this.setTooltip("Stops the GiggleBot");
        this.setHelpUrl("");
         }
@@ -103,7 +102,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
               .appendField(")");
           this.setPreviousStatement(true, null);
           this.setNextStatement(true, null);
-          this.setColour(gigglebot_HUE);
+          this.setColour("#46BFB1","#46BFB1","#46BFB1");
        this.setTooltip("Adjusts the speed of each motor");
        this.setHelpUrl("");
         }
@@ -121,7 +120,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
               .appendField(")");
           this.setPreviousStatement(true, null);
           this.setNextStatement(true, null);
-          this.setColour(gigglebot_HUE);
+          this.setColour("#46BFB1","#46BFB1","#46BFB1");
        this.setTooltip("Controls one or both of the servos");
        this.setHelpUrl("");
         }
@@ -135,7 +134,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
               .appendField(")");
           this.setPreviousStatement(true, null);
           this.setNextStatement(true, null);
-          this.setColour(gigglebot_HUE);
+          this.setColour("#46BFB1","#46BFB1","#46BFB1");
        this.setTooltip("Removes power from one or both servos ");
        this.setHelpUrl("");
         }
@@ -160,7 +159,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
               .appendField(")");
           this.setPreviousStatement(true, null);
           this.setNextStatement(true, null);
-          this.setColour(gigglebot_HUE);
+          this.setColour("#46BFB1","#46BFB1","#46BFB1");
        this.setTooltip("Sets colour for the smile");
        this.setHelpUrl("");
         }
@@ -186,7 +185,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
               .appendField(")");
           this.setPreviousStatement(true, null);
           this.setNextStatement(true, null);
-          this.setColour(gigglebot_HUE);
+          this.setColour("#46BFB1","#46BFB1","#46BFB1");
        this.setTooltip("Sets colour for each eye");
        this.setHelpUrl("");
         }
@@ -201,7 +200,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
               .appendField(new Blockly.FieldDropdown([["LEFT","LEFT"], ["RIGHT","RIGHT"], ["BOTH","BOTH"]]), "which")
               .appendField(")");
           this.setOutput(true, "Number");
-          this.setColour(gigglebot_HUE);
+          this.setColour("#46BFB1","#46BFB1","#46BFB1");
        this.setTooltip("Get a reading from line sensors or light sensors ");
        this.setHelpUrl("");
         }
@@ -212,7 +211,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
           this.appendDummyInput()
               .appendField("volt()");
           this.setOutput(true, "Number");
-          this.setColour(gigglebot_HUE);
+          this.setColour("#46BFB1","#46BFB1","#46BFB1");
        this.setTooltip("Gets a level reading from the batteries");
        this.setHelpUrl("");
         }

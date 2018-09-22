@@ -8,7 +8,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField(')');
       this.setInputsInline(false);
       this.setOutput(true, null);
-      this.setColour(30);
+      this.setColour("#E57E16","#E57E16","#E57E16");
       this.setTooltip('If the gesture is this, then do this');
       this.setHelpUrl('');
     },
@@ -22,7 +22,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField(')');
       this.setInputsInline(false);
       this.setOutput(true, null);
-      this.setColour(30);
+      this.setColour("#E57E16","#E57E16","#E57E16");
       this.setTooltip('If the gesture was this, then do this');
       this.setHelpUrl('');
     },

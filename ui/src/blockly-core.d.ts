@@ -248,7 +248,7 @@ declare module Blockly {
      * Change the colour of a block.
      * @param {number} colourHue HSV hue value.
      */
-    setColour(colourHue: any): void;
+    setColour(colourHue: any, colourPrimary: any, colourTertiary: any): void;
 
     /**
      * Returns the named field from a block.

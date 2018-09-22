@@ -5,7 +5,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
                 .appendField("from envirobit import *");
             this.setPreviousStatement(true, null);
             this.setNextStatement(true, null);
-            this.setColour(230);
+            this.setColour("230","230","230");
             this.setTooltip("");
             this.setHelpUrl("");
         },
@@ -17,7 +17,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
               .appendField("temperature()");
           this.setInputsInline(false);
           this.setOutput(true, null);
-          this.setColour(230);
+          this.setColour("230","230","230");
        this.setTooltip("");
        this.setHelpUrl("");
         }
@@ -29,7 +29,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
               .appendField("pressure()");
           this.setInputsInline(false);
           this.setOutput(true, null);
-          this.setColour(230);
+          this.setColour("230","230","230");
        this.setTooltip("");
        this.setHelpUrl("");
         }
@@ -41,7 +41,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
               .appendField("humidity()");
           this.setInputsInline(false);
           this.setOutput(true, null);
-          this.setColour(230);
+          this.setColour("230","230","230");
        this.setTooltip("");
        this.setHelpUrl("");
         }
@@ -52,7 +52,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
              this.appendDummyInput()
                  .appendField("altitude()");
              this.setOutput(true, null);
-             this.setColour(230);
+             this.setColour("230","230","230");
              this.setTooltip("");
              this.setHelpUrl("");
          },
@@ -67,7 +67,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
              this.appendDummyInput()
                  .appendField(")");
              this.setOutput(true, null);
-             this.setColour(230);
+             this.setColour("230","230","230");
              this.setTooltip("");
              this.setHelpUrl("");
          }

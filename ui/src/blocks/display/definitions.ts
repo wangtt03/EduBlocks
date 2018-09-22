@@ -1,6 +1,6 @@
 export default function define(Blocks: Blockly.BlockDefinitions) {
 
-  Blocks['scroll'] = {
+  Blocks['scrollnew'] = {
     init: function () {
       this.appendDummyInput()
         .appendField('display.scroll("'); 
@@ -10,11 +10,27 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField('")');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour("#C3E516");
+      this.setColour("#C3E516","#C3E516","#C3E516");
       this.setTooltip('Scroll a Message');
       this.setHelpUrl('');
     },
   };
+
+  //deprecated
+  
+  Blocks['scroll'] = {
+    init: function () {
+      this.appendDummyInput()
+        .appendField('display.scroll("')
+        .appendField(new Blockly.FieldTextInput('Hello World'), 'message')
+        .appendField('")');
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour("#C3E516","#C3E516","#C3E516");
+      this.setTooltip('Scroll a Message');
+      this.setHelpUrl('');
+    },
+};
 
   Blocks['scrollvar'] = {
     init: function () {
@@ -24,8 +40,24 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField(')');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour("#C3E516");
+      this.setColour("#C3E516","#C3E516","#C3E516");
       this.setTooltip('Scroll a variable');
+      this.setHelpUrl('');
+    },
+  };
+
+  Blocks['scrollvarnew'] = {
+    init: function () {
+      this.appendDummyInput()
+        .appendField('display.scroll('); 
+      this.appendValueInput("displaytextvar")
+        .setCheck(null);
+      this.appendDummyInput()
+        .appendField(')');
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour("#C3E516","#C3E516","#C3E516");
+      this.setTooltip('Scroll a Message');
       this.setHelpUrl('');
     },
   };
@@ -38,7 +70,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField(')');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour("#C3E516");
+      this.setColour("#C3E516","#C3E516","#C3E516");
       this.setTooltip('Display an image');
       this.setHelpUrl('');
     },
@@ -52,7 +84,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField(')');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour("#C3E516");
+      this.setColour("#C3E516","#C3E516","#C3E516");
       this.setTooltip('Gets a pixel value');
       this.setHelpUrl('');
     },
@@ -66,7 +98,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField(')');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour("#C3E516");
+      this.setColour("#C3E516","#C3E516","#C3E516");
       this.setTooltip('Set a pixel');
       this.setHelpUrl('');
     },
@@ -80,7 +112,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField('")');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour("#C3E516");
+      this.setColour("#C3E516","#C3E516","#C3E516");
       this.setTooltip('Set a pixel');
       this.setHelpUrl('');
     },
@@ -92,7 +124,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField('display.clear()');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour("#C3E516");
+      this.setColour("#C3E516","#C3E516","#C3E516");
       this.setTooltip('Clear the display');
       this.setHelpUrl('');
     },
@@ -104,7 +136,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField('import radio');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour("#C3E516");
+      this.setColour("#C3E516","#C3E516","#C3E516");
       this.setTooltip('Clear the display');
       this.setHelpUrl('');
     },
@@ -116,7 +148,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField('radio.on()');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour("#C3E516");
+      this.setColour("#C3E516","#C3E516","#C3E516");
       this.setTooltip('Clear the display');
       this.setHelpUrl('');
     },
@@ -130,7 +162,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField("()");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour("#C3E516");
+    this.setColour("#C3E516","#C3E516","#C3E516");
  this.setTooltip("Turn the display on/off");
  this.setHelpUrl("");
   }
@@ -181,7 +213,7 @@ Blocks['imagecreate'] = {
         .appendField("\")");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour("#C3E516");
+    this.setColour("#C3E516","#C3E516","#C3E516");
  this.setTooltip("");
  this.setHelpUrl("");
   }
