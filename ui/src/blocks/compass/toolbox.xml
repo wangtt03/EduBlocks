@@ -1,4 +1,4 @@
-<category name="Compass" colour="280">
+<category name="Compass" colour="#A016E5">
   <block type="compasscalibrate"></block>
   <block type="compasscalibrated"></block>
 </category>

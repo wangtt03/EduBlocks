@@ -1,4 +1,4 @@
-<category name="Accelerometer" colour="30">
+<category name="Accelerometer" colour="#E57E16">
     <block type="accisgesture"></block>
     <block type="accwasgesture"></block>
 </category>

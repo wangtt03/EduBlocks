@@ -10,7 +10,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField('")');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour("#C3E516","#C3E516","#C3E516");
+      this.setColour("#C3E516","#C3E516","#a4b835");
       this.setTooltip('Scroll a Message');
       this.setHelpUrl('');
     },
@@ -26,7 +26,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField('")');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour("#C3E516","#C3E516","#C3E516");
+      this.setColour("#C3E516","#C3E516","#a4b835");
       this.setTooltip('Scroll a Message');
       this.setHelpUrl('');
     },
@@ -40,7 +40,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField(')');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour("#C3E516","#C3E516","#C3E516");
+      this.setColour("#C3E516","#C3E516","#a4b835");
       this.setTooltip('Scroll a variable');
       this.setHelpUrl('');
     },
@@ -56,8 +56,24 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField(')');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour("#C3E516","#C3E516","#C3E516");
-      this.setTooltip('Scroll a Message');
+      this.setColour("#C3E516","#C3E516","#a4b835");
+      this.setTooltip('Scroll a variable');
+      this.setHelpUrl('');
+    },
+  };
+  
+  Blocks['imagenew'] = {
+    init: function () {
+      this.appendDummyInput()
+        .appendField('display.show('); 
+      this.appendValueInput("imagevar")
+        .setCheck(null);
+      this.appendDummyInput()
+        .appendField(')');
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour("#C3E516","#C3E516","#a4b835");
+      this.setTooltip('Show an image');
       this.setHelpUrl('');
     },
   };
@@ -70,11 +86,13 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField(')');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour("#C3E516","#C3E516","#C3E516");
+      this.setColour("#C3E516","#C3E516","#a4b835");
       this.setTooltip('Display an image');
       this.setHelpUrl('');
     },
   };
+
+  //deprecated
 
   Blocks['getpixel'] = {
     init: function () {
@@ -84,11 +102,29 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField(')');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour("#C3E516","#C3E516","#C3E516");
+      this.setColour("#C3E516","#C3E516","#a4b835");
       this.setTooltip('Gets a pixel value');
       this.setHelpUrl('');
     },
   };
+
+  Blocks['getpixelnew'] = {
+    init: function () {
+      this.appendDummyInput()
+        .appendField('display.get_pixel(')
+        this.appendValueInput("text")
+          .setCheck(null);
+        this.appendDummyInput()
+        .appendField(')');
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour("#C3E516","#C3E516","#a4b835");
+      this.setTooltip('Gets a pixel value');
+      this.setHelpUrl('');
+    },
+  };
+
+  //deprecated
 
   Blocks['setpixel'] = {
     init: function () {
@@ -98,25 +134,28 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField(')');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour("#C3E516","#C3E516","#C3E516");
+      this.setColour("#C3E516","#C3E516","#a4b835");
       this.setTooltip('Set a pixel');
       this.setHelpUrl('');
     },
   };
 
-  Blocks['radiosend'] = {
+  Blocks['setpixelnew'] = {
     init: function () {
       this.appendDummyInput()
-        .appendField('radio.send("')
-        .appendField(new Blockly.FieldTextInput(''), 'send')
-        .appendField('")');
+        .appendField('display.set_pixel(')
+        this.appendValueInput("text")
+          .setCheck(null);
+        this.appendDummyInput()
+        .appendField(')');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour("#C3E516","#C3E516","#C3E516");
+      this.setColour("#C3E516","#C3E516","#a4b835");
       this.setTooltip('Set a pixel');
       this.setHelpUrl('');
     },
   };
+
 
   Blocks['disclear'] = {
     init: function () {
@@ -124,31 +163,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField('display.clear()');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour("#C3E516","#C3E516","#C3E516");
-      this.setTooltip('Clear the display');
-      this.setHelpUrl('');
-    },
-  };
-
-  Blocks['imradio'] = {
-    init: function () {
-      this.appendDummyInput()
-        .appendField('import radio');
-      this.setPreviousStatement(true, null);
-      this.setNextStatement(true, null);
-      this.setColour("#C3E516","#C3E516","#C3E516");
-      this.setTooltip('Clear the display');
-      this.setHelpUrl('');
-    },
-  };
-
-  Blocks['radioon'] = {
-    init: function () {
-      this.appendDummyInput()
-        .appendField('radio.on()');
-      this.setPreviousStatement(true, null);
-      this.setNextStatement(true, null);
-      this.setColour("#C3E516","#C3E516","#C3E516");
+      this.setColour("#C3E516","#C3E516","#a4b835");
       this.setTooltip('Clear the display');
       this.setHelpUrl('');
     },
@@ -162,7 +177,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField("()");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour("#C3E516","#C3E516","#C3E516");
+    this.setColour("#C3E516","#C3E516","#a4b835");
  this.setTooltip("Turn the display on/off");
  this.setHelpUrl("");
   }
@@ -213,7 +228,7 @@ Blocks['imagecreate'] = {
         .appendField("\")");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour("#C3E516","#C3E516","#C3E516");
+    this.setColour("#C3E516","#C3E516","#a4b835");
  this.setTooltip("");
  this.setHelpUrl("");
   }

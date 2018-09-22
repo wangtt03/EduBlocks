@@ -36,8 +36,22 @@ export default function define(Python: Blockly.BlockGenerators) {
     return code;
   };
 
+  Python['imagenew'] = function (block) {
+    var text_message = Blockly.Python.valueToCode(block, 'imagevar', Blockly.Python.ORDER_ATOMIC)
+    || 'Image.HAPPY';
+    let code = 'display.show(' + text_message + ') \n';
+    return code; 
+  };
+
   Python['getpixel'] = function (block) {
     let text_xy = block.getFieldValue('xy');
+    let code = 'display.get_pixel(' + text_xy + ') \n';
+    return code;
+  };
+
+  Python['getpixelnew'] = function (block) {
+    var text_xy = Blockly.Python.valueToCode(block, 'text', Blockly.Python.ORDER_ATOMIC)
+    || '0';
     let code = 'display.get_pixel(' + text_xy + ') \n';
     return code;
   };
@@ -48,24 +62,16 @@ export default function define(Python: Blockly.BlockGenerators) {
     return code;
   };
 
-  Python['radiosend'] = function (block) {
-    let text_send = block.getFieldValue('send');
-    let code = 'radio.send("' + text_send + '") \n';
+  Python['setpixelnew'] = function (block) {
+    var text_setpix = Blockly.Python.valueToCode(block, 'text', Blockly.Python.ORDER_ATOMIC)
+    || '0, 0, 5';
+    let code = 'display.set_pixel(' + text_setpix + ') \n';
     return code;
   };
+
   
   Python['disclear'] = function (block) {
     let code = 'display.clear() \n';
-    return code;
-  };
-
-  Python['imradio'] = function (block) {
-    let code = 'import radio \n';
-    return code;
-  };
-
-  Python['radioon'] = function (block) {
-    let code = 'radio.on()\n';
     return code;
   };
   

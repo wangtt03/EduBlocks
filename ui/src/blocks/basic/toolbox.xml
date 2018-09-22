@@ -61,4 +61,14 @@
   <!-- <block type="ifequals"></block> -->
   <block type="return2"></block>
   <!-- <block type="greater"></block> -->
+  <category name="Variables" custom="VARIABLE">
+<button text="A button" callbackKey="myFirstButtonPressed"></button>
+<block type="scrollvarnew">
+    <value name="VAR">
+      <shadow type="textinline">
+        <field name="text">0</field>
+      </shadow>
+    </value>
+  </block>
+</category>
 </category>
