@@ -9,7 +9,7 @@
   </block>
   <block type="scrollvarnew">
     <value name="displaytextvar">
-      <shadow type="textinline">
+      <shadow type="textinline"> 
         <field name="text">0</field>
       </shadow>
     </value>
