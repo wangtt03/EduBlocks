@@ -334,11 +334,46 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     },
   };
 
+  Blocks['sleepnew'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField("sleep(");
+      this.appendValueInput("text")
+          .setCheck(null);
+      this.appendDummyInput()
+          .appendField(")");
+      this.setInputsInline(true);
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour("#ff0066","#ff0066","#b3235a");
+   this.setTooltip("Wait (milliseconds)");
+   this.setHelpUrl("");
+    }
+  };
+
+  //deprecated
+
   Blocks['print'] = {
     init: function () {
       this.appendDummyInput()
         .appendField('print("')
         .appendField(new Blockly.FieldTextInput(''), 'print')
+        .appendField('" )');
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour("#ff0066","#ff0066","#b3235a");
+      this.setTooltip('Use this to print to the output box.');
+      this.setHelpUrl('http://www.example.com/');
+    },
+  };
+
+  Blocks['printnew'] = {
+    init: function () {
+      this.appendDummyInput()
+        .appendField('print("')
+      this.appendValueInput("text")
+        .setCheck(null);
+      this.appendDummyInput()
         .appendField('" )');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
@@ -360,6 +395,23 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.setTooltip('');
       this.setHelpUrl('http://www.example.com/');
     },
+  };
+
+  Blocks['equalsblocknew'] = {
+    init: function() {
+      this.appendValueInput("text1")
+          .setCheck(null);
+      this.appendDummyInput()
+          .appendField(" = ");
+      this.appendValueInput("text2")
+          .setCheck(null);
+      this.setInputsInline(true);
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour("#ff0066","#ff0066","#b3235a");
+   this.setTooltip("Manually typed variable");
+   this.setHelpUrl("");
+    }
   };
 
   Blocks['define'] = {

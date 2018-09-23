@@ -1,4 +1,17 @@
 <category name="Accelerometer" colour="#E57E16">
-    <block type="accisgesture"></block>
-    <block type="accwasgesture"></block>
-</category>
+    <label text="Accelerometer" web-class="myLabelStyle"></label>
+    <block type="accisgesturenew">
+    <value name="text">
+      <shadow type="textinline">
+        <field name="text">'shake'</field>
+      </shadow>
+    </value>
+  </block>
+    <block type="accwasgesturenew">
+    <value name="text">
+      <shadow type="textinline">
+        <field name="text">'shake'</field>
+      </shadow>
+    </value>
+  </block>
+</category> 

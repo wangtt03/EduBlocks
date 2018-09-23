@@ -193,7 +193,7 @@ Blocks['imagecreate'] = {
         .appendField(new Blockly.FieldNumber(0, 0), "3")
         .appendField(new Blockly.FieldNumber(0, 0), "4")
         .appendField(new Blockly.FieldNumber(0, 0), "5")
-        .appendField(":\"");
+        .appendField(":\"\n");
     this.appendDummyInput()
         .appendField("                  ")
         .appendField(new Blockly.FieldNumber(0, 0), "6")

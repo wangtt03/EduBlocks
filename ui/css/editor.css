@@ -13,18 +13,26 @@ body {
   width: 100%;
 }
 
-nav {
-  height: 3.5em !important;
-  background: #32deff;    
-  background: -webkit-linear-gradient(90deg,#5577EE, #6978b8); 
-  background: -o-linear-gradient(90deg, #5577EE, #6978b8); 
-  background: -moz-linear-gradient(90deg, #5577EE, #6978b8); 
-  background: linear-gradient(90deg, #5577EE, #6978b8); 
-  } 
+menu .button{
+  background-color: white !important;
+}
 
-  #workspace{
-    margin-top: 3.5em !important;
+nav {
+
+  background: #32deff;
+  background: -webkit-linear-gradient(90deg, #00ed00, #32deff);
+  background: -o-linear-gradient(90deg, #00ed00, #32deff);
+  background: -moz-linear-gradient(90deg, #00ed00, #32deff);
+  background: linear-gradient(90deg, #00ed00, #32deff);
+
+}
+
+  .blocklyToolboxDiv{
+    background-color:  	#585858 !important;
+    color: white;
   }
+
+  
 
 nav .brand{
   color: white;
@@ -50,9 +58,10 @@ button {
 
 
 .button {
-  background-color: #474747;
-  color: white;
+  background-color: white;
+  color: black;
 }
+
 
 table.primary td {
   padding: .3em .6em;
