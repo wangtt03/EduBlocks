@@ -5,7 +5,7 @@
       <shadow type="textinline">
         <field name="text">Hello World</field>
       </shadow>
-    </value>
+    </value> 
   </block>
   <block type="scrollvarnew">
     <value name="displaytextvar">
