@@ -13,26 +13,13 @@ body {
   width: 100%;
 }
 
-menu .button{
-  background-color: white !important;
-}
-
 nav {
-
-  background: #32deff;
-  background: -webkit-linear-gradient(90deg, #00ed00, #32deff);
-  background: -o-linear-gradient(90deg, #00ed00, #32deff);
-  background: -moz-linear-gradient(90deg, #00ed00, #32deff);
-  background: linear-gradient(90deg, #00ed00, #32deff);
-
-}
-
-  .blocklyToolboxDiv{
-    background-color:  	#585858 !important;
-    color: white;
+  background: #32deff; /* For browsers that do not support gradients */        
+  background: -webkit-linear-gradient(90deg, #00ed00, #32deff); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(90deg, #00ed00, #32deff); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(90deg, #00ed00, #32deff); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(90deg, #00ed00, #32deff); /* Standard syntax (must be last) */
   }
-
-  
 
 nav .brand{
   color: white;
@@ -42,26 +29,10 @@ button {
   margin: 0;
 }
 
-.blocklyText {
-
-  cursor: default;
-  fill: #fff;
-  font-family: "Helvetica Neue", "Segoe UI", Helvetica, sans-serif;
-  font-size: 12pt;
-  font-weight: bold !important;
-
-}
-
-.myLabelStyle>.blocklyFlyoutLabelText {
-  fill: white;
-}
-
-
 .button {
   background-color: white;
   color: black;
 }
-
 
 table.primary td {
   padding: .3em .6em;
@@ -172,7 +143,7 @@ button{
 }
 
 .blocklySvg{
-  background-image: url("https://az742082.vo.msecnd.net/pub/psopafpj") !important;
+  background-image: url("https://az742082.vo.msecnd.net/pub/psopafpj");
     
 }
 

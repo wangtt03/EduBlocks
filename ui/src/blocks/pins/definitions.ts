@@ -7,7 +7,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
           .appendField(new Blockly.FieldTextInput("0"), "pinno")
           .appendField(".is_touched()");
       this.setOutput(true, null);
-      this.setColour("#E51616","#E51616","#a82f2f");
+      this.setColour(0);
    this.setTooltip("If this pin is touched");
    this.setHelpUrl("");
     }
@@ -20,7 +20,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
           .appendField(new Blockly.FieldTextInput("0"), "pinno")
           .appendField(".read_analog()");
       this.setOutput(true, null);
-      this.setColour("#E51616","#E51616","#a82f2f");
+      this.setColour(0);
    this.setTooltip("Read Analog");
    this.setHelpUrl("");
     }
@@ -33,7 +33,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
           .appendField(new Blockly.FieldTextInput("0"), "pinno")
           .appendField(".read_digital()");
       this.setOutput(true, null);
-      this.setColour("#E51616","#E51616","#a82f2f");
+      this.setColour(0);
    this.setTooltip("Read Digital");
    this.setHelpUrl("");
     }
@@ -49,7 +49,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
           .appendField(")");
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour("#E51616","#E51616","#a82f2f");
+      this.setColour(0);
    this.setTooltip("Write Analog");
    this.setHelpUrl("");
     }
@@ -65,7 +65,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
           .appendField(")");
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour("#E51616","#E51616","#a82f2f");
+      this.setColour(0);
    this.setTooltip("Write Digital");
    this.setHelpUrl("");
     }

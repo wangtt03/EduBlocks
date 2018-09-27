@@ -1,36 +1,14 @@
-<category name="Basic" colour="#ff0066">
-  <label text="Basic" web-class="myLabelStyle"></label>
+<category name="Basic" colour="336">
+  <label text="Imports:"></label>
   <block type="import_microbit"></block>
   <block type="import_math"></block>
   <block type="random"></block>
   <block type="import_audio"></block>
-  <block type="printnew">
-      <value name="text">
-        <shadow type="textinline">
-          <field name="text">Hello World</field>
-        </shadow>
-      </value>
-  </block>
-  <block type="sleepnew">
-      <value name="text">
-        <shadow type="textinline">
-          <field name="text">1000</field>
-        </shadow>
-      </value>
-  </block>
-  <block type="equalsblocknew">
-      <value name="text1">
-        <shadow type="textinline">
-          <field name="text">0</field>
-        </shadow>
-      </value>
-      <value name="text2">
-        <shadow type="textinline">
-          <field name="text">0</field>
-        </shadow>
-      </value>
-  </block>
+  <block type="print"></block>
+  <block type="sleep"></block>
+  <block type="equalsblock"></block>
   <!-- <block type="while_true"></block> -->
+  <label text="Test:"></label>
   <block type="internal">
       <value name="first">
         <shadow type="textinline">
@@ -84,14 +62,4 @@
   <!-- <block type="ifequals"></block> -->
   <block type="return2"></block>
   <!-- <block type="greater"></block> -->
-  <category name="Variables" custom="VARIABLE">
-<button text="A button" callbackKey="myFirstButtonPressed"></button>
-<block type="scrollvarnew">
-    <value name="VAR">
-      <shadow type="textinline">
-        <field name="text">0</field>
-      </shadow>
-    </value>
-</block>
-</category>
 </category>

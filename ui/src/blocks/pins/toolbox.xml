@@ -1,4 +1,4 @@
-<category name="Pins" colour="#E51616">
+<category name="Pins" colour="0">
   <block type="pintouched"></block>
   <block type="analogread"></block>
   <block type="digitalread"></block>

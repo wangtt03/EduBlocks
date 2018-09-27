@@ -174,26 +174,11 @@ export default function define(Python: Blockly.BlockGenerators) {
     return code;
   };
 
-  Python['sleepnew'] = function(block) {
-    var value_name = Blockly.Python.valueToCode(block, 'text', Blockly.Python.ORDER_ATOMIC);
+  Python['equalsblock'] = function (block) {
+    const text_1 = block.getFieldValue('1');
+    const text_2 = block.getFieldValue('2');
     // TODO: Assemble Python into code variable.
-    var code = 'sleep(' +value_name+ ')\n';
-    return code;
-  };
-
-  Python['printnew'] = function (block) {
-    var text_print = Blockly.Python.valueToCode(block, 'text', Blockly.Python.ORDER_ATOMIC)
-    || 'Hello World';
-    // TODO: Assemble Python into code variable.
-    const code = 'print("' + text_print + '")\n';
-    return code;
-  };
-
-  Python['equalsblocknew'] = function(block) {
-    var value_text1 = Blockly.Python.valueToCode(block, 'text1', Blockly.Python.ORDER_ATOMIC);
-    var value_text2 = Blockly.Python.valueToCode(block, 'text2', Blockly.Python.ORDER_ATOMIC);
-    // TODO: Assemble Python into code variable.
-    var code = value_text1+ ' = ' +value_text2+ '\n';
+    const code = text_1 + '=' + text_2 + '\n';
     return code;
   };
 

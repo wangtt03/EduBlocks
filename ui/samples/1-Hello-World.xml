@@ -1,0 +1,9 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="import_microbit" id="Qax{8aS(_8UC2(hWLYLh" x="9" y="3">
+    <next>
+      <block type="scroll" id="[^H1T)~}vv]oVoM6vTF+">
+        <field name="message">Hello World</field>
+      </block>
+    </next>
+  </block>
+</xml>

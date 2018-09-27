@@ -1,3 +1,4 @@
+let lora_HUE = "#8bc34a"
 export default function define(Blocks: Blockly.BlockDefinitions) {
     Blocks['import_iotloranode'] = {
         init: function() {
@@ -5,7 +6,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
               .appendField("from iotloranode import loraNode");
           this.setPreviousStatement(true, null);
           this.setNextStatement(true, null);
-          this.setColour("#8bc34a","#8bc34a","#8bc34a");
+          this.setColour(lora_HUE);
        this.setTooltip("Imports iotloranode");
        this.setHelpUrl("");
         }
@@ -18,7 +19,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
               .appendField(" = loraNode()");
           this.setPreviousStatement(true, null);
           this.setNextStatement(true, null);
-          this.setColour("#8bc34a","#8bc34a","#8bc34a");
+          this.setColour(lora_HUE);
        this.setTooltip("Initalize the LoRa Node");
        this.setHelpUrl("");
         }
@@ -36,7 +37,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
           this.setInputsInline(true);
           this.setPreviousStatement(true, null);
           this.setNextStatement(true, null);
-          this.setColour("#8bc34a","#8bc34a","#8bc34a");
+          this.setColour(lora_HUE);
        this.setTooltip("Set LoRa Dev Address");
        this.setHelpUrl("");
         }
@@ -49,7 +50,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
               .appendField(new Blockly.FieldTextInput(""), "add")
               .appendField("\"");
           this.setOutput(true, null);
-          this.setColour("#8bc34a","#8bc34a","#8bc34a");
+          this.setColour(lora_HUE);
        this.setHelpUrl("");
         }
       };
@@ -66,7 +67,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
           this.setInputsInline(true);
           this.setPreviousStatement(true, null);
           this.setNextStatement(true, null);
-          this.setColour("#8bc34a","#8bc34a","#8bc34a");
+          this.setColour(lora_HUE);
        this.setTooltip("Set LoRa Net Key");
        this.setHelpUrl("");
         }
@@ -84,7 +85,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
           this.setInputsInline(true);
           this.setPreviousStatement(true, null);
           this.setNextStatement(true, null);
-          this.setColour("#8bc34a","#8bc34a","#8bc34a");
+          this.setColour(lora_HUE);
        this.setTooltip("Set LoRa App Key");
        this.setHelpUrl("");
         }
@@ -100,7 +101,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
           this.setInputsInline(true);
           this.setPreviousStatement(true, null);
           this.setNextStatement(true, null);
-          this.setColour("#8bc34a","#8bc34a","#8bc34a");
+          this.setColour(lora_HUE);
        this.setTooltip("LoRa Join Command");
        this.setHelpUrl("");
         }
@@ -118,7 +119,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
           this.setInputsInline(true);
           this.setPreviousStatement(true, null);
           this.setNextStatement(true, null);
-          this.setColour("#8bc34a","#8bc34a","#8bc34a");
+          this.setColour(lora_HUE);
        this.setTooltip("Set LoRa App Key");
        this.setHelpUrl("");
         }

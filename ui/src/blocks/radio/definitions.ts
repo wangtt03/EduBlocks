@@ -9,12 +9,11 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField(')');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour("#7EE516","#7EE516","#72ad33");
+      this.setColour(90);
       this.setTooltip('Send a radio command');
       this.setHelpUrl('');
     },
   };
-
 
   Blocks['radioconf'] = {
     init: function () {
@@ -24,7 +23,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField(')');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour("#7EE516","#7EE516","#72ad33");
+      this.setColour(90);
       this.setTooltip('Configure Radio');
       this.setHelpUrl('');
     },
@@ -36,7 +35,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField('import radio');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour("#7EE516","#7EE516","#72ad33");
+      this.setColour(90);
       this.setTooltip('Import Radio');
       this.setHelpUrl('');
     },
@@ -48,7 +47,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField('radio.on()');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour("#7EE516","#7EE516","#72ad33");
+      this.setColour(90);
       this.setTooltip('Turn Radio On');
       this.setHelpUrl('');
     },
@@ -66,7 +65,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
           .setCheck(null);
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour("#7EE516","#7EE516","#72ad33");
+      this.setColour(90);
    this.setTooltip("Check if there is an incoming radio command.");
    this.setHelpUrl("");
     }
@@ -79,7 +78,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
           .appendField(" = radio.receive()");
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour("#7EE516","#7EE516","#72ad33");
+      this.setColour(90);
    this.setTooltip("Initialize receiver");
    this.setHelpUrl("");
     }

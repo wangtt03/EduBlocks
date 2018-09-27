@@ -6,7 +6,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField('import speech');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour("#16E5E5","#16E5E5","#33a8a6");
+      this.setColour(180);
       this.setTooltip('Imports the speech library');
       this.setHelpUrl('');
     },
@@ -20,7 +20,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField('")');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour("#16E5E5","#16E5E5","#33a8a6");
+      this.setColour(180);
       this.setTooltip('Say something');
       this.setHelpUrl('');
     },
@@ -34,7 +34,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField('")');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour("#16E5E5","#16E5E5","#33a8a6");
+      this.setColour(180);
       this.setTooltip('Pronounce something');
       this.setHelpUrl('');
     },
@@ -48,7 +48,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField('")');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour("#16E5E5","#16E5E5","#33a8a6");
+      this.setColour(180);
       this.setTooltip('Sing something');
       this.setHelpUrl('');
     },
