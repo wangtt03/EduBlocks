@@ -1,4 +1,4 @@
-<category name="Music" colour="48">
+<category name="Music" colour="#E5BC16">
     <block type="musicimport"></block>
     <block type="musicplay"></block>
     <block type="musicpitch"></block>

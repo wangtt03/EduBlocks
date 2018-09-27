@@ -6,7 +6,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
               .appendField("compass.calibrate()");
           this.setPreviousStatement(true, null);
           this.setNextStatement(true, null);
-          this.setColour(280);
+          this.setColour("#A016E5","#A016E5","#732c91");
        this.setTooltip("Calibrate the compass module");
        this.setHelpUrl("");
         }
@@ -17,7 +17,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
           this.appendDummyInput()
               .appendField("compass.is_calibrated()");
           this.setOutput(true, null);
-          this.setColour(280);
+          this.setColour("#A016E5","#A016E5","#732c91");
        this.setTooltip("Is the compass calibrated?");
        this.setHelpUrl("");
         }

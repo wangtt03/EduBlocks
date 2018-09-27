@@ -7,7 +7,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField('import music')
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(48);
+      this.setColour("#E5BC16","#E5BC16","#a1882d");
       this.setTooltip('Import Music');
       this.setHelpUrl('');
     },
@@ -22,7 +22,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField(')');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(48);
+      this.setColour("#E5BC16","#E5BC16","#a1882d");
       this.setTooltip('Play Music');
       this.setHelpUrl('');
     },
@@ -36,7 +36,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField(')');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(48);
+      this.setColour("#E5BC16","#E5BC16","#a1882d");
       this.setTooltip('Change music pitch');
       this.setHelpUrl('');
     },
@@ -48,7 +48,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
           .appendField("music.reset()");
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(48);
+      this.setColour("#E5BC16","#E5BC16","#a1882d");
    this.setTooltip("Reset Music");
    this.setHelpUrl("");
     }
@@ -60,7 +60,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
           .appendField("music.stop()");
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(48);
+      this.setColour("#E5BC16","#E5BC16","#a1882d");
    this.setTooltip("Stop Music");
    this.setHelpUrl("");
     }
@@ -74,7 +74,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField(')');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(48);
+      this.setColour("#E5BC16","#E5BC16","#a1882d");
       this.setTooltip('Change music tempo');
       this.setHelpUrl('');
     },
@@ -86,7 +86,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField('music.get_tempo()');
       this.setInputsInline(false);
       this.setOutput(true, null);
-      this.setColour(48);
+      this.setColour("#E5BC16","#E5BC16","#a1882d");
       this.setTooltip('Get tempo');
       this.setHelpUrl('');
     },

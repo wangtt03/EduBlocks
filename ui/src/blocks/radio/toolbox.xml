@@ -1,4 +1,4 @@
-<category name="Radio" colour="90">
+<category name="Radio" colour="#7EE516">
   <block type="imradio"></block>
   <block type="radioon"></block>
   <block type="radiosend"></block>

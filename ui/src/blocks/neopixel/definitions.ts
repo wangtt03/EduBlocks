@@ -9,7 +9,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
           .appendField(")");
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(150);
+      this.setColour("#16E57E","#16E57E","#33a86b");
    this.setTooltip("Configure Neopixels");
    this.setHelpUrl("");
     }
@@ -26,7 +26,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
           .appendField(")");
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(150);
+      this.setColour("#16E57E","#16E57E","#33a86b");
    this.setTooltip("Set Neopixel Colour");
    this.setHelpUrl("");
     }
@@ -38,7 +38,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
           .appendField("import neopixel")
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(150);
+      this.setColour("#16E57E","#16E57E","#33a86b");
    this.setTooltip("Import Neopixel Library");
    this.setHelpUrl("");
     }
@@ -51,7 +51,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
           .appendField(".show()");
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(150);
+      this.setColour("#16E57E","#16E57E","#33a86b");
    this.setTooltip("Show the set neopixel config");
    this.setHelpUrl("");
     }
@@ -64,7 +64,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
           .appendField(".clear()");
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(150);
+      this.setColour("#16E57E","#16E57E","#33a86b");
    this.setTooltip("Clear the set neopixel config");
    this.setHelpUrl("");
     }

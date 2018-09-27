@@ -1,4 +1,4 @@
-<category name="Neopixel" colour="150">
+<category name="Neopixel" colour="#16E57E">
   <block type="importneo"></block>
   <block type="setneo"></block>
   <block type="neovar"></block>

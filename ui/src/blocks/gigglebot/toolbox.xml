@@ -1,9 +1,8 @@
 <category name="GiggleBot" colour="#46BFB1">
-
-  <block type="import_gigglebot"></block>
-  <block type="gigglebot_init"></block>
-  <block type="drive"></block>
-  <block type="drive_x_milliseconds">
+<label text="GiggleBot" web-class="myLabelStyle"></label>
+ <block type="import_gigglebot"></block>
+ <block type="drive"></block>
+<block type="drive_x_milliseconds">
     <value name="milliseconds">
     <shadow type="textinline">
         <field name="text">1000</field>
