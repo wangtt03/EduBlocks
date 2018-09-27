@@ -5,7 +5,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
           this.appendDummyInput()
               .appendField(new Blockly.FieldVariable("var"), "VAR");
           this.setOutput(true, null);
-          this.setColour("#ff0066","#ff0066","#ff0066");
+          this.setColour("#ff0066","#ff0066","#b3235a");
        this.setTooltip("");
        this.setHelpUrl("");
         }
@@ -21,7 +21,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
           this.setInputsInline(true);
           this.setPreviousStatement(true, null);
           this.setNextStatement(true, null);
-          this.setColour("#ff0066","#ff0066","#ff0066");
+          this.setColour("#ff0066","#ff0066","#b3235a");
        this.setTooltip("");
        this.setHelpUrl("");
         }

@@ -7,4 +7,12 @@
       </shadow>
     </value>
   </block>
+<block type="variables_get"></block>
+<block type="variables_set">
+    <value name="NAME">
+      <shadow type="textinline">
+        <field name="text">0</field>
+      </shadow>
+    </value>
+  </block>
 </category>
