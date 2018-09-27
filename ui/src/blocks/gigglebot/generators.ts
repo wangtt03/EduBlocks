@@ -1,7 +1,11 @@
 export default function define(Python: Blockly.BlockGenerators) {
     Python['import_gigglebot'] = function(block) {
-        // TODO: Assemble Python into code variable.
         var code = 'from gigglebot import *\n';
+        return code;
+    };
+
+    Python['gigglebot_init'] = function(block) {
+        var code = 'init()\n';
         return code;
     };
 
@@ -13,7 +17,6 @@ export default function define(Python: Blockly.BlockGenerators) {
 
     Python['drive_x_milliseconds'] = function(block) {
         var dropdown_dir = block.getFieldValue('dir');
-        // var number_seconds = block.getFieldValue('milliseconds') || 0;
         var value_milliseconds = Blockly.Python.valueToCode(block, 'milliseconds', Blockly.Python.ORDER_ATOMIC)
                              || '0';
         var code = 'drive('+dropdown_dir+', milliseconds='+value_milliseconds+')\n';
@@ -34,7 +37,6 @@ export default function define(Python: Blockly.BlockGenerators) {
     };
 
     Python['stop'] = function(block) {
-        // TODO: Assemble Python into code variable.
         var code = 'stop()\n';
         return code;
     };
