@@ -17,7 +17,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
               .appendField("init()");
           this.setPreviousStatement(true, null);
           this.setNextStatement(true, null);
-          this.setColour(gigglebot_HUE);
+          this.setColour("#46BFB1","#46BFB1","#528f87");
           this.setTooltip("Initializes the leds.");
           this.setHelpUrl("");
         }
