@@ -24,7 +24,7 @@ async function newApp(): Promise<App> {
 
   function getCombinedScript(python: string, extensions: Extension[]) {
     const beforeScript = getBeforeScript(extensions);
-    const newpy = python
+    let newpy = python
     newpy = newpy.replace('from gigglebot import *', '');
     newpy = newpy.replace('from scrollbit import *', '');
 
