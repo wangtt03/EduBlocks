@@ -87,7 +87,7 @@ Install PIP packages:
     nvm use 6.10.3
     npm --global install yarn
     
-    git clone git@github.com:AllAboutCode/EduBlocks.git
+    git clone https://github.com/AllAboutCode/EduBlocks
 
     cd EduBlocks
 
