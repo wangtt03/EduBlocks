@@ -5,6 +5,11 @@ export default function define(Python: Blockly.BlockGenerators) {
         return code;
     };
 
+    Python['gigglebot_init'] = function(block) {
+        var code = 'init()\n';
+        return code;
+    };
+
     Python['drive'] = function(block) {
         var dropdown_dir = block.getFieldValue('dir');
         var code = 'drive('+dropdown_dir+')\n';
