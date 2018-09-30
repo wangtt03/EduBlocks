@@ -2,6 +2,10 @@
     <block type="import_audio"></block>
     <block type="audio_conf"></block>
     <block type="audio_raw"></block>
+    <block type="audio_enable"></block>
+    <block type="audio_open"></block>
+    <block type="audio_wav"></block>
     <block type="audio_play"></block>
+    <block type="audio_playing"></block>
     <block type="audio_stop"></block>
 </category>

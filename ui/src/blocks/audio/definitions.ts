@@ -12,6 +12,21 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     },
   };
 
+  Blocks['audio_enable'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField(new Blockly.FieldVariable("audio"), "pin")
+          .appendField(".switch_to_output(")
+          .appendField(new Blockly.FieldTextInput("value=True"), "val")
+          .appendField(")");
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour(audiocol);
+   this.setTooltip("");
+   this.setHelpUrl("");
+    }
+  };
+
   Blocks['audio_conf'] = {
     init: function() {
       this.appendDummyInput()
@@ -21,6 +36,51 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
           .appendField(")");
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
+      this.setColour(audiocol);
+   this.setTooltip("");
+   this.setHelpUrl("");
+    }
+  };
+
+  Blocks['audio_wav'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField(new Blockly.FieldVariable("audio"), "pin")
+          .appendField(" = audioio.WaveFile(")
+          .appendField(new Blockly.FieldTextInput(""), "pinno")
+          .appendField(")");
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour(audiocol);
+   this.setTooltip("");
+   this.setHelpUrl("");
+    }
+  };
+
+
+  Blocks['audio_open'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField(new Blockly.FieldVariable("data"), "data")
+          .appendField(" = open(")
+          .appendField(new Blockly.FieldTextInput(""), "pinno")
+          .appendField(")");
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour(audiocol);
+   this.setTooltip("");
+   this.setHelpUrl("");
+    }
+  };
+
+
+  Blocks['audio_playing'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField(new Blockly.FieldVariable("audio"), "pin")
+          .appendField(".playing");
+      this.setInputsInline(true);
+      this.setOutput(true, null);
       this.setColour(audiocol);
    this.setTooltip("");
    this.setHelpUrl("");
