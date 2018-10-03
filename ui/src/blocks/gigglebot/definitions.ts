@@ -7,10 +7,23 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
           this.setPreviousStatement(true, null);
           this.setNextStatement(true, null);
           this.setColour(gigglebot_HUE);
-       this.setTooltip("Imports gigglebot");
-       this.setHelpUrl("");
+          this.setTooltip("Imports gigglebot library.");
+          this.setHelpUrl("");
         }
-      };
+    };
+
+    Blocks['gigglebot_init'] = {
+        init: function() {
+          this.appendDummyInput()
+              .appendField("init()");
+          this.setPreviousStatement(true, null);
+          this.setNextStatement(true, null);
+          this.setColour(gigglebot_HUE);
+          this.setTooltip("Initializes the leds.");
+          this.setHelpUrl("");
+        }
+    };
+
 
     Blocks['drive'] = {
         init: function() {
@@ -93,9 +106,13 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         init: function() {
           this.appendDummyInput()
               .appendField("set_speed( power_left=")
-              .appendField(new Blockly.FieldNumber(0, 0), "power_left")
+          this.appendValueInput("power_left")
+              .setCheck(null);
+          this.appendDummyInput()
               .appendField(", power_right=")
-              .appendField(new Blockly.FieldNumber(0, 0), "power_right")
+              this.appendValueInput("power_right")
+              .setCheck(null);
+          this.appendDummyInput()
               .appendField(")");
           this.setPreviousStatement(true, null);
           this.setNextStatement(true, null);
@@ -111,7 +128,9 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
               .appendField("set_servo(")
               .appendField(new Blockly.FieldDropdown([["LEFT","LEFT"], ["RIGHT","RIGHT"], ["BOTH","BOTH"]]), "which")
               .appendField(", degrees=")
-              .appendField(new Blockly.FieldNumber(0, 0), "degrees")
+              this.appendValueInput("degrees")
+              .setCheck(null);
+          this.appendDummyInput()
               .appendField(")");
           this.setPreviousStatement(true, null);
           this.setNextStatement(true, null);
@@ -140,11 +159,17 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         init: function() {
           this.appendDummyInput()
               .appendField("set_smile( R=")
-              .appendField(new Blockly.FieldNumber(0, 0), "R")
+          this.appendValueInput("R")
+              .setCheck(null);
+          this.appendDummyInput()
               .appendField(", G=")
-              .appendField(new Blockly.FieldNumber(0, 0), "G")
+          this.appendValueInput("G")
+              .setCheck(null);
+          this.appendDummyInput()
               .appendField(", B=")
-              .appendField(new Blockly.FieldNumber(0, 0), "B")
+          this.appendValueInput("B")
+              .setCheck(null);
+          this.appendDummyInput()
               .appendField(")");
           this.setPreviousStatement(true, null);
           this.setNextStatement(true, null);
@@ -160,11 +185,17 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
               .appendField("set_eyes(")
               .appendField(new Blockly.FieldDropdown([["LEFT","LEFT"], ["RIGHT","RIGHT"], ["BOTH","BOTH"]]), "which")
               .appendField(", R=")
-              .appendField(new Blockly.FieldNumber(0, 0), "R")
+              this.appendValueInput("R")
+              .setCheck(null);
+          this.appendDummyInput()
               .appendField(", G=")
-              .appendField(new Blockly.FieldNumber(0, 0), "G")
+          this.appendValueInput("G")
+              .setCheck(null);
+          this.appendDummyInput()
               .appendField(", B=")
-              .appendField(new Blockly.FieldNumber(0, 0), "B")
+          this.appendValueInput("B")
+              .setCheck(null);
+          this.appendDummyInput()
               .appendField(")");
           this.setPreviousStatement(true, null);
           this.setNextStatement(true, null);
