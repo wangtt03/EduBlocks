@@ -238,7 +238,7 @@ export default function define(Python: Blockly.BlockGenerators) {
   Python['typeanything'] = function(block) {
     var text_stuff = Blockly.Python.valueToCode(block, 'stuff', Blockly.Python.ORDER_ATOMIC);
     // TODO: Assemble Python into code variable.
-    var code = text_stuff + '# freecode\n';
+    var code = text_stuff + '# your own code\n';
     return code;
   };
 
