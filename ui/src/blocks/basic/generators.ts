@@ -38,7 +38,7 @@ export default function define(Python: Blockly.BlockGenerators) {
   };
 
   Python['class'] = function (block) {
-    const text_const = block.getFieldValue('var');
+    const text_const = Blockly.Python.valueToCode(block, 'class', Blockly.Python.ORDER_ATOMIC);
     let branch = Blockly.Python.statementToCode(block, 'DO');
     branch = Blockly.Python.addLoopTrap(branch, block.id) || Blockly.Python.PASS;
     return 'class ' + text_const + ':\n' + branch;
@@ -131,8 +131,9 @@ export default function define(Python: Blockly.BlockGenerators) {
   };
 
   Python['df'] = function (block) {
-    const text_def = block.getFieldValue('def');
-    const code = text_def + '()\n';
+    const text_def = Blockly.Python.valueToCode(block, 'def', Blockly.Python.ORDER_ATOMIC);
+    const text_params = Blockly.Python.valueToCode(block, 'params', Blockly.Python.ORDER_ATOMIC)
+    const code = text_def + '(' + text_params + ')\n';
     return code;
   };
 
@@ -175,9 +176,9 @@ export default function define(Python: Blockly.BlockGenerators) {
   };
 
   Python['sleepnew'] = function(block) {
-    var value_name = Blockly.Python.valueToCode(block, 'text', Blockly.Python.ORDER_ATOMIC);
+    var value_name = Blockly.Python.valueToCode(block, 'sleep', Blockly.Python.ORDER_ATOMIC);
     // TODO: Assemble Python into code variable.
-    var code = 'sleep(' +value_name+ ')\n';
+    var code = 'sleep(' +value_name+ ') # in milliseconds\n';
     return code;
   };
 
@@ -235,9 +236,9 @@ export default function define(Python: Blockly.BlockGenerators) {
   };
 
   Python['typeanything'] = function(block) {
-    var text_stuff = block.getFieldValue('stuff');
+    var text_stuff = Blockly.Python.valueToCode(block, 'stuff', Blockly.Python.ORDER_ATOMIC);
     // TODO: Assemble Python into code variable.
-    var code = text_stuff+ '# freecode\n';
+    var code = text_stuff + '# freecode\n';
     return code;
   };
 
@@ -260,6 +261,18 @@ export default function define(Python: Blockly.BlockGenerators) {
     // TODO: Change ORDER_NONE to the correct strength.
     return [code, Blockly.Python.ORDER_ATOMIC];
   };
+  Python['andor'] = Python['internal'];
+
+  Python['not'] = function (block) {
+    var value_bool = Blockly.Python.valueToCode(block, 'bool', Blockly.Python.ORDER_ATOMIC);
+    const code = 'not ' +  value_bool;
+    return [code, Blockly.Python.ORDER_ATOMIC];
+  };
+
+  Python['break'] = function (block) {
+    const code = 'break\n ';
+    return code;
+  };
 
   Python['textinline'] = function(block) {
     var text_text = block.getFieldValue('text');
@@ -268,6 +281,7 @@ export default function define(Python: Blockly.BlockGenerators) {
     // TODO: Change ORDER_NONE to the correct strength.
     return [code, Blockly.Python.ORDER_ATOMIC];
   };
+
 
   Python['varinlines'] = function(block) {
     var variable_name = Blockly.Python.variableDB_.getName(block.getFieldValue('NAME'), Blockly.Variables.NAME_TYPE);

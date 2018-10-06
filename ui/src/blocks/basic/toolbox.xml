@@ -8,6 +8,55 @@
   <block type="import_audio"></block>
 
   <label text="Statements" web-class="myLabelStyle"></label>
+  <block type="sleepnew">
+      <value name="sleep">
+        <shadow type="textinline">
+          <field name="text">1000</field>
+        </shadow>
+      </value>
+  </block>
+  <block type="typeanything">
+      <value name="stuff">
+        <shadow type="textinline">
+          <field name="text">     </field>
+        </shadow>
+      </value>
+  </block>
+  <!-- <block type="equalsblocknew">
+      <value name="text1">
+        <shadow type="textinline">
+          <field name="text">var</field>
+        </shadow>
+      </value>
+      <value name="text2">
+        <shadow type="textinline">
+          <field name="text">0</field>
+        </shadow>
+      </value>
+  </block> -->
+
+  <!-- <block type="textinline"></block> -->
+  <block type="varinlines">
+        <value name="value">
+        <shadow type="textinline">
+          <field name="text">1</field>
+        </shadow>
+      </value>
+  </block>
+  <block type="df">
+    <value name="def">
+      <shadow type="textinline">
+          <field name="text">function_name</field>
+        </shadow>
+      </value>
+    <value name="params">
+      <shadow type="textinline">
+          <field name="text"></field>
+        </shadow>
+      </value>
+  </block>
+  <block type="pass"></block>
+
   <block type="printnew">
       <value name="text">
         <shadow type="textinline">
@@ -16,38 +65,46 @@
       </value>
   </block>
   <block type="varprint"></block>
-  <block type="sleepnew">
-      <value name="text">
-        <shadow type="textinline">
-          <field name="text">1000</field>
-        </shadow>
-      </value>
+
+  <label text="Logic" web-class="myLabelStyle"></label>
+  <block type="internal">
+    <value name="first">
+      <shadow type="textinline">
+        <field name="text">0</field>
+      </shadow>
+    </value>
+    <value name="last">
+      <shadow type="textinline">
+        <field name="text">0</field>
+      </shadow>
+    </value>
   </block>
-  <block type="equalsblocknew">
-      <value name="text1">
-        <shadow type="textinline">
-          <field name="text">0</field>
-        </shadow>
-      </value>
-      <value name="text2">
-        <shadow type="textinline">
-          <field name="text">0</field>
-        </shadow>
-      </value>
+  <block type="andor">
+    <value name="first">
+      <shadow type="textinline">
+        <field name="text">True</field>
+      </shadow>
+    </value>
+    <value name="last">
+      <shadow type="textinline">
+        <field name="text">True</field>
+      </shadow>
+    </value>
   </block>
-  <block type="typeanything"></block>
-  <block type="textinline"></block>
-  <block type="varinlines"></block>
-  <block type="df"></block>
-  <block type="pass"></block>
-  <block type="varminus"></block>
+  <block type="not">
+    <value name="bool">
+      <shadow type="textinline">
+        <field name="text">True</field>
+      </shadow>
+    </value>
+  </block>
 
   <label text="Loops" web-class="myLabelStyle"></label>
 
   <block type="whileout">
     <value name="cond">
-      <shadow type="boolstatus">
-        <field name="bool">True</field>
+      <shadow type="textinline">
+        <field name="text">True</field>
       </shadow>
     </value>
   </block>
@@ -75,35 +132,25 @@
       </shadow>
     </value>
   </block>
+  <block type="break"></block>
   
   <label text="Conditions" web-class="myLabelStyle"></label>
   <block type="ifinline">
     <value name="iftext">
-      <shadow type="boolstatus">
-        <field name="bool">True</field>
+      <shadow type="textinline">
+        <field name="text">True</field>
       </shadow>
     </value>
   </block>
   <block type="elifinline">
     <value name="iftext">
-      <shadow type="boolstatus">
-        <field name="bool">True</field>
+      <shadow type="textinline">
+        <field name="text">True</field>
       </shadow>
     </value>
   </block>
   <block type="else"></block>
-  <block type="internal">
-      <value name="first">
-        <shadow type="textinline">
-          <field name="text">0</field>
-        </shadow>
-      </value>
-      <value name="last">
-        <shadow type="textinline">
-          <field name="text">0</field>
-        </shadow>
-      </value>
-  </block>
+
 
   <label text="Definitions" web-class="myLabelStyle"></label>
   <block type="define">
@@ -125,7 +172,13 @@
       </shadow>
     </value>
   </block>
-  <block type="class"></block>
+  <block type="class">
+    <value name="class">
+      <shadow type="textinline">
+        <field name="text">classname</field>
+      </shadow>
+    </value>
+  </block>
 
 <category name="Variables" custom="VARIABLE" colour="#ff0066">
   <button text="A button" callbackKey="myFirstButtonPressed"></button>
