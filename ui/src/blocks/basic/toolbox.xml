@@ -1,9 +1,13 @@
 <category name="Basic" colour="#ff0066">
-  <label text="Basic" web-class="myLabelStyle"></label>
+
+  <label text="Imports" web-class="myLabelStyle"></label>
+
   <block type="import_microbit"></block>
   <block type="import_math"></block>
   <block type="random"></block>
   <block type="import_audio"></block>
+
+  <label text="Statements" web-class="myLabelStyle"></label>
   <block type="printnew">
       <value name="text">
         <shadow type="textinline">
@@ -11,6 +15,7 @@
         </shadow>
       </value>
   </block>
+  <block type="varprint"></block>
   <block type="sleepnew">
       <value name="text">
         <shadow type="textinline">
@@ -30,19 +35,14 @@
         </shadow>
       </value>
   </block>
-  <!-- <block type="while_true"></block> -->
-  <block type="internal">
-      <value name="first">
-        <shadow type="textinline">
-          <field name="text">0</field>
-        </shadow>
-      </value>
-      <value name="last">
-        <shadow type="textinline">
-          <field name="text">0</field>
-        </shadow>
-      </value>
-  </block>
+  <block type="typeanything"></block>
+  <block type="textinline"></block>
+  <block type="varinlines"></block>
+  <block type="df"></block>
+  <block type="pass"></block>
+  <block type="varminus"></block>
+
+  <label text="Loops" web-class="myLabelStyle"></label>
 
   <block type="whileout">
     <value name="cond">
@@ -51,7 +51,32 @@
       </shadow>
     </value>
   </block>
-
+  <block type="for">
+    <value name="letter">
+      <shadow type="textinline">
+        <field name="text">i</field>
+      </shadow>
+    </value>
+    <value name="no">
+      <shadow type="textinline">
+        <field name="text">number</field>
+      </shadow>
+    </value>
+  </block>
+  <block type="advancedforloops">
+    <value name="x">
+      <shadow type="textinline">
+        <field name="text">x</field>
+      </shadow>
+    </value>
+    <value name="y">
+      <shadow type="textinline">
+        <field name="text">y</field>
+      </shadow>
+    </value>
+  </block>
+  
+  <label text="Conditions" web-class="myLabelStyle"></label>
   <block type="ifinline">
     <value name="iftext">
       <shadow type="textinline">
@@ -67,42 +92,49 @@
     </value>
   </block>
   <block type="else"></block>
-  <!-- <block type="if"></block> -->
-  <block type="typeanything"></block>
-  <block type="textinline"></block>
-  <block type="varinlines"></block>
+  <block type="internal">
+      <value name="first">
+        <shadow type="textinline">
+          <field name="text">0</field>
+        </shadow>
+      </value>
+      <value name="last">
+        <shadow type="textinline">
+          <field name="text">0</field>
+        </shadow>
+      </value>
+  </block>
+
+  <label text="Definitions" web-class="myLabelStyle"></label>
   <block type="define">
     <value name="1">
       <shadow type="textinline">
-        <field name="text">    </field>
+        <field name="text"></field>
       </shadow>
     </value>
     <value name="2">
       <shadow type="textinline">
-        <field name="text">    </field>
+        <field name="text"></field>
       </shadow>
     </value>
   </block>
-  <block type="df"></block>
-  <block type="for"></block>
-  <!-- <block type="elif"></block> -->
-  <block type="pass"></block>
-  <block type="class"></block>
-  <block type="varprint"></block>
-  <!-- <block type="ifcroc"></block> -->
-  <block type="varminus"></block>
-  <block type="advancedforloops"></block>
-  <!-- <block type="ifequals"></block> -->
-  <block type="return2"></block>
-  <!-- <block type="greater"></block> -->
-  <category name="Variables" custom="VARIABLE">
-<button text="A button" callbackKey="myFirstButtonPressed"></button>
-<block type="scrollvarnew">
-    <value name="VAR">
+  <block type="return2">
+    <value name="return">
       <shadow type="textinline">
-        <field name="text">0</field>
+        <field name="text"></field>
       </shadow>
     </value>
-</block>
+  </block>
+  <block type="class"></block>
+
+<category name="Variables" custom="VARIABLE" colour="#ff0066">
+  <button text="A button" callbackKey="myFirstButtonPressed"></button>
+  <block type="scrollvarnew">
+      <value name="VAR">
+        <shadow type="textinline">
+          <field name="text">0</field>
+        </shadow>
+      </value>
+  </block>
 </category>
 </category>

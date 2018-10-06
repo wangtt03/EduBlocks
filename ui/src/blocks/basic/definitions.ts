@@ -157,10 +157,14 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
   Blocks['for'] = {
     init: function () {
       this.appendDummyInput()
-        .appendField('for')
-        .appendField(new Blockly.FieldTextInput('i'), 'letter')
-        .appendField('in range(')
-        .appendField(new Blockly.FieldTextInput('number'), 'no')
+        .appendField('for');
+      this.appendValueInput('letter')
+        .setCheck(null);
+      this.appendDummyInput()
+        .appendField('in range(');
+      this.appendValueInput('no')
+        .setCheck(null);
+      this.appendDummyInput()
         .appendField('):');
       this.appendStatementInput('DO')
         .setCheck(null);
@@ -175,10 +179,15 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
   Blocks['advancedforloops'] = {
     init: function () {
       this.appendDummyInput()
-        .appendField('for')
-        .appendField(new Blockly.FieldTextInput('x'), 'x')
-        .appendField('in')
-        .appendField(new Blockly.FieldTextInput('y'), 'y');
+        .appendField('for');
+      this.appendValueInput('x')
+        .setCheck(null);
+      this.appendDummyInput()
+        .appendField('in');
+      this.appendValueInput('y')
+        .setCheck(null);
+      this.appendDummyInput()
+        .appendField(":");
       this.appendStatementInput('DO')
         .setCheck(null);
       this.setPreviousStatement(true, null);
@@ -222,9 +231,11 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
   Blocks['return2'] = {
     init: function () {
       this.appendDummyInput()
-        .appendField('return')
-        .appendField(new Blockly.FieldTextInput(''), 'return');
+        .appendField('return');
+      this.appendValueInput('return')
+        .setCheck(null);
       this.setPreviousStatement(true, null);
+      this.setInputsInline(true);
       this.setNextStatement(true, null);
       this.setColour("#ff0066","#ff0066","#b3235a");
       this.setTooltip('');
@@ -356,8 +367,10 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
   Blocks['print'] = {
     init: function () {
       this.appendDummyInput()
-        .appendField('print("')
-        .appendField(new Blockly.FieldTextInput(''), 'print')
+        .appendField('print("');
+      this.appendValueInput('print')
+        .setCheck(null);
+      this.appendDummyInput()
         .appendField('" )');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
@@ -411,6 +424,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.setColour("#ff0066","#ff0066","#b3235a");
    this.setTooltip("Manually typed variable");
    this.setHelpUrl("");
+   this.setOutput(true, "Boolean");
     }
   };
 
@@ -476,10 +490,9 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
 
   Blocks['typeanything'] = {
     init: function() {
-      this.appendDummyInput()
-          .appendField("# freecode\n");
       this.appendDummyInput()   
-          .appendField(new Blockly.FieldTextInput("       "), "stuff");
+          .appendField(new Blockly.FieldTextInput("       "), "stuff")
+          .appendField("# free code");
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
       this.setColour("#ff0066","#ff0066","#b3235a");

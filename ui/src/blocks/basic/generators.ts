@@ -74,8 +74,8 @@ export default function define(Python: Blockly.BlockGenerators) {
   Python['for'] = function (block) {
     let branch = Blockly.Python.statementToCode(block, 'DO');
     branch = Blockly.Python.addLoopTrap(branch, block.id) || Blockly.Python.PASS;
-    const text_letter = block.getFieldValue('letter');
-    const text_no = block.getFieldValue('no');
+    const text_letter = Blockly.Python.valueToCode(block, 'letter', Blockly.Python.ORDER_ATOMIC);
+    const text_no = Blockly.Python.valueToCode(block, 'no', Blockly.Python.ORDER_ATOMIC);
     // const statements_name = Blockly.Python.statementToCode(block, 'DO');
     // TODO: Assemble Python into code variable.
     const code = 'for ' + text_letter + ' in range(' + text_no + '):\n' + branch;
@@ -85,8 +85,8 @@ export default function define(Python: Blockly.BlockGenerators) {
   Python['advancedforloops'] = function (block) {
     let branch = Blockly.Python.statementToCode(block, 'DO');
     branch = Blockly.Python.addLoopTrap(branch, block.id) || Blockly.Python.PASS;
-    const text_x = block.getFieldValue('x');
-    const text_y = block.getFieldValue('y');
+    const text_x = Blockly.Python.valueToCode(block, 'x', Blockly.Python.ORDER_ATOMIC)
+    const text_y = Blockly.Python.valueToCode(block, 'y', Blockly.Python.ORDER_ATOMIC)
     // const statements_do = Blockly.Python.statementToCode(block, 'DO');
     // TODO: Assemble Python into code variable.
     const code = 'for ' + text_x + ' in ' + text_y + ':\n' + branch;
@@ -111,7 +111,7 @@ export default function define(Python: Blockly.BlockGenerators) {
   };
 
   Python['return2'] = function (block) {
-    const text_return = block.getFieldValue('return');
+    const text_return = Blockly.Python.valueToCode(block, 'return', Blockly.Python.ORDER_ATOMIC)
     // TODO: Assemble Python into code variable.
     const code = 'return ' + text_return + '\n';
     return code;
@@ -168,7 +168,7 @@ export default function define(Python: Blockly.BlockGenerators) {
   };
 
   Python['print'] = function (block) {
-    const text_print = block.getFieldValue('print');
+    const text_print = Blockly.Python.valueToCode(block, 'print', Blockly.Python.ORDER_ATOMIC)
     // TODO: Assemble Python into code variable.
     const code = 'print("' + text_print + '")\n';
     return code;
@@ -237,7 +237,7 @@ export default function define(Python: Blockly.BlockGenerators) {
   Python['typeanything'] = function(block) {
     var text_stuff = block.getFieldValue('stuff');
     // TODO: Assemble Python into code variable.
-    var code = "# freecode\n"+ text_stuff+ '\n';
+    var code = text_stuff+ '# freecode\n';
     return code;
   };
 
