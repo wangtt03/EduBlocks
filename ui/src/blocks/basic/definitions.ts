@@ -417,10 +417,14 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
   Blocks['define'] = {
     init: function () {
       this.appendDummyInput()
-        .appendField('def ')
-        .appendField(new Blockly.FieldTextInput(''), '1')
-        .appendField('(')
-        .appendField(new Blockly.FieldTextInput(''), '2')
+        .appendField('def ');
+      this.appendValueInput('1')
+        .setCheck(null);
+      this.appendDummyInput()
+        .appendField('(');
+      this.appendValueInput('2')
+        .setCheck(null);
+      this.appendDummyInput()
         .appendField('):');
       this.appendStatementInput('DO')
         .setCheck(null);
@@ -473,7 +477,9 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
   Blocks['typeanything'] = {
     init: function() {
       this.appendDummyInput()
-          .appendField(new Blockly.FieldTextInput(""), "stuff");
+          .appendField("# freecode\n");
+      this.appendDummyInput()   
+          .appendField(new Blockly.FieldTextInput("       "), "stuff");
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
       this.setColour("#ff0066","#ff0066","#b3235a");

@@ -198,8 +198,8 @@ export default function define(Python: Blockly.BlockGenerators) {
   };
 
   Python['define'] = function (block) {
-    const text_1 = block.getFieldValue('1');
-    const text_2 = block.getFieldValue('2');
+    const text_1 = Blockly.Python.valueToCode(block, '1', Blockly.Python.ORDER_ATOMIC)
+    const text_2 = Blockly.Python.valueToCode(block, '2', Blockly.Python.ORDER_ATOMIC)
     let branch = Blockly.Python.statementToCode(block, 'DO');
     branch = Blockly.Python.addLoopTrap(branch, block.id) || Blockly.Python.PASS;
     // const statements_name = Blockly.Python.statementToCode(block, 'NAME');
@@ -237,7 +237,7 @@ export default function define(Python: Blockly.BlockGenerators) {
   Python['typeanything'] = function(block) {
     var text_stuff = block.getFieldValue('stuff');
     // TODO: Assemble Python into code variable.
-    var code = text_stuff+ '\n';
+    var code = "# freecode\n"+ text_stuff+ '\n';
     return code;
   };
 

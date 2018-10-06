@@ -71,7 +71,18 @@
   <block type="typeanything"></block>
   <block type="textinline"></block>
   <block type="varinlines"></block>
-  <block type="define"></block>
+  <block type="define">
+    <value name="1">
+      <shadow type="textinline">
+        <field name="text">    </field>
+      </shadow>
+    </value>
+    <value name="2">
+      <shadow type="textinline">
+        <field name="text">    </field>
+      </shadow>
+    </value>
+  </block>
   <block type="df"></block>
   <block type="for"></block>
   <!-- <block type="elif"></block> -->
