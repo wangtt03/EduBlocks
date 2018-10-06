@@ -611,10 +611,13 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     }
   };
 
-  Blockly.Blocks['boolstatus'] = {
+  Blocks['boolstatus'] = {
     init: function() {
       this.appendDummyInput()
-        .appendField(new Blockly.FieldDropdown([["True","True"], ["False","False"]]), "bool");
+        .appendField(new Blockly.FieldDropdown([
+            ["True","True"], 
+            ["False","False"]
+        ]), "bool");
       this.setOutput(true, "Boolean");
       this.setColour(maincolour, inputcolour, bordercolour);
       this.setTooltip("");
@@ -622,7 +625,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     }
   };
 
-  Blockly.Blocks['andor'] = {
+  Blocks['andor'] = {
     init: function() {
       this.appendValueInput("first")
           .setCheck(null);
