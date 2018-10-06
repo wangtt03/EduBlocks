@@ -46,8 +46,8 @@
 
   <block type="whileout">
     <value name="cond">
-      <shadow type="textinline">
-        <field name="text">True</field>
+      <shadow type="boolstatus">
+        <field name="bool">True</field>
       </shadow>
     </value>
   </block>
@@ -79,15 +79,15 @@
   <label text="Conditions" web-class="myLabelStyle"></label>
   <block type="ifinline">
     <value name="iftext">
-      <shadow type="textinline">
-        <field name="text">True</field>
+      <shadow type="boolstatus">
+        <field name="bool">True</field>
       </shadow>
     </value>
   </block>
   <block type="elifinline">
     <value name="iftext">
-      <shadow type="textinline">
-        <field name="text">True</field>
+      <shadow type="boolstatus">
+        <field name="bool">True</field>
       </shadow>
     </value>
   </block>

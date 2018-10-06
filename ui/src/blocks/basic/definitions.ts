@@ -597,5 +597,15 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     }
   };
 
+  Blockly.Blocks['boolstatus'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField(new Blockly.FieldDropdown([["True","True"], ["False","False"]]), "bool");
+      this.setOutput(true, "Boolean");
+      this.setColour("#ff0066","#ff0066","#b3235a");
+   this.setTooltip("");
+   this.setHelpUrl("");
+    }
+  };
 
 }

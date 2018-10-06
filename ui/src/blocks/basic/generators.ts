@@ -278,4 +278,10 @@ export default function define(Python: Blockly.BlockGenerators) {
     return code;
   };
 
+  Python['boolstatus'] = function(block) {
+    var dropdown_bool = block.getFieldValue('bool');
+    var code = dropdown_bool;
+    return [code, Blockly.Python.ORDER_ATOMIC];
+  };
+
 }
