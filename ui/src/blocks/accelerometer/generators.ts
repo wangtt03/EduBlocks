@@ -26,4 +26,19 @@ export default function define(Python: Blockly.BlockGenerators) {
     return [code, Blockly.Python.ORDER_ATOMIC];
   };
 
+  Python['accgestures'] = function (block) {
+    const text_gesture = block.getFieldValue('gestures');
+    return [text_gesture, Blockly.Python.ORDER_ATOMIC];
+  };
+
+  Python['acccurrentgesture'] = function (block) {
+    const code = 'accelerometer.current_gesture()';
+    return [code, Blockly.Python.ORDER_ATOMIC];
+  };
+
+  Python['accget'] = function (block) {
+    const text_axis = block.getFieldValue('axis');
+    const code = 'accelerometer.' +text_axis;
+    return [code, Blockly.Python.ORDER_ATOMIC];
+  }; 
 }
