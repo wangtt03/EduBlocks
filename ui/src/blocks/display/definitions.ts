@@ -195,7 +195,7 @@ Blocks['imagecreate'] = {
         .appendField(new Blockly.FieldNumber(0, 0), "5")
         .appendField(":\"\n");
     this.appendDummyInput()
-        .appendField("                  ")
+        .appendField("                               ")
         .appendField(new Blockly.FieldNumber(0, 0), "6")
         .appendField(new Blockly.FieldNumber(0, 0), "7")
         .appendField(new Blockly.FieldNumber(0, 0), "8")
@@ -203,7 +203,7 @@ Blocks['imagecreate'] = {
         .appendField(new Blockly.FieldNumber(0, 0), "10")
         .appendField(":\"");
     this.appendDummyInput()
-        .appendField("                  ")
+        .appendField("                               ")
         .appendField(new Blockly.FieldNumber(0, 0), "11")
         .appendField(new Blockly.FieldNumber(0, 0), "12")
         .appendField(new Blockly.FieldNumber(0, 0), "13")
@@ -211,7 +211,7 @@ Blocks['imagecreate'] = {
         .appendField(new Blockly.FieldNumber(0, 0), "15")
         .appendField(":\"");
     this.appendDummyInput()
-        .appendField("                  ")
+        .appendField("                               ")
         .appendField(new Blockly.FieldNumber(0, 0), "16")
         .appendField(new Blockly.FieldNumber(0, 0), "17")
         .appendField(new Blockly.FieldNumber(0, 0), "18")
@@ -219,7 +219,7 @@ Blocks['imagecreate'] = {
         .appendField(new Blockly.FieldNumber(0, 0), "20")
         .appendField(":\"");
     this.appendDummyInput()
-        .appendField("                  ")
+        .appendField("                               ")
         .appendField(new Blockly.FieldNumber(0, 0), "21")
         .appendField(new Blockly.FieldNumber(0, 0), "22")
         .appendField(new Blockly.FieldNumber(0, 0), "23")
@@ -228,6 +228,7 @@ Blocks['imagecreate'] = {
         .appendField("\")");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
+    this.setInputsInline(false)
     this.setColour("#C3E516","#C3E516","#a4b835");
     this.setTooltip("");
     this.setHelpUrl("");

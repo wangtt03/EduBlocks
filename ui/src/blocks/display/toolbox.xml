@@ -35,5 +35,5 @@
   </block>
   <block type="disclear"></block>
   <block type="disonoff"></block>
-  <!-- <block type="imagecreate"></block> -->
+  <block type="imagecreate"></block>
 </category>
