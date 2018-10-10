@@ -210,7 +210,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         init: function() {
           this.appendDummyInput()
               .appendField("read_sensor(")
-              .appendField(new Blockly.FieldDropdown([["GET_LINE_SENSORS","GET_LINE_SENSORS"], ["GET_LIGHT_SENSORS","GET_LIGHT_SENSORS"]]), "sensor")
+              .appendField(new Blockly.FieldDropdown([["LINE_SENSOR","LINE_SENSOR"], ["LIGHT_SENSOR","LIGHT_SENSOR"]]), "sensor")
               .appendField(new Blockly.FieldDropdown([["LEFT","LEFT"], ["RIGHT","RIGHT"], ["BOTH","BOTH"]]), "which")
               .appendField(")");
           this.setOutput(true, "Number");
