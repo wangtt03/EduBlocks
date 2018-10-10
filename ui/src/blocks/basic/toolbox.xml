@@ -64,7 +64,13 @@
         </shadow>
       </value>
   </block>
-  <block type="varprint"></block>
+  <block type="varprint">
+  <value name="var">
+        <shadow type="textinline">
+          <field name="text">Variable</field>
+        </shadow>
+      </value>
+  </block>
 
   <label text="Logic" web-class="myLabelStyle"></label>
   <block type="internal">
@@ -182,12 +188,13 @@
 
 <category name="Variables" custom="VARIABLE" colour="#ff0066">
   <button text="A button" callbackKey="myFirstButtonPressed"></button>
-  <block type="scrollvarnew">
-      <value name="VAR">
+  <block type="variables_set">
+      <value name="varset">
         <shadow type="textinline">
           <field name="text">0</field>
         </shadow>
       </value>
   </block>
+  <block type="variables_get"></block>
 </category>
 </category>

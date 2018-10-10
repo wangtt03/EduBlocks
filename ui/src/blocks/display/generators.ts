@@ -85,7 +85,7 @@ export default function define(Python: Blockly.BlockGenerators) {
 
  
   Python['imagecreate'] = function(block) {
-    var text_image = block.getFieldValue('image');
+    var text_image = Blockly.Python.variableDB_.getName(block.getFieldValue('image'), Blockly.Variables.NAME_TYPE);
     var number_1 = block.getFieldValue('1');
     var number_2 = block.getFieldValue('2');
     var number_3 = block.getFieldValue('3');

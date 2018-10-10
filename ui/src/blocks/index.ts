@@ -7,10 +7,6 @@ basicDefs(Blockly.Blocks);
 basicGens(Blockly.Python as any);
 const basic = fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'basic', 'toolbox.xml'));
 
-import variablesDefs from './Variables/definitions';
-import variablesGens from './Variables/generators';
-variablesDefs(Blockly.Blocks);
-variablesGens(Blockly.Python as any);
 
 import displayDefs from './display/definitions';
 import displayGens from './display/generators';
