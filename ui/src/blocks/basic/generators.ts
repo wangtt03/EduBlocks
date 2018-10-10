@@ -178,7 +178,7 @@ export default function define(Python: Blockly.BlockGenerators) {
   Python['sleepnew'] = function(block) {
     var value_name = Blockly.Python.valueToCode(block, 'sleep', Blockly.Python.ORDER_ATOMIC);
     // TODO: Assemble Python into code variable.
-    var code = 'sleep(' +value_name+ ') # in milliseconds\n';
+    var code = 'sleep(' +value_name+ ')\n';
     return code;
   };
 
