@@ -170,18 +170,18 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
   };
 
   Blocks['disonoff'] = {
-  init: function() {
-    this.appendDummyInput()
-        .appendField("display.")
-        .appendField(new Blockly.FieldDropdown([["on","on"], ["off","off"]]), "NAME")
-        .appendField("()");
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour("#C3E516","#C3E516","#a4b835");
- this.setTooltip("Turn the display on/off");
- this.setHelpUrl("");
-  }
-};
+    init: function() {
+      this.appendDummyInput()
+          .appendField("display.")
+          .appendField(new Blockly.FieldDropdown([["on","on"], ["off","off"]]), "NAME")
+          .appendField("()");
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour("#C3E516","#C3E516","#a4b835");
+      this.setTooltip("Turn the display on/off");
+      this.setHelpUrl("");
+    }
+  };
 
 Blocks['imagecreate'] = {
   init: function() {
@@ -229,9 +229,122 @@ Blocks['imagecreate'] = {
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour("#C3E516","#C3E516","#a4b835");
- this.setTooltip("");
- this.setHelpUrl("");
+    this.setTooltip("");
+    this.setHelpUrl("");
   }
 };
 
+var image_expressions = [
+  ["Image.HEART","Image.HEART"], 
+  ["Image.HEART_SMALL","Image.HEART_SMALL"], 
+  ["Image.HAPPY","Image.HAPPY"],
+  ["Image.SMILE","Image.SMILE"], 
+  ["Image.SAD","Image.SAD"], 
+  ["Image.CONFUSED","Image.CONFUSED"],
+  ["Image.ANGRY","Image.ANGRY"], 
+  ["Image.ASLEEP","Image.ASLEEP"],
+  ["Image.SURPRISED","Image.SURPRISED"], 
+  ["Image.SILLY","Image.SILLY"], 
+  ["Image.FABULOUS","Image.FABULOUS"],
+  ["Image.MEH","Image.MEH"]
+];
+
+  var image_clocks = [
+    ["Image.CLOCK1","Image.CLOCK1"], 
+    ["Image.CLOCK2","Image.CLOCK2"], 
+    ["Image.CLOCK3","Image.CLOCK3"],
+    ["Image.CLOCK4","Image.CLOCK4"], 
+    ["Image.CLOCK5","Image.CLOCK5"], 
+    ["Image.CLOCK6","Image.CLOCK6"],
+    ["Image.CLOCK7","Image.CLOCK7"], 
+    ["Image.CLOCK8","Image.CLOCK8"],
+    ["Image.CLOCK9","Image.CLOCK9"], 
+    ["Image.CLOCK10","Image.CLOCK10"], 
+    ["Image.CLOCK11","Image.CLOCK11"],
+    ["Image.CLOCK12","Image.CLOCK12"]
+  ];
+  
+  var image_shapes = [
+      ["Image.TRIANGLE","Image.TRIANGLE"], 
+      ["Image.TRIANGLE_LEFT","Image.TRIANGLE_LEFT"], 
+      ["Image.CHESSBOARD","Image.CHESSBOARD"],
+      ["Image.DIAMOND","Image.DIAMOND"], 
+      ["Image.DIAMOND_SMALL","Image.DIAMOND_SMALL"], 
+      ["Image.SQUARE","Image.SQUARE"],
+      ["Image.SQUARE_SMALL","Image.SQUARE_SMALL"], 
+      ["Image.PITCHFORK","Image.PITCHFORK"],
+      ["Image.MUSIC_CROTCHET","Image.MUSIC_CROTCHET"], 
+      ["Image.MUSIC_QUAVER","Image.MUSIC_QUAVER"], 
+      ["Image.MUSIC_QUAVERS","Image.MUSIC_QUAVERS"],
+      ["Image.PITCHFORK","Image.PITCHFORK"],
+      ["Image.XMAS","Image.XMAS"],
+      ["Image.PACMAN","Image.PACMAN"],
+      ["Image.TARGET","Image.TARGET"],
+      ["Image.TSHIRT","Image.TSHIRT"],
+      ["Image.ROLLERSKATE","Image.ROLLERSKATE"],
+      ["Image.HOUSE","Image.HOUSE"],
+      ["Image.SWORD","Image.SWORD"],
+      ["Image.UMBRELLA","Image.UMBRELLA"]
+    ];
+
+    var image_animals = [
+      ["Image.RABBIT","Image.RABBIT"], 
+      ["Image.COW","Image.COW"], 
+      ["Image.DUCK","Image.DUCK"],
+      ["Image.TORTOISE","Image.TORTOISE"], 
+      ["Image.BUTTERFLY","Image.BUTTERFLY"], 
+      ["Image.STICKFIGURE","Image.STICKFIGURE"],
+      ["Image.GHOST","Image.GHOST"], 
+      ["Image.GIRAFFE","Image.GIRAFFE"],
+      ["Image.SKULL","Image.SKULL"], 
+      ["Image.SNAKE","Image.SNAKE"]
+   ];
+
+  Blocks['expressions'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField(new Blockly.FieldDropdown(image_expressions), "image");
+      this.setOutput(true, "String");
+      this.setInputsInline(true);
+      this.setColour("#C3E516","#C3E516","#a4b835");
+      this.setTooltip("Choose an expression");
+      this.setHelpUrl("");
+    }
+  };
+
+   Blocks['clocks'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField(new Blockly.FieldDropdown(image_clocks), "image");
+      this.setOutput(true, "String");
+      this.setInputsInline(true);
+      this.setColour("#C3E516","#C3E516","#a4b835");
+      this.setTooltip("Choose a clock face");
+      this.setHelpUrl("");
+    }
+  };
+
+  Blocks['shapes'] = {
+      init: function() {
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldDropdown(image_shapes), "image");
+        this.setOutput(true, "String");
+        this.setInputsInline(true);
+        this.setColour("#C3E516","#C3E516","#a4b835");
+        this.setTooltip("Choose a shape");
+        this.setHelpUrl("");
+      }
+    };
+
+    Blocks['animals'] = {
+      init: function() {
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldDropdown(image_animals), "image");
+        this.setOutput(true, "String");
+        this.setInputsInline(true);
+        this.setColour("#C3E516","#C3E516","#a4b835");
+        this.setTooltip("Choose an animal");
+        this.setHelpUrl("");
+      }
+    };
 }

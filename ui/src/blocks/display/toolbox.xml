@@ -14,6 +14,7 @@
       </shadow>
     </value>
   </block>
+
   <block type="imagenew">
     <value name="imagevar">
       <shadow type="textinline">
@@ -21,6 +22,10 @@
       </shadow>
     </value>
   </block>
+  <block type="expressions"></block>
+  <block type="clocks"></block>
+  <block type="shapes"></block>
+  <block type="animals"></block>
   <block type="setpixelnew">
     <value name="text">
       <shadow type="textinline">
