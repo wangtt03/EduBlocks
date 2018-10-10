@@ -186,7 +186,9 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
 Blocks['imagecreate'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField(new Blockly.FieldTextInput("image"), "image")
+        .appendField("");
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldVariable("image"), "image")
         .appendField(" = (\"")
         .appendField(new Blockly.FieldNumber(0, 0), "1")
         .appendField(new Blockly.FieldNumber(0, 0), "2")
