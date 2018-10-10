@@ -61,5 +61,53 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     },
   };
 
+var gesture_dropdown = [
+    ["'shake'", "'shake'"],
+    ["'up'","'up'"], 
+    ["'down'","'down'"], 
+    ["'left'","'left'"],
+    ["'right'", "'right'"],
+    ["'face up'", "'face up'"],
+    ["'face down'", "'face down'"],
+    ["'freefall'", "'freefall'"],
+    ["'3g'", "'3g'"],
+    ["'6g'", "'6g'"],
+    ["'8g'", "'8g'"],
+    ];
+  Blockly.Blocks['accgestures'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField(new Blockly.FieldDropdown(gesture_dropdown), "gestures");
+      this.setOutput(true,"String");
+      this.setColour("#E57E16","#E57E16","#b87533");
+   this.setTooltip("list of possible gestures");
+   this.setHelpUrl("");
+    }
+  };
+
+Blockly.Blocks["acccurrentgesture"] = {
+    init: function() {
+      this.appendDummyInput()
+        .appendField("accelerometer.current_gesture()")
+      this.setOutput(true, "String");
+      this.setColour("#E57E16","#E57E16","#b87533");
+      this.setTooltip("reads the current gesture");
+    }
+  };
+
+Blockly.Blocks['accget'] = {
+    init: function () {
+      this.appendDummyInput()
+        .appendField("accelerometer.")
+        .appendField(new Blockly.FieldDropdown([
+          ["get_x()", "get_x()"],
+          ["get_y()", "get_y()"],
+          ["get_z()", "get_z()"]
+        ]), "axis");
+      this.setOutput(true,"Number");
+      this.setColour("#E57E16","#E57E16","#b87533");
+      this.setTooltip("reads the current movement on the selected axis");
+    }
+  }
 
 }
