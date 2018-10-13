@@ -1,5 +1,43 @@
 export default function define(Blocks: Blockly.BlockDefinitions) {
 
+  Blocks['setneonew'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField(new Blockly.FieldVariable("np"), "NAME")
+          .appendField(" = neopixel.NeoPixel(")
+      this.appendValueInput("text")
+          .setCheck(null);
+      this.appendDummyInput()
+          .appendField(")");
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour("#16E57E","#16E57E","#33a86b");
+   this.setTooltip("Configure Neopixels");
+   this.setHelpUrl("");
+    }
+  };
+
+  Blocks['neovarnew'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField(new Blockly.FieldVariable("np"), "NAME")
+          .appendField("[")
+      this.appendValueInput("text")
+          .setCheck(null);
+      this.appendDummyInput()
+          .appendField("] = (")
+      this.appendValueInput("text1")
+          .setCheck(null);
+      this.appendDummyInput()
+          .appendField(")");
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour("#16E57E","#16E57E","#33a86b");
+   this.setTooltip("Set Neopixel Colour");
+   this.setHelpUrl("");
+    }
+  };
+
   Blocks['setneo'] = {
     init: function() {
       this.appendDummyInput()

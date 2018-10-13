@@ -18,7 +18,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     init: function () {
       this.appendDummyInput()
         .appendField('music.play(')
-        .appendField(new Blockly.FieldTextInput(''), 'musicplay')
+        .appendField(new Blockly.Field(''), 'musicplay')
         .appendField(')');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
