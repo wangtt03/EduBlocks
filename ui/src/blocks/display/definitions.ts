@@ -183,59 +183,60 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     }
   };
 
-Blocks['imagecreate'] = {
-  init: function() {
-    this.appendDummyInput()
-        .appendField("");
-    this.appendDummyInput()
-        .appendField(new Blockly.FieldVariable("image"), "image")
-        .appendField(" = (\"")
-        .appendField(new Blockly.FieldNumber(0, 0), "1")
-        .appendField(new Blockly.FieldNumber(0, 0), "2")
-        .appendField(new Blockly.FieldNumber(0, 0), "3")
-        .appendField(new Blockly.FieldNumber(0, 0), "4")
-        .appendField(new Blockly.FieldNumber(0, 0), "5")
-        .appendField(":\"\n");
-    this.appendDummyInput()
-        .appendField("                               ")
-        .appendField(new Blockly.FieldNumber(0, 0), "6")
-        .appendField(new Blockly.FieldNumber(0, 0), "7")
-        .appendField(new Blockly.FieldNumber(0, 0), "8")
-        .appendField(new Blockly.FieldNumber(0, 0), "9")
-        .appendField(new Blockly.FieldNumber(0, 0), "10")
-        .appendField(":\"");
-    this.appendDummyInput()
-        .appendField("                               ")
-        .appendField(new Blockly.FieldNumber(0, 0), "11")
-        .appendField(new Blockly.FieldNumber(0, 0), "12")
-        .appendField(new Blockly.FieldNumber(0, 0), "13")
-        .appendField(new Blockly.FieldNumber(0, 0), "14")
-        .appendField(new Blockly.FieldNumber(0, 0), "15")
-        .appendField(":\"");
-    this.appendDummyInput()
-        .appendField("                               ")
-        .appendField(new Blockly.FieldNumber(0, 0), "16")
-        .appendField(new Blockly.FieldNumber(0, 0), "17")
-        .appendField(new Blockly.FieldNumber(0, 0), "18")
-        .appendField(new Blockly.FieldNumber(0, 0), "19")
-        .appendField(new Blockly.FieldNumber(0, 0), "20")
-        .appendField(":\"");
-    this.appendDummyInput()
-        .appendField("                               ")
-        .appendField(new Blockly.FieldNumber(0, 0), "21")
-        .appendField(new Blockly.FieldNumber(0, 0), "22")
-        .appendField(new Blockly.FieldNumber(0, 0), "23")
-        .appendField(new Blockly.FieldNumber(0, 0), "24")
-        .appendField(new Blockly.FieldNumber(0, 0), "25")
-        .appendField("\")");
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setInputsInline(false)
-    this.setColour("#C3E516","#C3E516","#a4b835");
-    this.setTooltip("");
-    this.setHelpUrl("");
-  }
-};
+
+  Blockly.Blocks['imagecreate'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField(new Blockly.FieldVariable("image"), "image")
+          .appendField(" = (\"")
+          .appendField(new Blockly.FieldNumber(0, 0), "1")
+          .appendField(new Blockly.FieldNumber(0, 0), "2")
+          .appendField(new Blockly.FieldNumber(0, 0), "3")
+          .appendField(new Blockly.FieldNumber(0, 0), "4")
+          .appendField(new Blockly.FieldNumber(0, 0), "5")
+          .appendField(":\"")
+          .setAlign(Blockly.ALIGN_RIGHT);
+      this.appendDummyInput()
+          .appendField(new Blockly.FieldNumber(0, 0), "6")
+          .appendField(new Blockly.FieldNumber(0, 0), "7")
+          .appendField(new Blockly.FieldNumber(0, 0), "8")
+          .appendField(new Blockly.FieldNumber(0, 0), "9")
+          .appendField(new Blockly.FieldNumber(0, 0), "10")
+          .appendField(":\"")
+          .setAlign(Blockly.ALIGN_RIGHT);
+      this.appendDummyInput()
+          .appendField(new Blockly.FieldNumber(0, 0), "11")
+          .appendField(new Blockly.FieldNumber(0, 0), "12")
+          .appendField(new Blockly.FieldNumber(0, 0), "13")
+          .appendField(new Blockly.FieldNumber(0, 0), "14")
+          .appendField(new Blockly.FieldNumber(0, 0), "15")
+          .appendField(":\"")
+          .setAlign(Blockly.ALIGN_RIGHT);
+      this.appendDummyInput()
+          .appendField(new Blockly.FieldNumber(0, 0), "16")
+          .appendField(new Blockly.FieldNumber(0, 0), "17")
+          .appendField(new Blockly.FieldNumber(0, 0), "18")
+          .appendField(new Blockly.FieldNumber(0, 0), "19")
+          .appendField(new Blockly.FieldNumber(0, 0), "20")
+          .appendField(":\"")
+          .setAlign(Blockly.ALIGN_RIGHT);
+      this.appendDummyInput()
+          .appendField(new Blockly.FieldNumber(0, 0), "21")
+          .appendField(new Blockly.FieldNumber(0, 0), "22")
+          .appendField(new Blockly.FieldNumber(0, 0), "23")
+          .appendField(new Blockly.FieldNumber(0, 0), "24")
+          .appendField(new Blockly.FieldNumber(0, 0), "25")
+          .appendField("\")")
+          .setAlign(Blockly.ALIGN_RIGHT);
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setInputsInline(false);
+      this.setColour("#C3E516","#C3E516","#a4b835");
+      this.setTooltip("");
+      this.setHelpUrl("");
+    }
+  };
+  
 
 var image_expressions = [
   ["Image.HEART","Image.HEART"], 
