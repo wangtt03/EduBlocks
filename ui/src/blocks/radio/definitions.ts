@@ -15,12 +15,44 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     },
   };
 
+  Blocks['radiosendnew'] = {
+    init: function () {
+      this.appendDummyInput()
+        .appendField('radio.send(');
+      this.appendValueInput("text")
+          .setCheck(null);
+      this.appendDummyInput()
+        .appendField(')');
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour("#7EE516","#7EE516","#72ad33");
+      this.setTooltip('Send a radio command');
+      this.setHelpUrl('');
+    },
+  };
+
 
   Blocks['radioconf'] = {
     init: function () {
       this.appendDummyInput()
         .appendField('radio.config(')
         .appendField(new Blockly.FieldTextInput(''), 'conf')
+        .appendField(')');
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour("#7EE516","#7EE516","#72ad33");
+      this.setTooltip('Configure Radio');
+      this.setHelpUrl('');
+    },
+  };
+
+  Blocks['radioconfnew'] = {
+    init: function () {
+      this.appendDummyInput()
+        .appendField('radio.config(')
+      this.appendValueInput("text")
+          .setCheck(null);
+      this.appendDummyInput()
         .appendField(')');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
