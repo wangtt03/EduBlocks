@@ -1,4 +1,4 @@
-export default function define(Blocks: Blockly.BlockDefinitions) {
+export default function define(Blocks: any) {
   
   
   Blocks['musicimport'] = {
@@ -32,7 +32,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     init: function () {
       this.appendDummyInput()
         .appendField('music.pitch(')
-        .appendField(new Blockly.FieldTextInput(''), 'musicpitch')
+        .appendField(new Blockly.FieldSlider("1", "0", "1", "1", "1", "Value"))
         .appendField(')');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
