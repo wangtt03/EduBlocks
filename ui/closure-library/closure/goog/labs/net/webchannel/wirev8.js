@@ -17,6 +17,8 @@
  * to support pluggable wire-format to improve wire efficiency and to enable
  * binary encoding. Such support will require an interface class, which
  * will be added later.
+ *
+ * @visibility {:internal}
  */
 
 
@@ -27,8 +29,6 @@ goog.require('goog.json');
 goog.require('goog.json.NativeJsonProcessor');
 goog.require('goog.labs.net.webChannel.Wire');
 goog.require('goog.structs');
-
-goog.forwardDeclare('goog.structs.Map');
 
 
 
@@ -94,44 +94,29 @@ WireV8.prototype.encodeMessage = function(message, buffer, opt_prefix) {
  */
 WireV8.prototype.encodeMessageQueue = function(
     messageQueue, count, badMapHandler) {
-  var offset = -1;
-  while (true) {
-    var sb = ['count=' + count];
+  var sb = ['count=' + count];
+  var offset;
+  if (count > 0) {
     // To save a bit of bandwidth, specify the base mapId and the rest as
     // offsets from it.
-    if (offset == -1) {
-      if (count > 0) {
-        offset = messageQueue[0].mapId;
-        sb.push('ofs=' + offset);
-      } else {
-        offset = 0;
+    offset = messageQueue[0].mapId;
+    sb.push('ofs=' + offset);
+  } else {
+    offset = 0;
+  }
+  for (var i = 0; i < count; i++) {
+    var mapId = messageQueue[i].mapId;
+    var map = messageQueue[i].map;
+    mapId -= offset;
+    try {
+      this.encodeMessage(map, sb, 'req' + mapId + '_');
+    } catch (ex) {
+      if (badMapHandler) {
+        badMapHandler(map);
       }
-    } else {
-      sb.push('ofs=' + offset);
-    }
-    var done = true;
-    for (var i = 0; i < count; i++) {
-      var mapId = messageQueue[i].mapId;
-      var map = messageQueue[i].map;
-      mapId -= offset;
-      if (mapId < 0) {
-        // redo the encoding in case of retry/reordering, plus extra space
-        offset = Math.max(0, messageQueue[i].mapId - 100);
-        done = false;
-        continue;
-      }
-      try {
-        this.encodeMessage(map, sb, 'req' + mapId + '_');
-      } catch (ex) {
-        if (badMapHandler) {
-          badMapHandler(map);
-        }
-      }
-    }
-    if (done) {
-      return sb.join('&');
     }
   }
+  return sb.join('&');
 };
 
 

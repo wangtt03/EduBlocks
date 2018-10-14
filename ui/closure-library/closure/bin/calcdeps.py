@@ -56,7 +56,7 @@ def IsValidFile(ref):
 
 
 def IsJsFile(ref):
-  """Returns true if the provided reference is a JavaScript file."""
+  """Returns true if the provided reference is a Javascript file."""
   return ref.endswith('.js')
 
 

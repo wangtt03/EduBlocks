@@ -22,9 +22,6 @@ goog.provide('goog.testing.fs.ProgressEvent');
 
 goog.require('goog.events.Event');
 
-goog.forwardDeclare('goog.fs.FileReader.EventType');
-goog.forwardDeclare('goog.fs.FileSaver.EventType');
-
 
 
 /**

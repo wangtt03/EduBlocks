@@ -52,7 +52,7 @@ goog.events.EventLike;
  *
  * @param {string|!goog.events.EventId} type Event Type.
  * @param {Object=} opt_target Reference to the object that is the target of
- *     this event. It has to implement the `EventTarget` interface
+ *     this event. It has to implement the {@code EventTarget} interface
  *     declared at {@link http://developer.mozilla.org/en/DOM/EventTarget}.
  * @constructor
  */
@@ -99,6 +99,8 @@ goog.events.Event = function(type, opt_target) {
    * Return value for in internal capture/bubble processing for IE.
    * @type {boolean}
    * @public
+   * @suppress {underscore|visibility} Technically public, but referencing this
+   *     outside this package is strongly discouraged.
    */
   this.returnValue_ = true;
 };
@@ -123,7 +125,7 @@ goog.events.Event.prototype.preventDefault = function() {
 
 /**
  * Stops the propagation of the event. It is equivalent to
- * `e.stopPropagation()`, but can be used as the callback argument of
+ * {@code e.stopPropagation()}, but can be used as the callback argument of
  * {@link goog.events.listen} without declaring another function.
  * @param {!goog.events.Event} e An event.
  */
@@ -134,7 +136,7 @@ goog.events.Event.stopPropagation = function(e) {
 
 /**
  * Prevents the default action. It is equivalent to
- * `e.preventDefault()`, but can be used as the callback argument of
+ * {@code e.preventDefault()}, but can be used as the callback argument of
  * {@link goog.events.listen} without declaring another function.
  * @param {!goog.events.Event} e An event.
  */

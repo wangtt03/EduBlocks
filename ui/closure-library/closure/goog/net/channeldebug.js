@@ -27,9 +27,6 @@ goog.provide('goog.net.ChannelDebug');
 goog.require('goog.json');
 goog.require('goog.log');
 
-goog.forwardDeclare('goog.Uri');
-goog.forwardDeclare('goog.net.XmlHttp.ReadyState');
-
 
 
 /**
@@ -217,9 +214,9 @@ goog.net.ChannelDebug.prototype.redactResponse_ = function(responseText) {
       responseText == goog.net.ChannelDebug.MAGIC_RESPONSE_COOKIE) {
     return responseText;
   }
-
+  /** @preserveTry */
   try {
-    var responseArray = JSON.parse(responseText);
+    var responseArray = goog.json.unsafeParse(responseText);
     if (responseArray) {
       for (var i = 0; i < responseArray.length; i++) {
         if (goog.isArray(responseArray[i])) {

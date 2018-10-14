@@ -47,7 +47,7 @@ goog.require('goog.style');
  * and drop functionality.
  *
  * This class also allows clients to define their own subtargeting function
- * so that drop areas can have finer granularity than a single element. This is
+ * so that drop areas can have finer granularity then a singe element. This is
  * accomplished by using a client provided function to map from element and
  * coordinates to a subregion id.
  *
@@ -392,16 +392,7 @@ goog.fx.AbstractDragDrop.prototype.startDrag = function(event, item) {
 
   // Dispatch DRAGSTART event
   var dragStartEvent = new goog.fx.DragDropEvent(
-      goog.fx.AbstractDragDrop.EventType.DRAGSTART, this, this.dragItem_,
-      undefined,  // opt_target
-      undefined,  // opt_targetItem
-      undefined,  // opt_targetElement
-      undefined,  // opt_clientX
-      undefined,  // opt_clientY
-      undefined,  // opt_x
-      undefined,  // opt_y
-      undefined,  // opt_subtarget
-      event);
+      goog.fx.AbstractDragDrop.EventType.DRAGSTART, this, this.dragItem_);
   if (this.dispatchEvent(dragStartEvent) == false) {
     this.dragItem_ = null;
     return;
@@ -539,7 +530,7 @@ goog.fx.AbstractDragDrop.prototype.endDrag = function(event) {
     var dropEvent = new goog.fx.DragDropEvent(
         goog.fx.AbstractDragDrop.EventType.DROP, this, this.dragItem_,
         activeTarget.target_, activeTarget.item_, activeTarget.element_,
-        clientX, clientY, x, y, subtarget, event.browserEvent);
+        clientX, clientY, x, y, subtarget);
     activeTarget.target_.dispatchEvent(dropEvent);
   }
 
@@ -864,7 +855,7 @@ goog.fx.AbstractDragDrop.prototype.getDragger = function() {
  * Creates copy of node being dragged.
  *
  * @param {Element} sourceEl Element to copy.
- * @return {!Element} The clone of `sourceEl`.
+ * @return {!Element} The clone of {@code sourceEl}.
  * @deprecated Use goog.fx.Dragger.cloneNode().
  * @private
  */
@@ -877,7 +868,7 @@ goog.fx.AbstractDragDrop.prototype.cloneNode_ = function(sourceEl) {
  * Generates an element to follow the cursor during dragging, given a drag
  * source element.  The default behavior is simply to clone the source element,
  * but this may be overridden in subclasses.  This method is called by
- * `createDragElement()` before the drag class is added.
+ * {@code createDragElement()} before the drag class is added.
  *
  * @param {Element} sourceEl Drag source element.
  * @return {!Element} The new drag element.
@@ -1138,7 +1129,7 @@ goog.fx.AbstractDragDrop.prototype.getTargetFromPosition_ = function(position) {
  * @param {number} x Cursor position on the x-axis.
  * @param {number} y Cursor position on the y-axis.
  * @param {goog.math.Box} box Box to check position against.
- * @return {boolean} Whether the given point is inside `box`.
+ * @return {boolean} Whether the given point is inside {@code box}.
  * @protected
  * @deprecated Use goog.math.Box.contains.
  */
@@ -1171,10 +1162,7 @@ goog.fx.AbstractDragDrop.prototype.getEventPosition = function(event) {
 };
 
 
-/**
- * @override
- * @protected
- */
+/** @override */
 goog.fx.AbstractDragDrop.prototype.disposeInternal = function() {
   goog.fx.AbstractDragDrop.base(this, 'disposeInternal');
   this.removeItems();
@@ -1196,15 +1184,13 @@ goog.fx.AbstractDragDrop.prototype.disposeInternal = function() {
  * @param {number=} opt_x X-Position relative to the viewport.
  * @param {number=} opt_y Y-Position relative to the viewport.
  * @param {Object=} opt_subtarget The currently active subtarget.
- * @param {goog.events.BrowserEvent=} opt_browserEvent The browser event
- *     that caused this dragdrop event.
  * @extends {goog.events.Event}
  * @constructor
  * @struct
  */
 goog.fx.DragDropEvent = function(
     type, source, sourceItem, opt_target, opt_targetItem, opt_targetElement,
-    opt_clientX, opt_clientY, opt_x, opt_y, opt_subtarget, opt_browserEvent) {
+    opt_clientX, opt_clientY, opt_x, opt_y, opt_subtarget) {
   // TODO(eae): Get rid of all the optional parameters and have the caller set
   // the fields directly instead.
   goog.fx.DragDropEvent.base(this, 'constructor', type);
@@ -1269,12 +1255,6 @@ goog.fx.DragDropEvent = function(
    * @type {Object|undefined}
    */
   this.subtarget = opt_subtarget;
-
-  /**
-   * The browser event that caused this dragdrop event.
-   * @const
-   */
-  this.browserEvent = opt_browserEvent;
 };
 goog.inherits(goog.fx.DragDropEvent, goog.events.Event);
 
@@ -1332,7 +1312,7 @@ goog.fx.DragDropItem = function(element, opt_data) {
   this.startPosition_;
 
   if (!this.element) {
-    throw new Error('Invalid argument');
+    throw Error('Invalid argument');
   }
 };
 goog.inherits(goog.fx.DragDropItem, goog.events.EventTarget);
@@ -1349,7 +1329,7 @@ goog.fx.DragDropItem.prototype.getData = function() {
 
 /**
  * Gets the element that is actually draggable given that the given target was
- * attempted to be dragged. This should be overridden when the element that was
+ * attempted to be dragged. This should be overriden when the element that was
  * given actually contains many items that can be dragged. From the target, you
  * can determine what element should actually be dragged.
  *

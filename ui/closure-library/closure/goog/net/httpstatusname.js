@@ -20,10 +20,9 @@ goog.provide('goog.net.HttpStatusName');
 
 
 /**
- * HTTP Status Code Names defined in RFC 2616, RFC 6585, and RFC 4918.
+ * HTTP Status Code Names defined in RFC 2616 and RFC 6585.
  * @see http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html
  * @see http://tools.ietf.org/html/rfc6585
- * @see https://tools.ietf.org/html/rfc4918
  * @type {!Object<number, string>}
  */
 goog.net.HttpStatusName = {
@@ -39,7 +38,6 @@ goog.net.HttpStatusName = {
   204: 'No Content',
   205: 'Reset Content',
   206: 'Partial Content',
-  207: 'Multi-Status',
 
   // Redirection 3xx
   300: 'Multiple Choices',
@@ -69,9 +67,6 @@ goog.net.HttpStatusName = {
   415: 'Unsupported Media Type',
   416: 'Requested Range Not Satisfiable',
   417: 'Expectation Failed',
-  422: 'Unprocessable Entity',
-  423: 'Locked',
-  424: 'Failed Dependency',
   428: 'Precondition Required',
   429: 'Too Many Requests',
   431: 'Request Header Fields Too Large',
@@ -83,6 +78,5 @@ goog.net.HttpStatusName = {
   503: 'Service Unavailable',
   504: 'Gateway Timeout',
   505: 'HTTP Version Not Supported',
-  507: 'Insufficient Storage',
   511: 'Network Authentication Required'
 };

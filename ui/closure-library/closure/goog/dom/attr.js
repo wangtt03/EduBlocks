@@ -17,7 +17,7 @@ goog.provide('goog.dom.Attr');
 
 
 /**
- * Enum of all html attribute names specified by the HTML specifications.
+ * Enum of all html attribute names specified by the HTML specitifcations.
  * @enum {string}
  */
 goog.dom.Attr = {

@@ -201,9 +201,6 @@ goog.fx.Dragger = function(target, opt_handle, opt_limits) {
       this.handle,
       [goog.events.EventType.TOUCHSTART, goog.events.EventType.MOUSEDOWN],
       this.startDrag, false, this);
-
-  /** @private {boolean} Avoids setCapture() calls to fix click handlers. */
-  this.useSetCapture_ = goog.fx.Dragger.HAS_SET_CAPTURE_;
 };
 goog.inherits(goog.fx.Dragger, goog.events.EventTarget);
 // Dragger is meant to be extended, but defines most properties on its
@@ -220,8 +217,7 @@ goog.tagUnsealableClass(goog.fx.Dragger);
  */
 goog.fx.Dragger.HAS_SET_CAPTURE_ = goog.global.document &&
     goog.global.document.documentElement &&
-    !!goog.global.document.documentElement.setCapture &&
-    !!goog.global.document.releaseCapture;
+    !!goog.global.document.documentElement.setCapture;
 
 
 /**
@@ -230,7 +226,7 @@ goog.fx.Dragger.HAS_SET_CAPTURE_ = goog.global.document &&
  * cursor itself.
  *
  * @param {Element} sourceEl Element to copy.
- * @return {!Element} The clone of `sourceEl`.
+ * @return {!Element} The clone of {@code sourceEl}.
  */
 goog.fx.Dragger.cloneNode = function(sourceEl) {
   var clonedEl = sourceEl.cloneNode(true),
@@ -276,16 +272,6 @@ goog.fx.Dragger.EventType = {
   BEFOREDRAG: 'beforedrag',
   DRAG: 'drag',
   END: 'end'
-};
-
-
-/**
- * Prevents the dragger from calling setCapture(), even in browsers that support
- * it.  If the draggable item has click handlers, setCapture() can break them.
- * @param {boolean} allow True to use setCapture if the browser supports it.
- */
-goog.fx.Dragger.prototype.setAllowSetCapture = function(allow) {
-  this.useSetCapture_ = allow && goog.fx.Dragger.HAS_SET_CAPTURE_;
 };
 
 
@@ -478,16 +464,16 @@ goog.fx.Dragger.prototype.setupDragHandlers = function() {
   var docEl = doc.documentElement;
   // Use bubbling when we have setCapture since we got reports that IE has
   // problems with the capturing events in combination with setCapture.
-  var useCapture = !this.useSetCapture_;
+  var useCapture = !goog.fx.Dragger.HAS_SET_CAPTURE_;
 
   this.eventHandler_.listen(
       doc, [goog.events.EventType.TOUCHMOVE, goog.events.EventType.MOUSEMOVE],
-      this.handleMove_, {capture: useCapture, passive: false});
+      this.handleMove_, useCapture);
   this.eventHandler_.listen(
       doc, [goog.events.EventType.TOUCHEND, goog.events.EventType.MOUSEUP],
       this.endDrag, useCapture);
 
-  if (this.useSetCapture_) {
+  if (goog.fx.Dragger.HAS_SET_CAPTURE_) {
     docEl.setCapture(false);
     this.eventHandler_.listen(
         docEl, goog.events.EventType.LOSECAPTURE, this.endDrag);
@@ -534,7 +520,7 @@ goog.fx.Dragger.prototype.fireDragStart_ = function(e) {
  */
 goog.fx.Dragger.prototype.cleanUpAfterDragging_ = function() {
   this.eventHandler_.removeAll();
-  if (this.useSetCapture_) {
+  if (goog.fx.Dragger.HAS_SET_CAPTURE_) {
     this.document_.releaseCapture();
   }
 };

@@ -123,8 +123,6 @@ function testByteArrayToHex() {
   assertEquals(
       // IBM magic number
       'deadbeef', goog.crypt.byteArrayToHex([222, 173, 190, 239]));
-
-  assertEquals('c0:ff:ee', goog.crypt.byteArrayToHex([192, 255, 238], ':'));
 }
 
 
@@ -144,10 +142,6 @@ function testUint8ArrayToHex() {
       // IBM magic number
       'deadbeef',
       goog.crypt.byteArrayToHex(new Uint8Array([222, 173, 190, 239])));
-
-  assertEquals(
-      'c0:ff:ee',
-      goog.crypt.byteArrayToHex(new Uint8Array([192, 255, 238]), ':'));
 }
 
 function testXorByteArray() {

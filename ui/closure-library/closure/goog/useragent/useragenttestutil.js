@@ -63,7 +63,6 @@ goog.userAgentTestUtil.reinitializeUserAgent = function() {
   goog.userAgent.IPAD = goog.labs.userAgent.platform.isIpad();
   goog.userAgent.IPHONE = goog.labs.userAgent.platform.isIphone();
   goog.userAgent.IPOD = goog.labs.userAgent.platform.isIpod();
-  goog.userAgent.KAIOS = goog.labs.userAgent.platform.isKaiOS();
   goog.userAgent.VERSION = goog.userAgent.determineVersion_();
 
   // Platform in goog.userAgent.platform.
@@ -125,5 +124,5 @@ goog.userAgentTestUtil.getUserAgentDetected = function(agent) {
       return goog.userAgent.WEBKIT;
   }
 
-  throw new Error('Unrecognized user agent');
+  throw Error('Unrecognized user agent');
 };

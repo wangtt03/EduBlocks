@@ -30,7 +30,6 @@
 goog.setTestOnly('goog.testing.MockControl');
 goog.provide('goog.testing.MockControl');
 
-goog.require('goog.Promise');
 goog.require('goog.array');
 goog.require('goog.testing');
 goog.require('goog.testing.LooseMock');
@@ -82,18 +81,6 @@ goog.testing.MockControl.prototype.$resetAll = function() {
 
 
 /**
- * Returns a Promise that resolves when all of the controlled mocks have
- * finished and verified.
- * @return {!goog.Promise<!Array<undefined>>}
- */
-goog.testing.MockControl.prototype.$waitAndVerifyAll = function() {
-  return goog.Promise.all(goog.array.map(this.mocks_, function(m) {
-    return m.$waitAndVerify();
-  }));
-};
-
-
-/**
  * Calls verify on each controlled mock.
  */
 goog.testing.MockControl.prototype.$verifyAll = function() {
@@ -106,11 +93,6 @@ goog.testing.MockControl.prototype.$verifyAll = function() {
  */
 goog.testing.MockControl.prototype.$tearDown = function() {
   goog.array.forEach(this.mocks_, function(m) {
-    if (!m) {
-      return;
-    }
-
-    m = /** @type {?} */ (m);
     // $tearDown if defined.
     if (m.$tearDown) {
       m.$tearDown();

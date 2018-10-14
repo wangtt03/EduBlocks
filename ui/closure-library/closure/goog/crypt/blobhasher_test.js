@@ -33,11 +33,7 @@ var fsSliceBlobMock = function(blob, start, opt_end) {
 };
 
 // Mock out the Blob using a string.
-/**
- * @param {string} string
- * @constructor
- */
-var BlobMock = function(string) {
+BlobMock = function(string) {
   this.data = string;
   this.size = this.data.length;
 };
@@ -48,8 +44,7 @@ BlobMock.prototype.slice = function(start, end) {
 
 
 // Mock out the FileReader to have control over the flow.
-/** @constructor */
-var FileReaderMock = function() {
+FileReaderMock = function() {
   this.array_ = [];
   this.result = null;
   this.readyState = this.EMPTY;

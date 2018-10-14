@@ -74,6 +74,7 @@ goog.require('goog.events');
 goog.require('goog.events.EventTarget');
 goog.require('goog.events.EventType');
 goog.require('goog.html.SafeHtml');
+goog.require('goog.json');
 goog.require('goog.log');
 goog.require('goog.net.EventType');
 goog.require('goog.net.HttpStatus');
@@ -169,7 +170,7 @@ if (goog.net.CrossDomainRpc.isInResponseIframe_()) {
   } else if (goog.userAgent.GECKO) {
     window.stop();
   } else {
-    throw new Error('stopped');
+    throw Error('stopped');
   }
 }
 
@@ -294,7 +295,7 @@ goog.net.CrossDomainRpc.getDummyResourceUri_ = function() {
   }
 
   if (!goog.net.CrossDomainRpc.useFallBackDummyResource_) {
-    throw new Error(
+    throw Error(
         'No suitable dummy resource specified or detected for this page');
   }
 
@@ -396,8 +397,8 @@ goog.net.CrossDomainRpc.REQUEST_MARKER_ = 'xdrq';
 goog.net.CrossDomainRpc.prototype.sendRequest = function(
     uri, opt_method, opt_params, opt_headers) {
   // create request frame
-  var requestFrame = this.requestFrame_ =
-      goog.dom.createElement(goog.dom.TagName.IFRAME);
+  var requestFrame = this.requestFrame_ = /** @type {!HTMLIFrameElement} */ (
+      goog.dom.createElement(goog.dom.TagName.IFRAME));
   var requestId = goog.net.CrossDomainRpc.nextRequestId_++;
   requestFrame.id = goog.net.CrossDomainRpc.REQUEST_MARKER_ + '-' + requestId;
   if (!goog.net.CrossDomainRpc.debugMode_) {
@@ -552,8 +553,8 @@ goog.net.CrossDomainRpc.prototype.detectResponse_ = function(
     this.status = Number(params.get('status'));
     this.responseText = responseData;
     this.responseTextIsJson_ = params.get('isDataJson') == 'true';
-    this.responseHeaders = /** @type {?Object} */ (JSON.parse(
-        /** @type {string} */ (params.get('headers'))));
+    this.responseHeaders = goog.json.unsafeParse(
+        /** @type {string} */ (params.get('headers')));
 
     this.dispatchEvent(goog.net.EventType.READY);
     this.dispatchEvent(goog.net.EventType.COMPLETE);
@@ -588,7 +589,7 @@ goog.net.CrossDomainRpc.prototype.detectResponse_ = function(
  * @private
  */
 goog.net.CrossDomainRpc.isResponseInfoFrame_ = function(frame) {
-
+  /** @preserveTry */
   try {
     return goog.net.CrossDomainRpc.getFramePayload_(frame).indexOf(
                goog.net.CrossDomainRpc.RESPONSE_INFO_MARKER_) == 1;
@@ -605,7 +606,6 @@ goog.net.CrossDomainRpc.isResponseInfoFrame_ = function(frame) {
  * @param {Object} frame Frame.
  * @return {string} Payload of that frame.
  * @private
- * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
 goog.net.CrossDomainRpc.getFramePayload_ = function(frame) {
   var href = frame.location.href;
@@ -627,9 +627,8 @@ goog.net.CrossDomainRpc.getFramePayload_ = function(frame) {
  *     or undefined.
  */
 goog.net.CrossDomainRpc.prototype.getResponseJson = function() {
-  return this.responseTextIsJson_ ?
-      /** @type {?Object} */ (JSON.parse(this.responseText)) :
-      undefined;
+  return this.responseTextIsJson_ ? goog.json.unsafeParse(this.responseText) :
+                                    undefined;
 };
 
 

@@ -15,6 +15,8 @@
 /**
  * @fileoverview Static utilities for collecting stats associated with
  * ChannelRequest.
+ *
+ * @visibility {:internal}
  */
 
 
@@ -65,7 +67,7 @@ requestStats.ServerReachability = {
   REQUEST_MADE: 1,
   REQUEST_SUCCEEDED: 2,
   REQUEST_FAILED: 3,
-  BACK_CHANNEL_ACTIVITY: 4  // any response data received
+  BACK_CHANNEL_ACTIVITY: 4
 };
 
 
@@ -365,7 +367,7 @@ requestStats.onEndExecution = function() {
  */
 requestStats.setTimeout = function(fn, ms) {
   if (!goog.isFunction(fn)) {
-    throw new Error('Fn must not be null and must be a function');
+    throw Error('Fn must not be null and must be a function');
   }
   return goog.global.setTimeout(function() {
     requestStats.onStartExecution();

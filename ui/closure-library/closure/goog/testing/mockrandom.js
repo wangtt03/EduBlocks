@@ -28,8 +28,7 @@ goog.require('goog.Disposable');
 /**
  * Class for unit testing code that uses Math.random.
  *
- * @param {Array<number>} sequence The sequence of numbers to return. This
- *     object will modify this array.
+ * @param {Array<number>} sequence The sequence of numbers to return.
  * @param {boolean=} opt_install Whether to install the MockRandom at
  *     construction time.
  * @extends {goog.Disposable}
@@ -90,7 +89,7 @@ goog.testing.MockRandom.prototype.install = function() {
 /**
  * @return {number} The next number in the sequence. If there are no more values
  *     left, this will return a random number, unless
- *     `this.strictlyFromSequence_` is true, in which case an error will
+ *     {@code this.strictlyFromSequence_} is true, in which case an error will
  *     be thrown.
  */
 goog.testing.MockRandom.prototype.random = function() {

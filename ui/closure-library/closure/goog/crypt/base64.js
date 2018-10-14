@@ -256,19 +256,9 @@ goog.crypt.base64.decodeStringToUint8Array = function(input) {
   goog.asserts.assert(
       !goog.userAgent.IE || goog.userAgent.isVersionOrHigher('10'),
       'Browser does not support typed arrays');
-  var len = input.length;
-  // Check if there are trailing '=' as padding in the b64 string.
-  var placeholders = 0;
-  if (input[len - 2] === '=') {
-    placeholders = 2;
-  } else if (input[len - 1] === '=') {
-    placeholders = 1;
-  }
-  var output = new Uint8Array(Math.ceil(len * 3 / 4) - placeholders);
+  var output = new Uint8Array(Math.ceil(input.length * 3 / 4));
   var outLen = 0;
-  function pushByte(b) {
-    output[outLen++] = b;
-  }
+  function pushByte(b) { output[outLen++] = b; }
 
   goog.crypt.base64.decodeStringInternal_(input, pushByte);
 
@@ -297,7 +287,7 @@ goog.crypt.base64.decodeStringInternal_ = function(input, pushByte) {
         return b;  // Common case: decoded the char.
       }
       if (!goog.string.isEmptyOrWhitespace(ch)) {
-        throw new Error('Unknown base64 encoding at char: ' + ch);
+        throw Error('Unknown base64 encoding at char: ' + ch);
       }
       // We encountered whitespace: loop around to the next input char.
     }

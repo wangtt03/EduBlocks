@@ -44,8 +44,6 @@ goog.require('goog.math');
 goog.require('goog.string');
 goog.require('goog.string.Const');
 
-goog.forwardDeclare('goog.graphics.CanvasGraphics');
-
 
 
 /**
@@ -454,7 +452,7 @@ goog.graphics.CanvasPathElement.prototype.draw = function(ctx) {
         }
         break;
       case goog.graphics.Path.Segment.ARCTO:
-        throw new Error('Canvas paths cannot contain arcs');
+        throw Error('Canvas paths cannot contain arcs');
       case goog.graphics.Path.Segment.CLOSE:
         ctx.closePath();
         break;

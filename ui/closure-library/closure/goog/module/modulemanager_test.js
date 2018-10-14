@@ -59,6 +59,7 @@ function createSuccessfulBatchLoader(moduleMgr) {
     onLoad: function(ids, idxLoaded) {
       moduleMgr.beforeLoadModuleCode(ids[idxLoaded]);
       moduleMgr.setLoaded(ids[idxLoaded]);
+      moduleMgr.afterLoadModuleCode(ids[idxLoaded]);
       var idx = idxLoaded + 1;
       if (idx < ids.length) {
         setTimeout(goog.bind(this.onLoad, this, ids, idx), 2);
@@ -75,6 +76,7 @@ function createSuccessfulNonBatchLoader(moduleMgr) {
       setTimeout(function() {
         moduleMgr.beforeLoadModuleCode(ids[0]);
         moduleMgr.setLoaded(ids[0]);
+        moduleMgr.afterLoadModuleCode(ids[0]);
         if (opt_successFn) {
           opt_successFn();
         }
@@ -240,12 +242,13 @@ function execOnLoadWhilePreloadingAndViceVersa_(mm) {
   mm.setLoader(createSuccessfulNonBatchLoader(mm));
 
   var origSetLoaded = mm.setLoaded;
-  var calls = [0, 0];
+  var calls = [0, 0, 0];
   mm.beforeLoadModuleCode = function(id) { calls[0]++; };
   mm.setLoaded = function(id) {
     calls[1]++;
     origSetLoaded.call(mm, id);
   };
+  mm.afterLoadModuleCode = function(id) { calls[2]++; };
 
   mm.preloadModule('c', 2);
   assertFalse('module "c" should not be loading yet', mm.isModuleLoading('c'));
@@ -257,6 +260,7 @@ function execOnLoadWhilePreloadingAndViceVersa_(mm) {
   assertFalse('module "c" should be done loading', mm.isModuleLoading('c'));
   assertEquals('beforeLoad should only be called once for "c"', 1, calls[0]);
   assertEquals('setLoaded should only be called once for "c"', 1, calls[1]);
+  assertEquals('afterLoad should only be called once for "c"', 1, calls[2]);
 
   mm.execOnLoad('d', function() {});
   assertTrue('module "d" should now be loading', mm.isModuleLoading('d'));
@@ -266,6 +270,7 @@ function execOnLoadWhilePreloadingAndViceVersa_(mm) {
   assertTrue('module "d" should now be loaded', mm.isModuleLoaded('d'));
   assertEquals('beforeLoad should only be called once for "d"', 2, calls[0]);
   assertEquals('setLoaded should only be called once for "d"', 2, calls[1]);
+  assertEquals('afterLoad should only be called once for "d"', 2, calls[2]);
 }
 
 
@@ -310,13 +315,8 @@ function testLoad() {
   var error = null;
 
   var d = mm.load('a');
-  d.then(
-      function(ctx) {
-        calledBack = true;
-      },
-      function(err) {
-        error = err;
-      });
+  d.addCallback(function(ctx) { calledBack = true; });
+  d.addErrback(function(err) { error = err; });
 
   assertFalse(calledBack);
   assertNull(error);
@@ -410,20 +410,10 @@ function testLoadMultiple() {
   var error2 = null;
 
   var dMap = mm.loadMultiple(['a', 'b']);
-  dMap['a'].then(
-      function(ctx) {
-        calledBack = true;
-      },
-      function(err) {
-        error = err;
-      });
-  dMap['b'].then(
-      function(ctx) {
-        calledBack2 = true;
-      },
-      function(err) {
-        error2 = err;
-      });
+  dMap['a'].addCallback(function(ctx) { calledBack = true; });
+  dMap['a'].addErrback(function(err) { error = err; });
+  dMap['b'].addCallback(function(ctx) { calledBack2 = true; });
+  dMap['b'].addErrback(function(err) { error2 = err; });
 
   assertFalse(calledBack);
   assertFalse(calledBack2);
@@ -461,20 +451,10 @@ function testLoadMultipleWithDeps() {
   var error2 = null;
 
   var dMap = mm.loadMultiple(['a', 'b']);
-  dMap['a'].then(
-      function(ctx) {
-        calledBack = true;
-      },
-      function(err) {
-        error = err;
-      });
-  dMap['b'].then(
-      function(ctx) {
-        calledBack2 = true;
-      },
-      function(err) {
-        error2 = err;
-      });
+  dMap['a'].addCallback(function(ctx) { calledBack = true; });
+  dMap['a'].addErrback(function(err) { error = err; });
+  dMap['b'].addCallback(function(ctx) { calledBack2 = true; });
+  dMap['b'].addErrback(function(err) { error2 = err; });
 
   assertFalse(calledBack);
   assertFalse(calledBack2);
@@ -521,27 +501,12 @@ function testLoadMultipleWithErrors() {
   var error3 = null;
 
   var dMap = mm.loadMultiple(['a', 'b', 'c']);
-  dMap['a'].then(
-      function(ctx) {
-        calledBack = true;
-      },
-      function(err) {
-        error = err;
-      });
-  dMap['b'].then(
-      function(ctx) {
-        calledBack2 = true;
-      },
-      function(err) {
-        error2 = err;
-      });
-  dMap['c'].then(
-      function(ctx) {
-        calledBack3 = true;
-      },
-      function(err) {
-        error3 = err;
-      });
+  dMap['a'].addCallback(function(ctx) { calledBack = true; });
+  dMap['a'].addErrback(function(err) { error = err; });
+  dMap['b'].addCallback(function(ctx) { calledBack2 = true; });
+  dMap['b'].addErrback(function(err) { error2 = err; });
+  dMap['c'].addCallback(function(ctx) { calledBack3 = true; });
+  dMap['c'].addErrback(function(err) { error3 = err; });
 
   assertFalse(calledBack);
   assertFalse(calledBack2);
@@ -606,27 +571,12 @@ function testLoadMultipleWithErrorsFallbackOnSerial() {
   var error3 = null;
 
   var dMap = mm.loadMultiple(['a', 'b', 'c']);
-  dMap['a'].then(
-      function(ctx) {
-        calledBack = true;
-      },
-      function(err) {
-        error = err;
-      });
-  dMap['b'].then(
-      function(ctx) {
-        calledBack2 = true;
-      },
-      function(err) {
-        error2 = err;
-      });
-  dMap['c'].then(
-      function(ctx) {
-        calledBack3 = true;
-      },
-      function(err) {
-        error3 = err;
-      });
+  dMap['a'].addCallback(function(ctx) { calledBack = true; });
+  dMap['a'].addErrback(function(err) { error = err; });
+  dMap['b'].addCallback(function(ctx) { calledBack2 = true; });
+  dMap['b'].addErrback(function(err) { error2 = err; });
+  dMap['c'].addCallback(function(ctx) { calledBack3 = true; });
+  dMap['c'].addErrback(function(err) { error3 = err; });
 
   assertFalse(calledBack);
   assertFalse(calledBack2);
@@ -703,13 +653,8 @@ function testLoadForUser() {
   var error = null;
 
   var d = mm.load('a', true);
-  d.then(
-      function(ctx) {
-        calledBack = true;
-      },
-      function(err) {
-        error = err;
-      });
+  d.addCallback(function(ctx) { calledBack = true; });
+  d.addErrback(function(err) { error = err; });
 
   assertFalse(calledBack);
   assertNull(error);
@@ -794,12 +739,13 @@ function testLoadWhenPreloading() {
   mm.setLoader(createSuccessfulNonBatchLoader(mm));
 
   var origSetLoaded = mm.setLoaded;
-  var calls = [0, 0];
+  var calls = [0, 0, 0];
   mm.beforeLoadModuleCode = function(id) { calls[0]++; };
   mm.setLoaded = function(id) {
     calls[1]++;
     origSetLoaded.call(mm, id);
   };
+  mm.afterLoadModuleCode = function(id) { calls[2]++; };
 
   var calledBack = false;
   var error = null;
@@ -810,19 +756,15 @@ function testLoadWhenPreloading() {
   assertTrue('module "c" should now be loading', mm.isModuleLoading('c'));
 
   var d = mm.load('c');
-  d.then(
-      function(ctx) {
-        calledBack = true;
-      },
-      function(err) {
-        error = err;
-      });
+  d.addCallback(function(ctx) { calledBack = true; });
+  d.addErrback(function(err) { error = err; });
 
   assertTrue('module "c" should still be loading', mm.isModuleLoading('c'));
   clock.tick(5);
   assertFalse('module "c" should be done loading', mm.isModuleLoading('c'));
   assertEquals('beforeLoad should only be called once for "c"', 1, calls[0]);
   assertEquals('setLoaded should only be called once for "c"', 1, calls[1]);
+  assertEquals('afterLoad should only be called once for "c"', 1, calls[2]);
 
   assertTrue(calledBack);
   assertNull(error);
@@ -839,12 +781,13 @@ function testLoadMultipleWhenPreloading() {
   mm.setBatchModeEnabled(true);
 
   var origSetLoaded = mm.setLoaded;
-  var calls = {'a': [0, 0], 'b': [0, 0], 'c': [0, 0], 'd': [0, 0]};
+  var calls = {'a': [0, 0, 0], 'b': [0, 0, 0], 'c': [0, 0, 0], 'd': [0, 0, 0]};
   mm.beforeLoadModuleCode = function(id) { calls[id][0]++; };
   mm.setLoaded = function(id) {
     calls[id][1]++;
     origSetLoaded.call(mm, id);
   };
+  mm.afterLoadModuleCode = function(id) { calls[id][2]++; };
 
   var calledBack = false;
   var error = null;
@@ -863,27 +806,12 @@ function testLoadMultipleWhenPreloading() {
   assertTrue('module "d" should now be loading', mm.isModuleLoading('d'));
 
   var dMap = mm.loadMultiple(['a', 'b', 'c']);
-  dMap['a'].then(
-      function(ctx) {
-        calledBack = true;
-      },
-      function(err) {
-        error = err;
-      });
-  dMap['b'].then(
-      function(ctx) {
-        calledBack2 = true;
-      },
-      function(err) {
-        error2 = err;
-      });
-  dMap['c'].then(
-      function(ctx) {
-        calledBack3 = true;
-      },
-      function(err) {
-        error3 = err;
-      });
+  dMap['a'].addCallback(function(ctx) { calledBack = true; });
+  dMap['a'].addErrback(function(err) { error = err; });
+  dMap['b'].addCallback(function(ctx) { calledBack2 = true; });
+  dMap['b'].addErrback(function(err) { error2 = err; });
+  dMap['c'].addCallback(function(ctx) { calledBack3 = true; });
+  dMap['c'].addErrback(function(err) { error3 = err; });
 
   assertTrue('module "a" should be loading', mm.isModuleLoading('a'));
   assertTrue('module "b" should be loading', mm.isModuleLoading('b'));
@@ -912,17 +840,25 @@ function testLoadMultipleWhenPreloading() {
   assertEquals(
       'setLoaded should only be called once for "a"', 1, calls['a'][1]);
   assertEquals(
+      'afterLoad should only be called once for "a"', 1, calls['a'][2]);
+  assertEquals(
       'beforeLoad should only be called once for "b"', 1, calls['b'][0]);
   assertEquals(
       'setLoaded should only be called once for "b"', 1, calls['b'][1]);
+  assertEquals(
+      'afterLoad should only be called once for "b"', 1, calls['b'][2]);
   assertEquals(
       'beforeLoad should only be called once for "c"', 1, calls['c'][0]);
   assertEquals(
       'setLoaded should only be called once for "c"', 1, calls['c'][1]);
   assertEquals(
+      'afterLoad should only be called once for "c"', 1, calls['c'][2]);
+  assertEquals(
       'beforeLoad should only be called once for "d"', 1, calls['d'][0]);
   assertEquals(
       'setLoaded should only be called once for "d"', 1, calls['d'][1]);
+  assertEquals(
+      'afterLoad should only be called once for "d"', 1, calls['d'][2]);
 
   assertNull(error);
   assertNull(error2);
@@ -940,12 +876,13 @@ function testLoadMultipleWhenPreloadingSameModules() {
   mm.setBatchModeEnabled(true);
 
   var origSetLoaded = mm.setLoaded;
-  var calls = {'c': [0, 0], 'd': [0, 0]};
+  var calls = {'c': [0, 0, 0], 'd': [0, 0, 0]};
   mm.beforeLoadModuleCode = function(id) { calls[id][0]++; };
   mm.setLoaded = function(id) {
     calls[id][1]++;
     origSetLoaded.call(mm, id);
   };
+  mm.afterLoadModuleCode = function(id) { calls[id][2]++; };
 
   var calledBack = false;
   var error = null;
@@ -962,20 +899,10 @@ function testLoadMultipleWhenPreloadingSameModules() {
   assertTrue('module "d" should now be loading', mm.isModuleLoading('d'));
 
   var dMap = mm.loadMultiple(['c', 'd']);
-  dMap['c'].then(
-      function(ctx) {
-        calledBack = true;
-      },
-      function(err) {
-        error = err;
-      });
-  dMap['d'].then(
-      function(ctx) {
-        calledBack2 = true;
-      },
-      function(err) {
-        error2 = err;
-      });
+  dMap['c'].addCallback(function(ctx) { calledBack = true; });
+  dMap['c'].addErrback(function(err) { error = err; });
+  dMap['d'].addCallback(function(ctx) { calledBack2 = true; });
+  dMap['d'].addErrback(function(err) { error2 = err; });
 
   assertTrue('module "c" should still be loading', mm.isModuleLoading('c'));
   clock.tick(4);
@@ -992,9 +919,13 @@ function testLoadMultipleWhenPreloadingSameModules() {
   assertEquals(
       'setLoaded should only be called once for "c"', 1, calls['c'][1]);
   assertEquals(
+      'afterLoad should only be called once for "c"', 1, calls['c'][2]);
+  assertEquals(
       'beforeLoad should only be called once for "d"', 1, calls['d'][0]);
   assertEquals(
       'setLoaded should only be called once for "d"', 1, calls['d'][1]);
+  assertEquals(
+      'afterLoad should only be called once for "d"', 1, calls['d'][2]);
 
   assertNull(error);
   assertNull(error2);
@@ -1018,15 +949,9 @@ function testLoadWhenLoaded() {
   assertFalse('module "b" should be done loading', mm.isModuleLoading('b'));
 
   var d = mm.load('b');
-  d.then(
-      function(ctx) {
-        calledBack = true;
-      },
-      function(err) {
-        error = err;
-      });
+  d.addCallback(function(ctx) { calledBack = true; });
+  d.addErrback(function(err) { error = err; });
 
-  clock.tick(1);
   assertTrue(calledBack);
   assertNull(error);
 }
@@ -1050,13 +975,8 @@ function testLoadWithFailingModule() {
   var error = null;
 
   var d = mm.load('a');
-  d.then(
-      function(ctx) {
-        calledBack = true;
-      },
-      function(err) {
-        error = err;
-      });
+  d.addCallback(function(ctx) { calledBack = true; });
+  d.addErrback(function(err) { error = err; });
 
   assertFalse(calledBack);
   assertNull(error);
@@ -1099,36 +1019,16 @@ function testLoadMultipleWithFailingModule() {
   var error22 = null;
 
   var dMap = mm.loadMultiple(['a', 'b']);
-  dMap['a'].then(
-      function(ctx) {
-        calledBack11 = true;
-      },
-      function(err) {
-        error11 = err;
-      });
-  dMap['b'].then(
-      function(ctx) {
-        calledBack12 = true;
-      },
-      function(err) {
-        error12 = err;
-      });
+  dMap['a'].addCallback(function(ctx) { calledBack11 = true; });
+  dMap['a'].addErrback(function(err) { error11 = err; });
+  dMap['b'].addCallback(function(ctx) { calledBack12 = true; });
+  dMap['b'].addErrback(function(err) { error12 = err; });
 
   var dMap2 = mm.loadMultiple(['b', 'c']);
-  dMap2['b'].then(
-      function(ctx) {
-        calledBack21 = true;
-      },
-      function(err) {
-        error21 = err;
-      });
-  dMap2['c'].then(
-      function(ctx) {
-        calledBack22 = true;
-      },
-      function(err) {
-        error22 = err;
-      });
+  dMap2['b'].addCallback(function(ctx) { calledBack21 = true; });
+  dMap2['b'].addErrback(function(err) { error21 = err; });
+  dMap2['c'].addCallback(function(ctx) { calledBack22 = true; });
+  dMap2['c'].addErrback(function(err) { error22 = err; });
 
   assertFalse(calledBack11);
   assertFalse(calledBack12);
@@ -1202,43 +1102,18 @@ function testLoadMultipleWithFailingModuleDependencies() {
   var error23 = null;
 
   var dMap = mm.loadMultiple(['a', 'b']);
-  dMap['a'].then(
-      function(ctx) {
-        calledBack11 = true;
-      },
-      function(err) {
-        error11 = err;
-      });
-  dMap['b'].then(
-      function(ctx) {
-        calledBack12 = true;
-      },
-      function(err) {
-        error12 = err;
-      });
+  dMap['a'].addCallback(function(ctx) { calledBack11 = true; });
+  dMap['a'].addErrback(function(err) { error11 = err; });
+  dMap['b'].addCallback(function(ctx) { calledBack12 = true; });
+  dMap['b'].addErrback(function(err) { error12 = err; });
 
   var dMap2 = mm.loadMultiple(['c', 'd', 'e']);
-  dMap2['c'].then(
-      function(ctx) {
-        calledBack21 = true;
-      },
-      function(err) {
-        error21 = err;
-      });
-  dMap2['d'].then(
-      function(ctx) {
-        calledBack22 = true;
-      },
-      function(err) {
-        error22 = err;
-      });
-  dMap2['e'].then(
-      function(ctx) {
-        calledBack23 = true;
-      },
-      function(err) {
-        error23 = err;
-      });
+  dMap2['c'].addCallback(function(ctx) { calledBack21 = true; });
+  dMap2['c'].addErrback(function(err) { error21 = err; });
+  dMap2['d'].addCallback(function(ctx) { calledBack22 = true; });
+  dMap2['d'].addErrback(function(err) { error22 = err; });
+  dMap2['e'].addCallback(function(ctx) { calledBack23 = true; });
+  dMap2['e'].addErrback(function(err) { error23 = err; });
 
   assertFalse(calledBack11);
   assertFalse(calledBack12);
@@ -1718,21 +1593,6 @@ function testDependencyOrderingWithSimpleDeps() {
   assertArrayEquals(['d', 'e', 'f', 'b', 'c', 'a'], ids);
 }
 
-function testDependencyOrderingWithRequestedDep() {
-  var mm = getModuleManager({
-    'a': ['b', 'c'],
-    'b': ['d'],
-    'c': ['e', 'f'],
-    'd': [],
-    'e': [],
-    'f': []
-  });
-  mm.requestedModuleIds_ = ['a', 'b'];
-  var ids = mm.getNotYetLoadedTransitiveDepIds_('a');
-  assertDependencyOrder(ids, mm);
-  assertArrayEquals(['e', 'f', 'c'], ids);
-}
-
 function testDependencyOrderingWithCommonDepsInDeps() {
   // Tests to make sure that if dependencies of the root are loaded before
   // their common dependencies.
@@ -1822,6 +1682,7 @@ function createSuccessfulNonBatchLoaderWithRegisterInitCallback(moduleMgr, fn) {
       moduleMgr.registerInitializationCallback(fn);
       setTimeout(function() {
         moduleMgr.setLoaded(ids[0]);
+        moduleMgr.afterLoadModuleCode(ids[0]);
         if (opt_successFn) {
           opt_successFn();
         }
@@ -1969,6 +1830,7 @@ function createSuccessfulNonBatchLoaderWithConstructor(moduleMgr, info) {
         moduleMgr.beforeLoadModuleCode(ids[0]);
         moduleMgr.setModuleConstructor(info[ids[0]].ctor);
         moduleMgr.setLoaded(ids[0]);
+        moduleMgr.afterLoadModuleCode(ids[0]);
         if (opt_successFn) {
           opt_successFn();
         }
@@ -2062,6 +1924,7 @@ function testIdleCallbackWithInitialModules() {
   assertEquals(0, callback.getCallCount());
 
   mm.setLoaded('a');
+  mm.afterLoadModuleCode('a');
 
   assertFalse(mm.isActive());
 

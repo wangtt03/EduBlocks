@@ -70,7 +70,7 @@ goog.define('goog.userAgent.ASSUME_OPERA', false);
 
 /**
  * @define {boolean} Whether the
- *     `goog.userAgent.isVersionOrHigher`
+ *     {@code goog.userAgent.isVersionOrHigher}
  *     function will return true for any version.
  */
 goog.define('goog.userAgent.ASSUME_ANY_VERSION', false);
@@ -98,22 +98,14 @@ goog.userAgent.getUserAgentString = function() {
 
 
 /**
- * @return {?Navigator} The native navigator object.
+ * TODO(nnaze): Change type to "Navigator" and update compilation targets.
+ * @return {Object} The native navigator object.
  */
-goog.userAgent.getNavigatorTyped = function() {
+goog.userAgent.getNavigator = function() {
   // Need a local navigator reference instead of using the global one,
   // to avoid the rare case where they reference different objects.
   // (in a WorkerPool, for example).
   return goog.global['navigator'] || null;
-};
-
-
-/**
- * TODO(nnaze): Change type to "Navigator" and update compilation targets.
- * @return {?Object} The native navigator object.
- */
-goog.userAgent.getNavigator = function() {
-  return goog.userAgent.getNavigatorTyped();
 };
 
 
@@ -215,7 +207,7 @@ goog.userAgent.SAFARI = goog.userAgent.WEBKIT;
  * @private
  */
 goog.userAgent.determinePlatform_ = function() {
-  var navigator = goog.userAgent.getNavigatorTyped();
+  var navigator = goog.userAgent.getNavigator();
   return navigator && navigator.platform || '';
 };
 
@@ -282,12 +274,6 @@ goog.define('goog.userAgent.ASSUME_IPOD', false);
 
 
 /**
- * @define {boolean} Whether the user agent is running on KaiOS.
- */
-goog.define('goog.userAgent.ASSUME_KAIOS', false);
-
-
-/**
  * @type {boolean}
  * @private
  */
@@ -348,7 +334,7 @@ goog.userAgent.LINUX = goog.userAgent.PLATFORM_KNOWN_ ?
  * @private
  */
 goog.userAgent.isX11_ = function() {
-  var navigator = goog.userAgent.getNavigatorTyped();
+  var navigator = goog.userAgent.getNavigator();
   return !!navigator &&
       goog.string.contains(navigator['appVersion'] || '', 'X11');
 };
@@ -400,23 +386,6 @@ goog.userAgent.IPOD = goog.userAgent.PLATFORM_KNOWN_ ?
 
 
 /**
- * Whether the user agent is running on iOS.
- * @type {boolean}
- */
-goog.userAgent.IOS = goog.userAgent.PLATFORM_KNOWN_ ?
-    (goog.userAgent.ASSUME_IPHONE || goog.userAgent.ASSUME_IPAD ||
-     goog.userAgent.ASSUME_IPOD) :
-    goog.labs.userAgent.platform.isIos();
-
-/**
- * Whether the user agent is running on KaiOS.
- */
-goog.userAgent.KAIOS = goog.userAgent.PLATFORM_KNOWN_ ?
-    goog.userAgent.ASSUME_KAIOS :
-    goog.labs.userAgent.platform.isKaiOS();
-
-
-/**
  * @return {string} The string that describes the version number of the user
  *     agent.
  * @private
@@ -449,8 +418,7 @@ goog.userAgent.determineVersion_ = function() {
 
 
 /**
- * @return {?IArrayLike<string>|undefined} The version regex matches from
- *     parsing the user
+ * @return {?Array|undefined} The version regex matches from parsing the user
  *     agent string. These regex statements must be executed inline so they can
  *     be compiled out by the closure compiler with the rest of the useragent
  *     detection logic when ASSUME_* is specified.
@@ -550,7 +518,7 @@ goog.userAgent.isVersionOrHigher = function(version) {
 
 
 /**
- * Deprecated alias to `goog.userAgent.isVersionOrHigher`.
+ * Deprecated alias to {@code goog.userAgent.isVersionOrHigher}.
  * @param {string|number} version The version to check.
  * @return {boolean} Whether the user agent version is higher or the same as
  *     the given version.
@@ -574,7 +542,7 @@ goog.userAgent.isDocumentModeOrHigher = function(documentMode) {
 
 
 /**
- * Deprecated alias to `goog.userAgent.isDocumentModeOrHigher`.
+ * Deprecated alias to {@code goog.userAgent.isDocumentModeOrHigher}.
  * @param {number} version The version to check.
  * @return {boolean} Whether the IE effective document mode is higher or the
  *      same as the given version.

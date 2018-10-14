@@ -66,21 +66,6 @@ goog.i18n.currency.tier2Enabled_ = false;
 
 
 /**
- * Tests if currency is available.
- *
- * Note: If the currency is not available it might be in the tier2 currency set:
- * {@link goog.i18n.currency.CurrencyInfoTier2}. If that is the case call
- * {@link goog.i18n.currency.addTier2Support} before calling any other function
- * in this namespace.
- *
- * @param {string} currencyCode Currency code to tested.
- * @return {boolean} If the currency is available.
- */
-goog.i18n.currency.isAvailable = function(currencyCode) {
-  return currencyCode in goog.i18n.currency.CurrencyInfo;
-};
-
-/**
  * This function will add tier2 currency support. Be default, only tier1
  * (most popular currencies) are supported. If an application really needs
  * to support some of the rarely used currencies, it should call this function
@@ -356,7 +341,7 @@ goog.i18n.currency.CurrencyInfo = {
   'SEK': [50, 'kr', 'kr'],
   'SGD': [2, '$', 'S$'],
   'THB': [2, '\u0e3f', 'THB'],
-  'TRY': [2, '₺', 'TRY'],
+  'TRY': [2, 'TL', 'YTL'],
   'TWD': [2, 'NT$', 'NT$'],
   'TZS': [0, 'TSh', 'TSh'],
   'UAH': [2, 'грн.', 'UAH'],
@@ -370,11 +355,6 @@ goog.i18n.currency.CurrencyInfo = {
 
 /**
  * Tier 2 currency information.
- *
- * It's not recommended to read this data directly. Format numbers using
- * {@link goog.i18n.NumberFormat} with
- * {@link goog.i18n.NumberFormat.Format.CURRENCY} instead.
- *
  * @const {!Object<!Array<?>>}
  */
 goog.i18n.currency.CurrencyInfoTier2 = {
@@ -395,10 +375,8 @@ goog.i18n.currency.CurrencyInfoTier2 = {
   'BSD': [2, '$', 'BS$'],
   'BTN': [2, 'Nu.', 'Nu.'],
   'BWP': [2, 'P', 'pula'],
-  'BYN': [50, '\u0440.', 'BYN'],
-  'BYR': [48, '\u0440.', 'BYR'],
+  'BYR': [48, 'p.', 'BYR'],
   'BZD': [2, '$', 'BZ$'],
-  'CNH': [2, '¥', 'RMB¥'],
   'CUC': [1, '$', 'CUC$'],
   'CUP': [2, '$', 'CU$'],
   'CVE': [2, 'CVE', 'Esc'],
@@ -469,13 +447,12 @@ goog.i18n.currency.CurrencyInfoTier2 = {
   'UGX': [0, 'UGX', 'UGX'],
   'UZS': [0, 'so\u02bcm', 'UZS'],
   'VEF': [2, 'Bs', 'Bs'],
-  'VES': [2, 'Bs', 'Bs'],
   'VUV': [0, 'VUV', 'VUV'],
   'WST': [2, 'WST', 'WST'],
   'XAF': [0, 'FCFA', 'FCFA'],
   'XCD': [2, '$', 'EC$'],
   'XOF': [0, 'CFA', 'CFA'],
-  'XPF': [48, 'FCFP', 'FCFP'],
+  'XPF': [0, 'FCFP', 'FCFP'],
   'ZMW': [0, 'ZMW', 'ZMW'],
   'ZWD': [0, '$', 'Z$']
 };

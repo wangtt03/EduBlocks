@@ -32,8 +32,6 @@ goog.require('goog.storage.CollectableStorage');
 goog.require('goog.storage.ErrorCode');
 goog.require('goog.storage.ExpiringStorage');
 
-goog.forwardDeclare('goog.storage.mechanism.IterableMechanism');
-
 
 
 /**
@@ -90,7 +88,7 @@ goog.labs.storage.BoundedCollectableStorage.prototype.rebuildIndex_ =
         }
 
         var wrapper;
-
+        /** @preserveTry */
         try {
           wrapper = this.getWrapper(key, true);
         } catch (ex) {

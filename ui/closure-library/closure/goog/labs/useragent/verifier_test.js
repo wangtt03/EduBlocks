@@ -18,8 +18,8 @@
 goog.module('goog.labs.useragent.verifierTest');
 goog.setTestOnly();
 
-var browser = goog.require('goog.labs.userAgent.browser');
 var testSuite = goog.require('goog.testing.testSuite');
+var browser = goog.require('goog.labs.userAgent.browser');
 var verifier = goog.require('goog.labs.useragent.verifier');
 
 

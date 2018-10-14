@@ -73,8 +73,7 @@ goog.debug.DevCss = function(opt_userAgent, opt_userAgentVersion) {
     case goog.debug.DevCss.UserAgent.EDGE:
       break;
     default:
-      throw new Error(
-          'Could not determine the user agent from known UserAgents');
+      throw Error('Could not determine the user agent from known UserAgents');
   }
 
   /**

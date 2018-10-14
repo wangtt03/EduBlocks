@@ -60,7 +60,7 @@ function createDeferredTestCase(d) {
   }, testTestCase));
 
   var testCompleteCallback = new goog.async.Deferred();
-  testTestCase.addCompletedCallback(function() {
+  testTestCase.setCompletedCallback(function() {
     testCompleteCallback.callback(true);
   });
 
@@ -106,7 +106,7 @@ function testFailWithTestRunner() {
   var d = new goog.async.Deferred();
   d.addCallback(function() { return goog.async.Deferred.fail(true); });
 
-  createDeferredTestCase(d);
+  var testCompleteDeferred = createDeferredTestCase(d);
 
   // Mock doAsyncError to instead let the test completes successfully,
   // but record the failure. The test works as is because the failing

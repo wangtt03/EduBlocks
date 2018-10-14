@@ -86,6 +86,7 @@ goog.debug.DivConsole.prototype.setCapturing = function(capturing) {
     rootLogger.addHandler(this.publishHandler_);
   } else {
     rootLogger.removeHandler(this.publishHandler_);
+    this.logBuffer = '';
   }
   this.isCapturing_ = capturing;
 };

@@ -78,11 +78,11 @@ goog.ui.TriStateMenuItemRenderer.prototype.decorate = function(item, element) {
   } else if (
       goog.dom.classlist.contains(
           element, goog.getCssName(this.getCssClass(), 'partially-checked'))) {
-    /** @suppress {missingRequire} */
-    item.setCheckedState(goog.ui.TriStateMenuItem.State.PARTIALLY_CHECKED);
+    item.setCheckedState(/** @suppress {missingRequire} */
+        goog.ui.TriStateMenuItem.State.PARTIALLY_CHECKED);
   } else {
-    /** @suppress {missingRequire} */
-    item.setCheckedState(goog.ui.TriStateMenuItem.State.NOT_CHECKED);
+    item.setCheckedState(/** @suppress {missingRequire} */
+        goog.ui.TriStateMenuItem.State.NOT_CHECKED);
   }
 
   return element;

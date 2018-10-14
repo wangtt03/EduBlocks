@@ -122,7 +122,7 @@ goog.demos.editor.HelloWorldDialog.prototype.createOkEvent = function(e) {
 
 /**
  * Input element where the user will type their hello world message.
- * @type {HTMLInputElement}
+ * @type {Element}
  * @private
  */
 goog.demos.editor.HelloWorldDialog.prototype.input_;

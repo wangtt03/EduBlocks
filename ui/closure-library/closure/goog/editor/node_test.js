@@ -506,9 +506,8 @@ function testIsBlock() {
   // only a block element in WEBKIT.
   var ambiguousTags = [
     goog.dom.TagName.DETAILS, goog.dom.TagName.HR, goog.dom.TagName.ISINDEX,
-    goog.dom.TagName.LEGEND, goog.dom.TagName.MAIN, goog.dom.TagName.MAP,
-    goog.dom.TagName.NOFRAMES, goog.dom.TagName.OPTGROUP,
-    goog.dom.TagName.OPTION, goog.dom.TagName.SUMMARY
+    goog.dom.TagName.LEGEND, goog.dom.TagName.MAP, goog.dom.TagName.NOFRAMES,
+    goog.dom.TagName.OPTGROUP, goog.dom.TagName.OPTION, goog.dom.TagName.SUMMARY
   ];
 
   // Older versions of IE and Gecko consider the following elements to be
@@ -537,7 +536,6 @@ function testIsBlock() {
     tagsToIgnore.push(goog.dom.TagName.EMBED);
   }
 
-  var failures = [];
   for (var tag in goog.dom.TagName) {
     if (goog.array.contains(tagsToIgnore, goog.dom.TagName[tag])) {
       continue;
@@ -550,17 +548,14 @@ function testIsBlock() {
     goog.dom.removeNode(el);
 
     if (goog.editor.node.isBlockTag(el)) {
-      if (!goog.array.contains(blockDisplays, display)) {
-        failures.push('Display for ' + tag + ' should be block-like');
-      }
+      assertContains(
+          'Display for ' + tag + ' should be block-like', display,
+          blockDisplays);
     } else {
-      if (goog.array.contains(blockDisplays, display)) {
-        failures.push('Display for ' + tag + ' should not be block-like');
-      }
+      assertNotContains(
+          'Display for ' + tag + ' should not be block-like', display,
+          blockDisplays);
     }
-  }
-  if (failures.length) {
-    fail(failures.join('\n'));
   }
 }
 

@@ -41,7 +41,7 @@ goog.provide('goog.locale.genericFontNamesData');
 /**
  * Map from script code or language code to list of pairs of (generic name,
  * font name fallback list).
- * @const {!Object<string, !Object>}
+ * @const {!Object<string, !Array<!Array<string>>>}
  */
 
 /* ~!@# genmethods.genericFontNamesData() #@!~ */

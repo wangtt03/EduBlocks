@@ -16,7 +16,6 @@
  * @fileoverview Tests for goog.dom.animationFrame.
  */
 
-goog.provide('goog.dom.AnimationFrameTest');
 goog.setTestOnly();
 
 goog.require('goog.dom.animationFrame');

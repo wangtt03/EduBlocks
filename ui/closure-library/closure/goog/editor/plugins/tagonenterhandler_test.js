@@ -24,7 +24,6 @@ goog.require('goog.editor.Field');
 goog.require('goog.editor.Plugin');
 goog.require('goog.editor.plugins.TagOnEnterHandler');
 goog.require('goog.events.KeyCodes');
-goog.require('goog.html.SafeHtml');
 goog.require('goog.string.Unicode');
 goog.require('goog.testing.dom');
 goog.require('goog.testing.editor.TestHelper');
@@ -53,11 +52,7 @@ function testDeleteBrBeforeBlock() {
   // and let the browser do the delete, which can only be tested with a robot
   // test (see javascript/apps/editor/tests/delete_br_robot.html).
   if (goog.userAgent.GECKO) {
-    field1.setSafeHtml(
-        false,
-        goog.html.SafeHtml.concat(
-            'one', goog.html.SafeHtml.BR, goog.html.SafeHtml.BR,
-            goog.html.SafeHtml.create('div', {}, 'two')));
+    field1.setHtml(false, 'one<br><br><div>two</div>');
     var helper = new goog.testing.editor.TestHelper(field1.getElement());
     helper.select(field1.getElement(), 2);  // Between the two BR's.
     goog.testing.events.fireKeySequence(
@@ -81,11 +76,7 @@ function testDeleteBrNormal() {
   // and let the browser do the delete, which can only be tested with a robot
   // test (see javascript/apps/editor/tests/delete_br_robot.html).
   if (goog.userAgent.GECKO) {
-    field1.setSafeHtml(
-        false,
-        goog.html.SafeHtml.concat(
-            'one', goog.html.SafeHtml.BR, goog.html.SafeHtml.BR,
-            goog.html.SafeHtml.BR, 'two'));
+    field1.setHtml(false, 'one<br><br><br>two');
     var helper = new goog.testing.editor.TestHelper(field1.getElement());
     helper.select(
         field1.getElement(), 2);  // Between the first and second BR's.
@@ -111,9 +102,7 @@ function testDeleteBrNormal() {
  */
 function testEnterCreatesBlankLine() {
   if (goog.userAgent.GECKO) {
-    field1.setSafeHtml(
-        false,
-        goog.html.SafeHtml.create('p', {}, ['one ', goog.html.SafeHtml.BR]));
+    field1.setHtml(false, '<p>one <br></p>');
     var helper = new goog.testing.editor.TestHelper(field1.getElement());
     // Place caret after 'one' but keeping a space and a BR as FF does.
     helper.select('one ', 3);
@@ -149,9 +138,7 @@ function testEnterCreatesBlankLine() {
  */
 function testEnterNormalizeNodes() {
   if (goog.userAgent.GECKO) {
-    field1.setSafeHtml(
-        false,
-        goog.html.SafeHtml.create('p', {}, ['one', goog.html.SafeHtml.BR]));
+    field1.setHtml(false, '<p>one<br></p>');
     var helper = new goog.testing.editor.TestHelper(field1.getElement());
     // Place caret after 'one' but keeping a BR as FF does.
     helper.select('one', 3);
@@ -178,9 +165,7 @@ function testEnterNormalizeNodes() {
  */
 function testEnterAtBeginningOfLink() {
   if (goog.userAgent.GECKO) {
-    field1.setSafeHtml(false, goog.html.SafeHtml.create('a', {'href': '/'}, [
-      'b', goog.html.SafeHtml.BR
-    ]));
+    field1.setHtml(false, '<a href="/">b<br></a>');
     var helper = new goog.testing.editor.TestHelper(field1.getElement());
     field1.focusAndPlaceCursorAtStart();
     goog.testing.events.fireKeySequence(
@@ -195,11 +180,7 @@ function testEnterAtBeginningOfLink() {
  */
 function testEnterInEmptyListItemInEmptyList() {
   if (goog.userAgent.GECKO) {
-    field1.setSafeHtml(
-        false,
-        goog.html.SafeHtml.create(
-            'ul', {},
-            goog.html.SafeHtml.create('li', {}, goog.string.Unicode.NBSP)));
+    field1.setHtml(false, '<ul><li>&nbsp;</li></ul>');
     var helper = new goog.testing.editor.TestHelper(field1.getElement());
     var li = goog.dom.getElementsByTagName(
         goog.dom.TagName.LI, field1.getElement())[0];
@@ -213,13 +194,12 @@ function testEnterInEmptyListItemInEmptyList() {
 
 function testEnterInEmptyListItemAtBeginningOfList() {
   if (goog.userAgent.GECKO) {
-    field1.setSafeHtml(
-        false,
-        goog.html.SafeHtml.create('ul', {'style': {'font-weight': 'bold'}}, [
-          goog.html.SafeHtml.create('li', {}, goog.string.Unicode.NBSP),
-          goog.html.SafeHtml.create('li', {}, '1'),
-          goog.html.SafeHtml.create('li', {}, '2')
-        ]));
+    field1.setHtml(
+        false, '<ul style="font-weight: bold">' +
+            '<li>&nbsp;</li>' +
+            '<li>1</li>' +
+            '<li>2</li>' +
+            '</ul>');
     var helper = new goog.testing.editor.TestHelper(field1.getElement());
     var li = goog.dom.getElementsByTagName(
         goog.dom.TagName.LI, field1.getElement())[0];
@@ -234,13 +214,12 @@ function testEnterInEmptyListItemAtBeginningOfList() {
 
 function testEnterInEmptyListItemAtEndOfList() {
   if (goog.userAgent.GECKO) {
-    field1.setSafeHtml(
-        false,
-        goog.html.SafeHtml.create('ul', {'style': {'font-weight': 'bold'}}, [
-          goog.html.SafeHtml.create('li', {}, '1'),
-          goog.html.SafeHtml.create('li', {}, '2'),
-          goog.html.SafeHtml.create('li', {}, goog.string.Unicode.NBSP)
-        ]));
+    field1.setHtml(
+        false, '<ul style="font-weight: bold">' +
+            '<li>1</li>' +
+            '<li>2</li>' +
+            '<li>&nbsp;</li>' +
+            '</ul>');
     var helper = new goog.testing.editor.TestHelper(field1.getElement());
     var li = goog.dom.getElementsByTagName(
         goog.dom.TagName.LI, field1.getElement())[2];
@@ -255,13 +234,12 @@ function testEnterInEmptyListItemAtEndOfList() {
 
 function testEnterInEmptyListItemInMiddleOfList() {
   if (goog.userAgent.GECKO) {
-    field1.setSafeHtml(
-        false,
-        goog.html.SafeHtml.create('ul', {'style': {'font-weight': 'bold'}}, [
-          goog.html.SafeHtml.create('li', {}, '1'),
-          goog.html.SafeHtml.create('li', {}, goog.string.Unicode.NBSP),
-          goog.html.SafeHtml.create('li', {}, '2')
-        ]));
+    field1.setHtml(
+        false, '<ul style="font-weight: bold">' +
+            '<li>1</li>' +
+            '<li>&nbsp;</li>' +
+            '<li>2</li>' +
+            '</ul>');
     var helper = new goog.testing.editor.TestHelper(field1.getElement());
     var li = goog.dom.getElementsByTagName(
         goog.dom.TagName.LI, field1.getElement())[1];
@@ -278,17 +256,16 @@ function testEnterInEmptyListItemInMiddleOfList() {
 
 function testEnterInEmptyListItemInSublist() {
   if (goog.userAgent.GECKO) {
-    field1.setSafeHtml(false, goog.html.SafeHtml.create('ul', {}, [
-      goog.html.SafeHtml.create('li', {}, 'A'),
-      goog.html.SafeHtml.create(
-          'ul', {'style': {'font-weight': 'bold'}},
-          [
-            goog.html.SafeHtml.create('li', {}, '1'),
-            goog.html.SafeHtml.create('li', {}, goog.string.Unicode.NBSP),
-            goog.html.SafeHtml.create('li', {}, '2')
-          ]),
-      goog.html.SafeHtml.create('li', {}, 'B')
-    ]));
+    field1.setHtml(
+        false, '<ul>' +
+            '<li>A</li>' +
+            '<ul style="font-weight: bold">' +
+            '<li>1</li>' +
+            '<li>&nbsp;</li>' +
+            '<li>2</li>' +
+            '</ul>' +
+            '<li>B</li>' +
+            '</ul>');
     var helper = new goog.testing.editor.TestHelper(field1.getElement());
     var li = goog.dom.getElementsByTagName(
         goog.dom.TagName.LI, field1.getElement())[2];
@@ -309,17 +286,16 @@ function testEnterInEmptyListItemInSublist() {
 
 function testEnterInEmptyListItemAtBeginningOfSublist() {
   if (goog.userAgent.GECKO) {
-    field1.setSafeHtml(false, goog.html.SafeHtml.create('ul', {}, [
-      goog.html.SafeHtml.create('li', {}, 'A'),
-      goog.html.SafeHtml.create(
-          'ul', {'style': {'font-weight': 'bold'}},
-          [
-            goog.html.SafeHtml.create('li', {}, goog.string.Unicode.NBSP),
-            goog.html.SafeHtml.create('li', {}, '1'),
-            goog.html.SafeHtml.create('li', {}, '2')
-          ]),
-      goog.html.SafeHtml.create('li', {}, 'B')
-    ]));
+    field1.setHtml(
+        false, '<ul>' +
+            '<li>A</li>' +
+            '<ul style="font-weight: bold">' +
+            '<li>&nbsp;</li>' +
+            '<li>1</li>' +
+            '<li>2</li>' +
+            '</ul>' +
+            '<li>B</li>' +
+            '</ul>');
     var helper = new goog.testing.editor.TestHelper(field1.getElement());
     var li = goog.dom.getElementsByTagName(
         goog.dom.TagName.LI, field1.getElement())[1];
@@ -339,17 +315,16 @@ function testEnterInEmptyListItemAtBeginningOfSublist() {
 
 function testEnterInEmptyListItemAtEndOfSublist() {
   if (goog.userAgent.GECKO) {
-    field1.setSafeHtml(false, goog.html.SafeHtml.create('ul', {}, [
-      goog.html.SafeHtml.create('li', {}, 'A'),
-      goog.html.SafeHtml.create(
-          'ul', {'style': {'font-weight': 'bold'}},
-          [
-            goog.html.SafeHtml.create('li', {}, '1'),
-            goog.html.SafeHtml.create('li', {}, '2'),
-            goog.html.SafeHtml.create('li', {}, goog.string.Unicode.NBSP)
-          ]),
-      goog.html.SafeHtml.create('li', {}, 'B')
-    ]));
+    field1.setHtml(
+        false, '<ul>' +
+            '<li>A</li>' +
+            '<ul style="font-weight: bold">' +
+            '<li>1</li>' +
+            '<li>2</li>' +
+            '<li>&nbsp;</li>' +
+            '</ul>' +
+            '<li>B</li>' +
+            '</ul>');
     var helper = new goog.testing.editor.TestHelper(field1.getElement());
     var li = goog.dom.getElementsByTagName(
         goog.dom.TagName.LI, field1.getElement())[3];

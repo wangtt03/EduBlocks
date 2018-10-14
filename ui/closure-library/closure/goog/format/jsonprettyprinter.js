@@ -59,14 +59,14 @@ goog.format.JsonPrettyPrinter = function(opt_delimiters) {
 
   /**
    * The set of characters to use as delimiters.
-   * @private @const {!goog.format.JsonPrettyPrinter.TextDelimiters}
+   * @private @const
    */
   this.delimiters_ =
       opt_delimiters || new goog.format.JsonPrettyPrinter.TextDelimiters();
 
   /**
    * Used to serialize property names and values.
-   * @private @const {!goog.json.Serializer}
+   * @private @const
    */
   this.jsonSerializer_ = new goog.json.Serializer();
 };
@@ -119,7 +119,7 @@ goog.format.JsonPrettyPrinter.prototype.format_ = function(json) {
       return [];
     }
     // Try to coerce a string into a JSON object.
-    json = JSON.parse(json);
+    json = goog.json.parse(json);
   }
   var outputBuffer = [];
   this.printObject_(json, outputBuffer, 0);
@@ -135,7 +135,6 @@ goog.format.JsonPrettyPrinter.prototype.format_ = function(json) {
  * @param {number} indent The number of spaces to indent each line of the
  *     output.
  * @private
- * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
 goog.format.JsonPrettyPrinter.prototype.printObject_ = function(
     val, outputBuffer, indent) {

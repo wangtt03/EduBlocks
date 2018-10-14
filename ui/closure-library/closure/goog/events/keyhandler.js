@@ -279,8 +279,9 @@ goog.events.KeyHandler.keyIdentifier_ = {
  * @type {boolean}
  * @private
  */
-goog.events.KeyHandler.USES_KEYDOWN_ =
-    !goog.userAgent.WEBKIT || goog.userAgent.isVersionOrHigher('525');
+goog.events.KeyHandler.USES_KEYDOWN_ = goog.userAgent.IE ||
+    goog.userAgent.EDGE ||
+    goog.userAgent.WEBKIT && goog.userAgent.isVersionOrHigher('525');
 
 
 /**
@@ -401,12 +402,11 @@ goog.events.KeyHandler.prototype.handleEvent = function(e) {
   } else {
     keyCode = be.keyCode || this.keyCode_;
     charCode = be.charCode || 0;
-    if (goog.events.KeyHandler.SAVE_ALT_FOR_KEYPRESS_ &&
-        e.type == goog.events.EventType.KEYPRESS) {
+    if (goog.events.KeyHandler.SAVE_ALT_FOR_KEYPRESS_) {
       altKey = this.altKey_;
     }
     // On the Mac, shift-/ triggers a question mark char code and no key code
-    // (WIN_KEY_FF_LINUX), so we synthesize the latter.
+    // (normalized to WIN_KEY), so we synthesize the latter.
     if (goog.userAgent.MAC && charCode == goog.events.KeyCodes.QUESTION_MARK &&
         keyCode == goog.events.KeyCodes.WIN_KEY) {
       keyCode = goog.events.KeyCodes.SLASH;
@@ -415,6 +415,7 @@ goog.events.KeyHandler.prototype.handleEvent = function(e) {
 
   keyCode = goog.events.KeyCodes.normalizeKeyCode(keyCode);
   var key = keyCode;
+  var keyIdentifier = be.keyIdentifier;
 
   // Correct the key value for certain browser-specific quirks.
   if (keyCode) {
@@ -429,23 +430,10 @@ goog.events.KeyHandler.prototype.handleEvent = function(e) {
       }
     }
   } else if (
-      be.keyIdentifier &&
-      be.keyIdentifier in goog.events.KeyHandler.keyIdentifier_) {
+      keyIdentifier && keyIdentifier in goog.events.KeyHandler.keyIdentifier_) {
     // This is needed for Safari Windows because it currently doesn't give a
     // keyCode/which for non printable keys.
-    key = goog.events.KeyHandler.keyIdentifier_[be.keyIdentifier];
-  }
-
-  // If this was a redundant keypress event, we ignore it to avoid double-firing
-  // an event as the event would've been handled by KEYDOWN. Gecko is currently
-  // in the process of removing keypress events for non-printable characters
-  // (https://bugzilla.mozilla.org/show_bug.cgi?id=968056) so we simulate this
-  // logic here for older Gecko versions which still fire the events.
-  if (goog.userAgent.GECKO && goog.events.KeyHandler.USES_KEYDOWN_ &&
-      e.type == goog.events.EventType.KEYPRESS &&
-      !goog.events.KeyCodes.firesKeyPressEvent(
-          key, this.lastKey_, e.shiftKey, e.ctrlKey, altKey, e.metaKey)) {
-    return;
+    key = goog.events.KeyHandler.keyIdentifier_[keyIdentifier];
   }
 
   // If we get the same keycode as a keydown/keypress without having seen a

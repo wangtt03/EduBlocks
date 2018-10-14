@@ -26,6 +26,7 @@ goog.require('goog.dom.TagName');
 goog.require('goog.events');
 goog.require('goog.events.EventType');
 goog.require('goog.html.SafeHtml');
+goog.require('goog.json');
 goog.require('goog.log');
 goog.require('goog.log.Level');
 goog.require('goog.net.xpc.CfgFields');
@@ -118,11 +119,10 @@ xpcdemo.initOuter = function() {
  */
 xpcdemo.initInner = function() {
   // Get the channel configuration passed by the containing document.
-  var cfg = JSON.parse(
-      (new goog.Uri(window.location.href)).getParameterValue('xpc') || '');
+  var cfg = goog.json.parse(
+      (new goog.Uri(window.location.href)).getParameterValue('xpc'));
 
-  xpcdemo.channel = new goog.net.xpc.CrossPageChannel(
-      /** @type {Object} */ (cfg));
+  xpcdemo.channel = new goog.net.xpc.CrossPageChannel(cfg);
 
   xpcdemo.initCommon_();
 };

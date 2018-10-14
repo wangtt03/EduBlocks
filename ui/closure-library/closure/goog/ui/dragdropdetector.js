@@ -179,7 +179,7 @@ goog.ui.DragDropDetector.DEFAULT_FILE_PATH_ = 'dragdropdetector_target.html';
 
 /**
  * Our event handler object.
- * @type {goog.events.EventHandler<!goog.ui.DragDropDetector>}
+ * @type {goog.events.EventHandler}
  * @private
  */
 goog.ui.DragDropDetector.prototype.handler_;
@@ -336,8 +336,10 @@ goog.ui.DragDropDetector.prototype.initIframe_ = function() {
             this.body_,
             [goog.events.EventType.MOUSEMOVE, goog.events.EventType.KEYPRESS],
             this.uncoverScreen_)
+        .
+
         // Detect content insertion.
-        .listen(this.document_, 'DOMNodeInserted', this.handleNodeInserted_);
+        listen(this.document_, 'DOMNodeInserted', this.handleNodeInserted_);
   }
 };
 

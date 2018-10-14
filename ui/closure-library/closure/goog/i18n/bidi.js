@@ -59,8 +59,7 @@ goog.define('goog.i18n.bidi.FORCE_RTL', false);
  *
  * TODO(user): write a test that checks that this is a compile-time constant.
  */
-goog.i18n.bidi.IS_RTL =
-    goog.i18n.bidi.FORCE_RTL ||
+goog.i18n.bidi.IS_RTL = goog.i18n.bidi.FORCE_RTL ||
     ((goog.LOCALE.substring(0, 2).toLowerCase() == 'ar' ||
       goog.LOCALE.substring(0, 2).toLowerCase() == 'fa' ||
       goog.LOCALE.substring(0, 2).toLowerCase() == 'he' ||
@@ -72,20 +71,10 @@ goog.i18n.bidi.IS_RTL =
       goog.LOCALE.substring(0, 2).toLowerCase() == 'yi') &&
      (goog.LOCALE.length == 2 || goog.LOCALE.substring(2, 3) == '-' ||
       goog.LOCALE.substring(2, 3) == '_')) ||
-    (  // Specific to CKB (Central Kurdish)
-        goog.LOCALE.length >= 3 &&
-        goog.LOCALE.substring(0, 3).toLowerCase() == 'ckb' &&
-        (goog.LOCALE.length == 3 || goog.LOCALE.substring(3, 4) == '-' ||
-         goog.LOCALE.substring(3, 4) == '_')) ||
-    (  // Fulbe (aka Fulani, Pular) with Adlam or Arabic script
-        goog.LOCALE.length >= 7 &&
-        goog.LOCALE.substring(0, 2).toLowerCase() == 'ff' &&
-        (goog.LOCALE.substring(2, 3) == '-' ||
-         goog.LOCALE.substring(2, 3) == '_') &&
-        (goog.LOCALE.substring(3, 7).toLowerCase() == 'adlm' ||
-         goog.LOCALE.substring(3, 7).toLowerCase() == 'arab'));
-// TODO(b/77919903): Add additional scripts and languages that are RTL,
-// e.g., mende, samaritan, etc.
+    (goog.LOCALE.length >= 3 &&
+     goog.LOCALE.substring(0, 3).toLowerCase() == 'ckb' &&
+     (goog.LOCALE.length == 3 || goog.LOCALE.substring(3, 4) == '-' ||
+      goog.LOCALE.substring(3, 4) == '_'));
 
 
 /**
@@ -191,37 +180,27 @@ goog.i18n.bidi.toDir = function(givenDir, opt_noNeutral) {
 
 
 /**
- * A practical pattern to identify strong LTR character in the BMP.
- * This pattern is not theoretically correct according to the Unicode
- * standard. It is simplified for performance and small code size.
- * It also partially supports LTR scripts beyond U+FFFF by including
- * UTF-16 high surrogate values corresponding to mostly L-class code
- * point ranges.
- * However, low surrogate values and private-use regions are not included
- * in this RegEx.
+ * A practical pattern to identify strong LTR characters. This pattern is not
+ * theoretically correct according to the Unicode standard. It is simplified for
+ * performance and small code size.
  * @type {string}
  * @private
  */
 goog.i18n.bidi.ltrChars_ =
-    'A-Za-z\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u02B8\u0300-\u0590\u0900-\u1FFF' +
-    '\u200E\u2C00-\uD801\uD804-\uD839\uD83C-\uDBFF' +
-    '\uF900-\uFB1C\uFE00-\uFE6F\uFEFD-\uFFFF';
+    'A-Za-z\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u02B8\u0300-\u0590\u0800-\u1FFF' +
+    '\u200E\u2C00-\uFB1C\uFE00-\uFE6F\uFEFD-\uFFFF';
+
 
 /**
  * A practical pattern to identify strong RTL character. This pattern is not
  * theoretically correct according to the Unicode standard. It is simplified
  * for performance and small code size.
- * It also partially supports RTL scripts beyond U+FFFF by including
- * UTF-16 high surrogate values corresponding to mostly R- or AL-class
- * code point ranges.
- * However, low surrogate values and private-use regions are not included
- * in this RegEx.
  * @type {string}
  * @private
  */
 goog.i18n.bidi.rtlChars_ =
-    '\u0591-\u06EF\u06FA-\u08FF\u200F\uD802-\uD803\uD83A-\uD83B' +
-    '\uFB1D-\uFDFF\uFE70-\uFEFC';
+    '\u0591-\u06EF\u06FA-\u07FF\u200F\uFB1D-\uFDFF\uFE70-\uFEFC';
+
 
 /**
  * Simplified regular expression for an HTML tag (opening or closing) or an HTML
@@ -252,7 +231,7 @@ goog.i18n.bidi.stripHtmlIfNeeded_ = function(str, opt_isStripNeeded) {
 
 
 /**
- * Regular expression to check for RTL characters, BMP and high surrogate.
+ * Regular expression to check for RTL characters.
  * @type {RegExp}
  * @private
  */
@@ -455,8 +434,7 @@ goog.i18n.bidi.isNeutralText = function(str, opt_isHtml) {
  * @private
  */
 goog.i18n.bidi.ltrExitDirCheckRe_ = new RegExp(
-    '[' + goog.i18n.bidi.ltrChars_ + ']' +
-    '[^' + goog.i18n.bidi.rtlChars_ + ']*$');
+    '[' + goog.i18n.bidi.ltrChars_ + '][^' + goog.i18n.bidi.rtlChars_ + ']*$');
 
 
 /**
@@ -466,8 +444,7 @@ goog.i18n.bidi.ltrExitDirCheckRe_ = new RegExp(
  * @private
  */
 goog.i18n.bidi.rtlExitDirCheckRe_ = new RegExp(
-    '[' + goog.i18n.bidi.rtlChars_ + ']' +
-    '[^' + goog.i18n.bidi.ltrChars_ + ']*$');
+    '[' + goog.i18n.bidi.rtlChars_ + '][^' + goog.i18n.bidi.ltrChars_ + ']*$');
 
 
 /**
@@ -530,7 +507,7 @@ goog.i18n.bidi.isRtlExitText = goog.i18n.bidi.endsWithRtl;
  */
 goog.i18n.bidi.rtlLocalesRe_ = new RegExp(
     '^(ar|ckb|dv|he|iw|fa|nqo|ps|sd|ug|ur|yi|' +
-        '.*[-_](Adlm|Arab|Hebr|Thaa|Nkoo|Tfng))' +
+        '.*[-_](Arab|Hebr|Thaa|Nkoo|Tfng))' +
         '(?!.*[-_](Latn|Cyrl)($|-|_))($|-|_)',
     'i');
 
@@ -591,10 +568,10 @@ goog.i18n.bidi.guardBracketInText = function(s, opt_isRtlContext) {
 
 
 /**
- * Enforce the html snippet in RTL directionality regardless of overall context.
+ * Enforce the html snippet in RTL directionality regardless overall context.
  * If the html piece was enclosed by tag, dir will be applied to existing
  * tag, otherwise a span tag will be added as wrapper. For this reason, if
- * html snippet starts with a tag, this tag must enclose the whole piece. If
+ * html snippet start with with tag, this tag must enclose the whole piece. If
  * the tag already has a dir specified, this new one will override existing
  * one in behavior (tested on FF and IE).
  * @param {string} html The string that need to be processed.
@@ -621,10 +598,10 @@ goog.i18n.bidi.enforceRtlInText = function(text) {
 
 
 /**
- * Enforce the html snippet in RTL directionality regardless or overall context.
+ * Enforce the html snippet in RTL directionality regardless overall context.
  * If the html piece was enclosed by tag, dir will be applied to existing
  * tag, otherwise a span tag will be added as wrapper. For this reason, if
- * html snippet starts with a tag, this tag must enclose the whole piece. If
+ * html snippet start with with tag, this tag must enclose the whole piece. If
  * the tag already has a dir specified, this new one will override existing
  * one in behavior (tested on FF and IE).
  * @param {string} html The string that need to be processed.
@@ -755,7 +732,6 @@ goog.i18n.bidi.wordSeparatorRe_ = /\s+/;
  * directionality being RTL. The digits used in Farsi (\u06F0 - \u06F9), on the
  * other hand, are included, since Farsi math (including unary plus and minus)
  * does flow left-to-right.
- * TODO: Consider other systems of digits, e.g., Adlam.
  *
  * @type {RegExp}
  * @private
@@ -781,7 +757,7 @@ goog.i18n.bidi.rtlDetectionThreshold_ = 0.40;
  * @param {string} str The string to be checked.
  * @param {boolean=} opt_isHtml Whether str is HTML / HTML-escaped.
  *     Default: false.
- * @return {goog.i18n.bidi.Dir} Estimated overall directionality of `str`.
+ * @return {goog.i18n.bidi.Dir} Estimated overall directionality of {@code str}.
  */
 goog.i18n.bidi.estimateDirection = function(str, opt_isHtml) {
   var rtlCount = 0;
@@ -839,13 +815,12 @@ goog.i18n.bidi.detectRtlDirectionality = function(str, opt_isHtml) {
  */
 goog.i18n.bidi.setElementDirAndAlign = function(element, dir) {
   if (element) {
-    var htmlElement = /** @type {!HTMLElement} */ (element);
     dir = goog.i18n.bidi.toDir(dir);
     if (dir) {
-      htmlElement.style.textAlign = dir == goog.i18n.bidi.Dir.RTL ?
+      element.style.textAlign = dir == goog.i18n.bidi.Dir.RTL ?
           goog.i18n.bidi.RIGHT :
           goog.i18n.bidi.LEFT;
-      htmlElement.dir = dir == goog.i18n.bidi.Dir.RTL ? 'rtl' : 'ltr';
+      element.dir = dir == goog.i18n.bidi.Dir.RTL ? 'rtl' : 'ltr';
     }
   }
 };
@@ -857,17 +832,16 @@ goog.i18n.bidi.setElementDirAndAlign = function(element, dir) {
  * @param {string} text
  */
 goog.i18n.bidi.setElementDirByTextDirectionality = function(element, text) {
-  var htmlElement = /** @type {!HTMLElement} */ (element);
   switch (goog.i18n.bidi.estimateDirection(text)) {
     case (goog.i18n.bidi.Dir.LTR):
-      htmlElement.dir = 'ltr';
+      element.dir = 'ltr';
       break;
     case (goog.i18n.bidi.Dir.RTL):
-      htmlElement.dir = 'rtl';
+      element.dir = 'rtl';
       break;
     default:
       // Default for no direction, inherit from document.
-      htmlElement.removeAttribute('dir');
+      element.removeAttribute('dir');
   }
 };
 
@@ -888,7 +862,7 @@ goog.i18n.bidi.DirectionalString = function() {};
  *
  * This property can be used to determine at runtime whether or not an object
  * implements this interface.  All implementations of this interface set this
- * property to `true`.
+ * property to {@code true}.
  * @type {boolean}
  */
 goog.i18n.bidi.DirectionalString.prototype

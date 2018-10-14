@@ -396,7 +396,6 @@ goog.graphics.SvgGraphics.prototype.setViewBox_ = function() {
  * Updates the transform of the root element to fake a viewBox.  Should only
  * be called when useManualViewbox_ is set.
  * @private
- * @suppress {strictPrimitiveOperators} Part of the go/strict_warnings_migration
  */
 goog.graphics.SvgGraphics.prototype.updateManualViewBox_ = function() {
   if (!this.isInDocument() ||

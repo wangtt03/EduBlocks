@@ -25,8 +25,6 @@ goog.require('goog.events.KeyCodes');
 goog.require('goog.string');
 goog.require('goog.structs.Trie');
 
-goog.forwardDeclare('goog.ui.tree.BaseNode');
-
 
 
 /**

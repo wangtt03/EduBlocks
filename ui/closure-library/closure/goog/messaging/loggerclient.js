@@ -25,8 +25,6 @@ goog.require('goog.debug');
 goog.require('goog.debug.LogManager');
 goog.require('goog.debug.Logger');
 
-goog.forwardDeclare('goog.messaging.MessageChannel');
-
 
 
 /**

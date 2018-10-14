@@ -68,27 +68,22 @@ function testSubmitFormInNewWindowWithSubmitButton() {
   ];
 
   var formElements = [];
-  var mockForm = {};
 
-  var appendChild = HTMLFormElement.prototype.appendChild;
-  var submit = HTMLFormElement.prototype.submit;
+  var mockForm = {
+    appendChild: function(child) { formElements.push(child); },
+    submit: function() {
+      assertArrayEquals(expectedForm, formElements);
+      assertEquals('https://foo.xyz/baz', mockForm.action);
+      assertEquals('get', mockForm.method);
+    }
+  };
 
-  HTMLFormElement.prototype.appendChild = function(child) {
-    formElements.push(child);
-  };
-  HTMLFormElement.prototype.submit = function() {
-    assertArrayEquals(expectedForm, formElements);
-    assertEquals('https://foo.xyz/baz', mockForm.action);
-    assertEquals('get', mockForm.method);
-  };
   mockWindowOpen(mockForm);
 
   var formEl = goog.dom.getElement('testform1');
   var submitEl = goog.dom.getElement('submitb');
   var result = goog.dom.forms.submitFormInNewWindow(formEl, submitEl);
   assertTrue(result);
-  HTMLFormElement.prototype.appendChild = appendChild;
-  HTMLFormElement.prototype.submit = submit;
 }
 
 function testSubmitFormInNewWindowWithSubmitInput() {
@@ -110,18 +105,16 @@ function testSubmitFormInNewWindowWithSubmitInput() {
   ];
 
   var formElements = [];
-  var mockForm = {};
 
-  var appendChild = HTMLFormElement.prototype.appendChild;
-  var submit = HTMLFormElement.prototype.submit;
-  HTMLFormElement.prototype.appendChild = function(child) {
-    formElements.push(child);
+  var mockForm = {
+    appendChild: function(child) { formElements.push(child); },
+    submit: function() {
+      assertArrayEquals(expectedForm, formElements);
+      assertEquals('https://foo.xyz/baz', mockForm.action);
+      assertEquals('get', mockForm.method);
+    }
   };
-  HTMLFormElement.prototype.submit = function() {
-    assertArrayEquals(expectedForm, formElements);
-    assertEquals('https://foo.xyz/baz', mockForm.action);
-    assertEquals('get', mockForm.method);
-  };
+
   mockWindowOpen(mockForm);
 
 
@@ -129,8 +122,6 @@ function testSubmitFormInNewWindowWithSubmitInput() {
   var submitEl = goog.dom.getElement('submit');
   var result = goog.dom.forms.submitFormInNewWindow(formEl, submitEl);
   assertTrue(result);
-  HTMLFormElement.prototype.appendChild = appendChild;
-  HTMLFormElement.prototype.submit = submit;
 }
 
 function testSubmitFormInNewWindowWithoutSubmitButton() {
@@ -151,26 +142,21 @@ function testSubmitFormInNewWindowWithoutSubmitButton() {
   ];
 
   var formElements = [];
-  var mockForm = {};
 
-  var appendChild = HTMLFormElement.prototype.appendChild;
-  var submit = HTMLFormElement.prototype.submit;
+  var mockForm = {
+    appendChild: function(child) { formElements.push(child); },
+    submit: function() {
+      assertArrayEquals(expectedForm, formElements);
+      assertEquals('https://foo.bar/baz', mockForm.action);
+      assertEquals('get', mockForm.method);
+    }
+  };
 
-  HTMLFormElement.prototype.appendChild = function(child) {
-    formElements.push(child);
-  };
-  HTMLFormElement.prototype.submit = function() {
-    assertArrayEquals(expectedForm, formElements);
-    assertEquals('https://foo.bar/baz', mockForm.action);
-    assertEquals('get', mockForm.method);
-  };
   mockWindowOpen(mockForm);
 
   var formEl = goog.dom.getElement('testform1');
   var result = goog.dom.forms.submitFormInNewWindow(formEl);
   assertTrue(result);
-  HTMLFormElement.prototype.appendChild = appendChild;
-  HTMLFormElement.prototype.submit = submit;
 }
 
 function testSubmitFormInNewWindowError() {
@@ -200,18 +186,16 @@ function testSubmitFormDataInNewWindow() {
   ];
 
   var formElements = [];
-  var mockForm = {};
 
-  var appendChild = HTMLFormElement.prototype.appendChild;
-  var submit = HTMLFormElement.prototype.submit;
-  HTMLFormElement.prototype.appendChild = function(child) {
-    formElements.push(child);
+  var mockForm = {
+    appendChild: function(child) { formElements.push(child); },
+    submit: function() {
+      assertArrayEquals(expectedForm, formElements);
+      assertEquals('https://foo.bar/baz', mockForm.action);
+      assertEquals('get', mockForm.method);
+    }
   };
-  HTMLFormElement.prototype.submit = function() {
-    assertArrayEquals(expectedForm, formElements);
-    assertEquals('https://foo.bar/baz', mockForm.action);
-    assertEquals('get', mockForm.method);
-  };
+
   mockWindowOpen(mockForm);
 
   var formEl = goog.dom.getElement('testform1');
@@ -219,8 +203,6 @@ function testSubmitFormDataInNewWindow() {
   var result = goog.dom.forms.submitFormDataInNewWindow(
       formEl.action, formEl.method, formData);
   assertTrue(result);
-  HTMLFormElement.prototype.appendChild = appendChild;
-  HTMLFormElement.prototype.submit = submit;
 }
 
 function testGetFormDataString() {
@@ -415,20 +397,6 @@ function testSetValueInput() {
   // unset
   goog.dom.forms.setValue(el);
   assertEquals('', goog.dom.forms.getValue(el));
-}
-
-function testGetValueMeter() {
-  var el = goog.dom.createDom('meter', {'min': 0, 'max': 3, 'value': 2.3});
-  assertEquals(2.3, goog.dom.forms.getValue(el));
-}
-
-function testSetValueMeter() {
-  var el = goog.dom.createDom('meter', {'min': 1, 'max': 5, 'value': 3});
-
-  assertEquals(3, goog.dom.forms.getValue(el));
-
-  goog.dom.forms.setValue(el, 2);
-  assertEquals(2, goog.dom.forms.getValue(el));
 }
 
 function testGetValuePassword() {

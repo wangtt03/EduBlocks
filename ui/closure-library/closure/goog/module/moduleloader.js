@@ -36,7 +36,6 @@ goog.require('goog.events.Event');
 goog.require('goog.events.EventHandler');
 goog.require('goog.events.EventId');
 goog.require('goog.events.EventTarget');
-goog.require('goog.html.TrustedResourceUrl');
 goog.require('goog.labs.userAgent.browser');
 goog.require('goog.log');
 goog.require('goog.module.AbstractModuleLoader');
@@ -49,7 +48,7 @@ goog.require('goog.userAgent.product');
 
 
 /**
- * A class that loads JavaScript modules.
+ * A class that loads Javascript modules.
  * @constructor
  * @extends {goog.events.EventTarget}
  * @implements {goog.module.AbstractModuleLoader}
@@ -288,17 +287,15 @@ goog.module.ModuleLoader.prototype.prefetchModule = function(id, moduleInfo) {
  * Downloads a list of JavaScript modules.
  *
  * @param {Array<string>} ids The module ids in dependency order.
- * @param {!Object<string, !goog.module.ModuleInfo>} moduleInfoMap A mapping
- *     from module id to ModuleInfo object.
+ * @param {Object} moduleInfoMap A mapping from module id to ModuleInfo object.
  * @private
  */
 goog.module.ModuleLoader.prototype.downloadModules_ = function(
     ids, moduleInfoMap) {
-  var trustedUris = [];
+  var uris = [];
   for (var i = 0; i < ids.length; i++) {
-    goog.array.extend(trustedUris, moduleInfoMap[ids[i]].getUris());
+    goog.array.extend(uris, moduleInfoMap[ids[i]].getUris());
   }
-  var uris = goog.array.map(trustedUris, goog.html.TrustedResourceUrl.unwrap);
   goog.log.info(this.logger, 'downloadModules ids:' + ids + ' uris:' + uris);
 
   if (this.getDebugMode() && !this.usingSourceUrlInjection_()) {
@@ -308,7 +305,7 @@ goog.module.ModuleLoader.prototype.downloadModules_ = function(
     // another domain.
     // The scripts need to load serially, so this is much slower than parallel
     // script loads with source url injection.
-    goog.net.jsloader.safeLoadMany(trustedUris);
+    goog.net.jsloader.loadMany(uris);
   } else {
     var loadStatus = this.loadingModulesStatus_[ids];
     loadStatus.requestUris = uris;

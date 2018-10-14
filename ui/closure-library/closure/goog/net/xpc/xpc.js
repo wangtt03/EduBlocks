@@ -47,9 +47,8 @@ goog.provide('goog.net.xpc.ChannelStates');
 goog.provide('goog.net.xpc.TransportNames');
 goog.provide('goog.net.xpc.TransportTypes');
 goog.provide('goog.net.xpc.UriCfgFields');
-goog.require('goog.log');
 
-goog.forwardDeclare('goog.net.xpc.CrossPageChannel');  // circular
+goog.require('goog.log');
 
 
 /**
@@ -57,7 +56,6 @@ goog.forwardDeclare('goog.net.xpc.CrossPageChannel');  // circular
  * @enum {number}
  */
 goog.net.xpc.TransportTypes = {
-  UNDEFINED: 0,
   NATIVE_MESSAGING: 1,
   FRAME_ELEMENT_METHOD: 2,
   IFRAME_RELAY: 3,
@@ -121,9 +119,8 @@ goog.net.xpc.CfgFields = {
   /**
    * Transport type identifier.
    * The transport type to use. Possible values are entries from
-   * goog.net.xpc.TransportTypes or a Transport constructor fuction. If not
-   * present, the transport is determined automatically based on the useragent's
-   * capabilities.
+   * goog.net.xpc.TransportTypes. If not present, the transport is
+   * determined automatically based on the useragent's capabilities.
    */
   TRANSPORT: 'tp',
   /**

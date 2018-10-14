@@ -35,8 +35,6 @@ goog.require('goog.graphics.PathElement');
 goog.require('goog.graphics.RectElement');
 goog.require('goog.graphics.TextElement');
 
-goog.forwardDeclare('goog.graphics.SvgGraphics');
-
 
 
 /**
@@ -229,8 +227,7 @@ goog.inherits(goog.graphics.SvgTextElement, goog.graphics.TextElement);
  * @override
  */
 goog.graphics.SvgTextElement.prototype.setText = function(text) {
-  // This is actually SVGTextElement but we don't have it in externs.
-  /** @type {!Text} */ (this.getElement().firstChild).data = text;
+  this.getElement().firstChild.data = text;
 };
 
 

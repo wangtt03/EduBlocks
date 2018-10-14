@@ -54,8 +54,7 @@ goog.testing.JsTdTestCaseAdapter.TestCaseFactory_ = function(
     var testCase = new goog.testing.TestCase(testCaseName);
     testCase.shouldRunTests = condition;
     testCase.setTestObj(t);
-    testCase.autoDiscoverTests();
-    goog.testing.TestCase.initializeTestRunner(testCase, undefined);
+    goog.testing.TestCase.initializeTestRunner(testCase);
   });
 
   return T;

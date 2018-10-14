@@ -24,7 +24,7 @@ goog.require('goog.asserts');
 
 /**
  * Turns a string into an array of bytes; a "byte" being a JS number in the
- * range 0-255. Multi-byte characters are written as little-endian.
+ * range 0-255.
  * @param {string} str String value to arrify.
  * @return {!Array<number>} Array of numbers corresponding to the
  *     UCS character codes of each character in str.
@@ -33,8 +33,7 @@ goog.crypt.stringToByteArray = function(str) {
   var output = [], p = 0;
   for (var i = 0; i < str.length; i++) {
     var c = str.charCodeAt(i);
-    // NOTE: c <= 0xffff since JavaScript strings are UTF-16.
-    if (c > 0xff) {
+    while (c > 0xff) {
       output[p++] = c & 0xff;
       c >>= 8;
     }
@@ -77,10 +76,9 @@ goog.crypt.byteArrayToString = function(bytes) {
  * the hex values to which the numbers correspond.
  * @param {Uint8Array|Array<number>} array Array of numbers representing
  *     characters.
- * @param {string=} opt_separator Optional separator between values
  * @return {string} Hex string.
  */
-goog.crypt.byteArrayToHex = function(array, opt_separator) {
+goog.crypt.byteArrayToHex = function(array) {
   return goog.array
       .map(
           array,
@@ -88,7 +86,7 @@ goog.crypt.byteArrayToHex = function(array, opt_separator) {
             var hexByte = numByte.toString(16);
             return hexByte.length > 1 ? hexByte : '0' + hexByte;
           })
-      .join(opt_separator || '');
+      .join('');
 };
 
 

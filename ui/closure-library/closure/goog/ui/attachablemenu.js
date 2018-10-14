@@ -208,9 +208,8 @@ goog.ui.AttachableMenu.prototype.showPopupElement = function() {
 
 /**
  * Called after the menu is shown.
- * @override
  * @protected
- * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
+ * @override
  */
 goog.ui.AttachableMenu.prototype.onShow = function() {
   goog.ui.AttachableMenu.superClass_.onShow.call(this);
