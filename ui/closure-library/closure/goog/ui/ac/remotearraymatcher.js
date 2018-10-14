@@ -22,7 +22,6 @@ goog.provide('goog.ui.ac.RemoteArrayMatcher');
 goog.require('goog.Disposable');
 goog.require('goog.Uri');
 goog.require('goog.events');
-goog.require('goog.json');
 goog.require('goog.net.EventType');
 goog.require('goog.net.XhrIo');
 
@@ -194,11 +193,11 @@ goog.ui.ac.RemoteArrayMatcher.prototype.parseResponseText = function(
     responseText) {
 
   var matches = [];
-  // If there is no response text, unsafeParse will throw a syntax error.
+  // If there is no response text, JSON.parse will throw a syntax error.
   if (responseText) {
-    /** @preserveTry */
+
     try {
-      matches = goog.json.unsafeParse(responseText);
+      matches = JSON.parse(responseText);
     } catch (exception) {
     }
   }
@@ -211,6 +210,7 @@ goog.ui.ac.RemoteArrayMatcher.prototype.parseResponseText = function(
  * @param {string} token The XHR autocomplete token.
  * @param {Function} matchHandler The AutoComplete match handler.
  * @param {goog.events.Event} event The XHR success event.
+ * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
 goog.ui.ac.RemoteArrayMatcher.prototype.xhrCallback = function(
     token, matchHandler, event) {

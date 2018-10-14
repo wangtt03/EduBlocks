@@ -309,7 +309,7 @@ function testEnglishDate() {
 function testChineseDate() {
   goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_zh;
 
-  // Javascript month start from 0, July is 7 - 1
+  // JavaScript month start from 0, July is 7 - 1
   var date = new Date(2006, 7 - 1, 24, 12, 12, 12, 0);
   var formatter =
       new goog.i18n.DateTimeFormat(goog.i18n.DateTimeFormat.Format.FULL_DATE);
@@ -349,7 +349,7 @@ function testDatesWithNativeDigits() {
   // goog.i18n.DateTimeSymbols.ZERODIGIT defined.
   goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_fa;
 
-  // Javascript month starts from 0, July is 7 - 1
+  // JavaScript month starts from 0, July is 7 - 1
   var date = new Date(2006, 7 - 1, 24, 12, 12, 12, 0);
   var formatter =
       new goog.i18n.DateTimeFormat(goog.i18n.DateTimeFormat.Format.FULL_DATE);
@@ -673,4 +673,15 @@ function testQuotedPattern() {
   date = new Date(y, m, d);
   parser = new goog.i18n.DateTimeParse('MMM dd\'th\'\'');
   assertParsedDateEquals(y, m, d, parser, 'Nov 15th\'', date);
+}
+
+function testNullDate() {
+  var date = new Date();
+  var parser = new goog.i18n.DateTimeParse('MM/dd, yyyyG');
+  assertNotThrows(function() {
+    parser.parse('11/22, 1999', date);
+  });
+  assertThrows(function() {
+    parser.parse('11/22, 1999', null);
+  });
 }

@@ -143,11 +143,11 @@ function testRenderStrictValidatesOutput() {
       'Assertion failed: ' +
           'renderStrict cannot be called on a non-strict soy template',
       assertThrows(function() {
-        renderer.renderStrict(example.noDataTemplate, {});
+        renderer.renderStrict(example.stringTemplate, {});
       }).message);
   assertUndefined(handleRender.getLastCall().getArguments()[0]);
   // Passes.
-  renderer.renderStrict(
+  renderer.renderStrictOfKind(
       example.sanitizedHtmlTemplate, {},
       goog.soy.data.SanitizedContentKind.HTML);
   // Wrong content kind.
@@ -155,15 +155,12 @@ function testRenderStrictValidatesOutput() {
       'Assertion failed: ' +
           'renderStrict was called with the wrong kind of template',
       assertThrows(function() {
-        renderer.renderStrict(
+        renderer.renderStrictOfKind(
             example.sanitizedHtmlTemplate, {},
             goog.soy.data.SanitizedContentKind.JS);
       }).message);
   assertUndefined(handleRender.getLastCall().getArguments()[0]);
 
-  // renderStrict's opt_kind parameter defaults to SanitizedContentKind.HTML:
-  // Passes.
-  renderer.renderStrict(example.sanitizedHtmlTemplate, {});
   // Rendering non-HTML template fails:
   assertEquals(
       'Assertion failed: ' +
@@ -172,7 +169,21 @@ function testRenderStrictValidatesOutput() {
         renderer.renderStrict(example.unsanitizedTextTemplate, {});
       }).message);
   assertUndefined(handleRender.getLastCall().getArguments()[0]);
-  handleRender.assertCallCount(3);
+  handleRender.assertCallCount(2);
+}
+
+
+function testRenderStrictUri() {
+  var renderer = new goog.soy.Renderer(dataSupplier);
+  var result = renderer.renderStrictUri(example.sanitizedUriTemplate, {});
+  assertEquals(goog.soy.data.SanitizedContentKind.URI, result.contentKind);
+  assertEquals(
+      'Assertion failed: ' +
+          'renderStrict was called with the wrong kind of template',
+      assertThrows(function() {
+        renderer.renderStrictUri(example.sanitizedHtmlTemplate, {});
+      }).message);
+  handleRender.assertCallCount(1);
 }
 
 
@@ -188,7 +199,7 @@ function testRenderText() {
       'Assertion failed: ' +
           'renderText cannot be called on a non-strict soy template',
       assertThrows(function() {
-        renderer.renderText(example.noDataTemplate, {});
+        renderer.renderText(example.stringTemplate, {});
       }).message);
   // RenderText on non-text template fails.
   assertEquals(

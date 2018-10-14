@@ -23,7 +23,7 @@ goog.require('goog.asserts');
 goog.require('goog.dom');
 goog.require('goog.dom.NodeType');
 goog.require('goog.dom.TagName');
-goog.require('goog.html.legacyconversions');
+goog.require('goog.dom.safe');
 goog.require('goog.soy.data.SanitizedContent');
 goog.require('goog.soy.data.SanitizedContentKind');
 goog.require('goog.string');
@@ -51,6 +51,15 @@ goog.soy.StrictTemplate;
 
 
 /**
+ * Type definition for strict Soy HTML templates. Very useful when passing
+ * a template as an argument.
+ * @typedef {function(?, null=, ?Object<string, *>=):
+ *     !goog.soy.data.SanitizedHtml}
+ */
+goog.soy.StrictHtmlTemplate;
+
+
+/**
  * Sets the processed template as the innerHTML of an element. It is recommended
  * to use this helper function instead of directly setting innerHTML in your
  * hand-written code, so that it will be easier to audit the code for cross-site
@@ -62,7 +71,8 @@ goog.soy.StrictTemplate;
  * @template ARG_TYPES
  */
 goog.soy.renderHtml = function(element, templateResult) {
-  element.innerHTML = goog.soy.ensureTemplateOutputHtml_(templateResult);
+  goog.dom.safe.unsafeSetInnerHtmlDoNotUseOrElse(
+      element, goog.soy.ensureTemplateOutputHtml_(templateResult));
 };
 
 
@@ -73,7 +83,8 @@ goog.soy.renderHtml = function(element, templateResult) {
  * will be easier to audit the code for cross-site scripting vulnerabilities.
  *
  * @param {Element} element The element whose content we are rendering into.
- * @param {null|function(ARG_TYPES, null=, Object<string, *>=):*} template
+ * @param {?function(ARG_TYPES, Object<string, *>=):*|
+ *     ?function(ARG_TYPES, null=, Object<string, *>=):*} template
  *     The Soy template defining the element's content.
  * @param {ARG_TYPES=} opt_templateData The data for the template.
  * @param {Object=} opt_injectedData The injected data for the template.
@@ -83,10 +94,11 @@ goog.soy.renderElement = function(
     element, template, opt_templateData, opt_injectedData) {
   // Soy template parameter is only nullable for historical reasons.
   goog.asserts.assert(template, 'Soy template may not be null.');
-  element.innerHTML = goog.soy.ensureTemplateOutputHtml_(
-      template(
+  goog.dom.safe.unsafeSetInnerHtmlDoNotUseOrElse(
+      element,
+      goog.soy.ensureTemplateOutputHtml_(template(
           opt_templateData || goog.soy.defaultTemplateData_, undefined,
-          opt_injectedData));
+          opt_injectedData)));
 };
 
 
@@ -97,12 +109,15 @@ goog.soy.renderElement = function(
  * the method). Otherwise a document fragment is returned containing the
  * rendered nodes.
  *
- * @param {null|function(ARG_TYPES, null=, Object<string, *>=):*} template
- *     The Soy template defining the element's content.
+ * @param {
+ *     ?function(ARG_TYPES, Object<string, *>=):goog.soy.data.SanitizedContent|
+ *     ?function(ARG_TYPES, null=, Object<string, *>=):
+ *     goog.soy.data.SanitizedContent} template The Soy template defining the
+ *     element's content. The kind of the template must be "html" or "text".
  * @param {ARG_TYPES=} opt_templateData The data for the template.
  * @param {Object=} opt_injectedData The injected data for the template.
  * @param {goog.dom.DomHelper=} opt_domHelper The DOM helper used to
- *     create DOM nodes; defaults to {@code goog.dom.getDomHelper}.
+ *     create DOM nodes; defaults to `goog.dom.getDomHelper`.
  * @return {!Node} The resulting node or document fragment.
  * @template ARG_TYPES
  */
@@ -116,9 +131,7 @@ goog.soy.renderAsFragment = function(
       opt_injectedData);
   var html = goog.soy.ensureTemplateOutputHtml_(output);
   goog.soy.assertFirstTagValid_(html);
-  var safeHtml = output instanceof goog.soy.data.SanitizedContent ?
-      output.toSafeHtml() :
-      goog.html.legacyconversions.safeHtmlFromString(html);
+  var safeHtml = output.toSafeHtml();
   return dom.safeHtmlToNode(safeHtml);
 };
 
@@ -128,12 +141,13 @@ goog.soy.renderAsFragment = function(
  * HTML string represents a single node, then that node is returned. Otherwise,
  * a DIV element is returned containing the rendered nodes.
  *
- * @param {null|function(ARG_TYPES, null=, Object<string, *>=):*} template
+ * @param {?function(ARG_TYPES, Object<string, *>=):*|
+ *     ?function(ARG_TYPES, null=, Object<string, *>=):*} template
  *     The Soy template defining the element's content.
  * @param {ARG_TYPES=} opt_templateData The data for the template.
  * @param {Object=} opt_injectedData The injected data for the template.
  * @param {goog.dom.DomHelper=} opt_domHelper The DOM helper used to
- *     create DOM nodes; defaults to {@code goog.dom.getDomHelper}.
+ *     create DOM nodes; defaults to `goog.dom.getDomHelper`.
  * @return {!Element} Rendered template contents, wrapped in a parent DIV
  *     element if necessary.
  * @template ARG_TYPES
@@ -158,7 +172,7 @@ goog.soy.renderAsElement = function(
  * @param {!goog.soy.data.SanitizedContent} templateResult The processed
  *     template of kind HTML or TEXT (which will be escaped).
  * @param {?goog.dom.DomHelper=} opt_domHelper The DOM helper used to
- *     create DOM nodes; defaults to {@code goog.dom.getDomHelper}.
+ *     create DOM nodes; defaults to `goog.dom.getDomHelper`.
  * @return {!Element} Rendered template contents, wrapped in a parent DIV
  *     element if necessary.
  */
@@ -168,11 +182,11 @@ goog.soy.convertToElement = function(templateResult, opt_domHelper) {
 
 
 /**
- * Non-strict version of {@code goog.soy.convertToElement}.
+ * Non-strict version of `goog.soy.convertToElement`.
  *
  * @param {*} templateResult The processed template.
  * @param {?goog.dom.DomHelper=} opt_domHelper The DOM helper used to
- *     create DOM nodes; defaults to {@code goog.dom.getDomHelper}.
+ *     create DOM nodes; defaults to `goog.dom.getDomHelper`.
  * @return {!Element} Rendered template contents, wrapped in a parent DIV
  *     element if necessary.
  * @private
@@ -182,7 +196,7 @@ goog.soy.convertToElement_ = function(templateResult, opt_domHelper) {
   var wrapper = dom.createElement(goog.dom.TagName.DIV);
   var html = goog.soy.ensureTemplateOutputHtml_(templateResult);
   goog.soy.assertFirstTagValid_(html);
-  wrapper.innerHTML = html;
+  goog.dom.safe.unsafeSetInnerHtmlDoNotUseOrElse(wrapper, html);
 
   // If the template renders as a single element, return it.
   if (wrapper.childNodes.length == 1) {

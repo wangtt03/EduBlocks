@@ -1,7 +1,7 @@
 // Type definitions for blockly
 // Project: https://developers.google.com/blockly/
 // Definitions by: Troy McKinnon <https://github.com/trodi>
-// Definitions: https://github.com/borisyankov/DefinitelyTyped
+// Definitions: https://github.com/borisyankov/DefinitelyType
 
 declare module Blockly.BlockAnimations {
 
@@ -70,11 +70,7 @@ declare module Blockly.BlockAnimations {
 
 declare module Blockly {
 
-    interface BlockDefinitions {
-        [blockId: string]: {
-          init(this: Blockly.Block__Class): void,
-        };
-    }
+    
 
     class BlockDragger extends BlockDragger__Class { }
     /** Fake class which should be extended to avoid inheriting static properties */
@@ -1507,6 +1503,33 @@ declare module Blockly.Events {
 }
 
 declare module Blockly {
+
+    interface BlockDefinitions {
+        [blockId: string]: {
+          init(this: Blockly.Block__Class): void,
+        };
+      }
+    
+      interface BlockGenerators {
+        [blockId: string]: (block: Block) => string;
+      }
+    
+      const Blocks: {
+        [blockId: string]: {
+          init(this: Block__Class): void
+        }
+      };
+    
+      const Python: {
+        statementToCode(block: Block, d: 'DO' | 'NAME' | 'VALUE'): string;
+        addLoopTrap(code: string, id: string): string;
+    
+        PASS: string;
+    
+        variableDB_: {
+          getName(name: string, type: any): string;
+        }
+    };
 
     /**
      * The main workspace most recently used.
@@ -5423,7 +5446,9 @@ declare module Blockly {
              * @return {function} the callback for slider update
              * @private
              */
-            sliderCallbackFactory_(channel: string): function;
+
+
+            sliderCallbackFactory_(channel: string): Function;
     
             /**
              * Create hue, saturation and brightness sliders under the colour field.
@@ -5433,6 +5458,8 @@ declare module Blockly {
     } 
     
 }
+
+
 
 declare module Blockly.FieldColourSlider {
 
@@ -5447,6 +5474,7 @@ declare module Blockly.FieldColourSlider {
 }
 
 declare module Blockly {
+
 
     class FieldDate extends FieldDate__Class { }
     /** Fake class which should be extended to avoid inheriting static properties */

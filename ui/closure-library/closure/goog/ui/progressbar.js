@@ -75,7 +75,7 @@ goog.ui.ProgressBar.Orientation = {
 
 /**
  * Map from progress bar orientation to CSS class names.
- * @type {Object}
+ * @type {!Object<string, string>}
  * @private
  */
 goog.ui.ProgressBar.ORIENTATION_TO_CSS_NAME_ = {};
@@ -93,10 +93,10 @@ goog.ui.ProgressBar
  */
 goog.ui.ProgressBar.prototype.createDom = function() {
   this.thumbElement_ = this.createThumb_();
-  var cs = goog.ui.ProgressBar.ORIENTATION_TO_CSS_NAME_[this.orientation_];
-  this.setElementInternal(
-      this.getDomHelper().createDom(
-          goog.dom.TagName.DIV, cs, this.thumbElement_));
+  this.setElementInternal(this.getDomHelper().createDom(
+      goog.dom.TagName.DIV,
+      goog.ui.ProgressBar.ORIENTATION_TO_CSS_NAME_[this.orientation_],
+      this.thumbElement_));
   this.setValueState_();
   this.setMinimumState_();
   this.setMaximumState_();
@@ -131,15 +131,15 @@ goog.ui.ProgressBar.prototype.exitDocument = function() {
  * @return {HTMLDivElement} The created thumb element.
  */
 goog.ui.ProgressBar.prototype.createThumb_ = function() {
-  return /** @type {!HTMLDivElement} */ (
-      this.getDomHelper().createDom(
-          goog.dom.TagName.DIV, goog.getCssName('progress-bar-thumb')));
+  return this.getDomHelper().createDom(
+      goog.dom.TagName.DIV, goog.getCssName('progress-bar-thumb'));
 };
 
 
 /**
  * Adds the initial event listeners to the element.
  * @private
+ * @suppress {strictPrimitiveOperators} Part of the go/strict_warnings_migration
  */
 goog.ui.ProgressBar.prototype.attachEvents_ = function() {
   if (goog.userAgent.IE && goog.userAgent.VERSION < 7) {
@@ -153,6 +153,7 @@ goog.ui.ProgressBar.prototype.attachEvents_ = function() {
 /**
  * Removes the event listeners added by attachEvents_.
  * @private
+ * @suppress {strictPrimitiveOperators} Part of the go/strict_warnings_migration
  */
 goog.ui.ProgressBar.prototype.detachEvents_ = function() {
   if (goog.userAgent.IE && goog.userAgent.VERSION < 7) {
@@ -304,6 +305,7 @@ goog.ui.ProgressBar.prototype.handleChange_ = function(e) {
  * This is called when we need to update the size of the thumb. This happens
  * when first created as well as when the value and the orientation changes.
  * @private
+ * @suppress {strictPrimitiveOperators} Part of the go/strict_warnings_migration
  */
 goog.ui.ProgressBar.prototype.updateUi_ = function() {
   if (this.thumbElement_) {

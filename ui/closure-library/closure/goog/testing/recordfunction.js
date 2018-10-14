@@ -24,14 +24,14 @@
  * }
  *
  * function testShuffle() {
- *   stubs.set(Math, 'random', goog.testing.recordFunction(Math.random));
+ *   stubs.replace(Math, 'random', goog.testing.recordFunction(Math.random));
  *   var arr = shuffle([1, 2, 3, 4, 5]);
  *   assertSameElements([1, 2, 3, 4, 5], arr);
  *   assertEquals(4, Math.random.getCallCount());
  * }
  *
  * function testOpenDialog() {
- *   stubs.set(goog.ui, 'Dialog',
+ *   stubs.replace(goog.ui, 'Dialog',
  *       goog.testing.recordConstructor(goog.ui.Dialog));
  *   openConfirmDialog();
  *   var lastDialogInstance = goog.ui.Dialog.getLastCall().getThis();
@@ -46,13 +46,15 @@ goog.provide('goog.testing.FunctionCall');
 goog.provide('goog.testing.recordConstructor');
 goog.provide('goog.testing.recordFunction');
 
+goog.require('goog.Promise');
+goog.require('goog.promise.Resolver');
 goog.require('goog.testing.asserts');
 
 
 /**
  * Wraps the function into another one which calls the inner function and
  * records its calls. The recorded function will have 3 static methods:
- * {@code getCallCount}, {@code getCalls} and {@code getLastCall} but won't
+ * `getCallCount`, `getCalls` and `getLastCall` but won't
  * inherit the original function's prototype and static fields.
  *
  * @param {!Function=} opt_f The function to wrap and record. Defaults to
@@ -62,15 +64,30 @@ goog.require('goog.testing.asserts');
 goog.testing.recordFunction = function(opt_f) {
   var f = opt_f || goog.nullFunction;
   var calls = [];
+  /** @type {?goog.promise.Resolver} */
+  var waitForCallsResolver = null;
+  /** @type {number} */
+  var waitForCallsCount = 0;
+
+  function maybeResolveWaitForCalls() {
+    if (waitForCallsResolver && calls.length >= waitForCallsCount) {
+      waitForCallsResolver.resolve();
+      waitForCallsResolver = null;
+      waitForCallsCount = 0;
+    }
+  }
 
   function recordedFunction() {
+    var owner = /** @type {?} */ (this);
     try {
-      var ret = f.apply(this, arguments);
-      calls.push(new goog.testing.FunctionCall(f, this, arguments, ret, null));
+      var ret = f.apply(owner, arguments);
+      calls.push(new goog.testing.FunctionCall(f, owner, arguments, ret, null));
+      maybeResolveWaitForCalls();
       return ret;
     } catch (err) {
       calls.push(
-          new goog.testing.FunctionCall(f, this, arguments, undefined, err));
+          new goog.testing.FunctionCall(f, owner, arguments, undefined, err));
+      maybeResolveWaitForCalls();
       throw err;
     }
   }
@@ -118,9 +135,27 @@ goog.testing.recordFunction = function(opt_f) {
   recordedFunction.popLastCall = function() { return calls.pop() || null; };
 
   /**
+   * Returns a goog.Promise that resolves when the recorded function has equal
+   * to or greater than the number of calls.
+   * @param {number} num
+   * @return {!goog.Promise<undefined>}
+   */
+  recordedFunction.waitForCalls = function(num) {
+    waitForCallsCount = num;
+    waitForCallsResolver = goog.Promise.withResolver();
+    var promise = waitForCallsResolver.promise;
+    maybeResolveWaitForCalls();
+    return promise;
+  };
+
+  /**
    * Resets the recorded function and removes all calls.
    */
-  recordedFunction.reset = function() { calls.length = 0; };
+  recordedFunction.reset = function() {
+    calls.length = 0;
+    waitForCallsResolver = null;
+    waitForCallsCount = 0;
+  };
 
   return recordedFunction;
 };
@@ -146,7 +181,7 @@ goog.testing.recordConstructor = function(ctor) {
 /**
  * Struct for a single function call.
  * @param {!Function} func The called function.
- * @param {!Object} thisContext {@code this} context of called function.
+ * @param {!Object} thisContext `this` context of called function.
  * @param {!Arguments} args Arguments of the called function.
  * @param {*} ret Return value of the function or undefined in case of error.
  * @param {*} error The error thrown by the function or null if none.
@@ -170,7 +205,7 @@ goog.testing.FunctionCall.prototype.getFunction = function() {
 
 
 /**
- * @return {!Object} {@code this} context of called function. It is the same as
+ * @return {!Object} `this` context of called function. It is the same as
  *     the created object if the function is a constructor.
  */
 goog.testing.FunctionCall.prototype.getThis = function() {

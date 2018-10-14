@@ -26,6 +26,7 @@ goog.require('goog.date.DateTime');
 goog.require('goog.dom');
 goog.require('goog.dom.InputType');
 goog.require('goog.dom.TagName');
+goog.require('goog.i18n.DateTimeParse');
 goog.require('goog.string');
 goog.require('goog.ui.Component');
 goog.require('goog.ui.DatePicker');
@@ -156,8 +157,8 @@ goog.ui.InputDatePicker.prototype.setDate = function(date) {
 /**
  * Sets the value of the input element.  This can be overridden to support
  * alternative types of input setting.
- *
  * @param {string} value The value to set.
+ * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
 goog.ui.InputDatePicker.prototype.setInputValue = function(value) {
   var el = this.getElement();
@@ -173,8 +174,8 @@ goog.ui.InputDatePicker.prototype.setInputValue = function(value) {
 /**
  * Returns the value of the input element.  This can be overridden to support
  * alternative types of input getting.
- *
  * @return {string} The input value.
+ * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
 goog.ui.InputDatePicker.prototype.getInputValue = function() {
   var el = this.getElement();

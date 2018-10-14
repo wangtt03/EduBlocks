@@ -185,6 +185,13 @@ goog.ui.ac.CachingMatcher.prototype.requestMatchingRows = function(
 };
 
 
+/** Clears the cache. */
+goog.ui.ac.CachingMatcher.prototype.clearCache = function() {
+  this.rows_ = [];
+  this.rowStrings_ = {};
+};
+
+
 /**
  * Adds the specified rows to the cache.
  * @param {!Array<!Object>} rows .
@@ -207,8 +214,7 @@ goog.ui.ac.CachingMatcher.prototype.addRows_ = function(rows) {
  */
 goog.ui.ac.CachingMatcher.prototype.clearCacheIfTooLarge_ = function() {
   if (this.rows_.length > this.maxCacheSize_) {
-    this.rows_ = [];
-    this.rowStrings_ = {};
+    this.clearCache();
   }
 };
 
@@ -218,6 +224,7 @@ goog.ui.ac.CachingMatcher.prototype.clearCacheIfTooLarge_ = function() {
  * unthrottled, so don't call it directly; instead use
  * this.throttledTriggerBaseMatch_.
  * @private
+ * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
 goog.ui.ac.CachingMatcher.prototype.triggerBaseMatch_ = function() {
   this.baseMatcher_.requestMatchingRows(
