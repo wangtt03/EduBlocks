@@ -5,6 +5,103 @@
 
 declare module Blockly {
 
+    class FieldSlider extends FieldSlider__Class { }
+    /** Fake class which should be extended to avoid inheriting static properties */
+    class FieldSlider__Class extends Blockly.FieldNumber__Class  { 
+    
+            /**
+             * Class for an editable number field.
+             * @param {number|string} value The initial content of the field.
+             * @param {number|string|undefined} opt_min Minimum value.
+             * @param {number|string|undefined} opt_max Maximum value.
+             * @param {number|string|undefined} opt_precision Precision for value.
+             * @param {number|string|undefined} opt_labelText Label text
+             * @param {Function=} opt_validator An optional function that is called
+             *     to validate any constraints on what the user entered.  Takes the new
+             *     text as an argument and returns either the accepted text, a replacement
+             *     text, or null to abort the change.
+             * @extends {Blockly.FieldNumber}
+             * @constructor
+             */
+            constructor(value_: any /* jsdoc error */, opt_min: number|string|any /*undefined*/, opt_max: number|string|any /*undefined*/, opt_precision: number|string|any /*undefined*/, opt_step?: any /* jsdoc error */, opt_labelText?: any|string|any /*undefined*/, opt_validator?: Function);
+    
+            /**
+             * Show the inline free-text editor on top of the text.
+             * @param {!Event} e A mouse down or touch start event.
+             * @private
+             */
+      
+    
+            /**
+             * Show the slider.
+             * @private
+             */
+            showSlider_(): void;
+    
+            /**
+             * Add the slider.
+             * @private
+             */
+            addSlider_(contentDiv: any /* jsdoc error */): void;
+    
+            /**
+             * Create label DOM.
+             * @private
+             */
+            createLabelDom_(labelText: any /* jsdoc error */): void;
+    
+            /**
+             * Set value.
+             */
+            setValue(value: any /* jsdoc error */): void;
+    
+            /**
+             * Update the DOM.
+             * @private
+             */
+            updateDom_(): void;
+    
+            /**
+             * Set the slider background.
+             * @private
+             */
+            setBackground_(slider: any /* jsdoc error */): void;
+    
+            /**
+             * Set readout.
+             * @private
+             */
+            setReadout_(readout: any /* jsdoc error */, value: any /* jsdoc error */): void;
+    
+            /**
+             * Update slider handles.
+             * @private
+             */
+            updateSliderHandles_(): void;
+    
+            /**
+             * Close the slider if this input is being deleted.
+             */
+            dispose(): void;
+    } 
+    
+}
+
+declare module Blockly.FieldSlider {
+
+    /**
+     * Construct a FieldSlider from a JSON arg object.
+     * @param {!Object} options A JSON object with options (value, min, max, and
+     *                          precision, step, labelText).
+     * @returns {!Blockly.FieldSlider} The new field instance.
+     * @package
+     * @nocollapse
+     */
+    function fromJson(options: Object): Blockly.FieldSlider;
+}
+
+declare module Blockly {
+
   class Block extends Block__Class { }
   /** Fake class which should be extended to avoid inheriting static properties */
   class Block__Class {
@@ -5957,6 +6054,8 @@ declare module Blockly.Xml {
 
 declare module Blockly {
 
+    
+
   class ZoomControls extends ZoomControls__Class { }
   /** Fake class which should be extended to avoid inheriting static properties */
   class ZoomControls__Class {
@@ -6045,3 +6144,5 @@ declare module Blockly {
 
 
 }
+
+

@@ -282,6 +282,14 @@ export default function define(Python: Blockly.BlockGenerators) {
     return [code, Blockly.Python.ORDER_ATOMIC];
   };
 
+  Python['sliderinline'] = function(block) {
+    var text_text = block.getFieldValue('slider');
+    // TODO: Assemble Python into code variable.
+    var code = text_text;
+    // TODO: Change ORDER_NONE to the correct strength.
+    return [code, Blockly.Python.ORDER_ATOMIC];
+  };
+
 
   Python['varinlines'] = function(block) {
     var variable_name = Blockly.Python.variableDB_.getName(block.getFieldValue('NAME'), Blockly.Variables.NAME_TYPE);

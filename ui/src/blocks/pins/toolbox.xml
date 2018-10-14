@@ -28,8 +28,7 @@
       </shadow>
     </value>
   <value name="text1">
-      <shadow type="textinline">
-        <field name="text">0</field>
+      <shadow type="sliderinline">
       </shadow>
     </value>
   </block>
@@ -40,8 +39,7 @@
       </shadow>
     </value>
   <value name="text1">
-      <shadow type="textinline">
-        <field name="text">0</field>
+      <shadow type="sliderinline">
       </shadow>
     </value>
   </block>

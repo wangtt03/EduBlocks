@@ -597,6 +597,18 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     }
   };
 
+  Blocks['sliderinline'] = {
+    init: function() {
+      this.appendDummyInput()
+        .appendField(new Blockly.FieldSlider("0", "0", "1", "1", "1", "Value"), 'slider');
+      this.setInputsInline(true);
+      this.setOutput(true, null);
+      this.setColour("#FFFFFF", "#FFFFFF", bordercolour);
+      this.setTooltip("Text input for inline input");
+      this.setHelpUrl("");
+    }
+  };
+
   Blocks['varinlines'] = {
     init: function() {
       this.appendDummyInput()
