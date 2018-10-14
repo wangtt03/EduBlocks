@@ -40,7 +40,8 @@
       </shadow>
     </value>
   <value name="text1">
-      <shadow type="sliderinline">
+      <shadow type="textinline">
+        <field name="text">0</field>
       </shadow>
     </value>
   </block>
