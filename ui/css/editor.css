@@ -8,6 +8,15 @@ body {
   text-align: center;
 }
 
+.blocklyFlyoutBackground{
+  color: white !important;
+}
+
+.myLabelStyle>.blocklyFlyoutLabelText {
+  fill: white;
+}
+
+
 #page {
   height: 100%;
   width: 100%;

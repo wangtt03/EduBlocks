@@ -18,7 +18,9 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.appendDummyInput()
           .appendField(new Blockly.FieldVariable("pin"), "pin")
           .appendField(" = DigitalInOut(")
-          .appendField(new Blockly.FieldTextInput(""), "pinno")
+      this.appendValueInput("text")
+          .setCheck(null);
+      this.appendDummyInput()
           .appendField(")");
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
@@ -33,7 +35,8 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.appendDummyInput()
           .appendField(new Blockly.FieldVariable("pin"), "pin")
           .appendField(".direction = ")
-          .appendField(new Blockly.FieldTextInput("Direction.OUTPUT"), "direction");
+      this.appendValueInput("text")
+          .setCheck(null);
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
       this.setColour(digitalcol);
@@ -46,8 +49,10 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     init: function() {
       this.appendDummyInput()
           .appendField(new Blockly.FieldVariable("pin"), "pin")
-          .appendField(".pull")
-          .appendField(new Blockly.FieldTextInput("Pull.DOWN"), "direction");
+          .appendField(".pull = ")
+      this.appendValueInput("text")
+          .setCheck(null);
+      this.appendDummyInput()
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
       this.setColour(digitalcol);
@@ -61,7 +66,9 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.appendDummyInput()
           .appendField(new Blockly.FieldVariable("pin"), "pin")
           .appendField(".value = ")
-          .appendField(new Blockly.FieldTextInput("True"), "text")
+      this.appendValueInput("text")
+          .setCheck(null);
+      this.appendDummyInput()
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
       this.setColour(digitalcol);

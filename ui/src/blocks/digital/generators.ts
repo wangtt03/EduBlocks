@@ -8,7 +8,8 @@ export default function define(Python: Blockly.BlockGenerators) {
 
   Python['pinconfig'] = function(block) {
     var variable_pin = Blockly.Python.variableDB_.getName(block.getFieldValue('pin'), Blockly.Variables.NAME_TYPE);
-    var text_pinno = block.getFieldValue('pinno');
+    var text_pinno = Blockly.Python.valueToCode(block, 'text', Blockly.Python.ORDER_ATOMIC)
+|| '';
     // TODO: Assemble Python into code variable.
     var code = variable_pin+ ' = DigitalInOut(' +text_pinno+ ')\n';
     return code;
@@ -16,7 +17,8 @@ export default function define(Python: Blockly.BlockGenerators) {
 
   Python['pindirection'] = function(block) {
     var variable_pin = Blockly.Python.variableDB_.getName(block.getFieldValue('pin'), Blockly.Variables.NAME_TYPE);
-    var text_direction = block.getFieldValue('direction');
+    var text_direction = Blockly.Python.valueToCode(block, 'text', Blockly.Python.ORDER_ATOMIC)
+|| 'Direction.OUTPUT';
     // TODO: Assemble Python into code variable.
     var code = variable_pin+ '.direction = ' +text_direction+ '\n';
     return code;
@@ -24,7 +26,8 @@ export default function define(Python: Blockly.BlockGenerators) {
 
   Python['pull'] = function(block) {
     var variable_pin = Blockly.Python.variableDB_.getName(block.getFieldValue('pin'), Blockly.Variables.NAME_TYPE);
-    var text_direction = block.getFieldValue('direction');
+    var text_direction = Blockly.Python.valueToCode(block, 'text', Blockly.Python.ORDER_ATOMIC)
+|| 'Pull.DOWN';
     // TODO: Assemble Python into code variable.
     var code = variable_pin+ '.pull = ' +text_direction+ '\n';
     return code;
@@ -32,7 +35,8 @@ export default function define(Python: Blockly.BlockGenerators) {
 
   Python['pinvalue'] = function(block) {
     var variable_pin = Blockly.Python.variableDB_.getName(block.getFieldValue('pin'), Blockly.Variables.NAME_TYPE);
-    var text_text = block.getFieldValue('text');
+    var text_text = Blockly.Python.valueToCode(block, 'text', Blockly.Python.ORDER_ATOMIC)
+|| '';
     // TODO: Assemble Python into code variable.
     var code = variable_pin+ '.value = ' +text_text+ '\n';
     return code;
