@@ -292,9 +292,9 @@ export default function define(Python: Blockly.BlockGenerators) {
 
 
   Python['varinlines'] = function(block) {
-    var variable_name = Blockly.Python.variableDB_.getName(block.getFieldValue('NAME'), Blockly.Variables.NAME_TYPE);
-    var text_text = block.getFieldValue('text');
-    var value_name = Blockly.Python.valueToCode(block, 'NAME', Blockly.Python.ORDER_ATOMIC);
+    var variable_name = Blockly.Python.variableDB_.getName(block.getFieldValue('var'), Blockly.Variables.NAME_TYPE);
+    var text_text = block.getFieldValue('NAME');
+    var value_name = Blockly.Python.valueToCode(block, 'value', Blockly.Python.ORDER_ATOMIC);
     // TODO: Assemble Python into code variable.
     var code = variable_name + ' ' +text_text+ ' ' +value_name+ '\n';
     return code;
