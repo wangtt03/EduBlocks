@@ -1,15 +1,14 @@
 export default function define(Blocks: Blockly.BlockDefinitions) {
 
   var maincolour = "#ff0066";
-  var bordercolour = "#b3235a";
-  var inputcolour = "#ff0066";
+  
   Blocks['import_board'] = {
     init: function () {
       this.appendDummyInput()
         .appendField('import board');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(maincolour, inputcolour, bordercolour);
+      this.setColour(maincolour);
       this.setTooltip('Imports the board library.');
       this.setHelpUrl('http://www.example.com/');
     },
@@ -21,7 +20,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField('import time');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(maincolour, inputcolour, bordercolour);
+      this.setColour(maincolour);
       this.setTooltip('Imports the time library.');
       this.setHelpUrl('http://www.example.com/');
     },
@@ -33,7 +32,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField('pause()');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(maincolour, inputcolour, bordercolour);
+      this.setColour(maincolour);
       this.setTooltip('Pause');
       this.setHelpUrl('http://www.example.com/');
     },
@@ -45,7 +44,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField('import random');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(maincolour, inputcolour, bordercolour);
+      this.setColour(maincolour);
       this.setTooltip('Imports the random library.');
       this.setHelpUrl('http://www.example.com/');
     },
@@ -60,7 +59,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField('');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(maincolour, inputcolour, bordercolour);
+      this.setColour(maincolour);
       this.setTooltip('Forever loop.');
       this.setHelpUrl('https://t.co/PCZC5EFe4D');
     },
@@ -72,7 +71,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField('pass');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(maincolour, inputcolour, bordercolour);
+      this.setColour(maincolour);
       this.setTooltip('Pass to the next command');
       this.setHelpUrl('http://www.example.com/');
     },
@@ -89,7 +88,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField('');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(maincolour, inputcolour, bordercolour);
+      this.setColour(maincolour);
       this.setTooltip('If Statement.');
       this.setHelpUrl('');
     },
@@ -107,7 +106,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField('');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(maincolour, inputcolour, bordercolour);
+      this.setColour(maincolour);
       this.setTooltip('Class Statement.');
       this.setHelpUrl('');
     },
@@ -123,7 +122,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField(')');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(maincolour, inputcolour, bordercolour);
+      this.setColour(maincolour);
       this.setTooltip('Use this to print a variable, a number, or even a string if you put in the quotes yourself.');
       this.setHelpUrl('http://www.example.com/');
     },
@@ -142,7 +141,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .setCheck(null);
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(maincolour, inputcolour, bordercolour);
+      this.setColour(maincolour);
       this.setTooltip('If statement with greater and less than');
       this.setHelpUrl('');
     },
@@ -156,7 +155,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField(new Blockly.FieldTextInput('0'), '2');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(maincolour, inputcolour, bordercolour);
+      this.setColour(maincolour);
       this.setTooltip('Variable with - and =');
       this.setHelpUrl('');
     },
@@ -178,7 +177,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .setCheck(null);
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(maincolour, inputcolour, bordercolour);
+      this.setColour(maincolour);
       this.setTooltip('');
       this.setHelpUrl('Create a for loop');
     },
@@ -200,7 +199,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .setCheck(null);
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(maincolour, inputcolour, bordercolour);
+      this.setColour(maincolour);
       this.setTooltip('');
       this.setHelpUrl('');
     },
@@ -218,7 +217,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .setCheck(null);
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(maincolour, inputcolour, bordercolour);
+      this.setColour(maincolour);
       this.setTooltip('');
       this.setHelpUrl('');
     },
@@ -230,7 +229,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField('import inputs');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(maincolour, inputcolour, bordercolour);
+      this.setColour(maincolour);
       this.setTooltip('');
       this.setHelpUrl('');
     },
@@ -245,7 +244,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.setPreviousStatement(true, null);
       this.setInputsInline(true);
       this.setNextStatement(true, null);
-      this.setColour(maincolour, inputcolour, bordercolour);
+      this.setColour(maincolour);
       this.setTooltip('');
       this.setHelpUrl('');
     },
@@ -262,7 +261,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField('');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(maincolour, inputcolour, bordercolour);
+      this.setColour(maincolour);
       this.setTooltip('Elif Statement.');
       this.setHelpUrl('');
     },
@@ -276,7 +275,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField('');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(maincolour, inputcolour, bordercolour);
+      this.setColour(maincolour);
       this.setTooltip('Else statement');
       this.setHelpUrl('');
     },
@@ -294,7 +293,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField(')');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(maincolour, inputcolour, bordercolour);
+      this.setColour(maincolour);
       this.setTooltip('call a define function');
       this.setHelpUrl('');
     },
@@ -312,7 +311,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField('');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(maincolour, inputcolour, bordercolour);
+      this.setColour(maincolour);
       this.setTooltip('');
       this.setHelpUrl('http://www.example.com/');
     },
@@ -326,7 +325,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField('import math');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(maincolour, inputcolour, bordercolour);
+      this.setColour(maincolour);
       this.setTooltip('Imports the math library.');
       this.setHelpUrl('http://www.example.com/');
     },
@@ -343,7 +342,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField(')');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(maincolour, inputcolour, bordercolour);
+      this.setColour(maincolour);
       this.setTooltip('Sleep');
       this.setHelpUrl('');
     },
@@ -360,7 +359,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.setInputsInline(true);
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(maincolour, inputcolour, bordercolour);
+      this.setColour(maincolour);
       this.setTooltip("Wait (in milliseconds)");
       this.setHelpUrl("");
     }
@@ -378,7 +377,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField('" )');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(maincolour, inputcolour, bordercolour);
+      this.setColour(maincolour);
       this.setTooltip('Use this to print to the output box.');
       this.setHelpUrl('http://www.example.com/');
     },
@@ -394,7 +393,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField('" )');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(maincolour, inputcolour, bordercolour);
+      this.setColour(maincolour);
       this.setTooltip('Use this to print a string to the output box.');
       this.setHelpUrl('');
     },
@@ -408,7 +407,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField(new Blockly.FieldTextInput('0'), '2');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(maincolour, inputcolour, bordercolour);
+      this.setColour(maincolour);
       this.setTooltip('');
       this.setHelpUrl('http://www.example.com/');
     },
@@ -425,7 +424,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.setInputsInline(true);
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(maincolour, inputcolour, bordercolour);
+      this.setColour(maincolour);
       this.setTooltip("Assign, increment or decrement a variable");
       this.setHelpUrl("");
       this.setOutput(true, "Boolean");
@@ -448,7 +447,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .setCheck(null);
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(maincolour, inputcolour, bordercolour);
+      this.setColour(maincolour);
       this.setTooltip('');
       this.setHelpUrl('http://www.example.com/');
     },
@@ -467,7 +466,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField('');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(maincolour, inputcolour, bordercolour);
+      this.setColour(maincolour);
       this.setTooltip('');
       this.setHelpUrl('http://www.example.com/');
     },
@@ -486,7 +485,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.setInputsInline(true);
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(maincolour, inputcolour, bordercolour);
+      this.setColour(maincolour);
       this.setTooltip('If block with inline input');
       this.setHelpUrl('');
     },
@@ -500,7 +499,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
           .appendField("# your own code");
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(maincolour, inputcolour, bordercolour);
+      this.setColour(maincolour);
       this.setTooltip("Type any python code into this block");
       this.setHelpUrl("");
     }
@@ -519,7 +518,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.setInputsInline(true);
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(maincolour, inputcolour, bordercolour);
+      this.setColour(maincolour);
       this.setTooltip('ElIf block with inline input');
       this.setHelpUrl('');
     },
@@ -533,7 +532,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField('.is_pressed()');
       this.setInputsInline(false);
       this.setOutput(true, null);
-      this.setColour(maincolour, inputcolour, bordercolour);
+      this.setColour(maincolour);
       this.setTooltip('Button A Pressed');
       this.setHelpUrl('');
     },
@@ -567,7 +566,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
           .setCheck(null);
       this.setInputsInline(true);
       this.setOutput(true, null);
-      this.setColour(maincolour, inputcolour, bordercolour);
+      this.setColour(maincolour);
       this.setTooltip("");
       this.setHelpUrl("");
     }
@@ -579,7 +578,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField(new Blockly.FieldTextInput(""), "text");
       this.setInputsInline(true);
       this.setOutput(true, null);
-      this.setColour("#FFFFFF", "#FFFFFF", bordercolour);
+      this.setColour("#FFFFFF");
       this.setTooltip("Text input for inline input");
       this.setHelpUrl("");
     }
@@ -591,7 +590,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField(new Blockly.FieldSlider("0", "0", "1", "1", "1", "Value"), 'slider');
       this.setInputsInline(true);
       this.setOutput(true, null);
-      this.setColour("#FFFFFF", "#FFFFFF", bordercolour);
+      this.setColour("#FFFFFF");
       this.setTooltip("Text input for inline input");
       this.setHelpUrl("");
     }
@@ -607,7 +606,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.setInputsInline(true);
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(maincolour, inputcolour, bordercolour);
+      this.setColour(maincolour);
       this.setTooltip("assign a value, increment, or decrement a variable");
       this.setHelpUrl("");
     }
@@ -621,7 +620,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
             ["False","False"]
         ]), "bool");
       this.setOutput(true, "Boolean");
-      this.setColour(maincolour, inputcolour, bordercolour);
+      this.setColour(maincolour);
       this.setTooltip("");
       this.setHelpUrl("");
     }
@@ -639,7 +638,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
           .setCheck(null);
       this.setInputsInline(true);
       this.setOutput(true, null);
-      this.setColour(maincolour, inputcolour, bordercolour);
+      this.setColour(maincolour);
       this.setTooltip("");
       this.setHelpUrl("");
     }
@@ -653,7 +652,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .setCheck(null);
       this.setInputsInline(true);
       this.setOutput(true, null);
-      this.setColour(maincolour, inputcolour, bordercolour);
+      this.setColour(maincolour);
       this.setTooltip('negates a Boolean value');
       this.setHelpUrl('http://www.example.com/');
     },
@@ -665,7 +664,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField('break');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(maincolour, inputcolour, bordercolour);
+      this.setColour(maincolour);
       this.setTooltip('breaks out of a loop');
       this.setHelpUrl('http://www.example.com/');
     },
@@ -676,7 +675,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.appendDummyInput()
           .appendField(new Blockly.FieldVariable("var"), "VAR");
       this.setOutput(true, null);
-      this.setColour("#ff0066","#ff0066","#b3235a");
+      this.setColour("#ff0066");
    this.setTooltip("");
    this.setHelpUrl("");
     }
@@ -692,7 +691,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.setInputsInline(true);
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour("#ff0066","#ff0066","#b3235a");
+      this.setColour("#ff0066");
    this.setTooltip("");
    this.setHelpUrl("");
     }
