@@ -3,14 +3,16 @@ export default function define(Python: Blockly.BlockGenerators) {
 
   Python['setneo'] = function(block) {
     let variable_name = Blockly.Python.variableDB_.getName(block.getFieldValue('NAME'), Blockly.Variables.NAME_TYPE);
-    let text_inputneo = block.getFieldValue('inputneo');
+    var text_inputneo = Blockly.Python.valueToCode(block, 'text', Blockly.Python.ORDER_ATOMIC)
+|| '';
     let code = variable_name+ ' = neopixel.NeoPixel(' +text_inputneo+ ')\n';
     return code;
   };
 
   Python['fill'] = function(block) {
     let variable_name = Blockly.Python.variableDB_.getName(block.getFieldValue('NAME'), Blockly.Variables.NAME_TYPE);
-    let text_inputneo = block.getFieldValue('inputneo');
+    var text_inputneo = Blockly.Python.valueToCode(block, 'text', Blockly.Python.ORDER_ATOMIC)
+|| '';
     let code = variable_name+ '.fill(' +text_inputneo+ ')\n';
     return code;
   };
@@ -23,7 +25,11 @@ export default function define(Python: Blockly.BlockGenerators) {
 
   Python['neovar'] = function(block) {
     var variable_name = Blockly.Python.variableDB_.getName(block.getFieldValue('NAME'), Blockly.Variables.NAME_TYPE);
-    var text_neonum = block.getFieldValue('neonum');
+    var text_neonum = Blockly.Python.valueToCode(block, 'text1', Blockly.Python.ORDER_ATOMIC)
+|| '';
+
+var text_colour = Blockly.Python.valueToCode(block, 'text2', Blockly.Python.ORDER_ATOMIC)
+|| '';
     var text_colour = block.getFieldValue('colour');
     // TODO: Assemble Python into code variable.
     var code = variable_name+ '[' +text_neonum+ '] = (' +text_colour+ ')\n';

@@ -18,7 +18,9 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.appendDummyInput()
           .appendField(new Blockly.FieldVariable("my_servo"), "pin")
           .appendField(" = servo.Servo(")
-          .appendField(new Blockly.FieldTextInput(""), "pinno")
+      this.appendValueInput("text")
+          .setCheck(null);
+      this.appendDummyInput()
           .appendField(")");
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
@@ -33,7 +35,9 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.appendDummyInput()
           .appendField(new Blockly.FieldVariable("my_servo"), "pin")
           .appendField(".value = ")
-          .appendField(new Blockly.FieldTextInput("angle"), "angle");
+      this.appendValueInput("text")
+          .setCheck(null);
+      this.appendDummyInput()
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
       this.setColour(servocol);

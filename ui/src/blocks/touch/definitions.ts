@@ -15,9 +15,11 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
   Blocks['touch_conf'] = {
     init: function() {
       this.appendDummyInput()
-          .appendField(new Blockly.FieldVariable("touch1"), "pin")
+          .appendField(new Blockly.FieldVariable("touch"), "pin")
           .appendField(" = touchio.TouchIn(")
-          .appendField(new Blockly.FieldTextInput("board.A1"), "pinno")
+      this.appendValueInput("text")
+          .setCheck(null);
+      this.appendDummyInput()
           .appendField(")");
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
@@ -30,7 +32,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
   Blocks['touch_valinline'] = {
     init: function() {
       this.appendDummyInput()
-          .appendField(new Blockly.FieldVariable("pin"), "pin")
+          .appendField(new Blockly.FieldVariable("touch"), "pin")
           .appendField(".value");
       this.setOutput(true, null);
       this.setColour(touchcol);

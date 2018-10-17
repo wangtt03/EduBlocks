@@ -8,7 +8,8 @@ export default function define(Python: Blockly.BlockGenerators) {
 
   Python['touch_conf'] = function(block) {
     var variable_pin = Blockly.Python.variableDB_.getName(block.getFieldValue('pin'), Blockly.Variables.NAME_TYPE);
-    var text_pinno = block.getFieldValue('pinno');
+    var text_pinno = Blockly.Python.valueToCode(block, 'text1', Blockly.Python.ORDER_ATOMIC)
+|| 'Board.A1';
     // TODO: Assemble Python into code variable.
     var code = variable_pin+ ' = touchio.TouchIn(' +text_pinno+ ')\n';
     return code;

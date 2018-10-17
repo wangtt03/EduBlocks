@@ -5,7 +5,9 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.appendDummyInput()
           .appendField(new Blockly.FieldVariable("np"), "NAME")
           .appendField(" = neopixel.NeoPixel(")
-          .appendField(new Blockly.FieldTextInput(""), "inputneo")
+      this.appendValueInput("text")
+          .setCheck(null);
+      this.appendDummyInput()
           .appendField(")");
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
@@ -20,7 +22,9 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.appendDummyInput()
           .appendField(new Blockly.FieldVariable("np"), "NAME")
           .appendField(".fill(")
-          .appendField(new Blockly.FieldTextInput(""), "inputneo")
+      this.appendValueInput("text")
+          .setCheck(null);
+      this.appendDummyInput()
           .appendField(")");
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
@@ -36,9 +40,13 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.appendDummyInput()
           .appendField(new Blockly.FieldVariable("np"), "NAME")
           .appendField("[")
-          .appendField(new Blockly.FieldTextInput(""), "neonum")
+      this.appendValueInput("text1")
+          .setCheck(null);
+      this.appendDummyInput()
           .appendField("] = (")
-          .appendField(new Blockly.FieldTextInput(""), "colour")
+      this.appendValueInput("text2")
+          .setCheck(null);
+      this.appendDummyInput()
           .appendField(")");
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);

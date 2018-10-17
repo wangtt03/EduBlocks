@@ -8,7 +8,8 @@ export default function define(Python: Blockly.BlockGenerators) {
 
   Python['servo_conf'] = function(block) {
     var variable_pin = Blockly.Python.variableDB_.getName(block.getFieldValue('pin'), Blockly.Variables.NAME_TYPE);
-    var text_pinno = block.getFieldValue('pinno');
+    var text_pinno = Blockly.Python.valueToCode(block, 'text1', Blockly.Python.ORDER_ATOMIC)
+|| '';
     // TODO: Assemble Python into code variable.
     var code = variable_pin+ ' = DigitalInOut(' +text_pinno+ ')\n';
     return code;
@@ -16,7 +17,8 @@ export default function define(Python: Blockly.BlockGenerators) {
 
   Python['servo_value'] = function(block) {
     var variable_pin = Blockly.Python.variableDB_.getName(block.getFieldValue('pin'), Blockly.Variables.NAME_TYPE);
-    var text_angle = block.getFieldValue('angle');
+    var text_angle = Blockly.Python.valueToCode(block, 'text1', Blockly.Python.ORDER_ATOMIC)
+|| 'angle';
     // TODO: Assemble Python into code variable.
     var code = variable_pin+ '.value = ' +text_angle+  '\n';
     return code;

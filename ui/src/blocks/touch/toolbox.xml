@@ -1,5 +1,11 @@
 <category name="Touch" colour="#E84C3D">
     <block type="import_touchio"></block>
-    <block type="touch_conf"></block>
+    <block type="touch_conf">
+    <value name="text">
+    <shadow type="textinline">
+      <field name="text">Board.A1</field>
+    </shadow>
+  </value> 
+    </block>
     <block type="touch_valinline"></block>
 </category>

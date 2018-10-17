@@ -345,7 +345,7 @@ class Block__Class {
    * Change the colour of a block.
    * @param {number} colourHue HSV hue value.
    */
-  setColour(colourHue: any, colourPrimary: any, colourTertiary: any): void;
+  setColour(colourHue: any): void;
 
   /**
    * Returns the named field from a block.
