@@ -1,0 +1,22 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <variables>
+    <variable type="" id="+uJ(Kl8%H4BY68sZWSzF">images</variable>
+  </variables>
+  <block type="import_microbit" id="qcv*;]yrL8#RU60Q%9zm" collapsed="true" x="13" y="12">
+    <next>
+      <block type="imradio" id="]bPaLcAsW%8Hca~vd^f$" collapsed="true">
+        <next>
+          <block type="varinlines" id="wi=a#15q%{)5TjI0DDGc" collapsed="true">
+            <field name="var" id="+uJ(Kl8%H4BY68sZWSzF" variabletype="">images</field>
+            <field name="NAME">=</field>
+            <value name="value">
+              <shadow type="textinline" id="OP.GDTpY5|%#xk!@pu`z">
+                <field name="text">{1:Image.HEART,2:Image.HEART_SMALL,3:Image.HAPPY,4:Image.SAD,5:Image.SURPRISED,6:Image.ANGRY,7:Image.ASLEEP,8:Image.BUTTERFLY,9:Image.DIAMOND,10:Image.CONFUSED,11:Image.COW,12:Image.PACMAN}</field>
+              </shadow>
+            </value>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>
