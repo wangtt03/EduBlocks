@@ -1,12 +1,12 @@
 .theme-Dark nav {
-  background: #000;
+  background: #1F1F1F;
 }
 .theme-Dark .blocklySvg {
-  background-color: #111111 !important;
+  background-color: #363636 !important;
 }
 .theme-Dark .menu .button,
 .theme-Dark button {
-  background: #444;
+  background: #006BBD;
   color: white;
 }
 
@@ -15,22 +15,22 @@
 }
 
 .theme-Dark .blocklyToolboxDiv {
-  background-color: #444;
+  background-color: #006BBD;
   color: white
 }
 
 
 .theme-Dark #toggleViewButton{
-  background-color: #444;
+  background-color: #006BBD;
   color: white
 }
 
 .theme-Dark .close {
-  color: #444
+  color: #006BBD
 }
 
 .theme-Dark .modal article{
-  background-color: #111111;
+  background-color: #1F1F1F;
   color: #fff;
   border: 1px solid white;
 }
@@ -38,11 +38,10 @@
 /* Default Theme */
 
 .theme-Default nav{
-  background: #32deff; /* For browsers that do not support gradients */        
-  background: -webkit-linear-gradient(90deg, #00ed00, #32deff); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(90deg, #00ed00, #32deff); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(90deg, #00ed00, #32deff); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(90deg, #00ed00, #32deff); /* Standard syntax (must be last) */
+  background: #396afc;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #2948ff, #396afc);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #2948ff, #396afc); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 
 }
 
