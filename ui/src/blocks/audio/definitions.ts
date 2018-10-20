@@ -17,7 +17,9 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.appendDummyInput()
           .appendField(new Blockly.FieldVariable("audio"), "pin")
           .appendField(".switch_to_output(")
-          .appendField(new Blockly.FieldTextInput("value=True"), "val")
+      this.appendValueInput("text")
+          .setCheck(null);
+      this.appendDummyInput()
           .appendField(")");
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
@@ -32,7 +34,9 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.appendDummyInput()
           .appendField(new Blockly.FieldVariable("audio"), "pin")
           .appendField(" = audioio.AudioOut(")
-          .appendField(new Blockly.FieldTextInput(""), "pinno")
+      this.appendValueInput("text")
+          .setCheck(null);
+      this.appendDummyInput()
           .appendField(")");
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
@@ -47,7 +51,9 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.appendDummyInput()
           .appendField(new Blockly.FieldVariable("audio"), "pin")
           .appendField(" = audioio.WaveFile(")
-          .appendField(new Blockly.FieldTextInput(""), "pinno")
+      this.appendValueInput("text")
+          .setCheck(null);
+      this.appendDummyInput()
           .appendField(")");
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
@@ -63,7 +69,9 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.appendDummyInput()
           .appendField(new Blockly.FieldVariable("data"), "data")
           .appendField(" = open(")
-          .appendField(new Blockly.FieldTextInput(""), "pinno")
+      this.appendValueInput("text")
+          .setCheck(null);
+      this.appendDummyInput()
           .appendField(")");
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
@@ -92,7 +100,9 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.appendDummyInput()
           .appendField(new Blockly.FieldVariable("sample"), "pin")
           .appendField(" = audioio.RawSample(")
-          .appendField(new Blockly.FieldTextInput(""), "pinno")
+      this.appendValueInput("text")
+          .setCheck(null);
+      this.appendDummyInput()
           .appendField(")");
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
@@ -107,7 +117,9 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.appendDummyInput()
           .appendField(new Blockly.FieldVariable("audio"), "pin")
           .appendField(".play(")
-          .appendField(new Blockly.FieldTextInput(""), "pinno")
+      this.appendValueInput("text")
+          .setCheck(null);
+      this.appendDummyInput()
           .appendField(")");
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);

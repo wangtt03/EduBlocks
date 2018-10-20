@@ -29,11 +29,17 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.appendDummyInput()
           .appendField(new Blockly.FieldVariable("pwm"), "pwm")
           .appendField(" = pulseio.PWMOut(")
-          .appendField(new Blockly.FieldTextInput("Board.D13"), "pin")
+      this.appendValueInput("text1")
+          .setCheck(null);
+      this.appendDummyInput()
           .appendField(", duty_cycle=")
-          .appendField(new Blockly.FieldTextInput(""), "dc")
+      this.appendValueInput("text2")
+          .setCheck(null);
+      this.appendDummyInput()
           .appendField(", frequency = ")
-          .appendField(new Blockly.FieldTextInput("50"), "fr")
+      this.appendValueInput("text3")
+          .setCheck(null);
+      this.appendDummyInput()
           .appendField(")");
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
@@ -48,7 +54,9 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.appendDummyInput()
           .appendField(new Blockly.FieldVariable("pin"), "pin")
           .appendField(" = pulseio.PWMOut(")
-          .appendField(new Blockly.FieldTextInput(""), "pinno")
+      this.appendValueInput("text")
+          .setCheck(null);
+      this.appendDummyInput()
           .appendField(")");
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
@@ -62,7 +70,9 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     init: function() {
       this.appendDummyInput()
           .appendField("simple.tone(")
-          .appendField(new Blockly.FieldTextInput(""), "pinno")
+      this.appendValueInput("text")
+          .setCheck(null);
+      this.appendDummyInput()
           .appendField(")");
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
@@ -77,7 +87,8 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.appendDummyInput()
           .appendField(new Blockly.FieldVariable("pin"), "pin")
           .appendField(".duty_cycle = ")
-          .appendField(new Blockly.FieldTextInput(""), "direction");
+      this.appendValueInput("text")
+          .setCheck(null);
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
       this.setColour(pwmcol);
@@ -91,7 +102,8 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.appendDummyInput()
           .appendField(new Blockly.FieldVariable("pin"), "pin")
           .appendField(".frequency = ")
-          .appendField(new Blockly.FieldTextInput(""), "direction");
+      this.appendValueInput("text")
+          .setCheck(null);
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
       this.setColour(pwmcol);

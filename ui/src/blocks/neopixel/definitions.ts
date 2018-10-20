@@ -15,7 +15,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
    this.setTooltip("Configure Neopixels");
    this.setHelpUrl("");
     }
-  };
+  }; 
 
   Blocks['fill'] = {
     init: function() {

@@ -8,7 +8,8 @@ export default function define(Python: Blockly.BlockGenerators) {
 
   Python['audio_conf'] = function(block) {
     var variable_pin = Blockly.Python.variableDB_.getName(block.getFieldValue('pin'), Blockly.Variables.NAME_TYPE);
-    var text_pinno = block.getFieldValue('pinno');
+    var text_pinno = Blockly.Python.valueToCode(block, 'text', Blockly.Python.ORDER_ATOMIC)
+|| '';
     // TODO: Assemble Python into code variable.
     var code = variable_pin+ ' = audioio.AudioOut(' +text_pinno+ ')\n';
     return code;
@@ -16,7 +17,8 @@ export default function define(Python: Blockly.BlockGenerators) {
 
   Python['audio_wav'] = function(block) {
     var variable_pin = Blockly.Python.variableDB_.getName(block.getFieldValue('pin'), Blockly.Variables.NAME_TYPE);
-    var text_pinno = block.getFieldValue('pinno');
+    var text_pinno = Blockly.Python.valueToCode(block, 'text', Blockly.Python.ORDER_ATOMIC)
+|| '';
     // TODO: Assemble Python into code variable.
     var code = variable_pin+ ' = audioio.WaveFile(' +text_pinno+ ')\n';
     return code;
@@ -24,7 +26,8 @@ export default function define(Python: Blockly.BlockGenerators) {
 
   Python['audio_enable'] = function(block) {
     var variable_pin = Blockly.Python.variableDB_.getName(block.getFieldValue('pin'), Blockly.Variables.NAME_TYPE);
-    var text_pinno = block.getFieldValue('val');
+    var text_pinno = Blockly.Python.valueToCode(block, 'text', Blockly.Python.ORDER_ATOMIC)
+|| 'value = True';
     // TODO: Assemble Python into code variable.
     var code = variable_pin+ '.switch_to_output(' +text_pinno+ ')\n';
     return code;
@@ -32,7 +35,8 @@ export default function define(Python: Blockly.BlockGenerators) {
 
   Python['audio_open'] = function(block) {
     var variable_pin = Blockly.Python.variableDB_.getName(block.getFieldValue('data'), Blockly.Variables.NAME_TYPE);
-    var text_pinno = block.getFieldValue('pinno');
+    var text_pinno = Blockly.Python.valueToCode(block, 'text', Blockly.Python.ORDER_ATOMIC)
+|| '';
     // TODO: Assemble Python into code variable.
     var code = variable_pin+ ' = open(' +text_pinno+ ')\n';
     return code;
@@ -40,7 +44,8 @@ export default function define(Python: Blockly.BlockGenerators) {
 
   Python['audio_raw'] = function(block) {
     var variable_pin = Blockly.Python.variableDB_.getName(block.getFieldValue('pin'), Blockly.Variables.NAME_TYPE);
-    var text_pinno = block.getFieldValue('pinno');
+    var text_pinno = Blockly.Python.valueToCode(block, 'text', Blockly.Python.ORDER_ATOMIC)
+|| '';
     // TODO: Assemble Python into code variable.
     var code = variable_pin+ ' = audioio.RawSample(' +text_pinno+ ')\n';
     return code;
@@ -48,7 +53,8 @@ export default function define(Python: Blockly.BlockGenerators) {
 
   Python['audio_play'] = function(block) {
     var variable_pin = Blockly.Python.variableDB_.getName(block.getFieldValue('pin'), Blockly.Variables.NAME_TYPE);
-    var text_pinno = block.getFieldValue('pinno');
+    var text_pinno = Blockly.Python.valueToCode(block, 'text', Blockly.Python.ORDER_ATOMIC)
+|| '';
     // TODO: Assemble Python into code variable.
     var code = variable_pin+ '.play(' +text_pinno+ ')\n';
     return code;

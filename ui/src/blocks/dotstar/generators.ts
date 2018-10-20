@@ -8,7 +8,8 @@ export default function define(Python: Blockly.BlockGenerators) {
 
   Python['vardotstar'] = function(block) {
     var variable_led = Blockly.Python.variableDB_.getName(block.getFieldValue('led'), Blockly.Variables.NAME_TYPE);
-    var text_input = block.getFieldValue('input');
+    var text_input = Blockly.Python.valueToCode(block, 'text', Blockly.Python.ORDER_ATOMIC)
+|| '';
     // TODO: Assemble Python into code variable.
     var code = variable_led+ ' = adafruit_dotstar.DotStar(' +text_input+ ')\n';
     return code;
@@ -16,7 +17,8 @@ export default function define(Python: Blockly.BlockGenerators) {
 
   Python['ledfill'] = function(block) {
     var variable_led = Blockly.Python.variableDB_.getName(block.getFieldValue('led'), Blockly.Variables.NAME_TYPE);
-    var text_input = block.getFieldValue('input');
+    var text_input = Blockly.Python.valueToCode(block, 'text', Blockly.Python.ORDER_ATOMIC)
+|| '';
     // TODO: Assemble Python into code variable.
     var code = variable_led+ '.fill(' +text_input+ ')\n';
     return code;
@@ -24,7 +26,8 @@ export default function define(Python: Blockly.BlockGenerators) {
 
   Python['dsbrightness'] = function(block) {
     var variable_led = Blockly.Python.variableDB_.getName(block.getFieldValue('led'), Blockly.Variables.NAME_TYPE);
-    var text_brightness = block.getFieldValue('brightness');
+    var text_brightness = Blockly.Python.valueToCode(block, 'text', Blockly.Python.ORDER_ATOMIC)
+|| '';
     // TODO: Assemble Python into code variable.
     var code = variable_led+ '.brightness = ' +text_brightness+ '\n';
     return code;
@@ -32,8 +35,10 @@ export default function define(Python: Blockly.BlockGenerators) {
 
   Python['dsvar'] = function(block) {
     var variable_name = Blockly.Python.variableDB_.getName(block.getFieldValue('led'), Blockly.Variables.NAME_TYPE);
-    var text_neonum = block.getFieldValue('neonum');
-    var text_colour = block.getFieldValue('colour');
+    var text_neonum = Blockly.Python.valueToCode(block, 'text1', Blockly.Python.ORDER_ATOMIC)
+|| '';
+var text_colour = Blockly.Python.valueToCode(block, 'text2', Blockly.Python.ORDER_ATOMIC)
+|| '';
     // TODO: Assemble Python into code variable.
     var code = variable_name+ '[' +text_neonum+ '] = (' +text_colour+ ')\n';
     return code;

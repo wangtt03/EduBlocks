@@ -17,7 +17,9 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.appendDummyInput()
           .appendField(new Blockly.FieldVariable("led"), "led")
           .appendField(" = adafruit_dotstar.DotStar(")
-          .appendField(new Blockly.FieldTextInput(""), "input")
+      this.appendValueInput("text")
+          .setCheck(null);
+      this.appendDummyInput()
           .appendField(")");
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
@@ -32,7 +34,9 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.appendDummyInput()
           .appendField(new Blockly.FieldVariable("led"), "led")
           .appendField(".fill(")
-          .appendField(new Blockly.FieldTextInput(""), "input")
+      this.appendValueInput("text")
+          .setCheck(null);
+      this.appendDummyInput()
           .appendField(")");
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
@@ -47,7 +51,8 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.appendDummyInput()
           .appendField(new Blockly.FieldVariable("led"), "led")
           .appendField(".brightness = ")
-          .appendField(new Blockly.FieldTextInput(""), "brightness");
+      this.appendValueInput("text")
+          .setCheck(null);
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
       this.setColour(70);
@@ -61,9 +66,13 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.appendDummyInput()
           .appendField(new Blockly.FieldVariable("led"), "led")
           .appendField("[")
-          .appendField(new Blockly.FieldTextInput(""), "neonum")
+      this.appendValueInput("text1")
+          .setCheck(null);
+      this.appendDummyInput()
           .appendField("] = (")
-          .appendField(new Blockly.FieldTextInput(""), "colour")
+      this.appendValueInput("text2")
+          .setCheck(null);
+      this.appendDummyInput()
           .appendField(")");
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);

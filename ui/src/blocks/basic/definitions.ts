@@ -578,7 +578,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField(new Blockly.FieldTextInput(""), "text");
       this.setInputsInline(true);
       this.setOutput(true, null);
-      this.setColour("#FFFFFF");
+      this.setColour("#FFFFFF", "#FFFFFF", "#FFFFFF");
       this.setTooltip("Text input for inline input");
       this.setHelpUrl("");
     }
@@ -590,7 +590,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField(new Blockly.FieldSlider("0", "0", "1", "1", "1", "Value"), 'slider');
       this.setInputsInline(true);
       this.setOutput(true, null);
-      this.setColour("#FFFFFF");
+      this.setColour("#FFFFFF", "#FFFFFF", "#FFFFFF");
       this.setTooltip("Text input for inline input");
       this.setHelpUrl("");
     }

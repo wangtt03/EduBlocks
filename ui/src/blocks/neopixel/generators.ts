@@ -21,7 +21,7 @@ export default function define(Python: Blockly.BlockGenerators) {
     let code = 'import neopixel\n';
     return code;
   };
-
+ 
 
   Python['neovar'] = function(block) {
     var variable_name = Blockly.Python.variableDB_.getName(block.getFieldValue('NAME'), Blockly.Variables.NAME_TYPE);

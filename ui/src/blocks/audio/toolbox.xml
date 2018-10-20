@@ -1,11 +1,47 @@
 <category name="Audio" colour="#4CE254">
     <block type="import_audio"></block>
-    <block type="audio_conf"></block>
-    <block type="audio_raw"></block>
-    <block type="audio_enable"></block>
-    <block type="audio_open"></block>
-    <block type="audio_wav"></block>
-    <block type="audio_play"></block>
+    <block type="audio_conf">
+    <value name="text">
+    <shadow type="textinline">
+      <field name="text"></field>
+    </shadow>
+  </value> 
+    </block>
+    <block type="audio_raw">
+    <value name="text">
+    <shadow type="textinline">
+      <field name="text"></field>
+    </shadow>
+  </value> 
+    </block>
+    <block type="audio_enable">
+    <value name="text">
+    <shadow type="textinline">
+      <field name="text">value = True</field>
+    </shadow>
+  </value> 
+    </block>
+    <block type="audio_open">
+    <value name="text">
+    <shadow type="textinline">
+      <field name="text"></field>
+    </shadow>
+  </value> 
+    </block>
+    <block type="audio_wav">
+    <value name="text">
+    <shadow type="textinline">
+      <field name="text"></field>
+    </shadow>
+  </value> 
+    </block>
+    <block type="audio_play">
+    <value name="text">
+    <shadow type="textinline">
+      <field name="text"></field>
+    </shadow>
+  </value>  
+    </block>
     <block type="audio_playing"></block>
     <block type="audio_stop"></block>
 </category>
