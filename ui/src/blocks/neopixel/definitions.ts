@@ -15,7 +15,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
    this.setTooltip("Configure Neopixels");
    this.setHelpUrl("");
     }
-  };
+  }; 
 
   Blocks['neovarnew'] = {
     init: function() {
@@ -70,6 +70,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     }
   };
 
+  
   Blocks['importneo'] = {
     init: function() {
       this.appendDummyInput()

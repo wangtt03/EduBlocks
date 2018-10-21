@@ -12,13 +12,51 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.setHelpUrl('');
     },
   };
+
+  var musiclist = [
+    ['music.DADADADUM', 'music.DADADADUM'],
+    ['music.ENTERTAINER', 'music.ENTERTAINER'],
+    ['music.PRELUDE', 'music.PRELUDE'],
+    ['music.ODE', 'music.ODE'],
+    ['music.NYAN', 'music.NYAN'],
+    ['music.RINGTONE', 'music.RINGTONE'],
+    ['music.FUNK', 'music.FUNK'],
+    ['music.BLUES', 'music.BLUES'],
+    ['music.BIRTHDAY', 'music.BIRTHDAY'],
+    ['music.WEDDING', 'music.WEDDING'],
+    ['music.FUNERAL', 'music.FUNERAL'],
+    ['music.PUNCHLINE', 'music.PUNCHLINE'],
+    ['music.PYTHON', 'music.PYTHON'],
+    ['music.BADDY', 'music.BADDY'],
+    ['music.CHASE', 'music.CHASE'],
+    ['music.BA_DING', 'music.BA_DING'],
+    ['music.WAWAWAWAA', 'music.WAWAWAWAA'],
+    ['music.JUMP_UP', 'music.JUMP_UP'],
+    ['music.JUMP_DOWN', 'music.JUMP_DOWN'],
+    ['music.POWER_UP', 'music.POWER_UP'],
+    ['music.POWER_DOWN', 'music.POWER_DOWN']
+  ]
+
+  Blocks['songs'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField(new Blockly.FieldDropdown(musiclist), "songs");
+      this.setOutput(true, "String");
+      this.setInputsInline(true);
+      this.setColour("#E5BC16","#E5BC16","#a1882d");
+      this.setTooltip("Choose a song");
+      this.setHelpUrl("");
+    }
+  };
   
   
   Blocks['musicplay'] = {
     init: function () {
       this.appendDummyInput()
         .appendField('music.play(')
-        .appendField(new Blockly.Field(''), 'musicplay')
+      this.appendValueInput("text")
+        .setCheck(null);
+      this.appendDummyInput()
         .appendField(')');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
@@ -32,7 +70,9 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     init: function () {
       this.appendDummyInput()
         .appendField('music.pitch(')
-        .appendField(new Blockly.FieldTextInput(''), 'musicpitch')
+      this.appendValueInput("text")
+        .setCheck(null);
+      this.appendDummyInput()
         .appendField(')');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
@@ -70,7 +110,9 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     init: function () {
       this.appendDummyInput()
         .appendField('music.set_tempo(')
-        .appendField(new Blockly.FieldTextInput(''), 'musictempo')
+      this.appendValueInput("text")
+        .setCheck(null);
+      this.appendDummyInput()
         .appendField(')');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);

@@ -189,43 +189,43 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.appendDummyInput()
           .appendField(new Blockly.FieldVariable("image"), "image")
           .appendField(" = (\"")
-          .appendField(new Blockly.FieldNumber(0, 0), "1")
-          .appendField(new Blockly.FieldNumber(0, 0), "2")
-          .appendField(new Blockly.FieldNumber(0, 0), "3")
-          .appendField(new Blockly.FieldNumber(0, 0), "4")
-          .appendField(new Blockly.FieldNumber(0, 0), "5")
+          .appendField(new Blockly.FieldNumber(0, 9), "1")
+          .appendField(new Blockly.FieldNumber(0, 9), "2")
+          .appendField(new Blockly.FieldNumber(0, 9), "3")
+          .appendField(new Blockly.FieldNumber(0, 9), "4")
+          .appendField(new Blockly.FieldNumber(0, 9), "5")
           .appendField(":\"")
           .setAlign(Blockly.ALIGN_RIGHT);
       this.appendDummyInput()
-          .appendField(new Blockly.FieldNumber(0, 0), "6")
-          .appendField(new Blockly.FieldNumber(0, 0), "7")
-          .appendField(new Blockly.FieldNumber(0, 0), "8")
-          .appendField(new Blockly.FieldNumber(0, 0), "9")
-          .appendField(new Blockly.FieldNumber(0, 0), "10")
+          .appendField(new Blockly.FieldNumber(0, 9), "6")
+          .appendField(new Blockly.FieldNumber(0, 9), "7")
+          .appendField(new Blockly.FieldNumber(0, 9), "8")
+          .appendField(new Blockly.FieldNumber(0, 9), "9")
+          .appendField(new Blockly.FieldNumber(0, 9), "10")
           .appendField(":\"")
           .setAlign(Blockly.ALIGN_RIGHT);
       this.appendDummyInput()
-          .appendField(new Blockly.FieldNumber(0, 0), "11")
-          .appendField(new Blockly.FieldNumber(0, 0), "12")
-          .appendField(new Blockly.FieldNumber(0, 0), "13")
-          .appendField(new Blockly.FieldNumber(0, 0), "14")
-          .appendField(new Blockly.FieldNumber(0, 0), "15")
+          .appendField(new Blockly.FieldNumber(0, 9), "11")
+          .appendField(new Blockly.FieldNumber(0, 9), "12")
+          .appendField(new Blockly.FieldNumber(0, 9), "13")
+          .appendField(new Blockly.FieldNumber(0, 9), "14")
+          .appendField(new Blockly.FieldNumber(0, 9), "15")
           .appendField(":\"")
           .setAlign(Blockly.ALIGN_RIGHT);
       this.appendDummyInput()
-          .appendField(new Blockly.FieldNumber(0, 0), "16")
-          .appendField(new Blockly.FieldNumber(0, 0), "17")
-          .appendField(new Blockly.FieldNumber(0, 0), "18")
-          .appendField(new Blockly.FieldNumber(0, 0), "19")
-          .appendField(new Blockly.FieldNumber(0, 0), "20")
+          .appendField(new Blockly.FieldNumber(0, 9), "16")
+          .appendField(new Blockly.FieldNumber(0, 9), "17")
+          .appendField(new Blockly.FieldNumber(0, 9), "18")
+          .appendField(new Blockly.FieldNumber(0, 9), "19")
+          .appendField(new Blockly.FieldNumber(0, 9), "20")
           .appendField(":\"")
           .setAlign(Blockly.ALIGN_RIGHT);
       this.appendDummyInput()
-          .appendField(new Blockly.FieldNumber(0, 0), "21")
-          .appendField(new Blockly.FieldNumber(0, 0), "22")
-          .appendField(new Blockly.FieldNumber(0, 0), "23")
-          .appendField(new Blockly.FieldNumber(0, 0), "24")
-          .appendField(new Blockly.FieldNumber(0, 0), "25")
+          .appendField(new Blockly.FieldNumber(0, 9), "21")
+          .appendField(new Blockly.FieldNumber(0, 9), "22")
+          .appendField(new Blockly.FieldNumber(0, 9), "23")
+          .appendField(new Blockly.FieldNumber(0, 9), "24")
+          .appendField(new Blockly.FieldNumber(0, 9), "25")
           .appendField("\")")
           .setAlign(Blockly.ALIGN_RIGHT);
       this.setPreviousStatement(true, null);
@@ -236,6 +236,8 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.setHelpUrl("");
     }
   };
+
+
   
 
 var image_expressions = [

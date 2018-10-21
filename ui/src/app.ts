@@ -28,6 +28,7 @@ async function newApp(): Promise<App> {
     newpy = newpy.replace('from gigglebot import *', '');
     newpy = newpy.replace('from scrollbit import *', '');
     newpy = newpy.replace('from envirobit import *', '');
+    newpy = newpy.replace('from iotloranode import loraNode', '');
 
     const combinedScript = (beforeScript ? (beforeScript + '\n\n') : '') + newpy;
 
@@ -81,7 +82,7 @@ async function newApp(): Promise<App> {
     return [
       'scroll:bit',
       'GiggleBot',
-      'EnviroBit',
+      'Pi Supply IoT LoRa Node',
     ];
   }
 

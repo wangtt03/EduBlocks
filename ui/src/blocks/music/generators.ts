@@ -1,9 +1,16 @@
 export default function define(Python: Blockly.BlockGenerators) {
 
   Python['musicplay'] = function (block) {
-    let text_musicplay = block.getFieldValue('musicplay');
+    var text_musicplay = Blockly.Python.valueToCode(block, 'text', Blockly.Python.ORDER_ATOMIC)
+    || '';
     let code = 'music.play(' + text_musicplay + ') \n';
     return code;
+  };
+
+  Python['songs'] = function(block) {
+    var dropdown_songs = block.getFieldValue('songs');
+    var code = dropdown_songs;
+    return [code, Blockly.Python.ORDER_ATOMIC];
   };
 
   Python['musicimport'] = function (block) {
@@ -12,7 +19,8 @@ export default function define(Python: Blockly.BlockGenerators) {
   };
 
   Python['musicpitch'] = function (block) {
-    let text_musicpitch  = block.getFieldValue('musicpitch');
+    var text_musicpitch = Blockly.Python.valueToCode(block, 'text', Blockly.Python.ORDER_ATOMIC)
+    || '';
     let code = 'music.pitch(' + text_musicpitch + ') \n';
     return code;
   };
@@ -30,7 +38,8 @@ export default function define(Python: Blockly.BlockGenerators) {
   };
 
   Python['musictempo'] = function (block) {
-    let text_musictempo  = block.getFieldValue('musictempo');
+    var text_musictempo = Blockly.Python.valueToCode(block, 'text', Blockly.Python.ORDER_ATOMIC)
+    || '';
     let code = 'music.set_tempo(' + text_musictempo + ') \n';
     return code;
   };

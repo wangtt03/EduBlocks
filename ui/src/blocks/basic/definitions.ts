@@ -597,6 +597,18 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     }
   };
 
+  Blocks['stringinline'] = {
+    init: function() {
+      this.appendDummyInput()
+        .appendField(new Blockly.FieldString(""), "text");
+      this.setInputsInline(true);
+      this.setOutput(true, null);
+      this.setColour("#FFFFFF", "#FFFFFF", bordercolour);
+      this.setTooltip("String input for inline input");
+      this.setHelpUrl("");
+    }
+  };
+
   Blocks['sliderinline'] = {
     init: function() {
       this.appendDummyInput()
@@ -604,7 +616,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.setInputsInline(true);
       this.setOutput(true, null);
       this.setColour("#FFFFFF", "#FFFFFF", bordercolour);
-      this.setTooltip("Text input for inline input");
+      this.setTooltip("Slider input for inline input");
       this.setHelpUrl("");
     }
   };

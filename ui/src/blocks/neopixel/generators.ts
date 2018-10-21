@@ -19,7 +19,7 @@ export default function define(Python: Blockly.BlockGenerators) {
   Python['importneo'] = function(block) {
     let code = 'import neopixel\n';
     return code;
-  };
+  }; 
 
 
   Python['neovar'] = function(block) {

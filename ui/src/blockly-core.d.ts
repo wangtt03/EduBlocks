@@ -5,6 +5,8 @@
 
 declare module Blockly {
 
+    
+
     class FieldSlider extends FieldSlider__Class { }
     /** Fake class which should be extended to avoid inheriting static properties */
     class FieldSlider__Class extends Blockly.FieldNumber__Class  { 
@@ -345,7 +347,7 @@ declare module Blockly {
      * Change the colour of a block.
      * @param {number} colourHue HSV hue value.
      */
-    setColour(colourHue: any, colourPrimary: any, colourTertiary: any): void;
+    setColour(colourHue: any, colourPrimary?: any, colourTertiary?: any): void;
 
     /**
      * Returns the named field from a block.
@@ -600,6 +602,31 @@ declare module Blockly.Block {
 }
 
 declare module Blockly {
+
+  class FieldString extends FieldString__Class { }
+    /** Fake class which should be extended to avoid inheriting static properties */
+    class FieldString__Class extends Blockly.FieldTextInput__Class  { 
+    
+            /**
+             * Class for an editable text field.
+             * @param {string} text The initial content of the field.
+             * @param {Function=} opt_validator An optional function that is called
+             *     to validate any constraints on what the user entered.  Takes the new
+             *     text as an argument and returns either the accepted text, a replacement
+             *     text, or null to abort the change.
+             * @param {RegExp=} opt_restrictor An optional regular expression to restrict
+             *     typed text to. Text that doesn't match the restrictor will never show
+             *     in the text field.
+             * @extends {Blockly.FieldTextInput}
+             * @constructor
+             */
+            constructor(text: string, opt_validator?: Function, opt_restrictor?: RegExp);
+    
+            /**
+             * Install this string on a block.
+             */
+            init(): void;
+    } 
 
   class BlockSvg extends BlockSvg__Class { }
   /** Fake class which should be extended to avoid inheriting static properties */
@@ -935,6 +962,39 @@ declare module Blockly {
     renderDrawLeft_(steps: string[], highlightSteps: string[], connectionsXY: Object, cursorY: number): void;
   }
 
+}
+
+declare module Blockly.FieldString {
+
+  /**
+   * Construct a FieldString from a JSON arg object.
+   * @param {!Object} options A JSON object with options (text).
+   * @returns {!Blockly.FieldString} The new field instance.
+   * @package
+   * @nocollapse
+   */
+  function fromJson(options: Object): Blockly.FieldString;
+
+  /**
+   * Quote padding.
+   * @type {number}
+   * @public
+   */
+  var quotePadding: number;
+
+  /**
+   * Quote left data URI.
+   * @type {string}
+   * @public
+   */
+  var QUOTE_0_DATA_URI: string;
+
+  /**
+   * Quote right data URI.
+   * @type {string}
+   * @public
+   */
+  var QUOTE_1_DATA_URI: string;
 }
 
 declare module Blockly.BlockSvg {

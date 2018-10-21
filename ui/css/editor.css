@@ -2,6 +2,11 @@ body {
   height: auto;
 }
 
+.blocklyWidgetDiv .fieldTextInput{
+  height: 0 !important;
+  width: 0 !important;
+}
+
 .loading-message {
   font-size: 100px;
   color: #aaa;
@@ -156,6 +161,8 @@ table.primary td {
   padding: 2px 3px;
   border: solid 1px #777;
 }
+
+
 
 a{
   color: #396afc

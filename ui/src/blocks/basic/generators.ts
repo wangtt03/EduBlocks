@@ -138,8 +138,7 @@ export default function define(Python: Blockly.BlockGenerators) {
   };
 
   Python['whileout'] = function (block) {
-    var text_1 = Blockly.Python.valueToCode(block, 'cond', Blockly.Python.ORDER_ATOMIC)
-    || 'True';
+    var text_1 = Blockly.Python.valueToCode(block, 'cond', Blockly.Python.ORDER_ATOMIC);
     let branch = Blockly.Python.statementToCode(block, 'DO');
     branch = Blockly.Python.addLoopTrap(branch, block.id) || Blockly.Python.PASS;
     const code = 'while ' + text_1 + ':\n' + branch;
@@ -230,7 +229,7 @@ export default function define(Python: Blockly.BlockGenerators) {
   Python['ifinline'] = function (block) {
     let branch = Blockly.Python.statementToCode(block, 'ifstate');
     branch = Blockly.Python.addLoopTrap(branch, block.id) || Blockly.Python.PASS;
-    const value_iftext = Blockly.Python.valueToCode(block, 'iftext', Blockly.Python.ORDER_ATOMIC) || 'True';
+    const value_iftext = Blockly.Python.valueToCode(block, 'iftext', Blockly.Python.ORDER_ATOMIC);
     const code = 'if ' + value_iftext + ':\n' + branch;
     return code;
   };
@@ -278,6 +277,14 @@ export default function define(Python: Blockly.BlockGenerators) {
     var text_text = block.getFieldValue('text');
     // TODO: Assemble Python into code variable.
     var code = text_text;
+    // TODO: Change ORDER_NONE to the correct strength.
+    return [code, Blockly.Python.ORDER_ATOMIC];
+  };
+
+  Python['stringinline'] = function(block) {
+    var text_text = block.getFieldValue('text');
+    // TODO: Assemble Python into code variable.
+    var code = '"' + text_text + '"';
     // TODO: Change ORDER_NONE to the correct strength.
     return [code, Blockly.Python.ORDER_ATOMIC];
   };
