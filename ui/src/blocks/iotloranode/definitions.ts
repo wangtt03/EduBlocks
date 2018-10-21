@@ -99,7 +99,11 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
               .appendField(new Blockly.FieldVariable("node"), "node")
               .appendField(".join(")
               .appendField(new Blockly.FieldVariable("node"), "node")
-              .appendField(".abp)");
+              .appendField(".");
+        this.appendValueInput("text")
+              .setCheck(null);
+          this.appendDummyInput()
+              .appendField(")");
           this.setInputsInline(true);
           this.setPreviousStatement(true, null);
           this.setNextStatement(true, null);

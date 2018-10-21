@@ -37,8 +37,9 @@ export default function define(Python: Blockly.BlockGenerators) {
 
     Python['lorasetup_join'] = function(block) {
         var variable_node = Blockly.Python.variableDB_.getName(block.getFieldValue('node'), Blockly.Variables.NAME_TYPE);
+        var value_name = Blockly.Python.valueToCode(block, 'text', Blockly.Python.ORDER_ATOMIC);
         // TODO: Assemble Python into code variable.
-        var code = variable_node+ '.join(' +variable_node+ '.abp)\n';
+        var code = variable_node+ '.join(' +variable_node+ '.' +value_name+ ')\n';
         return code;
     };
 
