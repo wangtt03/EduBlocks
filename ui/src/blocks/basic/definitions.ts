@@ -709,7 +709,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
   Blocks['variables_set'] = {
     init: function() {
       this.appendDummyInput()
-          .appendField(new Blockly.FieldVariable("var"), "VAR")
+          .appendField(new Blockly.FieldVariable(""), "VAR")
           .appendField(" = ");
       this.appendValueInput("varset")
           .setCheck(null);

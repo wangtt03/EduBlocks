@@ -15,6 +15,7 @@
         </shadow>
       </value>
   </block>
+ 
   <block type="typeanything">
       <value name="stuff">
         <shadow type="textinline">
