@@ -15,7 +15,9 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     init: function() {
       this.appendDummyInput()
           .appendField("scroll(")
-          .appendField(new Blockly.FieldTextInput("\"Hello World\""), "input")
+      this.appendValueInput("text")
+          .setCheck(null);
+      this.appendDummyInput()
           .appendField(")");
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
@@ -28,7 +30,9 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     init: function() {
       this.appendDummyInput()
           .appendField("write(")
-          .appendField(new Blockly.FieldTextInput("\"Hi!\""), "input")
+      this.appendValueInput("text")
+          .setCheck(null);
+      this.appendDummyInput()
           .appendField(")");
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
@@ -41,11 +45,17 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     init: function() {
       this.appendDummyInput()
           .appendField("draw_icon(")
-          .appendField(new Blockly.FieldTextInput("col"), "col")
+      this.appendValueInput("text1")
+          .setCheck(null);
+      this.appendDummyInput()
           .appendField(", ")
-          .appendField(new Blockly.FieldTextInput("row"), "row")
+      this.appendValueInput("text2")
+          .setCheck(null);
+      this.appendDummyInput()
           .appendField(", ")
-          .appendField(new Blockly.FieldTextInput("icon"), "icon")
+      this.appendValueInput("text3")
+          .setCheck(null);
+      this.appendDummyInput()
           .appendField(")");
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
@@ -58,11 +68,17 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     init: function() {
       this.appendDummyInput()
           .appendField("set_pixel(")
-          .appendField(new Blockly.FieldTextInput("col"), "col")
+      this.appendValueInput("text1")
+          .setCheck(null);
+      this.appendDummyInput()
           .appendField(", ")
-          .appendField(new Blockly.FieldTextInput("row"), "row")
+      this.appendValueInput("text2")
+          .setCheck(null);
+      this.appendDummyInput()
           .appendField(", ")
-          .appendField(new Blockly.FieldTextInput("255"), "bright")
+      this.appendValueInput("text3")
+          .setCheck(null);
+      this.appendDummyInput()
           .appendField(")");
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
