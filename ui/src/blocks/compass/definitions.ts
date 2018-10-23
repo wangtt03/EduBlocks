@@ -17,6 +17,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
           this.appendDummyInput()
               .appendField("compass.is_calibrated()");
           this.setOutput(true, null);
+          this.setOutputShape(Blockly.OUTPUT_SHAPE_ROUND);
           this.setColour("#A016E5","#A016E5","#732c91");
        this.setTooltip("Is the compass calibrated?");
        this.setHelpUrl("");

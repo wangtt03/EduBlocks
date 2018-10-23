@@ -213,6 +213,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
               .appendField(new Blockly.FieldDropdown([["LEFT","LEFT"], ["RIGHT","RIGHT"], ["BOTH","BOTH"]]), "which")
               .appendField(")");
           this.setOutput(true, "Number");
+          this.setOutputShape(Blockly.OUTPUT_SHAPE_ROUND);
           this.setColour("#46BFB1","#46BFB1","#528f87");
        this.setTooltip("Get a reading from line sensors or light sensors ");
        this.setHelpUrl("");
@@ -224,6 +225,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
           this.appendDummyInput()
               .appendField("volt()");
           this.setOutput(true, "Number");
+          this.setOutputShape(Blockly.OUTPUT_SHAPE_ROUND);
           this.setColour("#46BFB1","#46BFB1","#528f87");
        this.setTooltip("Gets a level reading from the batteries");
        this.setHelpUrl("");

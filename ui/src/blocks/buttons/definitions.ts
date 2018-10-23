@@ -8,6 +8,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField('.is_pressed()');
       this.setInputsInline(false);
       this.setOutput(true, null);
+      this.setOutputShape(Blockly.OUTPUT_SHAPE_ROUND);
       this.setColour("#167EE5","#167EE5","#3775b3");
       this.setTooltip('Button Is Pressed');
       this.setHelpUrl('');
@@ -22,6 +23,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField('.was_pressed()');
       this.setInputsInline(false);
       this.setOutput(true, null);
+      this.setOutputShape(Blockly.OUTPUT_SHAPE_ROUND);
       this.setColour("#167EE5","#167EE5","#3775b3");
       this.setTooltip('Button Was Pressed');
       this.setHelpUrl('');

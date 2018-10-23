@@ -311,6 +311,7 @@ var image_expressions = [
       this.appendDummyInput()
           .appendField(new Blockly.FieldDropdown(image_expressions), "image");
       this.setOutput(true, "String");
+      this.setOutputShape(Blockly.OUTPUT_SHAPE_ROUND);
       this.setInputsInline(true);
       this.setColour("#C3E516","#C3E516","#a4b835");
       this.setTooltip("Choose an expression");
@@ -323,6 +324,7 @@ var image_expressions = [
       this.appendDummyInput()
           .appendField(new Blockly.FieldDropdown(image_clocks), "image");
       this.setOutput(true, "String");
+      this.setOutputShape(Blockly.OUTPUT_SHAPE_ROUND);
       this.setInputsInline(true);
       this.setColour("#C3E516","#C3E516","#a4b835");
       this.setTooltip("Choose a clock face");
@@ -335,6 +337,7 @@ var image_expressions = [
         this.appendDummyInput()
             .appendField(new Blockly.FieldDropdown(image_shapes), "image");
         this.setOutput(true, "String");
+        this.setOutputShape(Blockly.OUTPUT_SHAPE_ROUND);
         this.setInputsInline(true);
         this.setColour("#C3E516","#C3E516","#a4b835");
         this.setTooltip("Choose a shape");
@@ -347,6 +350,7 @@ var image_expressions = [
         this.appendDummyInput()
             .appendField(new Blockly.FieldDropdown(image_animals), "image");
         this.setOutput(true, "String");
+        this.setOutputShape(Blockly.OUTPUT_SHAPE_ROUND);
         this.setInputsInline(true);
         this.setColour("#C3E516","#C3E516","#a4b835");
         this.setTooltip("Choose an animal");

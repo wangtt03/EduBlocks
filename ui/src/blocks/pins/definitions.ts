@@ -9,6 +9,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.appendDummyInput()
           .appendField(".is_touched()");
       this.setOutput(true, null);
+      this.setOutputShape(Blockly.OUTPUT_SHAPE_ROUND);
       this.setColour("#E51616","#E51616","#a82f2f");
    this.setTooltip("If this pin is touched");
    this.setHelpUrl("");
@@ -24,6 +25,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.appendDummyInput()
           .appendField(".read_analog()");
       this.setOutput(true, null);
+      this.setOutputShape(Blockly.OUTPUT_SHAPE_ROUND);
       this.setColour("#E51616","#E51616","#a82f2f");
    this.setTooltip("Read Analog");
    this.setHelpUrl("");
@@ -39,6 +41,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.appendDummyInput()
           .appendField(".read_digital()");
       this.setOutput(true, null);
+      this.setOutputShape(Blockly.OUTPUT_SHAPE_ROUND);
       this.setColour("#E51616","#E51616","#a82f2f");
    this.setTooltip("Read Digital");
    this.setHelpUrl("");
@@ -92,6 +95,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
           .appendField(new Blockly.FieldTextInput("0"), "pinno")
           .appendField(".is_touched()");
       this.setOutput(true, null);
+      this.setOutputShape(Blockly.OUTPUT_SHAPE_ROUND);
       this.setColour("#E51616","#E51616","#a82f2f");
    this.setTooltip("If this pin is touched");
    this.setHelpUrl("");
@@ -105,6 +109,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
           .appendField(new Blockly.FieldTextInput("0"), "pinno")
           .appendField(".read_analog()");
       this.setOutput(true, null);
+      this.setOutputShape(Blockly.OUTPUT_SHAPE_ROUND);
       this.setColour("#E51616","#E51616","#a82f2f");
    this.setTooltip("Read Analog");
    this.setHelpUrl("");
@@ -118,6 +123,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
           .appendField(new Blockly.FieldTextInput("0"), "pinno")
           .appendField(".read_digital()");
       this.setOutput(true, null);
+      this.setOutputShape(Blockly.OUTPUT_SHAPE_ROUND);
       this.setColour("#E51616","#E51616","#a82f2f");
    this.setTooltip("Read Digital");
    this.setHelpUrl("");

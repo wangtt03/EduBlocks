@@ -42,6 +42,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.appendDummyInput()
           .appendField(new Blockly.FieldDropdown(musiclist), "songs");
       this.setOutput(true, "String");
+      this.setOutputShape(Blockly.OUTPUT_SHAPE_ROUND);
       this.setInputsInline(true);
       this.setColour("#E5BC16","#E5BC16","#a1882d");
       this.setTooltip("Choose a song");
@@ -128,6 +129,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField('music.get_tempo()');
       this.setInputsInline(false);
       this.setOutput(true, null);
+      this.setOutputShape(Blockly.OUTPUT_SHAPE_ROUND);
       this.setColour("#E5BC16","#E5BC16","#a1882d");
       this.setTooltip('Get tempo');
       this.setHelpUrl('');

@@ -5,7 +5,9 @@
 
 declare module Blockly {
 
-    
+  const OUTPUT_SHAPE_HEXAGONAL: number;
+  const OUTPUT_SHAPE_ROUND: number;
+  const OUTPUT_SHAPE_SQUARE: number;
 
     class FieldSlider extends FieldSlider__Class { }
     /** Fake class which should be extended to avoid inheriting static properties */
@@ -342,6 +344,8 @@ declare module Blockly {
      * @return {number} HSV hue value.
      */
     getColour(): number;
+
+    setOutputShape(shape: number): void;
 
     /**
      * Change the colour of a block.
