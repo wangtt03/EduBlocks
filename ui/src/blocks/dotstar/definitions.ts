@@ -6,7 +6,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField('import adafruit_dotstar');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(70);
+      this.setColour("#C3E516");
       this.setTooltip('Scroll a Message');
       this.setHelpUrl('');
     },
@@ -23,7 +23,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
           .appendField(")");
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(70);
+      this.setColour("#C3E516");
    this.setTooltip("");
    this.setHelpUrl("");
     }
@@ -40,7 +40,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
           .appendField(")");
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(70);
+      this.setColour("#C3E516");
    this.setTooltip("");
    this.setHelpUrl("");
     }
@@ -55,7 +55,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
           .setCheck(null);
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(70);
+      this.setColour("#C3E516");
    this.setTooltip("");
    this.setHelpUrl("");
     }
@@ -76,7 +76,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
           .appendField(")");
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(70);
+      this.setColour("#C3E516");
    this.setTooltip("Set Neopixel Colour");
    this.setHelpUrl("");
     }

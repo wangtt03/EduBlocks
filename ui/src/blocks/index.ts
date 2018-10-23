@@ -49,11 +49,11 @@ neopixelDefs(Blockly.Blocks);
 neopixelGens(Blockly.Python as any);
 const neopixel = fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'neopixel', 'toolbox.xml'));
 
-import i2cDefs from './i2c/definitions';
-import i2cGens from './i2c/generators';
-i2cDefs(Blockly.Blocks);
-i2cGens(Blockly.Python as any);
-const i2c = fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'i2c', 'toolbox.xml'));
+import advDefs from './advanced/definitions';
+import advGens from './advanced/generators';
+advDefs(Blockly.Blocks);
+advGens(Blockly.Python as any);
+const adv = fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'advanced', 'toolbox.xml'));
 
 import dotstarDefs from './dotstar/definitions';
 import dotstarGens from './dotstar/generators';
@@ -80,8 +80,8 @@ function getToolBoxXml(extensions: Extension[]) {
   toolBoxXml += servo;
   toolBoxXml += audio;
   toolBoxXml += pwm;
-  toolBoxXml += i2c;
   toolBoxXml += dotstar;
+  toolBoxXml += adv;
   toolBoxXml += '</xml>';
 
   return toolBoxXml;

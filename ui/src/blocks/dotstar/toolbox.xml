@@ -1,4 +1,4 @@
-<category name="Dotstar" colour="70">
+<category name="Dotstar" colour="#C3E516">
   <block type="import_dotstar"></block>
   <block type="vardotstar">
   <value name="text">

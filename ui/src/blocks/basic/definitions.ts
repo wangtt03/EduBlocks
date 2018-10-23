@@ -25,6 +25,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.setHelpUrl('http://www.example.com/');
     },
   };
+  
 
   Blocks['pause_s'] = {
     init: function () {
