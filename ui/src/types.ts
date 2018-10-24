@@ -31,7 +31,7 @@ interface TerminalInterface {
   rows: number;
 }
 
-type Extension = 'scroll:bit' | 'enviro:bit' | 'gigglebot';
+type Extension = 'Circuit Playground Easy' | 'enviro:bit' | 'gigglebot';
 
 export {
   App,

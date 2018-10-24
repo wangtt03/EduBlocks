@@ -35,16 +35,16 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
   };
   
 
-  Blocks['neovar'] = {
+  Blocks['neovarnew'] = {
     init: function() {
       this.appendDummyInput()
           .appendField(new Blockly.FieldVariable("np"), "NAME")
           .appendField("[")
-      this.appendValueInput("text1")
+      this.appendValueInput("text")
           .setCheck(null);
       this.appendDummyInput()
           .appendField("] = (")
-      this.appendValueInput("text2")
+      this.appendValueInput("text1")
           .setCheck(null);
       this.appendDummyInput()
           .appendField(")");
@@ -54,7 +54,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
    this.setTooltip("Set Neopixel Colour");
    this.setHelpUrl("");
     }
-  };
+};
 
   Blocks['importneo'] = {
     init: function() {

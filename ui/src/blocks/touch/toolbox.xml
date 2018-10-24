@@ -1,9 +1,10 @@
 <category name="Touch" colour="#E84C3D">
+    <label text="Touch" web-class="myLabelStyle"></label>
     <block type="import_touchio"></block>
     <block type="touch_conf">
-    <value name="text">
+    <value name="text1">
     <shadow type="textinline">
-      <field name="text">Board.A1</field>
+      <field name="text">board.A1</field>
     </shadow>
   </value> 
     </block>

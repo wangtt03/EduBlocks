@@ -5,7 +5,7 @@ export default function define(Python: Blockly.BlockGenerators) {
   };
 
   Python['import_time'] = function (block) {
-    const code = 'fimport time\n';
+    const code = 'import time\n';
     return code;
   };
 

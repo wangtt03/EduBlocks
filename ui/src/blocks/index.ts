@@ -61,6 +61,12 @@ dotstarDefs(Blockly.Blocks);
 dotstarGens(Blockly.Python as any);
 const dotstar = fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'dotstar', 'toolbox.xml'));
 
+import cpxDefs from './cpx/definitions';
+import cpxGens from './cpx/generators';
+cpxDefs(Blockly.Blocks);
+cpxGens(Blockly.Python as any);
+const cpx = fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'cpx', 'toolbox.xml'));
+
 
 
 import { Extension } from '../types';
@@ -82,13 +88,23 @@ function getToolBoxXml(extensions: Extension[]) {
   toolBoxXml += pwm;
   toolBoxXml += dotstar;
   toolBoxXml += adv;
+
+  if (extensions.indexOf('Circuit Playground Easy') !== -1) {
+    toolBoxXml += cpx;
+}
+
   toolBoxXml += '</xml>';
 
   return toolBoxXml;
 }
 
+
 function getBeforeScript(extensions: Extension[]) {
   
+  if (extensions.indexOf('Circuit Playground Easy') !== -1) {
+    return fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'cpx', 'cpx.py'));
+  }
+
 }
 
 export {

@@ -34,7 +34,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     init: function() {
       this.appendDummyInput()
           .appendField(new Blockly.FieldVariable("my_servo"), "pin")
-          .appendField(".value = ")
+          .appendField(".angle = ")
       this.appendValueInput("text")
           .setCheck(null);
       this.appendDummyInput()

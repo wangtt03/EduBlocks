@@ -9,8 +9,7 @@ export default function define(Python: Blockly.BlockGenerators) {
 
   Python['analog_in'] = function(block) {
     var variable_pin = Blockly.Python.variableDB_.getName(block.getFieldValue('pin'), Blockly.Variables.NAME_TYPE);
-    var text_pinno = Blockly.Python.valueToCode(block, 'text', Blockly.Python.ORDER_ATOMIC)
-|| 'Board.A1';
+    var text_pinno = Blockly.Python.valueToCode(block, 'text', Blockly.Python.ORDER_ATOMIC);
     // TODO: Assemble Python into code variable.
     var code = variable_pin+ ' = AnalogIn(' +text_pinno+ ')\n';
     return code;
@@ -18,8 +17,7 @@ export default function define(Python: Blockly.BlockGenerators) {
 
   Python['analog_out'] = function(block) {
     var variable_pin = Blockly.Python.variableDB_.getName(block.getFieldValue('pin'), Blockly.Variables.NAME_TYPE);
-    var text_pinno = Blockly.Python.valueToCode(block, 'text', Blockly.Python.ORDER_ATOMIC)
-|| 'Board.A1';
+    var text_pinno = Blockly.Python.valueToCode(block, 'text', Blockly.Python.ORDER_ATOMIC);
     // TODO: Assemble Python into code variable.
     var code = variable_pin+ ' = AnalogOut(' +text_pinno+ ')\n';
     return code;

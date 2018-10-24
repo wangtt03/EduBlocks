@@ -2,14 +2,13 @@ export default function define(Python: Blockly.BlockGenerators) {
 
 
   Python['import_touchio'] = function (block) {
-    const code = 'from touchio import *\n';
+    const code = 'import touchio\n';
     return code;
   };
 
   Python['touch_conf'] = function(block) {
     var variable_pin = Blockly.Python.variableDB_.getName(block.getFieldValue('pin'), Blockly.Variables.NAME_TYPE);
-    var text_pinno = Blockly.Python.valueToCode(block, 'text1', Blockly.Python.ORDER_ATOMIC)
-|| 'Board.A1';
+    var text_pinno = Blockly.Python.valueToCode(block, 'text1', Blockly.Python.ORDER_ATOMIC);
     // TODO: Assemble Python into code variable.
     var code = variable_pin+ ' = touchio.TouchIn(' +text_pinno+ ')\n';
     return code;

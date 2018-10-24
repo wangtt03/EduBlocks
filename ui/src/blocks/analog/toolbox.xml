@@ -1,16 +1,17 @@
 <category name="Analog" colour="#E67D21">
+  <label text="Analog" web-class="myLabelStyle"></label>
   <block type="import_analogio"></block>
   <block type="analog_in">
   <value name="text">
     <shadow type="textinline">
-      <field name="text">Board.A1</field>
+      <field name="text">board.A1</field>
     </shadow>
   </value> 
   </block>
   <block type="analog_out">
   <value name="text">
     <shadow type="textinline">
-      <field name="text">Board.A1</field>
+      <field name="text">board.A1</field>
     </shadow>
   </value> 
   </block>

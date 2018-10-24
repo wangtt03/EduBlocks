@@ -1,4 +1,5 @@
 <category name="Neopixel" colour="150">
+  <label text="Neopixel" web-class="myLabelStyle"></label>
   <block type="importneo"></block>
   <block type="setneo">
   <value name="text">
@@ -7,18 +8,18 @@
     </shadow>
   </value> 
   </block>
-  <block type="neovar">
+  <block type="neovarnew">
+  <value name="text">
+      <shadow type="textinline">
+        <field name="text">0</field>
+      </shadow>
+    </value>
   <value name="text1">
-    <shadow type="textinline">
-      <field name="text"></field>
-    </shadow>
-  </value> 
-  <value name="text2">
-    <shadow type="textinline">
-      <field name="text"></field>
-    </shadow>
-  </value> 
-  </block>
+      <shadow type="textinline">
+        <field name="text">255, 0, 128</field>
+      </shadow>
+    </value>
+</block>
   <block type="fill">
   <value name="text">
     <shadow type="textinline">

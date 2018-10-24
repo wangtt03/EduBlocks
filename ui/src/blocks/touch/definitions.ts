@@ -17,7 +17,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.appendDummyInput()
           .appendField(new Blockly.FieldVariable("touch"), "pin")
           .appendField(" = touchio.TouchIn(")
-      this.appendValueInput("text")
+      this.appendValueInput("text1")
           .setCheck(null);
       this.appendDummyInput()
           .appendField(")");

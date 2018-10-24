@@ -23,18 +23,14 @@ export default function define(Python: Blockly.BlockGenerators) {
   };
  
 
-  Python['neovar'] = function(block) {
+  Python['neovarnew'] = function(block) {
     var variable_name = Blockly.Python.variableDB_.getName(block.getFieldValue('NAME'), Blockly.Variables.NAME_TYPE);
-    var text_neonum = Blockly.Python.valueToCode(block, 'text1', Blockly.Python.ORDER_ATOMIC)
-|| '';
-
-var text_colour = Blockly.Python.valueToCode(block, 'text2', Blockly.Python.ORDER_ATOMIC)
-|| '';
-    var text_colour = block.getFieldValue('colour');
+    var text_neonum = Blockly.Python.valueToCode(block, 'text', Blockly.Python.ORDER_ATOMIC);
+    var text_colour = Blockly.Python.valueToCode(block, 'text1', Blockly.Python.ORDER_ATOMIC);
     // TODO: Assemble Python into code variable.
     var code = variable_name+ '[' +text_neonum+ '] = (' +text_colour+ ')\n';
     return code;
-  };
+};
 
   Python['neoshow'] = function(block) {
     var variable_name = Blockly.Python.variableDB_.getName(block.getFieldValue('NAME'), Blockly.Variables.NAME_TYPE);
