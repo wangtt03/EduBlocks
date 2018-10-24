@@ -38,7 +38,6 @@
         "lodash": "^4.17.4",
         "picnic": "^6.3.2",
         "preact": "^8.1.0",
-        "react-monaco-editor": "^0.20.0",
         "term.js": "^0.0.7"
     }
 }
