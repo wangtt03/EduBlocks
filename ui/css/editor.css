@@ -163,3 +163,10 @@ button{
   background-color: #292F36 !important;
   color: white !important;
 }
+
+/* Specifying rounded toolbox borders. */
+div.blocklyTreeRow {
+  border-radius: 4px;
+  padding-left: 6px !important;
+  
+}

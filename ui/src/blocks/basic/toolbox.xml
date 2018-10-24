@@ -158,6 +158,26 @@
     </value>
   </block>
   <block type="else"></block>
+  <block type="with">
+    <value name="iftext">
+      <shadow type="textinline">
+        <field name="text"></field>
+      </shadow>
+    </value>
+    <value name="iftext2">
+      <shadow type="textinline">
+        <field name="text"></field>
+      </shadow>
+    </value>
+  </block>
+  <block type="try"></block>
+  <block type="except">
+    <value name="iftext">
+      <shadow type="textinline">
+        <field name="text"></field>
+      </shadow>
+    </value>
+  </block>
 
 
   <label text="Definitions" web-class="myLabelStyle"></label>

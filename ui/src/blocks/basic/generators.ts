@@ -130,6 +130,12 @@ export default function define(Python: Blockly.BlockGenerators) {
     return 'else:\n' + branch;
   };
 
+  Python['try'] = function (block) {
+    let branch = Blockly.Python.statementToCode(block, 'DO');
+    branch = Blockly.Python.addLoopTrap(branch, block.id) || Blockly.Python.PASS;
+    return 'try:\n' + branch;
+  };
+
   Python['df'] = function (block) {
     const text_def = Blockly.Python.valueToCode(block, 'def', Blockly.Python.ORDER_ATOMIC);
     const text_params = Blockly.Python.valueToCode(block, 'params', Blockly.Python.ORDER_ATOMIC)
@@ -232,6 +238,23 @@ export default function define(Python: Blockly.BlockGenerators) {
     return code;
   };
 
+  Python['except'] = function (block) {
+    let branch = Blockly.Python.statementToCode(block, 'ifstate');
+    branch = Blockly.Python.addLoopTrap(branch, block.id) || Blockly.Python.PASS;
+    const value_iftext = Blockly.Python.valueToCode(block, 'iftext', Blockly.Python.ORDER_ATOMIC);
+    const code = 'except ' + value_iftext + ':\n' + branch;
+    return code;
+  };
+
+  Python['with'] = function (block) {
+    let branch = Blockly.Python.statementToCode(block, 'ifstate');
+    branch = Blockly.Python.addLoopTrap(branch, block.id) || Blockly.Python.PASS;
+    const value_iftext = Blockly.Python.valueToCode(block, 'iftext', Blockly.Python.ORDER_ATOMIC);
+    const value_iftext2 = Blockly.Python.valueToCode(block, 'iftext2', Blockly.Python.ORDER_ATOMIC);
+    const code = 'with ' + value_iftext + ' as ' +value_iftext2+ ':\n' + branch;
+    return code;
+  };
+
   Python['typeanything'] = function(block) {
     var text_stuff = Blockly.Python.valueToCode(block, 'stuff', Blockly.Python.ORDER_ATOMIC);
     // TODO: Assemble Python into code variable.
@@ -278,6 +301,14 @@ export default function define(Python: Blockly.BlockGenerators) {
     // TODO: Change ORDER_NONE to the correct strength.
     return [code, Blockly.Python.ORDER_ATOMIC];
   };
+
+  Python['stringinline'] = function(block) {
+    var text_text = block.getFieldValue('text');
+    // TODO: Assemble Python into code variable.
+    var code = '"' + text_text + '"';
+    // TODO: Change ORDER_NONE to the correct strength.
+    return [code, Blockly.Python.ORDER_ATOMIC];
+};
 
   Python['sliderinline'] = function(block) {
     var text_text = block.getFieldValue('slider');

@@ -282,6 +282,21 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     },
   };
 
+  Blocks['try'] = {
+    init: function () {
+      this.appendDummyInput()
+        .appendField('try:');
+      this.appendStatementInput('DO')
+        .appendField('');
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour(maincolour);
+      this.setTooltip('Else statement');
+      this.setHelpUrl('');
+    },
+  };
+  
+
   Blocks['df'] = {
     init: function () {
       this.appendValueInput("def")
@@ -492,6 +507,48 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     },
   };
 
+  Blocks['except'] = {
+    init: function () {
+      this.appendDummyInput()
+        .appendField('except');
+      this.appendValueInput("iftext")
+        .setCheck("Boolean");
+      this.appendDummyInput()
+        .appendField(':');
+      this.appendStatementInput('ifstate')
+        .setCheck(null);
+      this.setInputsInline(true);
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour(maincolour);
+      this.setTooltip('Except');
+      this.setHelpUrl('');
+    },
+  };
+
+  Blocks['with'] = {
+    init: function () {
+      this.appendDummyInput()
+        .appendField('with');
+      this.appendValueInput("iftext")
+        .setCheck("null");
+      this.appendDummyInput()
+        .appendField('as');
+      this.appendValueInput("iftext2")
+        .setCheck("null");
+      this.appendDummyInput()
+        .appendField(':');
+      this.appendStatementInput('ifstate')
+        .setCheck(null);
+      this.setInputsInline(true);
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour(maincolour);
+      this.setTooltip('With block');
+      this.setHelpUrl('');
+    },
+  };
+
   Blocks['typeanything'] = {
     init: function() {
       this.appendValueInput("stuff")
@@ -584,6 +641,18 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.setHelpUrl("");
     }
   };
+
+  Blocks['stringinline'] = {
+    init: function() {
+      this.appendDummyInput()
+        .appendField(new Blockly.FieldString(""), "text");
+      this.setInputsInline(true);
+      this.setOutput(true, null);
+      this.setColour("#FFFFFF", "#FFFFFF", "#FFFFFF");
+      this.setTooltip("String input for inline input");
+      this.setHelpUrl("");
+    }
+};
 
   Blocks['sliderinline'] = {
     init: function() {
