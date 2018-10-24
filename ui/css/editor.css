@@ -185,3 +185,11 @@ button{
 .blocklyTreeRow{
   height: 52px !important
 }
+
+/* Specifying rounded toolbox borders. */
+div.blocklyTreeRow {
+  border-radius: 4px;
+  padding-left: 6px !important;
+  
+}
+
