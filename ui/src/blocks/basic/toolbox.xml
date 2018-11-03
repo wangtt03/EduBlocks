@@ -7,6 +7,7 @@
   <block type="defcall"></block>
   <block type="ifcroc"></block>
   <block type="varminus"></block>
+  <block type="varplus"></block>
   <block type="import_signal"></block>
   <block type="import_colorsys"></block>
   <block type="pause_s"></block>

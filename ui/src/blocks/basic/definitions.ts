@@ -147,6 +147,20 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     },
   };
 
+  Blocks['varplus'] = {
+    init: function () {
+      this.appendDummyInput()
+        .appendField(new Blockly.FieldTextInput('0'), '1')
+        .appendField('+=')
+        .appendField(new Blockly.FieldTextInput('0'), '2');
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour(336);
+      this.setTooltip('Variable with + and =');
+      this.setHelpUrl('');
+    },
+  };
+
   Blocks['for'] = {
     init: function () {
       this.appendDummyInput()

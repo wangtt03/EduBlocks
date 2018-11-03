@@ -69,6 +69,14 @@ export default function define(Python: Blockly.BlockGenerators) {
     return code;
   };
 
+  Python['varplus'] = function (block) {
+    const text_1 = block.getFieldValue('1');
+    const text_2 = block.getFieldValue('2');
+    // TODO: Assemble Python into code variable.
+    const code = text_1 + ' += ' + text_2 + '\n';
+    return code;
+  };
+
   Python['for'] = function (block) {
     let branch = Blockly.Python.statementToCode(block, 'DO');
     branch = Blockly.Python.addLoopTrap(branch, block.id) || Blockly.Python.PASS;

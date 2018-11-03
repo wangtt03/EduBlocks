@@ -2,7 +2,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
   Blocks['import_turtle'] = {
     init: function() {
       this.appendDummyInput()
-          .appendField("import turtle");
+          .appendField("from turtle import *");
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
       this.setColour(240);
@@ -15,7 +15,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     init: function() {
       this.appendDummyInput()
           .appendField(new Blockly.FieldVariable("turtle"), "turtle")
-          .appendField(" = turtle.Turtle()");
+          .appendField(" = Turtle()");
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
       this.setColour(240);
@@ -27,8 +27,8 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
   Blocks['screeninit'] = {
     init: function() {
       this.appendDummyInput()
-          .appendField(new Blockly.FieldVariable("wn"), "wn")
-          .appendField(" = turtle.Screen()");
+          .appendField(new Blockly.FieldVariable("screen"), "wn")
+          .appendField(" = Screen()");
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
       this.setColour(240);
@@ -69,6 +69,21 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     }
   };
 
+  Blocks['penud'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField(new Blockly.FieldVariable("turtle"), "turtle")
+          .appendField(".pen")
+          .appendField(new Blockly.FieldDropdown([["up","up"], ["down","down"]]), "options")
+          .appendField("()");
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour(240);
+   this.setTooltip("Pen up and down");
+   this.setHelpUrl("");
+    }
+  };
+
   Blocks['pen'] = {
     init: function() {
       this.appendDummyInput()
@@ -93,6 +108,36 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.setNextStatement(true, null);
       this.setColour(240);
    this.setTooltip("Change the colour");
+   this.setHelpUrl("");
+    }
+  };
+
+  Blocks['colour'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField(new Blockly.FieldVariable("turtle"), "turtle")
+          .appendField(".color(")
+          .appendField(new Blockly.FieldTextInput(""), "dist")
+          .appendField(")");
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour(240);
+   this.setTooltip("Change the colour");
+   this.setHelpUrl("");
+    }
+  };
+
+  Blocks['colourmode'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField(new Blockly.FieldVariable("screen"), "wn")
+          .appendField(".colormode(")
+          .appendField(new Blockly.FieldTextInput(""), "dist")
+          .appendField(")");
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour(240);
+   this.setTooltip("Change the colourmode");
    this.setHelpUrl("");
     }
   };
@@ -123,6 +168,21 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.setNextStatement(true, null);
       this.setColour(240);
    this.setTooltip("Draw a circle");
+   this.setHelpUrl("");
+    }
+  };
+
+  Blocks['goto'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField(new Blockly.FieldVariable("turtle"), "turtle")
+          .appendField(".goto(")
+          .appendField(new Blockly.FieldTextInput(""), "dist")
+          .appendField(")");
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour(240);
+   this.setTooltip("go to x&y");
    this.setHelpUrl("");
     }
   };
