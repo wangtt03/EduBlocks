@@ -18,7 +18,9 @@ body {
   width: 100%;
 }
 
-
+menu .button{
+  background-color: white !important;
+}
 
 nav {
 
@@ -40,10 +42,8 @@ nav .brand{
   color: white;
 }
 
-.button {
+button {
   margin: 0;
-  background:rgba(0,0,0,0); 
-  backface-visibility: 0 !important;
 }
 
 .blocklyText {
@@ -62,6 +62,7 @@ nav .brand{
 
 
 .button {
+  background:rgba(0,0,0,0); 
   color: white;
 }
 
@@ -167,7 +168,9 @@ a{
   color: #396afc
 }
 
-
+button{
+  background-color: #396afc
+}
 
 #term {
   height: calc(100% - 28px);

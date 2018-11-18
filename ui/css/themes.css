@@ -6,7 +6,11 @@
 }
 .theme-Dark .menu .button,
 .theme-Dark button {
-  background: #006BBD;
+  color: white;
+}
+
+.theme-Dark .button {
+  background:rgba(0,0,0,0); 
   color: white;
 }
 
@@ -45,15 +49,6 @@
 
 }
 
-.theme-Default .close{
-  color: #00ed00
-
-}
-
-.theme-Default button{
-  background-color: #00ed00
-
-}
 
 /* Tangerine Theme */
 
