@@ -145,5 +145,5 @@ app.ws('/terminal', (ws, req: express.Request) => {
 app.use(express.static(ui));
 
 app.listen(8081, () => {
-  console.log('EduBlocks server now listening on port 8081!');
+  console.log('EduBlocks Connect now listening on port 8081! Launch web.edublocks.org to start coding!');
 });
