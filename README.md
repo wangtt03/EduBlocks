@@ -48,7 +48,7 @@ Did this not work for you? Look at the Support section of this document.
 Manual Install
 --------------
 
-If you would rather mannually install EduBlocks instead of running our curl command. Here is the commands to do it:
+If you would rather mannually install EduBlocks instead of running our Curl command. Here is the commands to do it:
 ```
 wget http://edublocks.org/downloads/edublocks-armv6l.tar.xz
 
