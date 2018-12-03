@@ -8,6 +8,7 @@ import TerminalView from './TerminalView';
 import SelectModal from './SelectModal';
 
 import { App } from '../types';
+import ImageModal from './ImageModal';
 
 const ViewModeBlockly = 'blockly';
 const ViewModePython = 'python';
@@ -30,6 +31,8 @@ interface PageState {
   samplesOpen: boolean;
   themesOpen: boolean;
 
+  versionSelectOpen: boolean;
+
   doc: Readonly<DocumentState>;
 }
 
@@ -46,6 +49,8 @@ export default class Page extends Component<PageProps, PageState> {
       terminalOpen: false,
       samplesOpen: false,
       themesOpen: false,
+
+      versionSelectOpen: true,
 
       doc: {
         xml: null,
@@ -276,6 +281,14 @@ export default class Page extends Component<PageProps, PageState> {
           visible={this.state.themesOpen}
           onSelect={(theme) => this.selectTheme(theme)}
           onCancel={() => this.closeThemes()} />
+
+        <ImageModal
+          title='Select your version'
+          options={[{ title: 'Pi', image: '/images/pi.png' }, { title: 'Web', image: 'images/web.png' }]}
+          visible={this.state.versionSelectOpen}
+          onSelect={() => { }}
+          onCancel={() => { }} />
+
       </div>
     );
   }

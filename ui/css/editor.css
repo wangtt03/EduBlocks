@@ -136,3 +136,20 @@ table.primary td {
   height: calc(100% - 28px);
   background: #333;
 }
+
+.ImageModalOption {
+  float: left;
+  width: 128px;
+  height: 128px;
+  border: solid 1px #aaa;
+  margin: 10px;
+  text-align: center;
+}
+
+.ImageModalOption:hover {
+
+}
+
+.ImageModalOption > * {
+  display: block;
+}
