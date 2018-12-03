@@ -34,9 +34,9 @@ interface PageState {
 }
 
 export default class Page extends Component<PageProps, PageState> {
-  private blocklyView: BlocklyView;
-  private pythonView: PythonView;
-  public terminalView: TerminalView;
+  // private blocklyView?: BlocklyView;
+  // private pythonView?: PythonView;
+  public terminalView?: TerminalView;
 
   constructor() {
     super();
@@ -157,7 +157,7 @@ export default class Page extends Component<PageProps, PageState> {
 
     this.props.app.runCode(this.state.doc.python);
 
-    setTimeout(() => this.terminalView.focus(), 250);
+    setTimeout(() => this.terminalView!.focus(), 250);
   }
 
   private onBlocklyChange(xml: string, python: string) {
@@ -248,13 +248,11 @@ export default class Page extends Component<PageProps, PageState> {
           </button>
 
           <BlocklyView
-            ref={(c) => this.blocklyView = c}
             visible={this.state.viewMode === 'blockly'}
             xml={this.state.doc.xml}
             onChange={(xml, python) => this.onBlocklyChange(xml, python)} />
 
           <PythonView
-            ref={(c) => this.pythonView = c}
             visible={this.state.viewMode === 'python'}
             python={this.state.doc.python}
             onChange={(python) => this.onPythonChange(python)} />
