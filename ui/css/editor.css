@@ -141,7 +141,7 @@ table.primary td {
   float: left;
   width: 190px;
   transition: box-shadow .3s;
-  border: solid 0.5px #e5e3e3;
+  border: solid 1px #e5e3e3;
   margin: 10px;
   text-align: center;
 }
