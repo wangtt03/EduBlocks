@@ -5,6 +5,107 @@
 
 declare module Blockly {
 
+  const OUTPUT_SHAPE_HEXAGONAL: number;
+  const OUTPUT_SHAPE_ROUND: number;
+  const OUTPUT_SHAPE_SQUARE: number;
+
+    class FieldSlider extends FieldSlider__Class { }
+    /** Fake class which should be extended to avoid inheriting static properties */
+    class FieldSlider__Class extends Blockly.FieldNumber__Class  { 
+    
+            /**
+             * Class for an editable number field.
+             * @param {number|string} value The initial content of the field.
+             * @param {number|string|undefined} opt_min Minimum value.
+             * @param {number|string|undefined} opt_max Maximum value.
+             * @param {number|string|undefined} opt_precision Precision for value.
+             * @param {number|string|undefined} opt_labelText Label text
+             * @param {Function=} opt_validator An optional function that is called
+             *     to validate any constraints on what the user entered.  Takes the new
+             *     text as an argument and returns either the accepted text, a replacement
+             *     text, or null to abort the change.
+             * @extends {Blockly.FieldNumber}
+             * @constructor
+             */
+            constructor(value_: any /* jsdoc error */, opt_min: number|string|any /*undefined*/, opt_max: number|string|any /*undefined*/, opt_precision: number|string|any /*undefined*/, opt_step?: any /* jsdoc error */, opt_labelText?: any|string|any /*undefined*/, opt_validator?: Function);
+    
+            /**
+             * Show the inline free-text editor on top of the text.
+             * @param {!Event} e A mouse down or touch start event.
+             * @private
+             */
+      
+    
+            /**
+             * Show the slider.
+             * @private
+             */
+            showSlider_(): void;
+    
+            /**
+             * Add the slider.
+             * @private
+             */
+            addSlider_(contentDiv: any /* jsdoc error */): void;
+    
+            /**
+             * Create label DOM.
+             * @private
+             */
+            createLabelDom_(labelText: any /* jsdoc error */): void;
+    
+            /**
+             * Set value.
+             */
+            setValue(value: any /* jsdoc error */): void;
+    
+            /**
+             * Update the DOM.
+             * @private
+             */
+            updateDom_(): void;
+    
+            /**
+             * Set the slider background.
+             * @private
+             */
+            setBackground_(slider: any /* jsdoc error */): void;
+    
+            /**
+             * Set readout.
+             * @private
+             */
+            setReadout_(readout: any /* jsdoc error */, value: any /* jsdoc error */): void;
+    
+            /**
+             * Update slider handles.
+             * @private
+             */
+            updateSliderHandles_(): void;
+    
+            /**
+             * Close the slider if this input is being deleted.
+             */
+            dispose(): void;
+    } 
+    
+}
+
+declare module Blockly.FieldSlider {
+
+    /**
+     * Construct a FieldSlider from a JSON arg object.
+     * @param {!Object} options A JSON object with options (value, min, max, and
+     *                          precision, step, labelText).
+     * @returns {!Blockly.FieldSlider} The new field instance.
+     * @package
+     * @nocollapse
+     */
+    function fromJson(options: Object): Blockly.FieldSlider;
+}
+
+declare module Blockly {
+
   class Block extends Block__Class { }
   /** Fake class which should be extended to avoid inheriting static properties */
   class Block__Class {
@@ -244,11 +345,13 @@ declare module Blockly {
      */
     getColour(): number;
 
+    setOutputShape(shape: number): void;
+
     /**
      * Change the colour of a block.
      * @param {number} colourHue HSV hue value.
      */
-    setColour(colourHue: any): void;
+    setColour(colourHue: any, colourPrimary?: any, colourTertiary?: any): void;
 
     /**
      * Returns the named field from a block.
@@ -503,6 +606,31 @@ declare module Blockly.Block {
 }
 
 declare module Blockly {
+
+  class FieldString extends FieldString__Class { }
+    /** Fake class which should be extended to avoid inheriting static properties */
+    class FieldString__Class extends Blockly.FieldTextInput__Class  { 
+    
+            /**
+             * Class for an editable text field.
+             * @param {string} text The initial content of the field.
+             * @param {Function=} opt_validator An optional function that is called
+             *     to validate any constraints on what the user entered.  Takes the new
+             *     text as an argument and returns either the accepted text, a replacement
+             *     text, or null to abort the change.
+             * @param {RegExp=} opt_restrictor An optional regular expression to restrict
+             *     typed text to. Text that doesn't match the restrictor will never show
+             *     in the text field.
+             * @extends {Blockly.FieldTextInput}
+             * @constructor
+             */
+            constructor(text: string, opt_validator?: Function, opt_restrictor?: RegExp);
+    
+            /**
+             * Install this string on a block.
+             */
+            init(): void;
+    } 
 
   class BlockSvg extends BlockSvg__Class { }
   /** Fake class which should be extended to avoid inheriting static properties */
@@ -838,6 +966,39 @@ declare module Blockly {
     renderDrawLeft_(steps: string[], highlightSteps: string[], connectionsXY: Object, cursorY: number): void;
   }
 
+}
+
+declare module Blockly.FieldString {
+
+  /**
+   * Construct a FieldString from a JSON arg object.
+   * @param {!Object} options A JSON object with options (text).
+   * @returns {!Blockly.FieldString} The new field instance.
+   * @package
+   * @nocollapse
+   */
+  function fromJson(options: Object): Blockly.FieldString;
+
+  /**
+   * Quote padding.
+   * @type {number}
+   * @public
+   */
+  var quotePadding: number;
+
+  /**
+   * Quote left data URI.
+   * @type {string}
+   * @public
+   */
+  var QUOTE_0_DATA_URI: string;
+
+  /**
+   * Quote right data URI.
+   * @type {string}
+   * @public
+   */
+  var QUOTE_1_DATA_URI: string;
 }
 
 declare module Blockly.BlockSvg {
@@ -1446,7 +1607,7 @@ declare module Blockly {
   }
 
   interface BlockGenerators {
-    [blockId: string]: (block: Block) => string;
+    [blockId: string]: (block: Block) => string | [string, number];
   }
 
   const Blocks: {
@@ -1456,10 +1617,13 @@ declare module Blockly {
   };
 
   const Python: {
-    statementToCode(block: Block, d: 'DO' | 'NAME' | 'VALUE'): string;
+    statementToCode(block: Block, d: 'DO' | 'NAME' | 'VALUE' | 'ifstate'): string;
     addLoopTrap(code: string, id: string): string;
+    valueToCode(block: Block, str: string, n: number): string;
+    workspaceToCode(workspace: Blockly.Workspace): string;
 
     PASS: string;
+    ORDER_ATOMIC: 0;
 
     variableDB_: {
       getName(name: string, type: any): string;
@@ -5920,7 +6084,7 @@ declare module Blockly.Xml {
    * @param {!Blockly.Workspace} workspace The workspace.
    * @param {!Element} xml XML DOM.
    */
-  function domToWorkspace(workspace: Blockly.Workspace, xml: Element): void;
+  function domToWorkspace(xml: Element, workspace: Blockly.Workspace): void;
 
   /**
    * Decode an XML block tag and create a block (and possibly sub blocks) on the
@@ -5953,6 +6117,8 @@ declare module Blockly.Xml {
 }
 
 declare module Blockly {
+
+    
 
   class ZoomControls extends ZoomControls__Class { }
   /** Fake class which should be extended to avoid inheriting static properties */
@@ -6039,4 +6205,8 @@ declare module Blockly {
     position(): void;
   }
 
+
+
 }
+
+
