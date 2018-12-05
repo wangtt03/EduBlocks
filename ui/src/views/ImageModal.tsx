@@ -26,6 +26,7 @@ export default class ImageModal extends Component<ImageModalProps, ImageModalSta
         <div className="ImageModalOption">
           {option.title}
           <img src={option.image} />
+          <br></br>
           <button onClick={() => this.props.onSelect(option.title)}>Select</button>
         </div>
       ))

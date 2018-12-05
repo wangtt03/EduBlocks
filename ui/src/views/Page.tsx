@@ -283,8 +283,8 @@ export default class Page extends Component<PageProps, PageState> {
           onCancel={() => this.closeThemes()} />
 
         <ImageModal
-          title='Select your version'
-          options={[{ title: 'Pi', image: '/images/pi.png' }, { title: 'Web', image: 'images/web.png' }]}
+          title='Select your mode'
+          options={[{ title: 'Web Python', image: '/images/webpy.png' }, { title: 'Advanced Python', image: '/images/advpy.png' }, { title: 'Raspberry Pi Mode', image: '/images/pi.png' }]}
           visible={this.state.versionSelectOpen}
           onSelect={() => { }}
           onCancel={() => { }} />

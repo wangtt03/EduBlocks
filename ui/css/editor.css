@@ -139,17 +139,32 @@ table.primary td {
 
 .ImageModalOption {
   float: left;
-  width: 128px;
-  height: 128px;
-  border: solid 1px #aaa;
+  width: 190px;
+  transition: box-shadow .3s;
+  border: solid 0.5px #e5e3e3;
   margin: 10px;
   text-align: center;
 }
 
 .ImageModalOption:hover {
-
+  box-shadow: 0 0 11px rgba(33,33,33,.2); 
 }
 
 .ImageModalOption > * {
   display: block;
+}
+
+.ImageModalOption img{
+  height:120px !important;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 15px;
+}
+
+.ImageModalOption button{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 8px;
 }
