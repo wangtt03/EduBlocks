@@ -9,7 +9,6 @@ export interface App {
   assignTerminal(term: TerminalInterface): void;
 
   getThemes(): string[];
-  getExtensions(): Extension[];
 
   getSamples(): string[];
   getSample(file: string): string;

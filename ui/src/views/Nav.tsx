@@ -5,7 +5,7 @@ interface Props {
   platformImg?: string;
 
   openSamples(): void;
-  openExtensions(): void;
+  openExtensions?(): void;
   openThemes(): void;
   downloadPython(): void;
   downloadHex?(): void;
@@ -20,7 +20,7 @@ interface Props {
 
 export default class Nav extends Component<Props, {}> {
   public render() {
-    const { downloadHex, sendCode } = this.props;
+    const { openExtensions, downloadHex, sendCode } = this.props;
 
     return (
       <nav>
@@ -63,9 +63,11 @@ export default class Nav extends Component<Props, {}> {
             Themes
           </a>
 
-          <a class='button icon-puzzle' title='Themes' href='javascript:void(0)' onClick={() => this.props.openExtensions()}>
-            Extensions
-          </a>
+          {openExtensions &&
+            <a class='button icon-puzzle' title='Themes' href='javascript:void(0)' onClick={() => openExtensions()}>
+              Extensions
+            </a>
+          }
 
           <a class='button' title='Samples' href='javascript:void(0)' onClick={() => this.props.openSamples()}>
             Samples

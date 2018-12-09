@@ -278,6 +278,12 @@ export default class Page extends Component<Props, State> {
     return this.state.platform.capabilities.indexOf(capability) !== -1;
   }
 
+  private getExtensions() {
+    if (!this.state.platform) return [];
+
+    return this.state.platform.extentions;
+  }
+
 
   public render() {
     const availablePlatforms = getPlatformList();
@@ -303,7 +309,7 @@ export default class Page extends Component<Props, State> {
           saveCode={() => this.saveFile()}
           newCode={() => this.new()}
           openSamples={() => this.openSamples()}
-          openExtensions={() => this.openExtensions()}
+          openExtensions={this.getExtensions().length ? () => this.openExtensions() : undefined}
           openThemes={() => this.openThemes()}
         />
 
@@ -355,13 +361,15 @@ export default class Page extends Component<Props, State> {
           onCancel={() => this.closeThemes()}
         />
 
-        <SelectModal
-          title='Extensions'
-          options={this.props.app.getExtensions()}
-          visible={this.state.extensionsOpen}
-          onSelect={(extension) => this.selectExtension(extension as Extension)}
-          onCancel={() => this.closeExtensions()}
-        />
+        {this.getExtensions().length &&
+          <SelectModal
+            title='Extensions'
+            options={this.getExtensions()}
+            visible={this.state.extensionsOpen}
+            onSelect={(extension) => this.selectExtension(extension as Extension)}
+            onCancel={() => this.closeExtensions()}
+          />
+        }
       </div>
     );
   }

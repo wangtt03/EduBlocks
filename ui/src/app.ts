@@ -82,14 +82,6 @@ export async function newApp(): Promise<App> {
     ];
   }
 
-  function getExtensions(): Extension[] {
-    return [
-      'scroll:bit',
-      'GiggleBot',
-      'Pi Supply IoT LoRa Node',
-    ];
-  }
-
   return {
     runCode,
     openFile,
@@ -98,7 +90,6 @@ export async function newApp(): Promise<App> {
     saveHex,
     assignTerminal,
     getThemes,
-    getExtensions,
     ...samples,
   };
 }

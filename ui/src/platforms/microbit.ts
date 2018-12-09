@@ -5,6 +5,10 @@ export function newMicrobitPlatform(): PlatformInterface {
     name: 'micro:bit',
     image: '/images/microbit.png',
     capabilities: ['HexDownload'],
-    extentions: [],
+    extentions: [
+      'scroll:bit',
+      'GiggleBot',
+      'Pi Supply IoT LoRa Node',
+    ],
   };
 }
