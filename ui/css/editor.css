@@ -23,12 +23,52 @@ menu .button{
 }
 
 nav {
-
   background: #396afc;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #2948ff, #396afc);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #2948ff, #396afc); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
 
+/* `SelectModal` Component
+---------------------------------------------------------------- */
+.SelectModel__container {
+  background: none !important;
+  border: solid 1px #000 !important;
+}
 
+.SelectModal__header {
+  background: #8E2DE2;
+  color: #fff;
+  border-bottom: none !important;
+}
+
+.SelectModal__close {
+  color: #fff;
+}
+
+.SelectModel__content {
+  background: #fff;
+  padding: .6em .8em !important;
+}
+
+.SelectModal__buttons {
+  background: #eee;
+  overflow: hidden;
+}
+
+.SelectModal__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(100px, 1fr));
+  align-items: center;
+}
+
+.SelectModal__cell {
+  
+}
+.SelectModal__cell--text > span {
+  line-height: 40px;
+}
+.SelectModal__cell--action > button {
+  float: right;
 }
 
   .blocklyToolboxDiv{

@@ -354,29 +354,36 @@ export default class Page extends Component<Props, State> {
           />
         }
 
-        <SelectModal
-          title='Samples'
-          options={this.props.app.getSamples()}
-          visible={this.state.samplesOpen}
-          onSelect={(file) => this.selectSample(file)}
-          onCancel={() => this.closeSamples()}
-        />
+        {this.state.samplesOpen &&
+          <SelectModal
+            title='Samples'
+            options={this.props.app.getSamples().map((label) => ({ label }))}
+            selectLabel='Open'
+            buttons={[]}
+            onSelect={(file) => this.selectSample(file.label)}
+            onButtonClick={(key) => key === 'close' && this.closeSamples()}
+          />
+        }
 
-        <SelectModal
-          title='Themes'
-          options={this.props.app.getThemes()}
-          visible={this.state.themesOpen}
-          onSelect={(theme) => this.selectTheme(theme)}
-          onCancel={() => this.closeThemes()}
-        />
+        {this.state.themesOpen &&
+          <SelectModal
+            title='Themes'
+            options={this.props.app.getThemes().map((label) => ({ label }))}
+            selectLabel='Select'
+            buttons={[]}
+            onSelect={(theme) => this.selectTheme(theme.label)}
+            onButtonClick={(key) => key === 'close' && this.closeThemes()}
+          />
+        }
 
-        {this.getExtensions().length &&
+        {this.getExtensions().length && this.state.extensionsOpen &&
           <SelectModal
             title='Extensions'
-            options={this.getExtensions()}
-            visible={this.state.extensionsOpen}
-            onSelect={(extension) => this.selectExtension(extension as Extension)}
-            onCancel={() => this.closeExtensions()}
+            options={this.getExtensions().map((label) => ({ label }))}
+            selectLabel='Load'
+            buttons={[]}
+            onSelect={(extension) => this.selectExtension(extension.label as Extension)}
+            onButtonClick={(key) => key === 'close' && this.closeExtensions()}
           />
         }
       </div>

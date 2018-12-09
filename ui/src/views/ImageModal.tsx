@@ -1,7 +1,7 @@
 import React = require('preact');
 import { Component } from 'preact';
 
-interface ImageModalProps<T extends ImageModalSelection> {
+interface ImageModalProps<T extends ImageModalOption> {
   title: string;
   visible: boolean;
   options: T[];
@@ -14,13 +14,13 @@ interface ImageModalState {
 
 }
 
-export interface ImageModalSelection {
+export interface ImageModalOption {
   title: string;
   image: string;
   help: string;
 }
 
-export default class ImageModal<T extends ImageModalSelection> extends Component<ImageModalProps<T>, ImageModalState> {
+export default class ImageModal<T extends ImageModalOption> extends Component<ImageModalProps<T>, ImageModalState> {
   public render() {
     const getOptions = () => (
       this.props.options.map((option) => (
