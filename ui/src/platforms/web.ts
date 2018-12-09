@@ -5,6 +5,7 @@ export function newWebPlatform(): PlatformInterface {
     name: 'Web Python',
     image: '/images/webpy.png',
     capabilities: ['TrinketShell'],
+    defaultExtensions: [],
     extentions: [],
   };
 }

@@ -5,6 +5,7 @@ export function newRaspberryPiPlatform(): PlatformInterface {
     name: 'micro:bit',
     image: '/images/pi.png',
     capabilities: ['RemoteShell'],
+    defaultExtensions: [],
     extentions: [],
   };
 }

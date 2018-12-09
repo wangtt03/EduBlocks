@@ -34,14 +34,14 @@ export default class BlocklyView extends Component<BlocklyViewProps, {}> {
     this.loadBlockly(this.props.extensionsActive);
   }
 
-  private loadBlockly(extensionsActive: Extension[]) {
+  private async loadBlockly(extensionsActive: Extension[]) {
     if (this.blocklyDiv) {
       // Kill the old workspace if it's already there...
       if (this.workspace) {
         this.workspace.dispose();
       }
 
-      const toolbox = getToolBoxXml(extensionsActive);
+      const toolbox = await getToolBoxXml(extensionsActive);
 
       this.workspace = Blockly.inject(this.blocklyDiv, {
 

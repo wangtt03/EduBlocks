@@ -214,7 +214,11 @@ export default class Page extends Component<Props, State> {
   private async selectPlatform(selection: PlatformSelection) {
     const platform = await getPlatform(selection.platform);
 
-    this.setState({ platformSelectOpen: false, platform });
+    this.setState({
+      platform,
+      platformSelectOpen: false,
+      extensionsActive: platform.defaultExtensions,
+    });
   }
 
 
