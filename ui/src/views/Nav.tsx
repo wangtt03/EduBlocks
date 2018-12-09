@@ -45,10 +45,6 @@ export default class Nav extends Component<Props, {}> {
             New
           </a>
 
-          <a class='button icon-plus' title='New' href='javascript:void(0)' onClick={() => this.props.newCode()}>
-            New
-          </a>
-
           <a class='button icon-folder-open' title='Open a file' href='javascript:void(0)' onClick={() => this.props.openCode()}>
             Open
           </a>
