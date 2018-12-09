@@ -1,7 +1,9 @@
 <category name="Basic" colour="#ff0066">
 
   <label text="Imports" web-class="myLabelStyle"></label>
-
+  <block type="import_turtle"></block>
+  <block type="turtle"></block>
+  <block type="directions"></block>
   <block type="import_microbit"></block>
   <block type="import_math"></block>
   <block type="random"></block>
