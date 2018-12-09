@@ -6,6 +6,7 @@ import BlocklyView from './BlocklyView';
 import PythonView from './PythonView';
 import TerminalView from './TerminalView';
 import SelectModal from './SelectModal';
+import ImageModal from './ImageModal';
 
 
 import { App, Extension } from '../types';
@@ -32,6 +33,7 @@ interface PageState {
   samplesOpen: boolean;
   themesOpen: boolean;
   extensionsOpen: boolean;
+  versionSelectOpen: boolean;
 
   extensionsActive: Extension[];
 
@@ -39,9 +41,9 @@ interface PageState {
 }
 
 export default class Page extends Component<PageProps, PageState> {
-  private blocklyView: BlocklyView;
-  private pythonView: PythonView;
-  public terminalView: TerminalView;
+  // private blocklyView?: BlocklyView;
+  // private pythonView?: PythonView;
+  public terminalView?: TerminalView;
 
   constructor() {
     super();
@@ -53,6 +55,7 @@ export default class Page extends Component<PageProps, PageState> {
       samplesOpen: false,
       themesOpen: false,
       extensionsOpen: false,
+      versionSelectOpen: true,
 
       extensionsActive: [],
 
@@ -166,7 +169,7 @@ export default class Page extends Component<PageProps, PageState> {
 
     this.props.app.runCode(this.state.doc.python);
 
-    setTimeout(() => this.terminalView.focus(), 250);
+    setTimeout(() => this.terminalView!.focus(), 250);
   }
 
   private onBlocklyChange(xml: string, python: string) {
@@ -289,14 +292,12 @@ export default class Page extends Component<PageProps, PageState> {
           </button>
 
           <BlocklyView
-            ref={(c) => this.blocklyView = c}
             visible={this.state.viewMode === 'blocks'}
             xml={this.state.doc.xml}
             extensionsActive={this.state.extensionsActive}
             onChange={(xml, python) => this.onBlocklyChange(xml, python)} />
 
           <PythonView
-            ref={(c) => this.pythonView = c}
             visible={this.state.viewMode === 'python'}
             python={this.state.doc.python}
             onChange={(python) => this.onPythonChange(python)} />
@@ -327,6 +328,13 @@ export default class Page extends Component<PageProps, PageState> {
           visible={this.state.extensionsOpen}
           onSelect={(extension) => this.selectExtension(extension as Extension)}
           onCancel={() => this.closeExtensions()} />
+
+        <ImageModal
+          title='Select your mode'
+          options={[{ title: 'Web Python', image: '/images/webpy.png' }, { title: 'Advanced Python', image: '/images/advpy.png' }, { title: 'Raspberry Pi Mode', image: '/images/pi.png' }]}
+          visible={this.state.versionSelectOpen}
+          onSelect={() => { }}
+          onCancel={() => { }} />
       </div>
     );
   }
