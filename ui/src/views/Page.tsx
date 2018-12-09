@@ -354,34 +354,33 @@ export default class Page extends Component<Props, State> {
           />
         }
 
-        {this.state.samplesOpen &&
-          <SelectModal
-            title='Samples'
-            options={this.props.app.getSamples().map((label) => ({ label }))}
-            selectLabel='Open'
-            buttons={[]}
-            onSelect={(file) => this.selectSample(file.label)}
-            onButtonClick={(key) => key === 'close' && this.closeSamples()}
-          />
-        }
+        <SelectModal
+          title='Samples'
+          options={this.props.app.getSamples().map((label) => ({ label }))}
+          selectLabel='Open'
+          buttons={[]}
+          visible={this.state.samplesOpen}
+          onSelect={(file) => this.selectSample(file.label)}
+          onButtonClick={(key) => key === 'close' && this.closeSamples()}
+        />
 
-        {this.state.themesOpen &&
-          <SelectModal
-            title='Themes'
-            options={this.props.app.getThemes().map((label) => ({ label }))}
-            selectLabel='Select'
-            buttons={[]}
-            onSelect={(theme) => this.selectTheme(theme.label)}
-            onButtonClick={(key) => key === 'close' && this.closeThemes()}
-          />
-        }
+        <SelectModal
+          title='Themes'
+          options={this.props.app.getThemes().map((label) => ({ label }))}
+          selectLabel='Select'
+          buttons={[]}
+          visible={this.state.themesOpen}
+          onSelect={(theme) => this.selectTheme(theme.label)}
+          onButtonClick={(key) => key === 'close' && this.closeThemes()}
+        />
 
-        {this.getExtensions().length && this.state.extensionsOpen &&
+        {this.getExtensions().length &&
           <SelectModal
             title='Extensions'
             options={this.getExtensions().map((label) => ({ label }))}
             selectLabel='Load'
             buttons={[]}
+            visible={this.state.extensionsOpen}
             onSelect={(extension) => this.selectExtension(extension.label as Extension)}
             onButtonClick={(key) => key === 'close' && this.closeExtensions()}
           />

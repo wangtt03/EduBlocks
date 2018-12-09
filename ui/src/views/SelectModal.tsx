@@ -4,6 +4,7 @@ import { Component } from 'preact';
 interface SelectModalProps<T extends SelectModalOption> {
   title: string;
   selectLabel: string;
+  visible: boolean;
 
   buttons: SelectModalButton[];
   options: T[];
@@ -47,7 +48,7 @@ export default class SelectModal<T extends SelectModalOption> extends Component<
     return (
       <div class='SelectModal modal'>
 
-        <input id='modal_1' type='checkbox' disabled={true} checked={true} />
+        <input id='modal_1' type='checkbox' disabled={true} checked={this.props.visible} />
 
         <label for='modal_1' class='overlay'></label>
 
