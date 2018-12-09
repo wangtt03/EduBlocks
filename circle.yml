@@ -5,7 +5,7 @@ machine:
     version: 2.7.12
 general:
   branches:
-    ignore:
+    ignore: 
       - wip
 dependencies:
   override:
