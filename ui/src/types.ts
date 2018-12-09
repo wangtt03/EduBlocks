@@ -30,7 +30,7 @@ export interface TerminalInterface {
   rows: number;
 }
 
-export type Extension = 'micro:bit General' | 'scroll:bit' | 'enviro:bit' | 'GiggleBot' | 'Pi Supply IoT LoRa Node' | 'EnviroBit';
+export type Extension = 'micro:bit General' | 'Pi General' | 'Web General' | 'scroll:bit' | 'enviro:bit' | 'GiggleBot' | 'Pi Supply IoT LoRa Node' | 'EnviroBit';
 
 export type Platform = 'Web' | 'MicroBit' | 'RaspberryPi';
 
