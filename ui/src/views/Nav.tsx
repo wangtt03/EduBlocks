@@ -7,8 +7,9 @@ interface Props {
   openSamples(): void;
   openExtensions?(): void;
   openThemes(): void;
-  downloadPython(): void;
+  // downloadPython(): void;
   downloadHex?(): void;
+  onFunction(): void;
 
   newCode(): void;
   openCode(): void;
@@ -36,6 +37,14 @@ export default class Nav extends Component<Props, {}> {
 
         <div class='menu'>
 
+          <a class='button' title='Functions' href='javascript:void(0)' onClick={() => this.props.onFunction()}>
+            Functions
+          </a>
+
+          <a class='button icon-plus' title='New' href='javascript:void(0)' onClick={() => this.props.newCode()}>
+            New
+          </a>
+
           <a class='button icon-plus' title='New' href='javascript:void(0)' onClick={() => this.props.newCode()}>
             New
           </a>
@@ -54,9 +63,9 @@ export default class Nav extends Component<Props, {}> {
             </a>
           }
 
-          <a class='button icon-download' title='Download Python Source Code' href='javascript:void(0)' onClick={() => this.props.downloadPython()}>
+          {/* <a class='button icon-download' title='Download Python Source Code' href='javascript:void(0)' onClick={() => this.props.downloadPython()}>
             Python
-          </a>
+          </a> */}
 
 
           <a class='button' title='Themes' href='javascript:void(0)' onClick={() => this.props.openThemes()}>
