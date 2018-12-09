@@ -3,14 +3,14 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
   var maincolour = "#ff0066";
   var bordercolour = "#b3235a";
   var inputcolour = "#ff0066";
-  Blocks['import_microbit'] = {
+  Blocks['import_time'] = {
     init: function () {
       this.appendDummyInput()
-        .appendField('from microbit import *');
+        .appendField('import time');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
       this.setColour(maincolour, inputcolour, bordercolour);
-      this.setTooltip('Imports the microbit library.');
+      this.setTooltip('Imports the time library.');
       this.setHelpUrl('http://www.example.com/');
     },
   };
@@ -364,7 +364,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
   Blocks['sleepnew'] = {
     init: function() {
       this.appendDummyInput()
-          .appendField("sleep(");
+          .appendField("time.sleep(");
       this.appendValueInput("sleep")
           .setCheck(null);
       this.appendDummyInput()

@@ -1,6 +1,6 @@
 export default function define(Python: Blockly.BlockGenerators) {
-  Python['import_microbit'] = function (block) {
-    const code = 'from microbit import *\n';
+  Python['import_time'] = function (block) {
+    const code = 'import time\n';
     return code;
   };
 
@@ -177,7 +177,7 @@ export default function define(Python: Blockly.BlockGenerators) {
   Python['sleepnew'] = function(block) {
     var value_name = Blockly.Python.valueToCode(block, 'sleep', Blockly.Python.ORDER_ATOMIC);
     // TODO: Assemble Python into code variable.
-    var code = 'sleep(' +value_name+ ')\n';
+    var code = 'time.sleep(' +value_name+ ')\n';
     return code;
   };
 

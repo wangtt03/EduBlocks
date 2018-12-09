@@ -31,6 +31,7 @@ function initSocket(url: string) {
     let ws: WebSocket | null;
 
     connect();
+    
 
     function connect() {
       ws = new WebSocket(url);

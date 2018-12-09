@@ -31,6 +31,7 @@ nav {
 .Nav__platformImg {
   animation: beat 0.5s infinite alternate;
   margin-right: 10px;
+  height: 2em;
 }
 
 /* `SelectModal` Component
@@ -279,9 +280,6 @@ div.blocklyTreeRow {
   align-items: baseline;
 }
 
-.ImageModalOptionButtonContainer > * {
-
-}
 
 .ImageModalOption button{
   margin-bottom: 8px;
@@ -324,5 +322,5 @@ div.blocklyTreeRow {
 @keyframes spin { 100% { transform:rotate(360deg); } }
 
 @keyframes beat{
-	to { transform: scale(1.1); }
+	to { transform: scale(1.05); }
 }
