@@ -24,7 +24,7 @@ async function newServer(): Promise<Server> {
     reconnect: stub,
   };
 
-  const url = `wss://${getHost()}/terminal`;
+  const url = `ws://${getHost()}/terminal`;
 
   const ws = await initSocket(url);
 
