@@ -389,7 +389,7 @@ export default class Page extends Component<Props, State> {
           onButtonClick={(key) => key === 'close' && this.closeThemes()}
         />
 
-        {this.getExtensions().length &&
+        {this.getExtensions().length > 0 &&
           <SelectModal
             title='Extensions'
             options={this.getExtensions().map((label) => ({ label }))}
