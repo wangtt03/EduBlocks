@@ -73,6 +73,7 @@ async function newApp(): Promise<App> {
       'Celestial',
       'Pacific',
       'Dark',
+      'Solarized',
     ];
   }
 

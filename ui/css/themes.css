@@ -35,6 +35,51 @@
   border: 1px solid white;
 }
 
+.theme-Solarized nav {
+  background: #00262F;
+}
+.theme-Solarized .blocklySvg {
+  background-color: #002F39 !important;
+}
+.theme-Solarized .menu .button,
+.theme-Solarized button {
+  color: white;
+}
+
+.theme-Solarized .button {
+  background:#053844; 
+  color: white;
+}
+
+.theme-Solarized body{
+  background-color: #002F39 !important;
+}
+
+.theme-Solarized .brand {
+  color: white
+}
+
+.theme-Solarized .blocklyToolboxDiv {
+  background-color: #00262F !important;
+  color: white
+}
+
+
+.theme-Solarized #toggleViewButton{
+  background-color: #053844;
+  color: white
+}
+
+.theme-Solarized .close {
+  color: #053844
+}
+
+.theme-Solarized .modal article{
+  background-color: #1F1F1F;
+  color: #fff;
+  border: 1px solid #363636;
+}
+
 /* Default Theme */
 
 .theme-Default nav{
