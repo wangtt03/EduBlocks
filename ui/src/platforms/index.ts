@@ -6,8 +6,8 @@ export function getPlatformList(): PlatformSelection[] {
   return [
     // {  title: 'Web Python', image: '/images/webpy.png', help: 'https://edublocks.org' },
     // { title: 'Advanced Python', image: '/images/advpy.png', help: 'https://edublocks.org' },
-    { platform: 'RaspberryPi', title: 'Raspberry Pi', image: '/images/pi.png', help: 'https://edublocks.org' },
-    { platform: 'MicroBit', title: 'micro:bit', image: '/images/microbit.png', help: 'https://edublocks.org' },
+    { platform: 'RaspberryPi', title: 'Raspberry Pi', image: '/images/pi.png', help: 'https://docs.edublocks.org/raspberrypi/' },
+    { platform: 'MicroBit', title: 'micro:bit', image: '/images/microbit.png', help: 'https://docs.edublocks.org/microbit/' },
     // { title: 'CircuitPython', image: '/images/circuitplayground.png', help: 'https://edublocks.org' },
   ];
 }
