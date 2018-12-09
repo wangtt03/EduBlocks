@@ -24,8 +24,8 @@ function getWebIo() {
           resolve(contents);
         };
 
-        reader.onerror = (err) => {
-          reject(new Error(err.message));
+        reader.onerror = () => {
+          reject(new Error('Reader error'));
         };
 
         reader.readAsText(file);

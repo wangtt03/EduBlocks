@@ -1,35 +1,35 @@
 import React = require('preact');
 import { Component } from 'preact';
 
-interface ImageModalProps {
+interface ImageModalProps<T extends ImageModalSelection> {
   title: string;
   visible: boolean;
-  options: ImageModalSelection[];
+  options: T[];
 
   onCancel(): void;
-  onSelect(option: string): void;
+  onSelect(option: T): void;
 }
 
 interface ImageModalState {
 
 }
 
-interface ImageModalSelection {
+export interface ImageModalSelection {
   title: string;
   image: string;
   help: string;
 }
 
-export default class ImageModal extends Component<ImageModalProps, ImageModalState> {
+export default class ImageModal<T extends ImageModalSelection> extends Component<ImageModalProps<T>, ImageModalState> {
   public render() {
     const getOptions = () => (
       this.props.options.map((option) => (
-        <div className="ImageModalOption">
+        <div className='ImageModalOption'>
           {option.title}
           <img src={option.image} />
           <div className='ImageModalOptionButtonContainer'>
-            <button onClick={() => this.props.onSelect(option.title)}>Select</button>
-            <a class='icon-help-circled' style="color:#aaa" href={option.help}></a>
+            <button onClick={() => this.props.onSelect(option)}>Select</button>
+            <a class='icon-help-circled' style='color:#aaa' href={option.help}></a>
           </div>
         </div>
       ))
@@ -45,7 +45,7 @@ export default class ImageModal extends Component<ImageModalProps, ImageModalSta
           </header>
 
           <section class='content'>
-            <div class="ImageModalOptionContainer">
+            <div class='ImageModalOptionContainer'>
               {getOptions()}
             </div>
           </section>

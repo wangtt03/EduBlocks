@@ -1,22 +1,20 @@
 import React = require('preact');
 import { Component } from 'preact';
-
-import Nav from './Nav';
+import { getPlatform, getPlatformList } from '../platforms';
+import { App, Extension, PlatformInterface, PlatformSelection } from '../types';
 import BlocklyView from './BlocklyView';
-import PythonView from './PythonView';
-import TerminalView from './TerminalView';
-import SelectModal from './SelectModal';
 import ImageModal from './ImageModal';
-
-
-import { App, Extension } from '../types';
+import Nav from './Nav';
+import PythonView from './PythonView';
+import SelectModal from './SelectModal';
+import TerminalView from './TerminalView';
 
 const ViewModeBlockly = 'blocks';
 const ViewModePython = 'python';
 
 type ViewMode = typeof ViewModeBlockly | typeof ViewModePython;
 
-interface PageProps {
+interface Props {
   app: App;
 }
 
@@ -26,23 +24,23 @@ interface DocumentState {
   pythonClean: boolean;
 }
 
-interface PageState {
+interface State {
+  platform?: PlatformInterface;
+
   viewMode: ViewMode;
 
+  platformSelectOpen: boolean;
   terminalOpen: boolean;
   samplesOpen: boolean;
   themesOpen: boolean;
   extensionsOpen: boolean;
-  versionSelectOpen: boolean;
 
   extensionsActive: Extension[];
 
   doc: Readonly<DocumentState>;
 }
 
-export default class Page extends Component<PageProps, PageState> {
-  // private blocklyView?: BlocklyView;
-  // private pythonView?: PythonView;
+export default class Page extends Component<Props, State> {
   public terminalView?: TerminalView;
 
   constructor() {
@@ -55,7 +53,7 @@ export default class Page extends Component<PageProps, PageState> {
       samplesOpen: false,
       themesOpen: false,
       extensionsOpen: false,
-      versionSelectOpen: true,
+      platformSelectOpen: true,
 
       extensionsActive: [],
 
@@ -126,7 +124,7 @@ export default class Page extends Component<PageProps, PageState> {
     this.switchView('blocks');
   }
 
-  protected componentDidMount() {
+  public componentDidMount() {
 
   }
 
@@ -211,6 +209,13 @@ export default class Page extends Component<PageProps, PageState> {
   }
 
 
+  private async selectPlatform(selection: PlatformSelection) {
+    const platform = await getPlatform(selection.platform);
+
+    this.setState({ platformSelectOpen: false, platform });
+  }
+
+
   private openSamples() {
     this.setState({ samplesOpen: true });
   }
@@ -267,9 +272,20 @@ export default class Page extends Component<PageProps, PageState> {
   }
 
   public render() {
+    const availablePlatforms = getPlatformList();
+
     return (
       <div id='page'>
+        <ImageModal
+          title='Select your mode'
+          options={availablePlatforms}
+          visible={this.state.platformSelectOpen}
+          onSelect={(platform) => this.selectPlatform(platform)}
+          onCancel={() => { }}
+        />
+
         <Nav
+          platformImg={this.state.platform && this.state.platform.image}
           sync={this.state.doc.pythonClean}
 
           sendCode={() => this.sendCode()}
@@ -280,12 +296,14 @@ export default class Page extends Component<PageProps, PageState> {
           newCode={() => this.new()}
           openSamples={() => this.openSamples()}
           openExtensions={() => this.openExtensions()}
-          openThemes={() => this.openThemes()} />
+          openThemes={() => this.openThemes()}
+        />
 
         <section id='workspace'>
           <button
             id='toggleViewButton'
-            onClick={() => this.toggleView()}>
+            onClick={() => this.toggleView()}
+          >
 
             {this.state.viewMode}
 
@@ -295,46 +313,45 @@ export default class Page extends Component<PageProps, PageState> {
             visible={this.state.viewMode === 'blocks'}
             xml={this.state.doc.xml}
             extensionsActive={this.state.extensionsActive}
-            onChange={(xml, python) => this.onBlocklyChange(xml, python)} />
+            onChange={(xml, python) => this.onBlocklyChange(xml, python)}
+          />
 
           <PythonView
             visible={this.state.viewMode === 'python'}
             python={this.state.doc.python}
-            onChange={(python) => this.onPythonChange(python)} />
+            onChange={(python) => this.onPythonChange(python)}
+          />
         </section>
 
         <TerminalView
           ref={(c) => this.terminalView = c}
           visible={this.state.terminalOpen}
-          onClose={() => this.onTerminalClose()} />
+          onClose={() => this.onTerminalClose()}
+        />
 
         <SelectModal
           title='Samples'
           options={this.props.app.getSamples()}
           visible={this.state.samplesOpen}
           onSelect={(file) => this.selectSample(file)}
-          onCancel={() => this.closeSamples()} />
+          onCancel={() => this.closeSamples()}
+        />
 
         <SelectModal
           title='Themes'
           options={this.props.app.getThemes()}
           visible={this.state.themesOpen}
           onSelect={(theme) => this.selectTheme(theme)}
-          onCancel={() => this.closeThemes()} />
+          onCancel={() => this.closeThemes()}
+        />
 
         <SelectModal
           title='Extensions'
           options={this.props.app.getExtensions()}
           visible={this.state.extensionsOpen}
           onSelect={(extension) => this.selectExtension(extension as Extension)}
-          onCancel={() => this.closeExtensions()} />
-
-        <ImageModal
-          title='Select your mode'
-          options={[{ title: 'Web Python', image: '/images/webpy.png', help: 'https://edublocks.org'}, { title: 'Advanced Python', image: '/images/advpy.png', help: 'https://edublocks.org' }, { title: 'Raspberry Pi', image: '/images/pi.png', help: 'https://edublocks.org' }, { title: 'micro:bit', image: '/images/microbit.png', help: 'https://edublocks.org' }, { title: 'CircuitPython', image: '/images/circuitplayground.png', help: 'https://edublocks.org' }]}
-          visible={this.state.versionSelectOpen}
-          onSelect={() => { }}
-          onCancel={() => { }} />
+          onCancel={() => this.closeExtensions()}
+        />
       </div>
     );
   }

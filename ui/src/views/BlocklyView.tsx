@@ -17,7 +17,7 @@ export default class BlocklyView extends Component<BlocklyViewProps, {}> {
   private workspace?: Blockly.WorkspaceSvg;
   private xml: string | null = null;
 
-  protected componentWillReceiveProps(nextProps: BlocklyViewProps) {
+  public componentWillReceiveProps(nextProps: BlocklyViewProps) {
     if (nextProps.visible) {
       if (this.xml !== nextProps.xml) {
         this.setXml(nextProps.xml);
@@ -30,7 +30,7 @@ export default class BlocklyView extends Component<BlocklyViewProps, {}> {
     }
   }
 
-  protected async componentDidMount() {
+  public async componentDidMount() {
     this.loadBlockly(this.props.extensionsActive);
   }
 
@@ -46,12 +46,14 @@ export default class BlocklyView extends Component<BlocklyViewProps, {}> {
       this.workspace = Blockly.inject(this.blocklyDiv, {
 
         zoom:
-          {controls: true,
+        {
+          controls: true,
           wheel: true,
           startScale: 1.0,
           maxScale: 3,
           minScale: 0.3,
-          scaleSpeed: 1.2},
+          scaleSpeed: 1.2,
+        },
         media: 'blockly/media/',
         toolbox,
       }) as Blockly.WorkspaceSvg;

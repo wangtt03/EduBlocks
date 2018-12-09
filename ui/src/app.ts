@@ -1,17 +1,17 @@
-// import { newServer } from './server';
-import { App, TerminalInterface, Extension } from './types';
-import { getIo } from './io';
-import { newSamples } from './samples';
-import { getHexFile } from './lib/hexlify';
 import { getBeforeScript } from './blocks/index';
+import { getIo } from './io';
+import { getHexFile } from './lib/hexlify';
+import { newSamples } from './samples';
+import { newServer } from './server';
+import { App, Extension, TerminalInterface } from './types';
 
-async function newApp(): Promise<App> {
-  // const client = await newServer();
+export async function newApp(): Promise<App> {
+  const client = await newServer();
   const io = getIo();
   const samples = newSamples();
 
   function runCode(code: string) {
-    // return client.runCode(code);
+    return client.runCode(code);
   }
 
   function openFile() {
@@ -24,7 +24,9 @@ async function newApp(): Promise<App> {
 
   function getCombinedScript(python: string, extensions: Extension[]) {
     const beforeScript = getBeforeScript(extensions);
-    let newpy = python
+
+    let newpy = python;
+
     newpy = newpy.replace('from gigglebot import *', '');
     newpy = newpy.replace('from scrollbit import *', '');
     newpy = newpy.replace('from envirobit import *', '');
@@ -50,20 +52,20 @@ async function newApp(): Promise<App> {
   }
 
   function assignTerminal(terminal: TerminalInterface) {
-    // client.on('data', (data) => terminal.write(data));
+    client.on('data', (data) => terminal.write(data));
 
-    // client.on('reconnect', () => {
-    //   terminal.reset();
+    client.on('reconnect', () => {
+      terminal.reset();
 
-    //   client.resizeTerminal(terminal.cols, terminal.rows);
-    // });
+      client.resizeTerminal(terminal.cols, terminal.rows);
+    });
 
-    // terminal.on('data', client.sendData);
-    // terminal.on('resize', client.resizeTerminal);
+    terminal.on('data', client.sendData);
+    terminal.on('resize', client.resizeTerminal);
 
-    // if (terminal.cols && terminal.rows) {
-    //   client.resizeTerminal(terminal.cols, terminal.rows);
-    // }
+    if (terminal.cols && terminal.rows) {
+      client.resizeTerminal(terminal.cols, terminal.rows);
+    }
   }
 
   function getThemes() {
@@ -98,7 +100,3 @@ async function newApp(): Promise<App> {
     ...samples,
   };
 }
-
-export {
-  newApp,
-};

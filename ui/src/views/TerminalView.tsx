@@ -15,13 +15,19 @@ export default class TerminalView extends Component<TerminalViewProps, {}> imple
   private termDiv?: Element;
   private term: Terminal;
 
-  public cols: number;
-  public rows: number;
+  public cols = 0;
+  public rows = 0;
 
   private eventHandlers: TerminalEvents = {
     data: stub,
     resize: stub,
   };
+
+  constructor(props: TerminalViewProps) {
+    super(props);
+
+    this.term = new Terminal();
+  }
 
   private fit() {
     this.term.fit();
@@ -34,10 +40,8 @@ export default class TerminalView extends Component<TerminalViewProps, {}> imple
     }
   }
 
-  protected componentDidMount() {
+  public componentDidMount() {
     if (!this.termDiv) throw new Error('No term');
-
-    this.term = new Terminal();
 
     this.term.open(this.termDiv, true);
 
@@ -57,7 +61,7 @@ export default class TerminalView extends Component<TerminalViewProps, {}> imple
     window.addEventListener('resize', () => this.fit());
   }
 
-  protected componentDidUpdate() {
+  public componentDidUpdate() {
     this.fit();
   }
 
@@ -92,16 +96,16 @@ export default class TerminalView extends Component<TerminalViewProps, {}> imple
 
   public render() {
     return (
-      <div style={{ display: this.props.visible ? 'block' : 'none' }} id="terminal-dialog">
-        <div class="terminal-help">
-          <span class="help-item" onClick={() => this.onCloseClick()}>
-            <span class="key">ESC</span> = Close terminal
+      <div style={{ display: this.props.visible ? 'block' : 'none' }} id='terminal-dialog'>
+        <div class='terminal-help'>
+          <span class='help-item' onClick={() => this.onCloseClick()}>
+            <span class='key'>ESC</span> = Close terminal
           </span>
-          <span class="help-item" onClick={() => this.onStopClick()}>
-            <span class="key">Ctrl</span> + <span class="key">C</span> = Stop program
+          <span class='help-item' onClick={() => this.onStopClick()}>
+            <span class='key'>Ctrl</span> + <span class='key'>C</span> = Stop program
           </span>
         </div>
-        <div id="term" ref={(div) => this.termDiv = div}></div>
+        <div id='term' ref={(div) => this.termDiv = div}></div>
       </div>
     );
   }

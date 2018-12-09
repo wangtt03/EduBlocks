@@ -1,7 +1,9 @@
 import React = require('preact');
 import { Component } from 'preact';
 
-interface NavProps {
+interface Props {
+  platformImg?: string;
+
   openSamples(): void;
   openExtensions(): void;
   openThemes(): void;
@@ -16,11 +18,13 @@ interface NavProps {
   sync: boolean;
 }
 
-export default class Nav extends Component<NavProps, {}> {
+export default class Nav extends Component<Props, {}> {
   public render() {
     return (
       <nav>
         <a class='brand'>
+          {this.props.platformImg && <img src={this.props.platformImg} height={50} />}
+
           <img class='logo' src='/images/ebmblogo.png' />
           {/*<span class='filename'>({this.props.sync ? 'In sync' : 'Out of sync'})</span>*/}
         </a>
@@ -29,6 +33,7 @@ export default class Nav extends Component<NavProps, {}> {
         <label for='bmenub' class='burger pseudo button'>menu</label>
 
         <div class='menu'>
+
           <a class='button icon-plus' title='New' href='javascript:void(0)' onClick={() => this.props.newCode()}>
             New
           </a>
@@ -53,15 +58,18 @@ export default class Nav extends Component<NavProps, {}> {
           <a class='button' title='Themes' href='javascript:void(0)' onClick={() => this.props.openThemes()}>
             Themes
           </a>
-          
+
           <a class='button icon-puzzle' title='Themes' href='javascript:void(0)' onClick={() => this.props.openExtensions()}>
             Extensions
-           </a>
-          
+          </a>
+
           <a class='button' title='Samples' href='javascript:void(0)' onClick={() => this.props.openSamples()}>
             Samples
           </a>
 
+          <a class='button icon-play' title='Run your code' href='javascript:void(0)' onClick={() => this.props.sendCode()}>
+            Run
+          </a>
 
         </div>
       </nav>
