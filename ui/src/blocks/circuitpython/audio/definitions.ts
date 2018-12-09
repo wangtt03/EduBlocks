@@ -89,6 +89,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
           .appendField(".playing");
       this.setInputsInline(true);
       this.setOutput(true, null);
+      this.setOutputShape(Blockly.OUTPUT_SHAPE_ROUND);
       this.setColour(audiocol);
    this.setTooltip("");
    this.setHelpUrl("");

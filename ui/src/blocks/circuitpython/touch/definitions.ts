@@ -35,6 +35,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
           .appendField(new Blockly.FieldVariable("touch"), "pin")
           .appendField(".value");
       this.setOutput(true, null);
+      this.setOutputShape(Blockly.OUTPUT_SHAPE_ROUND);
       this.setColour(touchcol);
    this.setTooltip("");
    this.setHelpUrl("");

@@ -83,6 +83,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
           .appendField(new Blockly.FieldVariable("pin"), "pin")
           .appendField(".value");
       this.setOutput(true, null);
+      this.setOutputShape(Blockly.OUTPUT_SHAPE_ROUND);
       this.setColour(digitalcol);
    this.setTooltip("");
    this.setHelpUrl("");

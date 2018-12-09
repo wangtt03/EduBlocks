@@ -68,6 +68,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
           .appendField(".value");
       this.setOutput(true, null);
       this.setColour("#E67D21");
+      this.setOutputShape(Blockly.OUTPUT_SHAPE_ROUND);
    this.setTooltip("");
    this.setHelpUrl("");
     }

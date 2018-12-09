@@ -21,6 +21,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
           .appendField("microcontroller.cpu.temperature");
       this.setOutput(true, null);
       this.setColour(advcol);
+      this.setOutputShape(Blockly.OUTPUT_SHAPE_ROUND);
    this.setTooltip("");
    this.setHelpUrl("");
     }
@@ -75,6 +76,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
           .appendField(")");
       this.setInputsInline(true);
       this.setOutput(true, null);
+      this.setOutputShape(Blockly.OUTPUT_SHAPE_ROUND);
       this.setColour(advcol);
    this.setTooltip("");
    this.setHelpUrl("");
