@@ -7,64 +7,64 @@ export async function getToolBoxXml(extensions: Extension[]) {
 
   toolBoxXml += '<xml>';
 
-  (await import('./basic/definitions')).default(Blockly.Blocks);
-  (await import('./basic/generators')).default(Blockly.Python as any);
-  toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'basic', 'toolbox.xml'));
+  (await import('./all-platforms/basic/definitions')).default(Blockly.Blocks);
+  (await import('./all-platforms/basic/generators')).default(Blockly.Python as any);
+  toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'all-platforms', 'basic', 'toolbox.xml'));
 
   if (extensions.indexOf('micro:bit General') !== -1) {
-    (await import('./display/definitions')).default(Blockly.Blocks);
-    (await import('./display/generators')).default(Blockly.Python as any);
-    toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'display', 'toolbox.xml'));
+    (await import('./microbit/display/definitions')).default(Blockly.Blocks);
+    (await import('./microbit/display/generators')).default(Blockly.Python as any);
+    toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'microbit', 'display', 'toolbox.xml'));
 
-    (await import('./buttons/definitions')).default(Blockly.Blocks);
-    (await import('./buttons/generators')).default(Blockly.Python as any);
-    toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'buttons', 'toolbox.xml'));
+    (await import('./microbit/buttons/definitions')).default(Blockly.Blocks);
+    (await import('./microbit/buttons/generators')).default(Blockly.Python as any);
+    toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'microbit', 'buttons', 'toolbox.xml'));
 
-    (await import('./accelerometer/definitions')).default(Blockly.Blocks);
-    (await import('./accelerometer/generators')).default(Blockly.Python as any);
-    toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'accelerometer', 'toolbox.xml'));
+    (await import('./microbit/accelerometer/definitions')).default(Blockly.Blocks);
+    (await import('./microbit/accelerometer/generators')).default(Blockly.Python as any);
+    toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'microbit', 'accelerometer', 'toolbox.xml'));
 
-    (await import('./compass/definitions')).default(Blockly.Blocks);
-    (await import('./compass/generators')).default(Blockly.Python as any);
-    toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'compass', 'toolbox.xml'));
+    (await import('./microbit/compass/definitions')).default(Blockly.Blocks);
+    (await import('./microbit/compass/generators')).default(Blockly.Python as any);
+    toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'microbit', 'compass', 'toolbox.xml'));
 
-    (await import('./radio/definitions')).default(Blockly.Blocks);
-    (await import('./radio/generators')).default(Blockly.Python as any);
-    toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'radio', 'toolbox.xml'));
+    (await import('./microbit/radio/definitions')).default(Blockly.Blocks);
+    (await import('./microbit/radio/generators')).default(Blockly.Python as any);
+    toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'microbit', 'radio', 'toolbox.xml'));
 
-    (await import('./speech/definitions')).default(Blockly.Blocks);
-    (await import('./speech/generators')).default(Blockly.Python as any);
-    toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'speech', 'toolbox.xml'));
+    (await import('./microbit/speech/definitions')).default(Blockly.Blocks);
+    (await import('./microbit/speech/generators')).default(Blockly.Python as any);
+    toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'microbit', 'speech', 'toolbox.xml'));
 
-    (await import('./music/definitions')).default(Blockly.Blocks);
-    (await import('./music/generators')).default(Blockly.Python as any);
-    toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'music', 'toolbox.xml'));
+    (await import('./microbit/music/definitions')).default(Blockly.Blocks);
+    (await import('./microbit/music/generators')).default(Blockly.Python as any);
+    toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'microbit', 'music', 'toolbox.xml'));
 
-    (await import('./neopixel/definitions')).default(Blockly.Blocks);
-    (await import('./neopixel/generators')).default(Blockly.Python as any);
-    toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'neopixel', 'toolbox.xml'));
+    (await import('./microbit/neopixel/definitions')).default(Blockly.Blocks);
+    (await import('./microbit/neopixel/generators')).default(Blockly.Python as any);
+    toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'microbit', 'neopixel', 'toolbox.xml'));
 
-    (await import('./pins/definitions')).default(Blockly.Blocks);
-    (await import('./pins/generators')).default(Blockly.Python as any);
-    toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'pins', 'toolbox.xml'));
+    (await import('./microbit/pins/definitions')).default(Blockly.Blocks);
+    (await import('./microbit/pins/generators')).default(Blockly.Python as any);
+    toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'microbit', 'pins', 'toolbox.xml'));
   }
 
   if (extensions.indexOf('scroll:bit') !== -1) {
-    (await import('./scrollbit/definitions')).default(Blockly.Blocks);
-    (await import('./scrollbit/generators')).default(Blockly.Python as any);
-    toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'scrollbit', 'toolbox.xml'));
+    (await import('./microbit/scrollbit/definitions')).default(Blockly.Blocks);
+    (await import('./microbit/scrollbit/generators')).default(Blockly.Python as any);
+    toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'microbit', 'scrollbit', 'toolbox.xml'));
   }
 
   if (extensions.indexOf('GiggleBot') !== -1) {
-    (await import('./gigglebot/definitions')).default(Blockly.Blocks);
-    (await import('./gigglebot/generators')).default(Blockly.Python as any);
-    toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'gigglebot', 'toolbox.xml'));
+    (await import('./microbit/gigglebot/definitions')).default(Blockly.Blocks);
+    (await import('./microbit/gigglebot/generators')).default(Blockly.Python as any);
+    toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'microbit', 'gigglebot', 'toolbox.xml'));
   }
 
   if (extensions.indexOf('Pi Supply IoT LoRa Node') !== -1) {
-    (await import('./radio/definitions')).default(Blockly.Blocks);
-    (await import('./radio/generators')).default(Blockly.Python as any);
-    toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'radio', 'toolbox.xml'));
+    (await import('./microbit/radio/definitions')).default(Blockly.Blocks);
+    (await import('./microbit/radio/generators')).default(Blockly.Python as any);
+    toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'microbit', 'radio', 'toolbox.xml'));
   }
 
   toolBoxXml += '</xml>';
@@ -74,12 +74,12 @@ export async function getToolBoxXml(extensions: Extension[]) {
 
 export function getBeforeScript(extensions: Extension[]) {
   if (extensions.indexOf('scroll:bit') !== -1) {
-    return fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'scrollbit', 'scrollbit.py'));
+    return fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'microbit', 'scrollbit', 'scrollbit.py'));
   }
   if (extensions.indexOf('GiggleBot') !== -1) {
-    return fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'gigglebot', 'gigglebot.py'));
+    return fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'microbit', 'gigglebot', 'gigglebot.py'));
   }
   if (extensions.indexOf('Pi Supply IoT LoRa Node') !== -1) {
-    return fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'iotloranode', 'iotloranode.py'));
+    return fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'microbit', 'iotloranode', 'iotloranode.py'));
   }
 }

@@ -1,6 +1,7 @@
 {
     "settings": {
-        "typescript.tsdk": "ui/node_modules/typescript/lib"
+        "typescript.tsdk": "ui/node_modules/typescript/lib",
+        "editor.tabSize": 2
     },
     "folders": [
         {
