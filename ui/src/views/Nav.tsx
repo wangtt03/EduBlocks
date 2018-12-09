@@ -8,18 +8,20 @@ interface Props {
   openExtensions(): void;
   openThemes(): void;
   downloadPython(): void;
-  downloadHex(): void;
+  downloadHex?(): void;
 
   newCode(): void;
   openCode(): void;
   saveCode(): void;
-  sendCode(): void;
+  sendCode?(): void;
 
   sync: boolean;
 }
 
 export default class Nav extends Component<Props, {}> {
   public render() {
+    const { downloadHex, sendCode } = this.props;
+
     return (
       <nav>
         <a class='brand'>
@@ -46,9 +48,11 @@ export default class Nav extends Component<Props, {}> {
             Save
           </a>
 
-          <a class='button icon-flash' title='Download file to flash to micro:bit' href='javascript:void(0)' onClick={() => this.props.downloadHex()}>
-            Download Hex
-          </a>
+          {downloadHex &&
+            <a class='button icon-flash' title='Download file to flash to micro:bit' href='javascript:void(0)' onClick={() => downloadHex()}>
+              Download Hex
+            </a>
+          }
 
           <a class='button icon-download' title='Download Python Source Code' href='javascript:void(0)' onClick={() => this.props.downloadPython()}>
             Python
@@ -67,9 +71,11 @@ export default class Nav extends Component<Props, {}> {
             Samples
           </a>
 
-          <a class='button icon-play' title='Run your code' href='javascript:void(0)' onClick={() => this.props.sendCode()}>
-            Run
-          </a>
+          {sendCode &&
+            <a class='button icon-play' title='Run your code' href='javascript:void(0)' onClick={() => sendCode()}>
+              Run
+            </a>
+          }
 
         </div>
       </nav>

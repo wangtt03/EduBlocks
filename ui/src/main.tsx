@@ -15,7 +15,9 @@ async function main() {
   React.render(<Page app={app} ref={rendered} />, pageDiv.parentElement, pageDiv);
 
   function rendered(page: Page) {
-    app.assignTerminal(page.terminalView!);
+    if (page.terminalView) {
+      app.assignTerminal(page.terminalView);
+    }
   }
 
   function getElementByIdSafe(id: string): HTMLElement {

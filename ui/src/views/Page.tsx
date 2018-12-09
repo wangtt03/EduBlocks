@@ -1,7 +1,7 @@
 import React = require('preact');
 import { Component } from 'preact';
 import { getPlatform, getPlatformList } from '../platforms';
-import { App, Extension, PlatformInterface, PlatformSelection } from '../types';
+import { App, Extension, PlatformInterface, PlatformSelection, Capability } from '../types';
 import BlocklyView from './BlocklyView';
 import ImageModal from './ImageModal';
 import Nav from './Nav';
@@ -271,6 +271,14 @@ export default class Page extends Component<Props, State> {
     this.setState({ terminalOpen: false });
   }
 
+
+  private hasCapability(capability: Capability) {
+    if (!this.state.platform) return false;
+
+    return this.state.platform.capabilities.indexOf(capability) !== -1;
+  }
+
+
   public render() {
     const availablePlatforms = getPlatformList();
 
@@ -288,9 +296,9 @@ export default class Page extends Component<Props, State> {
           platformImg={this.state.platform && this.state.platform.image}
           sync={this.state.doc.pythonClean}
 
-          sendCode={() => this.sendCode()}
+          sendCode={this.hasCapability('RemoteShell') ? () => this.sendCode() : undefined}
           downloadPython={() => this.downloadPython()}
-          downloadHex={() => this.downloadHex()}
+          downloadHex={this.hasCapability('HexDownload') ? () => this.downloadHex() : undefined}
           openCode={() => this.openFile()}
           saveCode={() => this.saveFile()}
           newCode={() => this.new()}
@@ -323,11 +331,13 @@ export default class Page extends Component<Props, State> {
           />
         </section>
 
-        <TerminalView
-          ref={(c) => this.terminalView = c}
-          visible={this.state.terminalOpen}
-          onClose={() => this.onTerminalClose()}
-        />
+        {this.hasCapability('RemoteShell') &&
+          <TerminalView
+            ref={(c) => this.terminalView = c}
+            visible={this.state.terminalOpen}
+            onClose={() => this.onTerminalClose()}
+          />
+        }
 
         <SelectModal
           title='Samples'
