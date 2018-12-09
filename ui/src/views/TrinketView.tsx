@@ -32,7 +32,9 @@ export default class TrinketView extends Component<Props, {}> {
   }
 
   private getEscapedCode() {
-    return encodeURI(this.props.pythonCode);
+    console.log(this.props.pythonCode);
+
+    return encodeURIComponent(this.props.pythonCode);
   }
 
   public close() {
