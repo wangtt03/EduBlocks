@@ -16,17 +16,17 @@ test:
   override:
     - echo 'No tests to run'
 deployment:
-  dev:
-    branch: /.*/
-    commands:
-      - rsync -rv --include node_modules/picnic --exclude 'node_modules/*' ui/index.html ui/node_modules ui/dist ui/css ui/lib ui/fonts ui/images ui/blockly Josh@edublocks.org:/var/www/beta.microbit.edublocks.org/html
-      - echo $CIRCLE_TAG | ssh Josh@edublocks.org 'cat > /var/www/beta.microbit.edublocks.org/html/version.txt'
+  # dev:
+  #   branch: /.*/
+  #   commands:
+  #     - rsync -rv --include node_modules/picnic --exclude 'node_modules/*' ui/index.html ui/node_modules ui/dist ui/css ui/lib ui/fonts ui/images ui/blockly Josh@edublocks.org:/var/www/beta.microbit.edublocks.org/html
+  #     - echo $CIRCLE_TAG | ssh Josh@edublocks.org 'cat > /var/www/beta.microbit.edublocks.org/html/version.txt'
       
-  production:
-    tag: /v[0-9]+\.[0-9]+\.[0-9]+-microbit$/
-    commands:
-      - rsync -rv --include node_modules/picnic --exclude 'node_modules/*' ui/index.html ui/node_modules ui/dist ui/css ui/lib ui/fonts ui/images ui/blockly Josh@edublocks.org:/var/www/microbit.edublocks.org/html
-      - echo $CIRCLE_TAG | ssh Josh@edublocks.org 'cat > /var/www/microbit.edublocks.org/html/version.txt'
+  # production:
+  #   tag: /v[0-9]+\.[0-9]+\.[0-9]+-microbit$/
+  #   commands:
+  #     - rsync -rv --include node_modules/picnic --exclude 'node_modules/*' ui/index.html ui/node_modules ui/dist ui/css ui/lib ui/fonts ui/images ui/blockly Josh@edublocks.org:/var/www/microbit.edublocks.org/html
+  #     - echo $CIRCLE_TAG | ssh Josh@edublocks.org 'cat > /var/www/microbit.edublocks.org/html/version.txt'
 
   # # Dev is the same as production, except we copy to the "dev" folder
   # dev:
