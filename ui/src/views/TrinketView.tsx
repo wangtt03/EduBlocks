@@ -9,27 +9,41 @@ interface Props {
 }
 
 export default class TrinketView extends Component<Props, {}> {
+  private escapeListener = (e: KeyboardEvent) => {
+    if (e.keyCode === 27) {
+      this.close();
+    }
+  }
+
   constructor(props: Props) {
     super(props);
   }
 
   public componentDidMount() {
-
+    window.addEventListener('keydown', this.escapeListener);
   }
 
   public componentDidUpdate() {
 
   }
 
+  public componentWillUnmount() {
+    window.removeEventListener('keydown', this.escapeListener);
+  }
+
   private getEscapedCode() {
     return encodeURI(this.props.pythonCode);
+  }
+
+  public close() {
+    this.props.onClose();
   }
 
   public render() {
     return (
       <div class='TrinketView' style={{ display: this.props.visible ? 'block' : 'none' }} id='terminal-dialog'>
         <div class='terminal-help'>
-          <span class='help-item' onClick={() => { }}>
+          <span class='help-item' onClick={() => this.close()}>
             <span class='key'>ESC</span> = Close terminal
           </span>
           <span class='help-item' onClick={() => { }}>
