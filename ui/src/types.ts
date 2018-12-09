@@ -1,4 +1,5 @@
 export interface App {
+  initConnection(ip: string | null): Promise<void>;
   runCode(code: string): void;
 
   openFile(): Promise<string>;

@@ -1,13 +1,14 @@
 import React = require('preact');
 import { Component } from 'preact';
+import { isHostedBy } from '../lib/environment';
 import { getPlatform, getPlatformList } from '../platforms';
 import { App, Capability, Extension, PlatformInterface, PlatformSelection } from '../types';
 import BlocklyView from './BlocklyView';
 import ImageModal from './ImageModal';
 import Nav from './Nav';
 import PythonView from './PythonView';
-import SelectModal from './SelectModal';
 import RemoteShellView from './RemoteShellView';
+import SelectModal from './SelectModal';
 import TrinketView from './TrinketView';
 
 const ViewModeBlockly = 'blocks';
@@ -213,6 +214,27 @@ export default class Page extends Component<Props, State> {
 
   private async selectPlatform(selection: PlatformSelection) {
     const platform = await getPlatform(selection.platform);
+
+    if (selection.platform === 'RaspberryPi') {
+      let ip: string | null = null;
+
+      if (isHostedBy() !== 'RaspberryPi') {
+        if (window.location.protocol === 'https:') {
+          alert('Need to switch to HTTP...');
+        }
+
+        ip = prompt('Please enter your Raspberry Pi\'s IP address');
+
+        if (!ip) return;
+      }
+
+      try {
+        await this.props.app.initConnection(ip);
+      } catch (err) {
+        console.error(err);
+        alert(err.mesage);
+      }
+    }
 
     this.setState({
       platform,
