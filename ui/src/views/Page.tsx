@@ -331,7 +331,7 @@ export default class Page extends Component<PageProps, PageState> {
 
         <ImageModal
           title='Select your mode'
-          options={[{ title: 'Web Python', image: '/images/webpy.png' }, { title: 'Advanced Python', image: '/images/advpy.png' }, { title: 'Raspberry Pi Mode', image: '/images/pi.png' }]}
+          options={[{ title: 'Web Python', image: '/images/webpy.png', help: 'https://edublocks.org'}, { title: 'Advanced Python', image: '/images/advpy.png', help: 'https://edublocks.org' }, { title: 'Raspberry Pi', image: '/images/pi.png', help: 'https://edublocks.org' }, { title: 'micro:bit', image: '/images/microbit.png', help: 'https://edublocks.org' }, { title: 'CircuitPython', image: '/images/circuitplayground.png', help: 'https://edublocks.org' }]}
           visible={this.state.versionSelectOpen}
           onSelect={() => { }}
           onCancel={() => { }} />

@@ -17,6 +17,7 @@ interface ImageModalState {
 interface ImageModalSelection {
   title: string;
   image: string;
+  help: string;
 }
 
 export default class ImageModal extends Component<ImageModalProps, ImageModalState> {
@@ -26,8 +27,10 @@ export default class ImageModal extends Component<ImageModalProps, ImageModalSta
         <div className="ImageModalOption">
           {option.title}
           <img src={option.image} />
-          <br></br>
-          <button onClick={() => this.props.onSelect(option.title)}>Select</button>
+          <div className='ImageModalOptionButtonContainer'>
+            <button onClick={() => this.props.onSelect(option.title)}>Select</button>
+            <a class='icon-help-circled' style="color:red" href={option.help}></a>
+          </div>
         </div>
       ))
     );
@@ -39,17 +42,15 @@ export default class ImageModal extends Component<ImageModalProps, ImageModalSta
         <article>
           <header>
             <h3>{this.props.title}</h3>
-            
           </header>
+
           <section class='content'>
-            <table class='primary'>
-              <tbody>
-                {getOptions()}
-              </tbody>
-            </table>
+            <div class="ImageModalOptionContainer">
+              {getOptions()}
+            </div>
           </section>
           <footer>
-           
+
           </footer>
         </article>
       </div>
