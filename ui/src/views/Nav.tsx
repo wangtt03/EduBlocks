@@ -13,19 +13,19 @@ interface Props {
   newCode(): void;
   openCode(): void;
   saveCode(): void;
-  sendCode?(): void;
+  openTerminal?(): void;
 
   sync: boolean;
 }
 
 export default class Nav extends Component<Props, {}> {
   public render() {
-    const { openExtensions, downloadHex, sendCode } = this.props;
+    const { openExtensions, downloadHex, openTerminal: sendCode } = this.props;
 
     return (
       <nav>
         <a class='brand'>
-          {this.props.platformImg && <img src={this.props.platformImg} height={50} />}
+          {this.props.platformImg && <img src={this.props.platformImg} class='Nav__platformImg' height={50} />}
 
           <img class='logo' src='/images/ebmblogo.png' />
           {/*<span class='filename'>({this.props.sync ? 'In sync' : 'Out of sync'})</span>*/}

@@ -32,7 +32,7 @@ export interface TerminalInterface {
 
 export type Extension = 'scroll:bit' | 'enviro:bit' | 'GiggleBot' | 'Pi Supply IoT LoRa Node' | 'EnviroBit';
 
-export type Platform = 'MicroBit' | 'RaspberryPi';
+export type Platform = 'Web' | 'MicroBit' | 'RaspberryPi';
 
 export interface PlatformSelection {
   platform: Platform;
@@ -48,4 +48,4 @@ export interface PlatformInterface {
   extentions: Extension[];
 }
 
-export type Capability = 'HexDownload' | 'RemoteShell';
+export type Capability = 'HexDownload' | 'RemoteShell' | 'TrinketShell';

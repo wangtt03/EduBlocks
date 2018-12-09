@@ -52,8 +52,6 @@ export async function newApp(): Promise<App> {
   }
 
   function assignTerminal(terminal: TerminalInterface) {
-    console.log('assignTerminal');
-
     client.on('data', (data) => terminal.write(data));
 
     client.on('reconnect', () => {

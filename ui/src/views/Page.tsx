@@ -1,13 +1,14 @@
 import React = require('preact');
 import { Component } from 'preact';
 import { getPlatform, getPlatformList } from '../platforms';
-import { App, Extension, PlatformInterface, PlatformSelection, Capability } from '../types';
+import { App, Capability, Extension, PlatformInterface, PlatformSelection } from '../types';
 import BlocklyView from './BlocklyView';
 import ImageModal from './ImageModal';
 import Nav from './Nav';
 import PythonView from './PythonView';
 import SelectModal from './SelectModal';
-import TerminalView from './TerminalView';
+import RemoteShellView from './RemoteShellView';
+import TrinketView from './TrinketView';
 
 const ViewModeBlockly = 'blocks';
 const ViewModePython = 'python';
@@ -41,7 +42,7 @@ interface State {
 }
 
 export default class Page extends Component<Props, State> {
-  public terminalView?: TerminalView;
+  public remoteShellView?: RemoteShellView;
 
   constructor() {
     super();
@@ -152,9 +153,7 @@ export default class Page extends Component<Props, State> {
     }
   }
 
-  private sendCode() {
-    if (!this.terminalView) { throw new Error('No terminal'); }
-
+  private openTerminal() {
     if (!this.state.doc.python) {
       alert('There is no code to run');
 
@@ -162,12 +161,15 @@ export default class Page extends Component<Props, State> {
     }
 
     this.setState({ terminalOpen: true });
-    this.terminalView.focus();
-    this.terminalView.reset();
 
-    this.props.app.runCode(this.state.doc.python);
+    if (this.remoteShellView) {
+      this.remoteShellView.focus();
+      this.remoteShellView.reset();
 
-    setTimeout(() => this.terminalView!.focus(), 250);
+      this.props.app.runCode(this.state.doc.python);
+
+      setTimeout(() => this.remoteShellView!.focus(), 250);
+    }
   }
 
   private onBlocklyChange(xml: string, python: string) {
@@ -285,12 +287,17 @@ export default class Page extends Component<Props, State> {
   }
 
 
-  private initTerminal(terminalView: TerminalView) {
-    if (this.terminalView !== terminalView) {
-      this.terminalView = terminalView;
+  private initTerminal(terminalView: RemoteShellView) {
+    if (this.remoteShellView !== terminalView) {
+      this.remoteShellView = terminalView;
 
       this.props.app.assignTerminal(terminalView);
     }
+  }
+
+
+  private getPythonCode() {
+    return this.state.doc.python || '';
   }
 
 
@@ -311,7 +318,7 @@ export default class Page extends Component<Props, State> {
           platformImg={this.state.platform && this.state.platform.image}
           sync={this.state.doc.pythonClean}
 
-          sendCode={this.hasCapability('RemoteShell') ? () => this.sendCode() : undefined}
+          openTerminal={this.hasCapability('RemoteShell') || this.hasCapability('TrinketShell') ? () => this.openTerminal() : undefined}
           downloadPython={() => this.downloadPython()}
           downloadHex={this.hasCapability('HexDownload') ? () => this.downloadHex() : undefined}
           openCode={() => this.openFile()}
@@ -347,8 +354,16 @@ export default class Page extends Component<Props, State> {
         </section>
 
         {this.hasCapability('RemoteShell') &&
-          <TerminalView
+          <RemoteShellView
             ref={(c) => this.initTerminal(c)}
+            visible={this.state.terminalOpen}
+            onClose={() => this.onTerminalClose()}
+          />
+        }
+
+        {this.hasCapability('TrinketShell') &&
+          <TrinketView
+            pythonCode={this.getPythonCode()}
             visible={this.state.terminalOpen}
             onClose={() => this.onTerminalClose()}
           />

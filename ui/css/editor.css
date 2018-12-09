@@ -28,6 +28,11 @@ nav {
   background: linear-gradient(to right, #2948ff, #396afc); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
+.Nav__platformImg {
+  animation: beat 0.5s infinite alternate;
+  margin-right: 10px;
+}
+
 /* `SelectModal` Component
 ---------------------------------------------------------------- */
 .SelectModel__container {
@@ -264,6 +269,10 @@ div.blocklyTreeRow {
   padding-bottom: 15px;
 }
 
+.ImageModalOption:hover img{
+  animation: beat 0.5s infinite alternate;
+}
+
 .ImageModalOptionButtonContainer{
   display: flex;
   justify-content: center;
@@ -280,4 +289,40 @@ div.blocklyTreeRow {
 
 .ImageModalOption .icon-help-circled {
   margin-left: 5px;
+}
+
+/* `TrinketView` Component
+---------------------------------------------------------------- */
+.TrinketView {
+
+}
+.TrinketView__Container {
+  height: calc(100% - 28px);
+  position: relative;
+  background: white;
+}
+
+.TrinketView__ContainerLoading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: url('/images/webpy.png') no-repeat center;
+  animation: spin 4s linear infinite;
+  width: 100%;
+  height: 100%;
+}
+
+.TrinketView__Container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes spin { 100% { transform:rotate(360deg); } }
+
+@keyframes beat{
+	to { transform: scale(1.1); }
 }
