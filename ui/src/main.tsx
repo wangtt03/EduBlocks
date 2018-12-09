@@ -1,24 +1,16 @@
 import * as React from 'preact';
-
-import Page from './views/Page';
 import { newApp } from './app';
+import Page from './views/Page';
 
 async function main() {
-  const app = await newApp();
   Blockly.HSV_VALUE = 0.9;
 
-
+  const app = await newApp();
   const pageDiv = getElementByIdSafe('page');
 
   if (!pageDiv.parentElement) { return; }
 
-  React.render(<Page app={app} ref={rendered} />, pageDiv.parentElement, pageDiv);
-
-  function rendered(page: Page) {
-    if (page.terminalView) {
-      app.assignTerminal(page.terminalView);
-    }
-  }
+  React.render(<Page app={app} />, pageDiv.parentElement, pageDiv);
 
   function getElementByIdSafe(id: string): HTMLElement {
     const element = document.getElementById(id);
@@ -29,8 +21,8 @@ async function main() {
   }
 }
 
-window.addEventListener('load', main);
-
 if (window.location.hostname !== 'localhost' && window.location.protocol !== 'https:') {
   window.location.href = window.location.href.replace('http://', 'https://');
 }
+
+main();

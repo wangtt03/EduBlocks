@@ -200,8 +200,8 @@ div.blocklyTreeRow {
 }
 
 .ImageModalOption {
-  flex: 0 0 calc(33.3% - 20px);
-  /* width: 190px; */
+  /* flex: 0 0 calc(33.3% - 20px); */
+  width: 190px;
   transition: box-shadow .3s;
   border: solid 1px #e5e3e3;
   margin: 10px;

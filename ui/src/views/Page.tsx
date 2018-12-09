@@ -285,6 +285,15 @@ export default class Page extends Component<Props, State> {
   }
 
 
+  private initTerminal(terminalView: TerminalView) {
+    if (this.terminalView !== terminalView) {
+      this.terminalView = terminalView;
+
+      this.props.app.assignTerminal(terminalView);
+    }
+  }
+
+
   public render() {
     const availablePlatforms = getPlatformList();
 
@@ -339,7 +348,7 @@ export default class Page extends Component<Props, State> {
 
         {this.hasCapability('RemoteShell') &&
           <TerminalView
-            ref={(c) => this.terminalView = c}
+            ref={(c) => this.initTerminal(c)}
             visible={this.state.terminalOpen}
             onClose={() => this.onTerminalClose()}
           />
