@@ -210,6 +210,8 @@ export default class Page extends Component<Props, State> {
       if (isHostedBy() !== 'RaspberryPi') {
         if (window.location.protocol === 'https:') {
           alert('Need to switch to HTTP...');
+          window.location.protocol = 'http:';
+          return;
         }
 
         ip = prompt('Please enter your Raspberry Pi\'s IP address');
