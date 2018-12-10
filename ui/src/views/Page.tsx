@@ -212,7 +212,7 @@ export default class Page extends Component<Props, State> {
         return;
       }
 
-      if (navigator.platform == 'Linux armv7l'){
+      if (navigator.platform == 'Linux armv7l' || 'Linux armv6l'){
                
         await this.props.app.initConnection('localhost');
       }

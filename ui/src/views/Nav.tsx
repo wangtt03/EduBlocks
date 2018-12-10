@@ -26,7 +26,7 @@ export default class Nav extends Component<Props, {}> {
 
     return (
       <nav>
-        <a class='brand' onClick={() => this.props.openPlatforms()}>
+        <a class='brand' onClick={() => this.props.openPlatforms()} data-tooltip="Change Mode">
           {this.props.platformImg && <img src={this.props.platformImg} class='Nav__platformImg' height={50} />}
 
           <img class='logo' src='/images/ebmblogo.png' />
@@ -34,13 +34,11 @@ export default class Nav extends Component<Props, {}> {
         </a>
 
         <input id='bmenub' type='checkbox' class='show' />
-        <label for='bmenub' class='burger pseudo button'>menu</label>
+        <label for='bmenub' class='burger pseudo button icon-menu'></label>
 
         <div class='menu'>
         
-          <a class='button' title="Settings" href='javascript:void(0)' onClick={() => this.props.onFunction()}>
-            Functions
-          </a>
+          
 
           <a class='button icon-plus' title="Create new file" href='javascript:void(0)' onClick={() => this.props.newCode()}>
             New
@@ -84,6 +82,9 @@ export default class Nav extends Component<Props, {}> {
               Run
             </a>
           }
+
+          <a class='button icon-cog' title="Settings" href='javascript:void(0)' onClick={() => this.props.onFunction()}>
+          </a>
 
         </div>
       </nav>
