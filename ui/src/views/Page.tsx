@@ -214,6 +214,9 @@ export default class Page extends Component<Props, State> {
                alert(err.mesage);
              }
             }
+      else{
+        alert("Not a Pi")
+      }
      // let ip: string | null = null;
       
       // if (navigator.platform == 'Linux armv7l'){
