@@ -2,16 +2,24 @@ import { getBeforeScript } from './blocks/index';
 import { getIo } from './io';
 import { getHexFile } from './lib/hexlify';
 import { newSamples } from './samples';
-import { newServer } from './server';
+import { newServerConnection, ServerConnection } from './server';
 import { App, Extension, TerminalInterface } from './types';
 
-export async function newApp(): Promise<App> {
-  const client = await newServer();
+export function newApp(): App {
+  let connection: ServerConnection | undefined;
   const io = getIo();
   const samples = newSamples();
 
+  async function initConnection(ip: string | null) {
+    connection = await newServerConnection(ip);
+  }
+
   function runCode(code: string) {
-    return client.runCode(code);
+    if (!connection) {
+      throw new Error('No connection!');
+    }
+
+    return connection.runCode(code);
   }
 
   function openFile() {
@@ -52,19 +60,23 @@ export async function newApp(): Promise<App> {
   }
 
   function assignTerminal(terminal: TerminalInterface) {
-    client.on('data', (data) => terminal.write(data));
+    if (!connection) {
+      throw new Error('No connection!');
+    }
 
-    client.on('reconnect', () => {
+    connection.on('data', (data) => terminal.write(data));
+
+    connection.on('reconnect', () => {
       terminal.reset();
 
-      client.resizeTerminal(terminal.cols, terminal.rows);
+      connection!.resizeTerminal(terminal.cols, terminal.rows);
     });
 
-    terminal.on('data', client.sendData);
-    terminal.on('resize', client.resizeTerminal);
+    terminal.on('data', connection.sendData);
+    terminal.on('resize', connection.resizeTerminal);
 
     if (terminal.cols && terminal.rows) {
-      client.resizeTerminal(terminal.cols, terminal.rows);
+      connection.resizeTerminal(terminal.cols, terminal.rows);
     }
   }
 
@@ -82,6 +94,7 @@ export async function newApp(): Promise<App> {
   }
 
   return {
+    initConnection,
     runCode,
     openFile,
     saveFile,

@@ -7,7 +7,7 @@ interface Events {
   reconnect: () => void;
 }
 
-interface Server {
+export interface ServerConnection {
   runCode(python: string): void;
   sendData(data: string): void;
   resizeTerminal(cols: number, rows: number): void;
@@ -17,7 +17,7 @@ interface Server {
 
 const stub = () => void 0;
 
-async function newServer(): Promise<Server> {
+export async function newServerConnection(ip: string | null): Promise<ServerConnection> {
   const eventHandlers: Events = {
     open: stub,
     data: stub,
@@ -55,6 +55,10 @@ async function newServer(): Promise<Server> {
   }
 
   function getHost() {
+    if (ip) {
+      return `${ip}:8081`;
+    }
+
     if (location.protocol === 'file:') {
       return '127.0.0.1:8081';
     }
@@ -91,7 +95,3 @@ async function newServer(): Promise<Server> {
     on,
   };
 }
-
-export {
-  newServer,
-};

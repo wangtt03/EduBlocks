@@ -1,14 +1,18 @@
 import React = require('preact');
 import { Component } from 'preact';
+import { isHostedBy } from '../lib/environment';
 import { getPlatform, getPlatformList } from '../platforms';
 import { App, Capability, Extension, PlatformInterface, PlatformSelection } from '../types';
 import BlocklyView from './BlocklyView';
 import ImageModal from './ImageModal';
 import Nav from './Nav';
 import PythonView from './PythonView';
-import SelectModal from './SelectModal';
 import RemoteShellView from './RemoteShellView';
+import SelectModal, { SelectModalOption } from './SelectModal';
 import TrinketView from './TrinketView';
+
+type AdvancedFunction = 'Export';
+const AdvancedFunctions: AdvancedFunction[] = ['Export'];
 
 const ViewModeBlockly = 'blocks';
 const ViewModePython = 'python';
@@ -27,17 +31,9 @@ interface DocumentState {
 
 interface State {
   platform?: PlatformInterface;
-
   viewMode: ViewMode;
-
-  platformSelectOpen: boolean;
-  terminalOpen: boolean;
-  samplesOpen: boolean;
-  themesOpen: boolean;
-  extensionsOpen: boolean;
-
+  modal: null | 'platform' | 'terminal' | 'samples' | 'themes' | 'extensions' | 'functions';
   extensionsActive: Extension[];
-
   doc: Readonly<DocumentState>;
 }
 
@@ -49,13 +45,7 @@ export default class Page extends Component<Props, State> {
 
     this.state = {
       viewMode: ViewModeBlockly,
-
-      terminalOpen: false,
-      samplesOpen: false,
-      themesOpen: false,
-      extensionsOpen: false,
-      platformSelectOpen: true,
-
+      modal: 'platform',
       extensionsActive: [],
 
       doc: {
@@ -160,7 +150,7 @@ export default class Page extends Component<Props, State> {
       return;
     }
 
-    this.setState({ terminalOpen: true });
+    this.setState({ modal: 'terminal' });
 
     if (this.remoteShellView) {
       this.remoteShellView.focus();
@@ -214,24 +204,48 @@ export default class Page extends Component<Props, State> {
   private async selectPlatform(selection: PlatformSelection) {
     const platform = await getPlatform(selection.platform);
 
+    if (selection.platform === 'RaspberryPi') {
+      let ip: string | null = null;
+
+      if (isHostedBy() !== 'RaspberryPi') {
+        if (window.location.protocol === 'https:') {
+          alert('Need to switch to HTTP...');
+          window.location.protocol = 'http:';
+          return;
+        }
+
+        ip = prompt('Please enter your Raspberry Pi\'s IP address');
+
+        if (!ip) return;
+      }
+
+      try {
+        await this.props.app.initConnection(ip);
+      } catch (err) {
+        console.error(err);
+        alert(err.mesage);
+      }
+    }
+
     this.setState({
       platform,
-      platformSelectOpen: false,
+      modal: null,
       extensionsActive: platform.defaultExtensions,
     });
   }
 
 
-  private openSamples() {
-    this.setState({ samplesOpen: true });
+  private closeModal() {
+    this.setState({ modal: null });
   }
 
-  private closeSamples() {
-    this.setState({ samplesOpen: false });
+
+  private openSamples() {
+    this.setState({ modal: 'samples' });
   }
 
   private selectSample(file: string) {
-    this.closeSamples();
+    this.setState({ modal: null });
 
     const xml = this.props.app.getSample(file);
 
@@ -240,30 +254,22 @@ export default class Page extends Component<Props, State> {
 
 
   private openThemes() {
-    this.setState({ themesOpen: true });
-  }
-
-  private closeThemes() {
-    this.setState({ themesOpen: false });
+    this.setState({ modal: 'themes' });
   }
 
   private selectTheme(theme: string) {
-    this.closeThemes();
+    this.closeModal();
 
     document.body.className = `theme-${theme}`;
   }
 
 
   private openExtensions() {
-    this.setState({ extensionsOpen: true });
-  }
-
-  private closeExtensions() {
-    this.setState({ extensionsOpen: false });
+    this.setState({ modal: 'extensions' });
   }
 
   private selectExtension(extension: Extension) {
-    this.closeExtensions();
+    this.closeModal();
 
     const { extensionsActive } = this.state;
 
@@ -274,7 +280,7 @@ export default class Page extends Component<Props, State> {
 
 
   private onTerminalClose() {
-    this.setState({ terminalOpen: false });
+    this.closeModal();
   }
 
 
@@ -305,6 +311,26 @@ export default class Page extends Component<Props, State> {
   }
 
 
+  private openAdvancedFunctionDialog() {
+    this.setState({ modal: 'functions' });
+  }
+
+  private getAdvancedFunctionList(): SelectModalOption[] {
+    return AdvancedFunctions.map((func) => ({
+      label: func,
+      obj: func,
+    }));
+  }
+
+  private async runAdvancedFunction(func: AdvancedFunction) {
+    if (func === 'Export') {
+      await this.downloadPython();
+    }
+
+    this.closeModal();
+  }
+
+
   public render() {
     const availablePlatforms = getPlatformList();
 
@@ -313,7 +339,7 @@ export default class Page extends Component<Props, State> {
         <ImageModal
           title='Select your mode'
           options={availablePlatforms}
-          visible={this.state.platformSelectOpen}
+          visible={this.state.modal === 'platform'}
           onSelect={(platform) => this.selectPlatform(platform)}
           onCancel={() => { }}
         />
@@ -323,7 +349,7 @@ export default class Page extends Component<Props, State> {
           sync={this.state.doc.pythonClean}
 
           openTerminal={this.hasCapability('RemoteShell') || this.hasCapability('TrinketShell') ? () => this.openTerminal() : undefined}
-          downloadPython={() => this.downloadPython()}
+          // downloadPython={() => this.downloadPython()}
           downloadHex={this.hasCapability('HexDownload') ? () => this.downloadHex() : undefined}
           openCode={() => this.openFile()}
           saveCode={() => this.saveFile()}
@@ -331,6 +357,7 @@ export default class Page extends Component<Props, State> {
           openSamples={() => this.openSamples()}
           openExtensions={this.getExtensions().length ? () => this.openExtensions() : undefined}
           openThemes={() => this.openThemes()}
+          onFunction={() => this.openAdvancedFunctionDialog()}
         />
 
         <section id='workspace'>
@@ -360,7 +387,7 @@ export default class Page extends Component<Props, State> {
         {this.hasCapability('RemoteShell') &&
           <RemoteShellView
             ref={(c) => this.initTerminal(c)}
-            visible={this.state.terminalOpen}
+            visible={this.state.modal === 'terminal'}
             onClose={() => this.onTerminalClose()}
           />
         }
@@ -368,7 +395,7 @@ export default class Page extends Component<Props, State> {
         {this.hasCapability('TrinketShell') &&
           <TrinketView
             pythonCode={this.getPythonCode()}
-            visible={this.state.terminalOpen}
+            visible={this.state.modal === 'terminal'}
             onClose={() => this.onTerminalClose()}
           />
         }
@@ -378,9 +405,9 @@ export default class Page extends Component<Props, State> {
           options={this.props.app.getSamples().map((label) => ({ label }))}
           selectLabel='Open'
           buttons={[]}
-          visible={this.state.samplesOpen}
+          visible={this.state.modal === 'samples'}
           onSelect={(file) => this.selectSample(file.label)}
-          onButtonClick={(key) => key === 'close' && this.closeSamples()}
+          onButtonClick={(key) => key === 'close' && this.closeModal()}
         />
 
         <SelectModal
@@ -388,9 +415,19 @@ export default class Page extends Component<Props, State> {
           options={this.props.app.getThemes().map((label) => ({ label }))}
           selectLabel='Select'
           buttons={[]}
-          visible={this.state.themesOpen}
+          visible={this.state.modal === 'themes'}
           onSelect={(theme) => this.selectTheme(theme.label)}
-          onButtonClick={(key) => key === 'close' && this.closeThemes()}
+          onButtonClick={(key) => key === 'close' && this.closeModal()}
+        />
+
+        <SelectModal
+          title='Advanced Functions'
+          selectLabel='Go'
+          buttons={[]}
+          visible={this.state.modal === 'functions'}
+          options={this.getAdvancedFunctionList()}
+          onSelect={(func) => this.runAdvancedFunction(func.label as AdvancedFunction)}
+          onButtonClick={(key) => key === 'close' && this.closeModal()}
         />
 
         {this.getExtensions().length > 0 &&
@@ -399,11 +436,12 @@ export default class Page extends Component<Props, State> {
             options={this.getExtensions().map((label) => ({ label }))}
             selectLabel='Load'
             buttons={[]}
-            visible={this.state.extensionsOpen}
+            visible={this.state.modal === 'extensions'}
             onSelect={(extension) => this.selectExtension(extension.label as Extension)}
-            onButtonClick={(key) => key === 'close' && this.closeExtensions()}
+            onButtonClick={(key) => key === 'close' && this.closeModal()}
           />
         }
+
       </div>
     );
   }

@@ -17,7 +17,7 @@ const stub = () => void 0;
  * Lightweight websocket abstraction
  * @param url URL of the terminal handler
  */
-function initSocket(url: string) {
+export function initSocket(url: string) {
   return new Promise<Socket>((resolve) => {
     const eventHandlers: Events = {
       data: stub,
@@ -31,7 +31,7 @@ function initSocket(url: string) {
     let ws: WebSocket | null;
 
     connect();
-    
+
 
     function connect() {
       ws = new WebSocket(url);
@@ -98,7 +98,3 @@ function initSocket(url: string) {
     }
   });
 }
-
-export {
-  initSocket,
-};

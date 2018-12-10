@@ -2,10 +2,10 @@ import * as React from 'preact';
 import { newApp } from './app';
 import Page from './views/Page';
 
-async function main() {
+function main() {
   Blockly.HSV_VALUE = 0.9;
 
-  const app = await newApp();
+  const app = newApp();
   const pageDiv = getElementByIdSafe('page');
 
   if (!pageDiv.parentElement) { return; }

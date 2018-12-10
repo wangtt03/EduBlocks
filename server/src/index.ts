@@ -98,7 +98,7 @@ app.post('/runcode', (req, res) => {
   res.send('Started');
 });
 
-app.ws('/terminal', (ws, req: express.Request) => {
+app.ws('/terminal', (ws, req) => {
   const client: EduBlocksClient = {
     pos: 0,
 
@@ -140,6 +140,19 @@ app.ws('/terminal', (ws, req: express.Request) => {
 
     clients.splice(index, 1);
   });
+});
+
+app.get('/', (req, res, next) => {
+  const indexPath = path.join(ui, 'index.html');
+
+  const contents = fs.readFileSync(indexPath, 'utf8');
+
+  const injected = contents.replace(
+    '<meta name="x-host-type" content="" />',
+    '<meta name="x-host-type" content="RaspberryPi" />',
+  );
+
+  res.status(200).send(injected);
 });
 
 app.use(express.static(ui));
