@@ -208,12 +208,13 @@ export default class Page extends Component<Props, State> {
       let ip: string | null = null;
       
       if (navigator.platform == 'Linux armv7l'){
+        
         if (window.location.protocol === 'https:') {
           alert('Need to switch to HTTP...');
           window.location.protocol = 'http:';
           return;
         }
-
+        console.log(navigator.platform)
         await this.props.app.initConnection('localhost');
       }
 
