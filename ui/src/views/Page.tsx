@@ -315,6 +315,10 @@ export default class Page extends Component<Props, State> {
     this.setState({ modal: 'functions' });
   }
 
+  private openPlatforms() {
+    this.setState({ modal: 'platform' });
+  }
+
   private getAdvancedFunctionList(): SelectModalOption[] {
     return AdvancedFunctions.map((func) => ({
       label: func,
@@ -347,7 +351,7 @@ export default class Page extends Component<Props, State> {
         <Nav
           platformImg={this.state.platform && this.state.platform.image}
           sync={this.state.doc.pythonClean}
-
+          openPlatforms={() => this.openPlatforms()}
           openTerminal={this.hasCapability('RemoteShell') || this.hasCapability('TrinketShell') ? () => this.openTerminal() : undefined}
           // downloadPython={() => this.downloadPython()}
           downloadHex={this.hasCapability('HexDownload') ? () => this.downloadHex() : undefined}

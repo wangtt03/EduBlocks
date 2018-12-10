@@ -10,6 +10,7 @@ interface Props {
   // downloadPython(): void;
   downloadHex?(): void;
   onFunction(): void;
+  openPlatforms(): void;
 
   newCode(): void;
   openCode(): void;
@@ -25,7 +26,7 @@ export default class Nav extends Component<Props, {}> {
 
     return (
       <nav>
-        <a class='brand'>
+        <a class='brand' onClick={() => this.props.openPlatforms()}>
           {this.props.platformImg && <img src={this.props.platformImg} class='Nav__platformImg' height={50} />}
 
           <img class='logo' src='/images/ebmblogo.png' />
