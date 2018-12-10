@@ -1,6 +1,5 @@
 import React = require('preact');
 import { Component } from 'preact';
-import { isHostedBy } from '../lib/environment';
 import { getPlatform, getPlatformList } from '../platforms';
 import { App, Capability, Extension, PlatformInterface, PlatformSelection } from '../types';
 import BlocklyView from './BlocklyView';
