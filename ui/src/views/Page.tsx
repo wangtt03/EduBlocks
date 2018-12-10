@@ -207,7 +207,7 @@ export default class Page extends Component<Props, State> {
     if (selection.platform === 'RaspberryPi') {
       let ip: string | null = null;
 
-      if (isHostedBy() !== 'RaspberryPi') {
+      if (navigator.platform !== 'Linux armv7l') {
         if (window.location.protocol === 'https:') {
           alert('Need to switch to HTTP...');
           window.location.protocol = 'http:';
