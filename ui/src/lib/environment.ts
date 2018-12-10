@@ -2,7 +2,7 @@ type HostType = 'RaspberryPi' | 'Internet';
 
 export function isHostedBy(): HostType {
   const nodes = window.document.getElementsByName('x-host-type');
-  alert(nodes)
+  
 
   if (nodes.length > 0) {
     const node = nodes[0];
