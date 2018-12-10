@@ -226,7 +226,6 @@ export default class Page extends Component<Props, State> {
           await this.props.app.initConnection(ip);
         } catch (err) {
           console.error(err);
-          alert(err.mesage);
         }
 
       }
