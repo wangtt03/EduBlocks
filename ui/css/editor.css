@@ -18,8 +18,9 @@ body {
   width: 100%;
 }
 
-menu .button{
-  background-color: white !important;
+nav .button{
+  color: white !important;
+  background-color: rgba(0,0,0,0)
 }
 
 nav {
@@ -34,6 +35,15 @@ nav {
   height: 2em;
 }
 
+nav .show:checked ~ .menu{
+  background-color: #585858;
+}
+
+
+.pseudo.button{
+  color: white !important;
+}
+
 /* `SelectModal` Component
 ---------------------------------------------------------------- */
 .SelectModel__container {
@@ -42,7 +52,7 @@ nav {
 }
 
 .SelectModal__header {
-  background: #8E2DE2;
+  background: #396afc;
   color: #fff;
   border-bottom: none !important;
 }
@@ -67,9 +77,7 @@ nav {
   align-items: center;
 }
 
-.SelectModal__cell {
-  
-}
+
 .SelectModal__cell--text > span {
   line-height: 40px;
 }
@@ -106,11 +114,6 @@ button {
   fill: white;
 }
 
-
-.button {
-  background:rgba(0,0,0,0); 
-  color: white;
-}
 
 
 table.primary td {
@@ -214,9 +217,7 @@ a{
   color: #396afc
 }
 
-button{
-  background-color: #396afc
-}
+
 
 #term {
   height: calc(100% - 28px);
@@ -291,9 +292,7 @@ div.blocklyTreeRow {
 
 /* `TrinketView` Component
 ---------------------------------------------------------------- */
-.TrinketView {
 
-}
 .TrinketView__Container {
   height: calc(100% - 28px);
   position: relative;

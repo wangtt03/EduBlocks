@@ -37,16 +37,16 @@ export default class Nav extends Component<Props, {}> {
         <label for='bmenub' class='burger pseudo button'>menu</label>
 
         <div class='menu'>
-
-          <a class='button' title='Functions' href='javascript:void(0)' onClick={() => this.props.onFunction()}>
+        
+          <a class='button' title="Settings" href='javascript:void(0)' onClick={() => this.props.onFunction()}>
             Functions
           </a>
 
-          <a class='button icon-plus' title='New' href='javascript:void(0)' onClick={() => this.props.newCode()}>
+          <a class='button icon-plus' title="Create new file" href='javascript:void(0)' onClick={() => this.props.newCode()}>
             New
           </a>
 
-          <a class='button icon-folder-open' title='Open a file' href='javascript:void(0)' onClick={() => this.props.openCode()}>
+          <a class='button icon-folder-open' title="Open a file" href='javascript:void(0)' onClick={() => this.props.openCode()}>
             Open
           </a>
 
@@ -70,7 +70,7 @@ export default class Nav extends Component<Props, {}> {
           </a>
 
           {openExtensions &&
-            <a class='button icon-puzzle' title='Themes' href='javascript:void(0)' onClick={() => openExtensions()}>
+            <a class='button icon-puzzle' title='Extensions' href='javascript:void(0)' onClick={() => openExtensions()}>
               Extensions
             </a>
           }
