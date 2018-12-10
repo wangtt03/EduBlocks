@@ -205,32 +205,40 @@ export default class Page extends Component<Props, State> {
     const platform = await getPlatform(selection.platform);
 
     if (selection.platform === 'RaspberryPi') {
-      let ip: string | null = null;
-      
+      alert(navigator.platform)
       if (navigator.platform == 'Linux armv7l'){
-        
-        if (window.location.protocol === 'https:') {
-          alert('Need to switch to HTTP...');
-          window.location.protocol = 'http:';
-          return;
-        }
-        console.log(navigator.platform)
-        await this.props.app.initConnection('localhost');
-      }
-
-      else{
-        ip = prompt('Please enter your Raspberry Pi\'s IP address');
-
-        if (!ip) return;
-
         try {
-          await this.props.app.initConnection(ip);
-        } catch (err) {
-          console.error(err);
-          alert(err.mesage);
-        }
+               await this.props.app.initConnection('localhost');
+             } catch (err) {
+               console.error(err);
+               alert(err.mesage);
+             }
+            }
+     // let ip: string | null = null;
+      
+      // if (navigator.platform == 'Linux armv7l'){
+      //   if (window.location.protocol === 'https:') {
+      //     alert('Need to switch to HTTP...');
+      //     window.location.protocol = 'http:';
+      //     return;
+      //   }
+      //   console.log(navigator.platform)
+      //   await this.props.app.initConnection('localhost');
+      // }
 
-      }
+      // else{
+      //   ip = prompt('Please enter your Raspberry Pi\'s IP address');
+
+      //   if (!ip) return;
+
+      //   try {
+      //     await this.props.app.initConnection(ip);
+      //   } catch (err) {
+      //     console.error(err);
+      //     alert(err.mesage);
+      //   }
+
+     // }
 
     }
 
