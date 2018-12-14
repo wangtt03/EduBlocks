@@ -45,12 +45,9 @@ export default class TrinketView extends Component<Props, {}> {
     return (
       <div class='TrinketView' style={{ display: this.props.visible ? 'block' : 'none' }} id='terminal-dialog'>
         <div class='terminal-help'>
-          <span class='help-item' onClick={() => this.close()}>
-            <span class='key'>ESC</span> = Close terminal
-          </span>
-          <span class='help-item' onClick={() => { }}>
-            <span class='key'>Ctrl</span> + <span class='key'>C</span> = Stop program
-          </span>
+          <a class='icon-cancel-circled' title="Create new file" href='javascript:void(0)' onClick={() => this.close()}>
+            Exit
+          </a>
         </div>
 
         <div class='TrinketView__Container'>

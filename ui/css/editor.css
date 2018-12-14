@@ -7,6 +7,34 @@ body {
   width: 0 !important;
 }
 
+.blocklyFlyoutLabelIcon {
+  font-family: 'Font Awesome\ 5 Free';
+  font-size: 1.5rem;
+  font-weight: 900;
+  fill: white;
+}
+
+.blocklyTreeIconCustom {
+  background: none !important;
+  font-family: 'Font Awesome\ 5 Free';
+  font-weight: 900;
+  font-size: 1.3rem;
+  margin: 0 .25em;
+  width: 30px !important;
+  height: 100% !important;
+  line-height: 45px;
+  min-height: 45px;
+  vertical-align: middle;
+}
+
+.blocklyTreeIconCustom.basic::before {
+  content: "\f144";
+}
+
+.blocklyTreeIconCustom.turtle::before {
+  content: "\f303";
+}
+
 .loading-message {
   font-size: 100px;
   color: #aaa;
@@ -202,6 +230,8 @@ table.primary td {
   padding: 0 4px;
   background: white;
 }
+
+
 .terminal-help .help-item {
   margin: 0 10px 0 0;
 }

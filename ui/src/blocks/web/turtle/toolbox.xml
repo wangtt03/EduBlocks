@@ -1,4 +1,4 @@
-<category name="Turtle" colour="240">
+<category name="Turtle" colour="240" iconclass="blocklyTreeIconCustom turtle">
     <block type="import_turtle"></block>
     <block type="turtle"></block>
     <block type="screeninit"></block>
