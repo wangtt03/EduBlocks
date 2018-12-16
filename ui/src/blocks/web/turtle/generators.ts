@@ -3,7 +3,7 @@ export default function define(Python: Blockly.BlockGenerators) {
     // TODO: Assemble Python into code variable.
     var code = 'from turtle import *\n';
     return code;
-  };
+  }; 
 
   Python['turtle'] = function(block) {
     var variable_turtle = Blockly.Python.variableDB_.getName(block.getFieldValue('turtle'), Blockly.Variables.NAME_TYPE);
@@ -21,7 +21,7 @@ export default function define(Python: Blockly.BlockGenerators) {
 
   Python['background'] = function(block) {
     var variable_wn = Blockly.Python.variableDB_.getName(block.getFieldValue('wn'), Blockly.Variables.NAME_TYPE);
-    var text_color = block.getFieldValue('color');
+    let text_color = Blockly.Python.valueToCode(block, 'text', Blockly.Python.ORDER_ATOMIC);
     // TODO: Assemble Python into code variable.
     var code = variable_wn+ '.bgcolor(' +text_color+ ')\n';
     return code;
@@ -30,7 +30,7 @@ export default function define(Python: Blockly.BlockGenerators) {
   Python['directions'] = function(block) {
     var variable_turtle = Blockly.Python.variableDB_.getName(block.getFieldValue('turtle'), Blockly.Variables.NAME_TYPE);
     var dropdown_options = block.getFieldValue('options');
-    var text_dist = block.getFieldValue('dist');
+    let text_dist = Blockly.Python.valueToCode(block, 'text', Blockly.Python.ORDER_ATOMIC);
     // TODO: Assemble Python into code variable.
     var code = variable_turtle+ '.' +dropdown_options+ '(' +text_dist+ ')\n';
     return code;
@@ -53,7 +53,7 @@ export default function define(Python: Blockly.BlockGenerators) {
 
   Python['colourpen'] = function(block) {
     var variable_turtle = Blockly.Python.variableDB_.getName(block.getFieldValue('turtle'), Blockly.Variables.NAME_TYPE);
-    var text_dist = block.getFieldValue('dist');
+    let text_dist = Blockly.Python.valueToCode(block, 'text', Blockly.Python.ORDER_ATOMIC);
     // TODO: Assemble Python into code variable.
     var code = variable_turtle+'.pencolor(' +text_dist+ ')\n';
     return code;
@@ -61,7 +61,7 @@ export default function define(Python: Blockly.BlockGenerators) {
 
   Python['colour'] = function(block) {
     var variable_turtle = Blockly.Python.variableDB_.getName(block.getFieldValue('turtle'), Blockly.Variables.NAME_TYPE);
-    var text_dist = block.getFieldValue('dist');
+    let text_dist = Blockly.Python.valueToCode(block, 'text', Blockly.Python.ORDER_ATOMIC);
     // TODO: Assemble Python into code variable.
     var code = variable_turtle+'.color(' +text_dist+ ')\n';
     return code;
@@ -69,7 +69,7 @@ export default function define(Python: Blockly.BlockGenerators) {
 
   Python['colourmode'] = function(block) {
     var variable_turtle = Blockly.Python.variableDB_.getName(block.getFieldValue('wn'), Blockly.Variables.NAME_TYPE);
-    var text_dist = block.getFieldValue('dist');
+    let text_dist = Blockly.Python.valueToCode(block, 'text', Blockly.Python.ORDER_ATOMIC);
     // TODO: Assemble Python into code variable.
     var code = variable_turtle+'.colormode(' +text_dist+ ')\n';
     return code;
@@ -77,7 +77,7 @@ export default function define(Python: Blockly.BlockGenerators) {
 
   Python['penwidth'] = function(block) {
     var variable_turtle = Blockly.Python.variableDB_.getName(block.getFieldValue('turtle'), Blockly.Variables.NAME_TYPE);
-    var text_dist = block.getFieldValue('dist');
+    let text_dist = Blockly.Python.valueToCode(block, 'text', Blockly.Python.ORDER_ATOMIC);
     // TODO: Assemble Python into code variable.
     var code = variable_turtle+'.width(' +text_dist+ ')\n';
     return code;
@@ -85,7 +85,7 @@ export default function define(Python: Blockly.BlockGenerators) {
 
   Python['circle'] = function(block) {
     var variable_turtle = Blockly.Python.variableDB_.getName(block.getFieldValue('turtle'), Blockly.Variables.NAME_TYPE);
-    var text_dist = block.getFieldValue('dist');
+    let text_dist = Blockly.Python.valueToCode(block, 'text', Blockly.Python.ORDER_ATOMIC);
     // TODO: Assemble Python into code variable.
     var code = variable_turtle+'.circle(' +text_dist+ ')\n';
     return code;
@@ -93,7 +93,7 @@ export default function define(Python: Blockly.BlockGenerators) {
 
   Python['goto'] = function(block) {
     var variable_turtle = Blockly.Python.variableDB_.getName(block.getFieldValue('turtle'), Blockly.Variables.NAME_TYPE);
-    var text_dist = block.getFieldValue('dist');
+    let text_dist = Blockly.Python.valueToCode(block, 'text', Blockly.Python.ORDER_ATOMIC);
     // TODO: Assemble Python into code variable.
     var code = variable_turtle+'.goto(' +text_dist+ ')\n';
     return code;

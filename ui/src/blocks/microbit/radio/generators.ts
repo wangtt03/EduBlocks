@@ -6,7 +6,7 @@ export default function define(Python: Blockly.BlockGenerators) {
     return code;
   };
 
-  Python['radiosendnew'] = function (block) {
+  Python['radiosendnew'] = function (block) { 
     let text_send = Blockly.Python.valueToCode(block, 'text', Blockly.Python.ORDER_ATOMIC)
       || 'True';
     let code = 'radio.send(' + text_send + ') \n';

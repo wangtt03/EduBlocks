@@ -29,15 +29,7 @@
   color: white
 }
 
-.theme-Dark .close {
-  color: #006BBD
-}
 
-.theme-Dark .modal article{
-  background-color: #1F1F1F;
-  color: #fff;
-  border: 1px solid #363636;
-}
 
 .theme-Solarized nav {
   background: #00262F;
@@ -74,15 +66,7 @@
   color: white
 }
 
-.theme-Solarized .close {
-  color: #053844
-}
 
-.theme-Solarized .modal article{
-  background-color: #1F1F1F;
-  color: #fff;
-  border: 1px solid #363636;
-}
 
 
 /* Default Theme */
