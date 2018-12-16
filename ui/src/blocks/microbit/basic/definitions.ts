@@ -4,47 +4,6 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
   let bordercolour = '#b3235a';
   let inputcolour = '#ff0066';
 
-  Blocks['import_turtle'] = {
-    init: function() {
-      this.appendDummyInput()
-          .appendField("from turtle import *");
-      this.setPreviousStatement(true, null);
-      this.setNextStatement(true, null);
-      this.setColour(240);
-   this.setTooltip("Import Turtle library");
-   this.setHelpUrl("");
-    }
-  };
-
-  Blocks['turtle'] = {
-    init: function() {
-      this.appendDummyInput()
-          .appendField(new Blockly.FieldVariable("turtle"), "turtle")
-          .appendField(" = Turtle()");
-      this.setPreviousStatement(true, null);
-      this.setNextStatement(true, null);
-      this.setColour(240);
-   this.setTooltip("Initialize the turtle");
-   this.setHelpUrl("");
-    }
-  };
-
-  Blocks['directions'] = {
-    init: function() {
-      this.appendDummyInput()
-          .appendField(new Blockly.FieldVariable("turtle"), "turtle")
-          .appendField(".")
-          .appendField(new Blockly.FieldDropdown([["forward","forward"], ["left","left"], ["right","right"], ["backward","backward"]]), "options")
-          .appendField("(")
-          .appendField(new Blockly.FieldTextInput(""), "dist")
-          .appendField(")");
-      this.setPreviousStatement(true, null);
-      this.setNextStatement(true, null);
-      this.setColour(240);
-   this.setTooltip("Make the turtle move");
-   this.setHelpUrl("");
-    }
-  };
 
   Blocks['import_microbit'] = {
     init: function () {

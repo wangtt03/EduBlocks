@@ -1,27 +1,5 @@
 export default function define(Python: Blockly.BlockGenerators) {
 
-  Python['import_turtle'] = function(block) {
-    // TODO: Assemble Python into code variable.
-    var code = 'from turtle import *\n';
-    return code;
-  };
-
-  Python['turtle'] = function(block) {
-    var variable_turtle = Blockly.Python.variableDB_.getName(block.getFieldValue('turtle'), Blockly.Variables.NAME_TYPE);
-    // TODO: Assemble Python into code variable.
-    var code = variable_turtle+ ' = Turtle()\n';
-    return code;
-  };
-
-  Python['directions'] = function(block) {
-    var variable_turtle = Blockly.Python.variableDB_.getName(block.getFieldValue('turtle'), Blockly.Variables.NAME_TYPE);
-    var dropdown_options = block.getFieldValue('options');
-    var text_dist = block.getFieldValue('dist');
-    // TODO: Assemble Python into code variable.
-    var code = variable_turtle+ '.' +dropdown_options+ '(' +text_dist+ ')\n';
-    return code;
-  };
-
   Python['import_microbit'] = function (block) {
     const code = 'from microbit import *\n';
     return code;
