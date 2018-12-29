@@ -7,7 +7,7 @@ export default function define(Python: Blockly.BlockGenerators) {
 
   Python['mccreate'] = function (block) {
     // TODO: Assemble Python into code variable.
-    const code = 'global mc; mc = Minecraft.create() \n'; 
+    const code = 'mc = Minecraft.create() \n'; 
     return code;
   };
 

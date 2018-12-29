@@ -6,11 +6,11 @@ import { newCircuitPythonPlatform } from './circuitpython';
 
 export function getPlatformList(): PlatformSelection[] {
   return [
-    { platform: 'Web', title: 'Web Python', image: '/images/webpy.png', help: 'https://docs.edublocks.org/web/' },
+    { platform: 'Web', title: 'Web Python', image: '/images/webpy.png', help: 'https://docs.edublocks.org/mode-guides/web' },
     // { title: 'Advanced Python', image: '/images/advpy.png', help: 'https://edublocks.org' },
-    { platform: 'RaspberryPi', title: 'Raspberry Pi', image: '/images/pi.png', help: 'https://docs.edublocks.org/raspberrypi/' },
-    { platform: 'MicroBit', title: 'micro:bit', image: '/images/microbit.png', help: 'https://docs.edublocks.org/microbit/' },
-    { platform: 'CircuitPython', title: 'CircuitPython', image: '/images/circuitplayground.png', help: 'https://docs.edublocks.org/circuitpython/' },
+    { platform: 'RaspberryPi', title: 'Raspberry Pi', image: '/images/pi.png', help: 'https://docs.edublocks.org/mode-guides/raspberry-pi' },
+    { platform: 'MicroBit', title: 'micro:bit', image: '/images/microbit.png', help: 'https://docs.edublocks.org/mode-guides/microbit' },
+    { platform: 'CircuitPython', title: 'CircuitPython', image: '/images/circuitplayground.png', help: 'https://docs.edublocks.org/mode-guides/circuitpython' },
   ];
 }
 
