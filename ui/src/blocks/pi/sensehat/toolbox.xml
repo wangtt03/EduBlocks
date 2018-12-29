@@ -1,4 +1,4 @@
-<category name="Sense Hat" colour="20">
+<category name="Sense Hat" colour="20" iconclass="blocklyTreeIconCustom sense">
   <block type="senseimport"></block>
   <block type="senseimportemu"></block>
   <block type="senseinit"></block>

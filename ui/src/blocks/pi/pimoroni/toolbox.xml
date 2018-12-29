@@ -1,4 +1,4 @@
-<category name="Pimoroni" colour="843"> 
+<category name="Pimoroni" colour="843" iconclass="blocklyTreeIconCustom pimoroni"> 
   <category name="Explorer Hat" colour="843">
     <block type="ehimport"></block>
     <block type="ehtouch"></block>

@@ -27,13 +27,6 @@ body {
   vertical-align: middle;
 }
 
-.blocklyTreeIconCustom.basic::before {
-  content: "\f144";
-}
-
-.blocklyTreeIconCustom.turtle::before {
-  content: "\f303";
-}
 
 .loading-message {
   font-size: 100px;
@@ -353,3 +346,44 @@ div.blocklyTreeRow {
 @keyframes beat{
 	to { transform: scale(1.05); }
 }
+
+/* Blockly Toolbox Icons */
+
+.blocklyTreeIconCustom.basic::before {
+  content: "\f144";
+}
+
+.blocklyTreeIconCustom.turtle::before {
+  content: "\f303";
+}
+
+.blocklyTreeIconCustom.minecraft::before {
+  content: "\f1b2";
+}
+
+.blocklyTreeIconCustom.gpio::before {
+  content: "\f0eb";
+}
+
+
+.blocklyTreeIconCustom.sonic::before {
+  content: "\f001";
+}
+
+.blocklyTreeIconCustom.pimoroni::before {
+  content: "\f714";
+}
+
+.blocklyTreeIconCustom.http::before {
+  content: "\f0c1";
+}
+
+.blocklyTreeIconCustom.sense::before {
+  content: "\f7bf";
+}
+
+.blocklyTreeIconCustom.bitio::before {
+  content: "\f11b";
+}
+
+

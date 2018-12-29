@@ -1,4 +1,4 @@
-<category name="Minecraft" colour="120">
+<category name="Minecraft" colour="120" iconclass="blocklyTreeIconCustom minecraft">
   <category name="General" colour="270">
     <block type="mcimport"></block>
     <block type="import_block"></block>

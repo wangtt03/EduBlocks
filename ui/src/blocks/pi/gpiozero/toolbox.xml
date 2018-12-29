@@ -1,4 +1,4 @@
-<category name="gpiozero" colour="60">
+<category name="gpiozero" colour="60" iconclass="blocklyTreeIconCustom gpio">
   <category name="General" colour="60">
     <block type="importgpiozero"></block>
     <block type="importtime"></block>
