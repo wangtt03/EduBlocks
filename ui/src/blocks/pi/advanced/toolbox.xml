@@ -1,4 +1,4 @@
-  <category name="Http Client" colour="70" iconclass="blocklyTreeIconCustom http">
+  <category name="Http Client" colour="#C2E434" iconclass="blocklyTreeIconCustom http">
     <block type="http_client_import_rest"></block>
     <block type="https_client_create_connection"></block>
     <block type="http_client_create_connection"></block>

@@ -1,5 +1,5 @@
-<category name="Pimoroni" colour="843" iconclass="blocklyTreeIconCustom pimoroni"> 
-  <category name="Explorer Hat" colour="843">
+<category name="Pimoroni" colour="#000000" iconclass="blocklyTreeIconCustom pimoroni"> 
+  <category name="Explorer Hat" colour="#000000">
     <block type="ehimport"></block>
     <block type="ehtouch"></block>
     <block type="ehinput"></block>

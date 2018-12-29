@@ -1,4 +1,4 @@
-<category name="BitIO" colour="290" iconclass="blocklyTreeIconCustom bitio">
+<category name="BitIO" colour="#C227E2" iconclass="blocklyTreeIconCustom bitio">
     <block type="importmb"></block>
     <block type="displayscrolltext"></block>
     <block type="displayscrollvar"></block>

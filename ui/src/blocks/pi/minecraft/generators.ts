@@ -7,7 +7,7 @@ export default function define(Python: Blockly.BlockGenerators) {
 
   Python['mccreate'] = function (block) {
     // TODO: Assemble Python into code variable.
-    const code = 'global mc; mc = Minecraft.create() \n';
+    const code = 'global mc; mc = Minecraft.create() \n'; 
     return code;
   };
 
@@ -17,9 +17,9 @@ export default function define(Python: Blockly.BlockGenerators) {
   };
 
   Python['mcpost'] = function (block) {
-    const text_chat = block.getFieldValue('chat');
+    var text_chat = Blockly.Python.valueToCode(block, 'text', Blockly.Python.ORDER_ATOMIC);
     // TODO: Assemble Python into code variable.
-    const code = 'mc.postToChat("' + text_chat + '")\n';
+    const code = 'mc.postToChat(' + text_chat + ')\n';
     return code;
   };
 
@@ -30,34 +30,34 @@ export default function define(Python: Blockly.BlockGenerators) {
   };
 
   Python['varprint'] = function (block) {
-    const text_var = block.getFieldValue('var');
+    var text_var = Blockly.Python.valueToCode(block, 'text', Blockly.Python.ORDER_ATOMIC);
     // TODO: Assemble Python into code variable.
     const code = 'print(' + text_var + ')\n';
     return code;
   };
 
   Python['setpos'] = function (block) {
-    const text_x = block.getFieldValue('x');
-    const text_y = block.getFieldValue('y');
-    const text_z = block.getFieldValue('z');
+    var text_x = Blockly.Python.valueToCode(block, 'text', Blockly.Python.ORDER_ATOMIC);
+    var text_y = Blockly.Python.valueToCode(block, 'text1', Blockly.Python.ORDER_ATOMIC);
+    var text_z = Blockly.Python.valueToCode(block, 'text2', Blockly.Python.ORDER_ATOMIC);
     // TODO: Assemble Python into code variable.
     const code = 'mc.player.setPos(' + text_x + ', ' + text_y + ', ' + text_z + ')\n\n';
     return code;
   };
 
   Python['campos'] = function (block) {
-    const number_x = block.getFieldValue('x');
-    const number_y = block.getFieldValue('y');
-    const number_z = block.getFieldValue('z');
+    var number_x = Blockly.Python.valueToCode(block, 'text', Blockly.Python.ORDER_ATOMIC);
+    var number_y = Blockly.Python.valueToCode(block, 'text1', Blockly.Python.ORDER_ATOMIC);
+    var number_z = Blockly.Python.valueToCode(block, 'text2', Blockly.Python.ORDER_ATOMIC);
     // TODO: Assemble Python into code variable.
     const code = 'mc.camera.setPos(' + number_x + ', ' + number_y + ', ' + number_z + ')\n';
     return code;
   };
 
   Python['getblock'] = function (block) {
-    const number_x = block.getFieldValue('x');
-    const number_y = block.getFieldValue('y');
-    const number_z = block.getFieldValue('z');
+    var number_x = Blockly.Python.valueToCode(block, 'text', Blockly.Python.ORDER_ATOMIC);
+    var number_y = Blockly.Python.valueToCode(block, 'text1', Blockly.Python.ORDER_ATOMIC);
+    var number_z = Blockly.Python.valueToCode(block, 'text2', Blockly.Python.ORDER_ATOMIC);
     // TODO: Assemble Python into code variable.
     const code = 'blockType = mc.getBlock(' + number_x + ', ' + number_y + ', ' + number_z + ')\n';
     return code;
@@ -71,10 +71,10 @@ export default function define(Python: Blockly.BlockGenerators) {
   };
 
   Python['setblock'] = function (block) {
-    const number_x = block.getFieldValue('x');
-    const number_y = block.getFieldValue('y');
-    const number_z = block.getFieldValue('z');
-    const number_id = block.getFieldValue('id');
+    var number_x = Blockly.Python.valueToCode(block, 'text', Blockly.Python.ORDER_ATOMIC);
+    var number_y = Blockly.Python.valueToCode(block, 'text1', Blockly.Python.ORDER_ATOMIC);
+    var number_z = Blockly.Python.valueToCode(block, 'text2', Blockly.Python.ORDER_ATOMIC);
+    var number_id = Blockly.Python.valueToCode(block, 'text3', Blockly.Python.ORDER_ATOMIC);
     // TODO: Assemble Python into code variable.
     const code = 'blockType = mc.setBlock(' + number_x + ', ' + number_y + ', ' + number_z + ', ' + number_id + ')\n';
     return code;
@@ -87,33 +87,34 @@ export default function define(Python: Blockly.BlockGenerators) {
   };
 
   Python['mctext'] = function (block) {
-    const text_x = block.getFieldValue('x');
-    const text_y = block.getFieldValue('y');
-    const text_z = block.getFieldValue('z');
-    const number_id = block.getFieldValue('id');
+    var text_x = Blockly.Python.valueToCode(block, 'text', Blockly.Python.ORDER_ATOMIC);
+    var text_y = Blockly.Python.valueToCode(block, 'text1', Blockly.Python.ORDER_ATOMIC);
+    var text_z = Blockly.Python.valueToCode(block, 'text2', Blockly.Python.ORDER_ATOMIC);
+    var number_id = Blockly.Python.valueToCode(block, 'text3', Blockly.Python.ORDER_ATOMIC);
     // TODO: Assemble Python into code variable.
     const code = 'blockType = mc.setBlock(' + text_x + ', ' + text_y + ', ' + text_z + ', ' + number_id + ')\n';
     return code;
   };
 
   Python['mcblocks'] = function (block) {
-    const text_x = block.getFieldValue('x');
-    const text_y = block.getFieldValue('y');
-    const text_z = block.getFieldValue('z');
-    const text_q = block.getFieldValue('q');
-    const text_w = block.getFieldValue('w');
-    const text_e = block.getFieldValue('e');
-    const text_r = block.getFieldValue('r');
-    const text_t = block.getFieldValue('t');
+    var text_x = Blockly.Python.valueToCode(block, 'text', Blockly.Python.ORDER_ATOMIC);
+    var text_y = Blockly.Python.valueToCode(block, 'text1', Blockly.Python.ORDER_ATOMIC);
+    var text_z = Blockly.Python.valueToCode(block, 'text2', Blockly.Python.ORDER_ATOMIC);
+    var text_q = Blockly.Python.valueToCode(block, 'text3', Blockly.Python.ORDER_ATOMIC);
+    var text_w = Blockly.Python.valueToCode(block, 'text4', Blockly.Python.ORDER_ATOMIC);
+    var text_e = Blockly.Python.valueToCode(block, 'text5', Blockly.Python.ORDER_ATOMIC);
+    var text_r = Blockly.Python.valueToCode(block, 'text6', Blockly.Python.ORDER_ATOMIC);
+    var text_t = Blockly.Python.valueToCode(block, 'text7', Blockly.Python.ORDER_ATOMIC);
+    var text_u = Blockly.Python.valueToCode(block, 'text8', Blockly.Python.ORDER_ATOMIC);
     // TODO: Assemble Python into code variable.
-    const code = 'mc.setBlocks(' + text_x + ', ' + text_y + ', ' + text_z + ', ' + text_q + ', ' + text_w + ', ' + text_e + ', ' + text_r + ', ' + text_t + ', ' + text_y + ')\n';
+    const code = 'mc.setBlocks(' + text_x + ', ' + text_y + ', ' + text_z + ', ' + text_q + ', ' + text_w + ', ' + text_e + ', ' + text_r + ', ' + text_t + ', ' + text_u + ')\n';
     return code;
   };
 
   Python['build'] = function (block) {
-    const number_x = block.getFieldValue('x');
-    const number_y = block.getFieldValue('y');
-    const number_z = block.getFieldValue('z');
+    var number_x = Blockly.Python.valueToCode(block, 'text', Blockly.Python.ORDER_ATOMIC);
+    var number_y = Blockly.Python.valueToCode(block, 'text1', Blockly.Python.ORDER_ATOMIC);
+    var number_z = Blockly.Python.valueToCode(block, 'text2', Blockly.Python.ORDER_ATOMIC);
     // TODO: Assemble Python into code variable.
     const code = 'buildPumpkin(' + number_x + ', ' + number_y + ', ' + number_z + ')\n';
     return code;
@@ -200,35 +201,36 @@ export default function define(Python: Blockly.BlockGenerators) {
   };
 
   Python['mctext2'] = function (block) {
-    let text_x = block.getFieldValue('x');
-    let text_y = block.getFieldValue('y');
-    let text_z = block.getFieldValue('z');
-    let text_i = block.getFieldValue('i');
+    var text_x = Blockly.Python.valueToCode(block, 'text', Blockly.Python.ORDER_ATOMIC);
+    var text_y = Blockly.Python.valueToCode(block, 'text1', Blockly.Python.ORDER_ATOMIC);
+    var text_z = Blockly.Python.valueToCode(block, 'text2', Blockly.Python.ORDER_ATOMIC);
+    var text_i = Blockly.Python.valueToCode(block, 'text3', Blockly.Python.ORDER_ATOMIC);
     // TODO: Assemble Python into code variable.
     let code = 'mc.setBlock(' + text_x + ', ' + text_y + ', ' + text_z + ', ' + text_i + ')\n';
     return code;
   };
 
   Python['mctext5'] = function (block) {
-    let text_x = block.getFieldValue('x');
-    let text_y = block.getFieldValue('y');
-    let text_z = block.getFieldValue('z');
-    let text_p = block.getFieldValue('p');
-    let text_i = block.getFieldValue('i');
+    var text_x = Blockly.Python.valueToCode(block, 'text', Blockly.Python.ORDER_ATOMIC);
+    var text_y = Blockly.Python.valueToCode(block, 'text1', Blockly.Python.ORDER_ATOMIC);
+    var text_z = Blockly.Python.valueToCode(block, 'text2', Blockly.Python.ORDER_ATOMIC);
+    var text_p = Blockly.Python.valueToCode(block, 'text3', Blockly.Python.ORDER_ATOMIC);
+    var text_i = Blockly.Python.valueToCode(block, 'text4', Blockly.Python.ORDER_ATOMIC);
     // TODO: Assemble Python into code variable.
-    let code = 'mc.setBlock(' + text_x + ', ' + text_y + ', ' + text_z + ', ' + text_i + ', ' + text_p + ')\n';
+    let code = 'mc.setBlock(' + text_x + ', ' + text_y + ', ' + text_z + ', ' + text_p + ', ' + text_i + ')\n';
     return code;
   };
 
   Python['mcblocks8'] = function (block) {
-    let text_x = block.getFieldValue('x');
-    let text_y = block.getFieldValue('y');
-    let text_z = block.getFieldValue('z');
-    let text_q = block.getFieldValue('q');
-    let text_w = block.getFieldValue('w');
-    let text_e = block.getFieldValue('e');
-    let text_r = block.getFieldValue('r');
-    let text_t = block.getFieldValue('t');
+    var text_x = Blockly.Python.valueToCode(block, 'text', Blockly.Python.ORDER_ATOMIC);
+    var text_y = Blockly.Python.valueToCode(block, 'text1', Blockly.Python.ORDER_ATOMIC);
+    var text_z = Blockly.Python.valueToCode(block, 'text2', Blockly.Python.ORDER_ATOMIC);
+    var text_q = Blockly.Python.valueToCode(block, 'text3', Blockly.Python.ORDER_ATOMIC);
+    var text_w = Blockly.Python.valueToCode(block, 'text4', Blockly.Python.ORDER_ATOMIC);
+    var text_e = Blockly.Python.valueToCode(block, 'text5', Blockly.Python.ORDER_ATOMIC);
+    var text_r = Blockly.Python.valueToCode(block, 'text6', Blockly.Python.ORDER_ATOMIC);
+    var text_t = Blockly.Python.valueToCode(block, 'text7', Blockly.Python.ORDER_ATOMIC);
+
     // TODO: Assemble Python into code variable.
     let code = 'mc.setBlocks(' + text_x + ', ' + text_y + ', ' + text_z + ', ' + text_q + ', ' + text_w + ', ' + text_e + ', ' + text_r + ', ' + text_t + ')\n';
     return code;
@@ -241,9 +243,9 @@ export default function define(Python: Blockly.BlockGenerators) {
   };
 
   Python['getdist'] = function (block) {
-    let number_x = block.getFieldValue('x');
-    let number_y = block.getFieldValue('y');
-    let number_z = block.getFieldValue('z');
+    var number_x = Blockly.Python.valueToCode(block, 'text', Blockly.Python.ORDER_ATOMIC);
+    var number_y = Blockly.Python.valueToCode(block, 'text1', Blockly.Python.ORDER_ATOMIC);
+    var number_z = Blockly.Python.valueToCode(block, 'text2', Blockly.Python.ORDER_ATOMIC);
     // TODO: Assemble Python into code variable.
     let code = 'distance_to_player(' + number_x + ', ' + number_y + ', ' + number_z + ')\n';
     return code;
@@ -256,8 +258,8 @@ export default function define(Python: Blockly.BlockGenerators) {
   };
 
   Python['defcall'] = function (block) {
-    let text_fname = block.getFieldValue('fname');
-    let text_extra = block.getFieldValue('extra');
+    var text_fname = Blockly.Python.valueToCode(block, 'text', Blockly.Python.ORDER_ATOMIC);
+    var text_extra = Blockly.Python.valueToCode(block, 'text1', Blockly.Python.ORDER_ATOMIC);
     // TODO: Assemble Python into code variable.
     let code = text_fname + '(' + text_extra + ')\n';
     return code;

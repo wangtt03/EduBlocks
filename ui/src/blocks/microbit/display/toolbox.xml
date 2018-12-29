@@ -1,16 +1,16 @@
-<category name="Display" colour="#C3E516"> 
+<category name="Display" colour="#C3E516">
   <label text="Display" web-class="myLabelStyle"></label>
   <block type="scrollnew">
     <value name="displaytext">
       <shadow type="textinline">
         <field name="text">Hello World</field>
       </shadow>
-    </value> 
+    </value>
   </block>
   <block type="scrollvarnew">
-  
+
     <value name="displaytextvar">
-      <shadow type="textinline"> 
+      <shadow type="textinline">
         <field name="text">0</field>
       </shadow>
     </value>
