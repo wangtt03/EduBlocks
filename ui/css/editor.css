@@ -92,6 +92,7 @@ nav .show:checked ~ .menu{
   overflow: hidden;
 }
 
+
 .SelectModal__grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(100px, 1fr));
@@ -248,7 +249,7 @@ a{
 }
 
 .blocklySvg{
-  background-image: url("https://az742082.vo.msecnd.net/pub/psopafpj") !important;
+  background-image: url("https://edublocks.org/rsz_newpythonbackground.png") !important;
     
 }
 

@@ -4,6 +4,7 @@ import { getPlatform, getPlatformList } from '../platforms';
 import { App, Capability, Extension, PlatformInterface, PlatformSelection } from '../types';
 import BlocklyView from './BlocklyView';
 import ImageModal from './ImageModal';
+import AlertModal from './AlertModal';
 import Nav from './Nav';
 import PythonView from './PythonView';
 import RemoteShellView from './RemoteShellView';
@@ -31,7 +32,7 @@ interface DocumentState {
 interface State {
   platform?: PlatformInterface;
   viewMode: ViewMode;
-  modal: null | 'platform' | 'terminal' | 'samples' | 'themes' | 'extensions' | 'functions';
+  modal: null | 'platform' | 'terminal' | 'samples' | 'themes' | 'extensions' | 'functions' | 'pythonOverwritten' | 'https' | 'noCode';
   extensionsActive: Extension[];
   doc: Readonly<DocumentState>;
 }
@@ -78,7 +79,7 @@ export default class Page extends Component<Props, State> {
     }
 
     if (this.state.doc.python !== python && !this.state.doc.pythonClean) {
-      alert('Python changes have been overwritten!');
+      this.setState({ modal: 'pythonOverwritten' });
     }
 
     const doc: DocumentState = {
@@ -144,7 +145,7 @@ export default class Page extends Component<Props, State> {
 
   private openTerminal() {
     if (!this.state.doc.python) {
-      alert('There is no code to run');
+      this.setState({ modal: 'noCode' });
 
       return;
     }
@@ -205,19 +206,19 @@ export default class Page extends Component<Props, State> {
 
     if (selection.platform === 'RaspberryPi') {
       let ip: string | null = null;
-      
+
       if (window.location.protocol === 'https:') {
-        alert('Need to switch to HTTP...');
+        this.setState({ modal: 'https' });
         window.location.protocol = 'http:';
         return;
       }
 
-      if (navigator.platform == 'Linux armv7l'){
-               
+      if (navigator.platform == 'Linux armv7l') {
+
         await this.props.app.initConnection('localhost');
       }
 
-      else{
+      else {
         ip = prompt('Please enter your Raspberry Pi\'s IP address');
 
         if (!ip) return;
@@ -351,6 +352,30 @@ export default class Page extends Component<Props, State> {
           visible={this.state.modal === 'platform'}
           onSelect={(platform) => this.selectPlatform(platform)}
           onCancel={() => { }}
+        />
+
+        <AlertModal
+          title='Attention!'
+          visible={this.state.modal === 'pythonOverwritten'}
+          text='Python changes have been overwritten!'
+          onCancel={() => { }}
+          onButtonClick={(key) => key === 'close' && this.closeModal()}
+        />
+
+        <AlertModal
+          title='Attention!'
+          visible={this.state.modal === 'https'}
+          text='Need to switch to HTTPS...'
+          onCancel={() => { }}
+          onButtonClick={(key) => key === 'close' && this.closeModal()}
+        />
+
+        <AlertModal
+          title='Attention!'
+          visible={this.state.modal === 'noCode'}
+          text='There is no code to run!'
+          onCancel={() => { }}
+          onButtonClick={(key) => key === 'close' && this.closeModal()}
         />
 
         <Nav
