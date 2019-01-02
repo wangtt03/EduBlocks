@@ -40,7 +40,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
   Blocks['background'] = {
     init: function () {
       this.appendDummyInput()
-        .appendField(new Blockly.FieldVariable("wn"), "wn")
+        .appendField(new Blockly.FieldVariable("screen"), "wn")
         .appendField(".bgcolour(")
       this.appendValueInput('text')
         .setCheck(null);
