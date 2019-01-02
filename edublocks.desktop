@@ -2,7 +2,7 @@
 Version=3.0
 Name=EduBlocks Connect
 Comment=The ultimate toolkit for learning and experimenting with Python.
-Exec=edublocks
+Exec=edublocks-connect
 Icon=/usr/share/icons/hicolor/scalable/apps/logo.png
 Terminal=true
 Type=Application
