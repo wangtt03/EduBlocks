@@ -407,4 +407,7 @@ div.blocklyTreeRow {
   content: "\f11b";
 }
 
+iframe > body{
+  background:white !important;
+}
 

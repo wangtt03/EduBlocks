@@ -5,112 +5,560 @@
   </category>
   <category name="Inputs" colour="#16AEE5">
     <category name="Button" colour="#16AEE5">
-      <block type="buttonset"></block>
-      <block type="buttonaction"></block>
-      <block type="buttonvar"></block>
+      <block type="buttonset">
+        <value name="text">
+          <shadow type="textinline">
+            <field name="text"></field>
+          </shadow>
+        </value>
+      </block>
+      <block type="buttonaction">
+        <value name="text">
+          <shadow type="textinline">
+            <field name="text"></field>
+          </shadow>
+        </value>
+      </block>
+      <block type="buttonvar">
+        <value name="text">
+          <shadow type="textinline">
+            <field name="text"></field>
+          </shadow>
+        </value>
+        <value name="text1">
+          <shadow type="textinline">
+            <field name="text"></field>
+          </shadow>
+        </value>
+      </block>
     </category>
     <category name="Line Sensor" colour="#16AEE5">
-      <block type="lineset"></block>
-      <block type="lineaction"></block>
-      <block type="linevar"></block>
+      <block type="lineset">
+        <value name="text">
+          <shadow type="textinline">
+            <field name="text"></field>
+          </shadow>
+        </value>
+      </block>
+      <block type="lineaction">
+        <value name="text">
+          <shadow type="textinline">
+            <field name="text"></field>
+          </shadow>
+        </value>
+      </block>
+      <block type="linevar">
+        <value name="text">
+          <shadow type="textinline">
+            <field name="text"></field>
+          </shadow>
+        </value>
+        <value name="text1">
+          <shadow type="textinline">
+            <field name="text"></field>
+          </shadow>
+        </value>
+      </block>
     </category>
     <category name="Motion Sensor" colour="#16AEE5">
-      <block type="motionset"></block>
-      <block type="motionaction"></block>
-      <block type="motionvar"></block>
+      <block type="motionset">
+        <value name="text">
+          <shadow type="textinline">
+            <field name="text"></field>
+          </shadow>
+        </value>
+      </block>
+      <block type="motionaction">
+        <value name="text">
+          <shadow type="textinline">
+            <field name="text"></field>
+          </shadow>
+        </value>
+      </block>
+      <block type="motionvar">
+        <value name="text">
+          <shadow type="textinline">
+            <field name="text"></field>
+          </shadow>
+        </value>
+        <value name="text1">
+          <shadow type="textinline">
+            <field name="text"></field>
+          </shadow>
+        </value>
+      </block>
     </category>
     <category name="Light Sensor" colour="#16AEE5">
-      <block type="lightset"></block>
-      <block type="lightaction"></block>
-      <block type="lightvar"></block>
+      <block type="lightset">
+        <value name="text">
+          <shadow type="textinline">
+            <field name="text"></field>
+          </shadow>
+        </value>
+      </block>
+      <block type="lightaction">
+        <value name="text">
+          <shadow type="textinline">
+            <field name="text"></field>
+          </shadow>
+        </value>
+      </block>
+      <block type="lightvar">
+        <value name="text">
+          <shadow type="textinline">
+            <field name="text"></field>
+          </shadow>
+        </value>
+        <value name="text1">
+          <shadow type="textinline">
+            <field name="text"></field>
+          </shadow>
+        </value>
+      </block>
     </category>
     <category name="Distance Sensor" colour="#16AEE5">
-      <block type="distanceset"></block>
-      <block type="distanceaction"></block>
-      <block type="distancevar"></block>
+      <block type="distanceset">
+        <value name="text">
+          <shadow type="textinline">
+            <field name="text"></field>
+          </shadow>
+        </value>
+      </block>
+      <block type="distanceaction">
+        <value name="text">
+          <shadow type="textinline">
+            <field name="text"></field>
+          </shadow>
+        </value>
+      </block>
+      <block type="distancevar">
+        <value name="text">
+          <shadow type="textinline">
+            <field name="text"></field>
+          </shadow>
+        </value>
+        <value name="text1">
+          <shadow type="textinline">
+            <field name="text"></field>
+          </shadow>
+        </value>
+      </block>
     </category>
   </category>
   <category name="Outputs" colour="#E51616">
     <category name="LED" colour="#E51616">
-      <block type="ledset"></block>
-      <block type="ledaction"></block>
-      <block type="ledvar"></block>
+      <block type="ledset">
+        <value name="text">
+          <shadow type="textinline">
+            <field name="text"></field>
+          </shadow>
+        </value>
+      </block>
+      <block type="ledaction">
+        <value name="text">
+          <shadow type="textinline">
+            <field name="text"></field>
+          </shadow>
+        </value>
+      </block>
+      <block type="ledvar">
+        <value name="text">
+          <shadow type="textinline">
+            <field name="text"></field>
+          </shadow>
+        </value>
+        <value name="text1">
+          <shadow type="textinline">
+            <field name="text"></field>
+          </shadow>
+        </value>
+      </block>
     </category>
     <category name="PWMLED" colour="#E51616">
-      <block type="pledset"></block>
-      <block type="pledaction"></block>
-      <block type="pledvar"></block>
+      <block type="pledset">
+        <value name="text">
+          <shadow type="textinline">
+            <field name="text"></field>
+          </shadow>
+        </value>
+      </block>
+      <block type="pledaction">
+        <value name="text">
+          <shadow type="textinline">
+            <field name="text"></field>
+          </shadow>
+        </value>
+      </block>
+      <block type="pledvar">
+        <value name="text">
+          <shadow type="textinline">
+            <field name="text"></field>
+          </shadow>
+        </value>
+        <value name="text1">
+          <shadow type="textinline">
+            <field name="text"></field>
+          </shadow>
+        </value>
+      </block>
     </category>
     <category name="RGBLED" colour="#E51616">
-      <block type="rgbledset"></block>
-      <block type="rgbledaction"></block>
-      <block type="rgbledvar"></block>
+      <block type="rgbledset">
+        <value name="text">
+          <shadow type="textinline">
+            <field name="text"></field>
+          </shadow>
+        </value>
+      </block>
+      <block type="rgbledaction">
+        <value name="text">
+          <shadow type="textinline">
+            <field name="text"></field>
+          </shadow>
+        </value>
+      </block>
+      <block type="rgbledvar">
+        <value name="text">
+          <shadow type="textinline">
+            <field name="text"></field>
+          </shadow>
+        </value>
+        <value name="text1">
+          <shadow type="textinline">
+            <field name="text"></field>
+          </shadow>
+        </value>
+      </block>
     </category>
     <category name="Buzzer" colour="#E51616">
-      <block type="buzzerset"></block>
-      <block type="buzzeraction"></block>
-      <block type="buzzervar"></block>
+      <block type="buzzerset">
+        <value name="text">
+          <shadow type="textinline">
+            <field name="text"></field>
+          </shadow>
+        </value>
+      </block>
+      <block type="buzzeraction">
+        <value name="text">
+          <shadow type="textinline">
+            <field name="text"></field>
+          </shadow>
+        </value>
+      </block>
+      <block type="buzzervar">
+        <value name="text">
+          <shadow type="textinline">
+            <field name="text"></field>
+          </shadow>
+        </value>
+        <value name="text1">
+          <shadow type="textinline">
+            <field name="text"></field>
+          </shadow>
+        </value>
+      </block>
     </category>
     <category name="Motor" colour="#E51616">
-      <block type="motorset"></block>
-      <block type="motoraction"></block>
-      <block type="motorvar"></block>
+      <block type="motorset">
+        <value name="text">
+          <shadow type="textinline">
+            <field name="text"></field>
+          </shadow>
+        </value>
+      </block>
+      <block type="motoraction">
+        <value name="text">
+          <shadow type="textinline">
+            <field name="text"></field>
+          </shadow>
+        </value>
+      </block>
+      <block type="motorvar">
+        <value name="text">
+          <shadow type="textinline">
+            <field name="text"></field>
+          </shadow>
+        </value>
+        <value name="text1">
+          <shadow type="textinline">
+            <field name="text"></field>
+          </shadow>
+        </value>
+      </block>
     </category>
     <category name="Servo" colour="#E51616">
-      <block type="servoset"></block>
-      <block type="servoaction"></block>
-      <block type="servovar"></block>
+      <block type="servoset">
+        <value name="text">
+          <shadow type="textinline">
+            <field name="text"></field>
+          </shadow>
+        </value>
+      </block>
+      <block type="servoaction">
+        <value name="text">
+          <shadow type="textinline">
+            <field name="text"></field>
+          </shadow>
+        </value>
+      </block>
+      <block type="servovar">
+        <value name="text">
+          <shadow type="textinline">
+            <field name="text"></field>
+          </shadow>
+        </value>
+        <value name="text1">
+          <shadow type="textinline">
+            <field name="text"></field>
+          </shadow>
+        </value>
+      </block>
     </category>
     <category name="Angular Servo" colour="#E51616">
-      <block type="angset"></block>
-      <block type="angaction"></block>
-      <block type="angvar"></block>
+      <block type="angset">
+        <value name="text">
+          <shadow type="textinline">
+            <field name="text"></field>
+          </shadow>
+        </value>
+      </block>
+      <block type="angaction">
+        <value name="text">
+          <shadow type="textinline">
+            <field name="text"></field>
+          </shadow>
+        </value>
+      </block>
+      <block type="angvar">
+        <value name="text">
+          <shadow type="textinline">
+            <field name="text"></field>
+          </shadow>
+        </value>
+        <value name="text1">
+          <shadow type="textinline">
+            <field name="text"></field>
+          </shadow>
+        </value>
+      </block>
     </category>
   </category>
   <category name="Boards &amp; Accessories" colour="#E5B116">
     <category name="LEDBoard" colour="#E5B116">
-      <block type="ledbset"></block>
-      <block type="ledbaction"></block>
-      <block type="ledbvar"></block>
+      <block type="ledbset">
+        <value name="text">
+          <shadow type="textinline">
+            <field name="text"></field>
+          </shadow>
+        </value>
+      </block>
+      <block type="ledbaction">
+        <value name="text">
+          <shadow type="textinline">
+            <field name="text"></field>
+          </shadow>
+        </value>
+      </block>
+      <block type="ledbvar">
+        <value name="text">
+          <shadow type="textinline">
+            <field name="text"></field>
+          </shadow>
+        </value>
+        <value name="text1">
+          <shadow type="textinline">
+            <field name="text"></field>
+          </shadow>
+        </value>
+      </block>
     </category>
     <category name="LED Bar Graph" colour="#E5B116">
-      <block type="graphset"></block>
-      <block type="graphaction"></block>
-      <block type="graphvar"></block>
+      <block type="graphset">
+        <value name="text">
+          <shadow type="textinline">
+            <field name="text"></field>
+          </shadow>
+        </value>
+      </block>
+      <block type="graphaction">
+        <value name="text">
+          <shadow type="textinline">
+            <field name="text"></field>
+          </shadow>
+        </value>
+      </block>
+      <block type="graphvar">
+        <value name="text">
+          <shadow type="textinline">
+            <field name="text"></field>
+          </shadow>
+        </value>
+        <value name="text1">
+          <shadow type="textinline">
+            <field name="text"></field>
+          </shadow>
+        </value>
+      </block>
     </category>
     <category name="Button Board" colour="#E5B116">
-      <block type="buttonbset"></block>
-      <block type="buttonbaction"></block>
-      <block type="buttonbvar"></block>
+      <block type="buttonbset">
+        <value name="text">
+          <shadow type="textinline">
+            <field name="text"></field>
+          </shadow>
+        </value>
+      </block>
+      <block type="buttonbaction">
+        <value name="text">
+          <shadow type="textinline">
+            <field name="text"></field>
+          </shadow>
+        </value>
+      </block>
+      <block type="buttonbvar">
+        <value name="text">
+          <shadow type="textinline">
+            <field name="text"></field>
+          </shadow>
+        </value>
+        <value name="text1">
+          <shadow type="textinline">
+            <field name="text"></field>
+          </shadow>
+        </value>
+      </block>
     </category>
     <category name="Traffic Lights" colour="#E5B116">
-      <block type="trafficset"></block>
-      <block type="trafficaction"></block>
-      <block type="trafficvar"></block>
+      <block type="trafficset">
+        <value name="text">
+          <shadow type="textinline">
+            <field name="text"></field>
+          </shadow>
+        </value>
+      </block>
+      <block type="trafficaction">
+        <value name="text">
+          <shadow type="textinline">
+            <field name="text"></field>
+          </shadow>
+        </value>
+      </block>
+      <block type="trafficvar">
+        <value name="text">
+          <shadow type="textinline">
+            <field name="text"></field>
+          </shadow>
+        </value>
+        <value name="text1">
+          <shadow type="textinline">
+            <field name="text"></field>
+          </shadow>
+        </value>
+      </block>
     </category>
     <category name="Energenie" colour="#E5B116">
-      <block type="energenieset"></block>
-      <block type="energenieaction"></block>
-      <block type="energenievar"></block>
+      <block type="energenieset">
+        <value name="text">
+          <shadow type="textinline">
+            <field name="text"></field>
+          </shadow>
+        </value>
+      </block>
+      <block type="energenieaction">
+        <value name="text">
+          <shadow type="textinline">
+            <field name="text"></field>
+          </shadow>
+        </value>
+      </block>
+      <block type="energenievar">
+        <value name="text">
+          <shadow type="textinline">
+            <field name="text"></field>
+          </shadow>
+        </value>
+        <value name="text1">
+          <shadow type="textinline">
+            <field name="text"></field>
+          </shadow>
+        </value>
+      </block>
     </category>
     <category name="CamJam Kit 3 Robot" colour="#E5B116">
-      <block type="camjamset"></block>
-      <block type="camjamaction"></block>
-      <block type="camjamvar"></block>
+      <block type="camjamset">
+        <value name="text">
+          <shadow type="textinline">
+            <field name="text"></field>
+          </shadow>
+        </value>
+      </block>
+      <block type="camjamaction">
+        <value name="text">
+          <shadow type="textinline">
+            <field name="text"></field>
+          </shadow>
+        </value>
+      </block>
+      <block type="camjamvar">
+        <value name="text">
+          <shadow type="textinline">
+            <field name="text"></field>
+          </shadow>
+        </value>
+        <value name="text1">
+          <shadow type="textinline">
+            <field name="text"></field>
+          </shadow>
+        </value>
+      </block>
     </category>
   </category>
   <category name="Internal &amp; SPI Devices" colour="#16E57E">
     <category name="Time Of Day" colour="#16E57E">
-      <block type="timeset"></block> 
+      <block type="timeset">
+        <value name="text">
+          <shadow type="textinline">
+            <field name="text"></field>
+          </shadow>
+        </value>
+        <value name="text1">
+          <shadow type="textinline">
+            <field name="text"></field>
+          </shadow>
+        </value>
+      </block>
     </category>
     <category name="Ping Server" colour="#16E57E">
-      <block type="pingset"></block>
+      <block type="pingset">
+        <value name="text">
+          <shadow type="textinline">
+            <field name="text"></field>
+          </shadow>
+        </value>
+      </block>
     </category>
     <category name="CPU Temperature" colour="#16E57E">
-      <block type="cpuset"></block>
+      <block type="cpuset">
+        <value name="text">
+          <shadow type="textinline">
+            <field name="text"></field>
+          </shadow>
+        </value>
+        <value name="text1">
+          <shadow type="textinline">
+            <field name="text"></field>
+          </shadow>
+        </value>
+      </block>
     </category>
     <category name="Analogue to Digital" colour="#16E57E">
-      <block type="adc"></block>
+      <block type="adc">
+        <value name="text">
+          <shadow type="textinline">
+            <field name="text"></field>
+          </shadow>
+        </value>
+      </block>
     </category>
   </category>
 </category>

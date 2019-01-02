@@ -5,7 +5,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField("from turtle import *");
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(240);
+      this.setColour("#7289DA");
       this.setTooltip("Import Turtle library");
       this.setHelpUrl("");
     }
@@ -18,7 +18,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField(" = Turtle()");
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(240);
+      this.setColour("#7289DA");
       this.setTooltip("Initialize the turtle");
       this.setHelpUrl("");
     }
@@ -31,7 +31,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField(" = Screen()");
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(240);
+      this.setColour("#7289DA");
       this.setTooltip("Initialize the Turtle screen");
       this.setHelpUrl("");
     }
@@ -48,7 +48,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField(")");
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(240);
+      this.setColour("#7289DA");
       this.setTooltip("Change the background");
       this.setHelpUrl("");
     }
@@ -67,7 +67,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField(")");
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(240);
+      this.setColour("#7289DA");
       this.setTooltip("Make the turtle move");
       this.setHelpUrl("");
     }
@@ -82,7 +82,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField("()");
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(240);
+      this.setColour("#7289DA");
       this.setTooltip("Pen up and down");
       this.setHelpUrl("");
     }
@@ -95,7 +95,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField(".pen()");
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(240);
+      this.setColour("#7289DA");
       this.setTooltip("Initialize the pen");
       this.setHelpUrl("");
     }
@@ -112,7 +112,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField(")");
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(240);
+      this.setColour("#7289DA");
       this.setTooltip("Change the colour");
       this.setHelpUrl("");
     }
@@ -129,7 +129,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField(")");
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(240);
+      this.setColour("#7289DA");
       this.setTooltip("Change the colour");
       this.setHelpUrl("");
     }
@@ -146,7 +146,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField(")");
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(240);
+      this.setColour("#7289DA");
       this.setTooltip("Change the colourmode");
       this.setHelpUrl("");
     }
@@ -163,7 +163,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField(")");
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(240);
+      this.setColour("#7289DA");
       this.setTooltip("Change the width");
       this.setHelpUrl("");
     }
@@ -180,7 +180,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField(")");
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(240);
+      this.setColour("#7289DA");
       this.setTooltip("Draw a circle");
       this.setHelpUrl("");
     }
@@ -197,7 +197,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField(")");
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour(240);
+      this.setColour("#7289DA");
       this.setTooltip("go to x&y");
       this.setHelpUrl("");
     }
