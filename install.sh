@@ -22,7 +22,7 @@ echo "Copying the desktop shortcut to your desktop..."
 cp $APP_PATH/edublocks.desktop ~/Desktop
 
 echo "Copying the icon..."
-sudo cp $APP_PATH/ui/images/logo.png /usr/share/icons/hicolor/scalable/apps/logo.png
+sudo cp $APP_PATH/ui/images/connectlogo.png /usr/share/icons/hicolor/scalable/apps/connectlogo.png
 
 echo "Making the program visible in the menu..."
 sudo cp $APP_PATH/edublocks.desktop /usr/share/applications
