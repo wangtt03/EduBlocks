@@ -25,7 +25,7 @@ fi
 rm -f ~/Desktop/edublocks.desktop
 
 sudo rm -f $GLOBAL_BIN_PATH/edublocks
-sudo rm -f $GLOBAL_BIN_PATH/edublocks-headless
+sudo rm -f $GLOBAL_BIN_PATH/edublocks-connect
 sudo rm -f $GLOBAL_BIN_PATH/edublocks-startup-enable
 sudo rm -f $GLOBAL_BIN_PATH/edublocks-startup-disable
 sudo rm -f $GLOBAL_BIN_PATH/edublocks-uninstall

@@ -24,11 +24,11 @@ export PATH=$NODE_PATH:$PATH
 SERVER_ACTIVE=$(systemctl is-active edublocks-server.service)
 
 if [ $SERVER_ACTIVE != 'active' ]; then
-  echo 'Starting EduBlocks server...'
+  echo 'Starting EduBlocks connect...'
   cd $APP_PATH/server
   ./start.sh &
 else
-  echo 'Server already running in the background, not starting another one'
+  echo 'EduBlocks Connect already running in the background, not starting another one'
 fi
 
 echo '==== Please be patient, the EduBlocks UI is loading... ===='

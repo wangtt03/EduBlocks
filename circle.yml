@@ -23,10 +23,13 @@ deployment:
       - echo $CIRCLE_TAG | ssh Josh@edublocks.org 'cat > /var/www/app.edublocks.org/html/version.txt'
       
   production:
-    tag: /v[0-9]+\.[0-9]+\.[0-9]+-microbit$/
+    tag: /v[0-9]+\.[0-9]+\.[0-9]+-connect$/
     commands:
+      - scp edublocks-armv6l.tar.xz Josh@edublocks.org:downloads/connect
+      - cat auto-installer.sh | sed 's/downloads\//downloads\/connect\//g' | ssh Josh@edublocks.org 'cat > downloads/connect/auto-installer.sh'
       - rsync -rv --include node_modules/picnic --exclude 'node_modules/*' ui/index.html ui/node_modules ui/dist ui/css ui/lib ui/fonts ui/images ui/blockly Josh@edublocks.org:/var/www/app.edublocks.org/html
       - echo $CIRCLE_TAG | ssh Josh@edublocks.org 'cat > /var/www/app.edublocks.org/html/version.txt'
+      
 
   # # Dev is the same as production, except we copy to the "dev" folder
   # dev:

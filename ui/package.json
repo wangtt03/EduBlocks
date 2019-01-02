@@ -1,6 +1,6 @@
 {
     "name": "edublocks-ui",
-    "version": "2.0.0",
+    "version": "3.0.0",
     "description": "EduBlocks UI",
     "scripts": {
         "build": "tsc && browserify -t brfs -t folderify build/main.js -o dist/main.js",
