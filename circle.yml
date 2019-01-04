@@ -19,7 +19,7 @@ deployment:
   dev:
     branch: /.*/
     commands:
-      - rsync -rv --include node_modules/picnic --exclude 'node_modules/*' ui/index.html ui/node_modules ui/dist ui/css ui/lib ui/fonts ui/images ui/blockly Josh@edublocks.org:/var/www/app.edublocks.org/html
+      - rsync -rv --include node_modules/picnic --exclude 'node_modules/*' ui/index.html ui/node_modules ui/dist ui/picnic ui/css ui/lib ui/fonts ui/images ui/blockly Josh@edublocks.org:/var/www/app.edublocks.org/html
       - echo $CIRCLE_TAG | ssh Josh@edublocks.org 'cat > /var/www/app.edublocks.org/html/version.txt'
       
   production:
@@ -27,7 +27,7 @@ deployment:
     commands:
       - scp edublocks-armv6l.tar.xz Josh@edublocks.org:downloads/connect
       - cat auto-installer.sh | sed 's/downloads\//downloads\/connect\//g' | ssh Josh@edublocks.org 'cat > downloads/connect/auto-installer.sh'
-      - rsync -rv --include node_modules/picnic --exclude 'node_modules/*' ui/index.html ui/node_modules ui/dist ui/css ui/lib ui/fonts ui/images ui/blockly Josh@edublocks.org:/var/www/app.edublocks.org/html
+      - rsync -rv --include node_modules/picnic --exclude 'node_modules/*' ui/index.html ui/node_modules ui/dist ui/css ui/picnic ui/lib ui/fonts ui/images ui/blockly Josh@edublocks.org:/var/www/app.edublocks.org/html
       - echo $CIRCLE_TAG | ssh Josh@edublocks.org 'cat > /var/www/app.edublocks.org/html/version.txt'
       
 
