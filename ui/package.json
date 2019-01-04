@@ -36,7 +36,6 @@
         "change-case": "^3.0.1",
         "file-saver": "^1.3.3",
         "lodash": "^4.17.4",
-        "picnic": "^6.3.2",
         "preact": "^8.4.2",
         "term.js": "^0.0.7"
     }

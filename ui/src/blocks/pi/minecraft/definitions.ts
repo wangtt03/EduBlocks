@@ -65,21 +65,6 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     },
   };
 
-  Blocks['varprint'] = {
-    init: function () {
-      this.appendDummyInput()
-        .appendField('print(')
-      this.appendValueInput("text")
-        .setCheck(null);
-      this.appendDummyInput()
-        .appendField(')');
-      this.setPreviousStatement(true, null);
-      this.setNextStatement(true, null);
-      this.setColour("#19E32E");
-      this.setTooltip('Use this to print a variable.');
-      this.setHelpUrl('http://www.example.com/');
-    },
-  };
 
   Blockly.Blocks['setpos'] = {
     init: function () {

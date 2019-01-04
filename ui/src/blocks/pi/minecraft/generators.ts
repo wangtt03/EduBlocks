@@ -29,13 +29,6 @@ export default function define(Python: Blockly.BlockGenerators) {
     return code;
   };
 
-  Python['varprint'] = function (block) {
-    var text_var = Blockly.Python.valueToCode(block, 'text', Blockly.Python.ORDER_ATOMIC);
-    // TODO: Assemble Python into code variable.
-    const code = 'print(' + text_var + ')\n';
-    return code;
-  };
-
   Python['setpos'] = function (block) {
     var text_x = Blockly.Python.valueToCode(block, 'text', Blockly.Python.ORDER_ATOMIC);
     var text_y = Blockly.Python.valueToCode(block, 'text1', Blockly.Python.ORDER_ATOMIC);
