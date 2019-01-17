@@ -704,32 +704,6 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     },
   };
 
-  Blocks['variables_get'] = {
-    init: function() {
-      this.appendDummyInput()
-          .appendField(new Blockly.FieldVariable("var"), "VAR");
-      this.setOutput(true, null);
-      this.setOutputShape(Blockly.OUTPUT_SHAPE_ROUND);
-      this.setColour("#ff0066","#ff0066","#b3235a");
-   this.setTooltip("");
-   this.setHelpUrl("");
-    }
-  };
 
-  Blocks['variables_set'] = {
-    init: function() {
-      this.appendDummyInput()
-          .appendField(new Blockly.FieldVariable(""), "VAR")
-          .appendField(" = ");
-      this.appendValueInput("varset")
-          .setCheck(null);
-      this.setInputsInline(true);
-      this.setPreviousStatement(true, null);
-      this.setNextStatement(true, null);
-      this.setColour("#ff0066","#ff0066","#b3235a");
-   this.setTooltip("");
-   this.setHelpUrl("");
-    }
-  };
 }
 
