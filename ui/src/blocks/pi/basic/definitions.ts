@@ -716,19 +716,20 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     }
   };
 
+
   Blocks['variables_set'] = {
     init: function() {
       this.appendDummyInput()
-          .appendField(new Blockly.FieldVariable(""), "VAR")
-          .appendField(" = ");
+        .appendField(new Blockly.FieldVariable(""), "VAR")
+        .appendField(new Blockly.FieldDropdown([['=', '='], ['+=', '+='], ["-=", "-="]]), 'NAME')
       this.appendValueInput("varset")
-          .setCheck(null);
+        .setCheck(null);
       this.setInputsInline(true);
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setColour("#ff0066","#ff0066","#b3235a");
-   this.setTooltip("");
-   this.setHelpUrl("");
+      this.setColour(maincolour, inputcolour, bordercolour);
+      this.setTooltip("assign a value, increment, or decrement a variable");
+      this.setHelpUrl("");
     }
   };
 

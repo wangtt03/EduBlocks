@@ -407,7 +407,11 @@ div.blocklyTreeRow {
   content: "\f11b";
 }
 
+.blocklyTreeIconCustom.variables::before {
+  content: "\f52c";
+}
+
 iframe > body{
-  background:white !important;
+  background: white !important;
 }
 

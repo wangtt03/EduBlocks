@@ -36,6 +36,7 @@ export type Extension = 'micro:bit General' | 'Pi General' | 'Web General' | 'Ci
 export type Platform = 'Web' | 'MicroBit' | 'RaspberryPi' | 'CircuitPython';
 
 export interface PlatformSelection {
+  
   platform: Platform;
   title: string;
   image: string;

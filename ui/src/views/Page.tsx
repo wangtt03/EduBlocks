@@ -203,8 +203,13 @@ export default class Page extends Component<Props, State> {
 
   private async selectPlatform(selection: PlatformSelection) {
     const platform = await getPlatform(selection.platform);
+    
+    if (selection.platform === 'Web') {
+      this.new()
+    }
 
     if (selection.platform === 'RaspberryPi') {
+      this.new()
       let ip: string | null = null;
 
       if (window.location.protocol === 'https:') {
@@ -238,6 +243,7 @@ export default class Page extends Component<Props, State> {
       modal: null,
       extensionsActive: platform.defaultExtensions,
     });
+    
   }
 
 
@@ -294,6 +300,8 @@ export default class Page extends Component<Props, State> {
     if (!this.state.platform) return false;
 
     return this.state.platform.capabilities.indexOf(capability) !== -1;
+
+    this.new()
   }
 
   private getExtensions() {
@@ -322,6 +330,7 @@ export default class Page extends Component<Props, State> {
   }
 
   private openPlatforms() {
+    this
     this.setState({ modal: 'platform' });
   }
 
@@ -350,7 +359,7 @@ export default class Page extends Component<Props, State> {
           title='Select your mode'
           options={availablePlatforms}
           visible={this.state.modal === 'platform'}
-          onSelect={(platform) => this.selectPlatform(platform)}
+          onSelect={(platform) => this.selectPlatform(platform) && this.new()}
           onCancel={() => { }}
         />
 

@@ -111,7 +111,7 @@ app.ws('/terminal', (ws, req) => {
 
   const index = clients.push(client) - 1;
 
-  console.log(`Client ${index} connected`);
+  console.log(`Successfully connected to Device ${index}`);
 
   ws.on('message', (json: string) => {
     const packet: Packet = JSON.parse(json);
@@ -125,7 +125,7 @@ app.ws('/terminal', (ws, req) => {
       case 'resize':
         const { cols, rows } = packet.payload;
 
-        console.log(`X: ${cols} Y:${rows}`);
+       // console.log(`X: ${cols} Y:${rows}`);
 
         if (proc) proc.resize(cols, rows);
 
@@ -136,7 +136,7 @@ app.ws('/terminal', (ws, req) => {
   ws.on('close', () => {
     const index = clients.indexOf(client);
 
-    console.log(`Client ${index} disconnected`);
+    console.log(`Device ${index} has been disconnected`);
 
     clients.splice(index, 1);
   });
