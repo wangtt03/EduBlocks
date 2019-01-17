@@ -19,7 +19,7 @@
     "author": "AllAboutCode",
     "license": "GitHub",
     "devDependencies": {
-        "brfs": "^1.4.3",
+        "brfs": "^1.4.3", 
         "browserify": "^14.3.0",
         "folderify": "^1.2.1",
         "npm-parallel": "^2.0.1",
