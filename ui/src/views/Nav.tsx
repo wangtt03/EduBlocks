@@ -26,7 +26,8 @@ export default class Nav extends Component<NavProps, {}> {
         </a>
 
         <input id='bmenub' type='checkbox' class='show' />
-        <label for='bmenub' class='burger pseudo button'>menu</label>
+        <label for='bmenub' class='burger pseudo button icon-menu'></label>
+
 
         <div class='menu'>
           <a class='button icon-plus' title='New' href='javascript:void(0)' onClick={() => this.props.newCode()}>
@@ -49,17 +50,16 @@ export default class Nav extends Component<NavProps, {}> {
             Python
           </a>
 
-
-          <a class='button' title='Themes' href='javascript:void(0)' onClick={() => this.props.openThemes()}>
-            Themes
-          </a>
-          
           <a class='button icon-puzzle' title='Add an extension' href='javascript:void(0)' onClick={() => this.props.openExtensions()}>
             Extensions
            </a>
-          
+
           <a class='button' title='Samples' href='javascript:void(0)' onClick={() => this.props.openSamples()}>
             Samples
+          </a>
+
+          <a class='button' title='Themes' href='javascript:void(0)' onClick={() => this.props.openThemes()}>
+            Themes
           </a>
 
 

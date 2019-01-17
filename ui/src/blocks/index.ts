@@ -7,6 +7,11 @@ basicDefs(Blockly.Blocks);
 basicGens(Blockly.Python as any);
 const basic = fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'basic', 'toolbox.xml'));
 
+import variablesDefs from './variables/definitions';
+import variablesGens from './variables/generators';
+variablesDefs(Blockly.Blocks);
+variablesGens(Blockly.Python as any);
+const variables = fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'variables', 'toolbox.xml'));
 
 import displayDefs from './display/definitions';
 import displayGens from './display/generators';
@@ -91,6 +96,7 @@ function getToolBoxXml(extensions: Extension[]) {
   toolBoxXml += '<xml>';
 
   toolBoxXml += basic;
+  toolBoxXml += variables;
   toolBoxXml += display;
   toolBoxXml += buttons;
   toolBoxXml += accelerometer;
