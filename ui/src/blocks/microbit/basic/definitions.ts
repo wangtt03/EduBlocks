@@ -1,10 +1,8 @@
 export default function define(Blocks: Blockly.BlockDefinitions) {
 
-  let maincolour = '#ff0066';
-  let bordercolour = '#b3235a';
-  let inputcolour = '#ff0066';
-
-
+  var maincolour = "#ff0066";
+  var bordercolour = "#b3235a";
+  var inputcolour = "#ff0066";
   Blocks['import_microbit'] = {
     init: function () {
       this.appendDummyInput()
@@ -17,7 +15,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     },
   };
 
-
+  
 
   Blocks['import_signal'] = {
     init: function () {
@@ -55,7 +53,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     },
   };
 
-  //   deprecated
+//   deprecated
   Blocks['while_true'] = {
     init: function () {
       this.appendDummyInput()
@@ -82,7 +80,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     },
   };
 
-  //   deprecated
+//   deprecated
   Blocks['if'] = {
     init: function () {
       this.appendDummyInput()
@@ -102,9 +100,9 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
   Blocks['class'] = {
     init: function () {
       this.appendDummyInput()
-        .appendField('class');
-      this.appendValueInput('class')
-        .setCheck(null);
+        .appendField('class')
+      this.appendValueInput("class")
+        .setCheck(null)
       this.appendDummyInput()
         .appendField(':');
       this.appendStatementInput('DO')
@@ -120,7 +118,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
   Blocks['varprint'] = {
     init: function () {
       this.appendDummyInput()
-        .appendField('print(');
+        .appendField('print(')
       this.appendValueInput('var')
         .setCheck(null);
       this.appendDummyInput()
@@ -133,7 +131,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     },
   };
 
-  //   deprecated
+//   deprecated
   Blocks['ifcroc'] = {
     init: function () {
       this.appendDummyInput()
@@ -199,7 +197,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.appendValueInput('y')
         .setCheck(null);
       this.appendDummyInput()
-        .appendField(':');
+        .appendField(":");
       this.appendStatementInput('DO')
         .setCheck(null);
       this.setPreviousStatement(true, null);
@@ -210,7 +208,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     },
   };
 
-  //   deprecated
+//   deprecated
   Blocks['ifequals'] = {
     init: function () {
       this.appendDummyInput()
@@ -255,7 +253,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     },
   };
 
-  //   deprecated
+//   deprecated
   Blocks['elif'] = {
     init: function () {
       this.appendDummyInput()
@@ -288,12 +286,12 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
 
   Blocks['df'] = {
     init: function () {
-      this.appendValueInput('def')
+      this.appendValueInput("def")
         .setCheck(null);
       this.appendDummyInput()
         .appendField('(');
-      this.appendValueInput('params')
-        .setCheck(null);
+      this.appendValueInput("params")
+        .setCheck(null)
       this.appendDummyInput()
         .appendField(')');
       this.setPreviousStatement(true, null);
@@ -308,8 +306,8 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     init: function () {
       this.appendDummyInput()
         .appendField('while');
-      this.appendValueInput('cond')
-        .setCheck('Boolean');
+      this.appendValueInput("cond")
+        .setCheck("Boolean");
       this.appendDummyInput()
         .appendField(':');
       this.appendStatementInput('DO')
@@ -351,8 +349,8 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
   Blocks['sleep'] = {
     init: function () {
       this.appendDummyInput()
-        .appendField('sleep(');
-      this.appendValueInput('sleep');
+        .appendField('sleep(')
+      this.appendValueInput("sleep")
       this.appendDummyInput()
         .appendField(')');
       this.setPreviousStatement(true, null);
@@ -364,23 +362,23 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
   };
 
   Blocks['sleepnew'] = {
-    init: function () {
+    init: function() {
       this.appendDummyInput()
-        .appendField('sleep(');
-      this.appendValueInput('sleep')
-        .setCheck(null);
+          .appendField("sleep(");
+      this.appendValueInput("sleep")
+          .setCheck(null);
       this.appendDummyInput()
-        .appendField(')');
+          .appendField(")");
       this.setInputsInline(true);
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
       this.setColour(maincolour, inputcolour, bordercolour);
-      this.setTooltip('Wait (in milliseconds)');
-      this.setHelpUrl('');
-    },
+      this.setTooltip("Wait (in milliseconds)");
+      this.setHelpUrl("");
+    }
   };
 
-  // deprecated
+  //deprecated
 
   Blocks['print'] = {
     init: function () {
@@ -401,8 +399,8 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
   Blocks['printnew'] = {
     init: function () {
       this.appendDummyInput()
-        .appendField('print("');
-      this.appendValueInput('text')
+        .appendField('print("')
+      this.appendValueInput("text")
         .setCheck(null);
       this.appendDummyInput()
         .appendField('" )');
@@ -429,22 +427,22 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
   };
 
   Blocks['equalsblocknew'] = {
-    init: function () {
-      this.appendValueInput('text1')
-        .setCheck(null);
+    init: function() {
+      this.appendValueInput("text1")
+          .setCheck(null);
       this.appendDummyInput()
-        .appendField(new Blockly.FieldDropdown([['=', '='], ['+=', '+='], ['-=', '-=']]), 'NAME');
-      this.appendValueInput('text2')
-        .setCheck(null);
+      .appendField(new Blockly.FieldDropdown([['=', '='], ['+=', '+='], ["-=", "-="]]), 'NAME')
+      this.appendValueInput("text2")
+          .setCheck(null);
       this.setInputsInline(true);
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
       this.setColour(maincolour, inputcolour, bordercolour);
-      this.setTooltip('Assign, increment or decrement a variable');
-      this.setHelpUrl('');
+      this.setTooltip("Assign, increment or decrement a variable");
+      this.setHelpUrl("");
       this.setOutputShape(Blockly.OUTPUT_SHAPE_ROUND);
-      this.setOutput(true, 'Boolean');
-    },
+      this.setOutput(true, "Boolean");
+    }
   };
 
   Blocks['define'] = {
@@ -469,7 +467,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     },
   };
 
-  //   deprecated
+//   deprecated
   Blocks['greater'] = {
     init: function () {
       this.appendDummyInput()
@@ -492,8 +490,8 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     init: function () {
       this.appendDummyInput()
         .appendField('if');
-      this.appendValueInput('iftext')
-        .setCheck('Boolean');
+      this.appendValueInput("iftext")
+        .setCheck("Boolean");
       this.appendDummyInput()
         .appendField(':');
       this.appendStatementInput('ifstate')
@@ -508,17 +506,17 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
   };
 
   Blocks['typeanything'] = {
-    init: function () {
-      this.appendValueInput('stuff')
+    init: function() {
+      this.appendValueInput("stuff")
         .setCheck(null);
-      this.appendDummyInput()
-        .appendField('# your own code');
+      this.appendDummyInput()   
+          .appendField("# your own code");
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
       this.setColour(maincolour, inputcolour, bordercolour);
-      this.setTooltip('Type any python code into this block');
-      this.setHelpUrl('');
-    },
+      this.setTooltip("Type any python code into this block");
+      this.setHelpUrl("");
+    }
   };
 
   Blocks['elifinline'] = {
@@ -526,7 +524,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.appendDummyInput()
         .appendField('elif');
       this.appendValueInput('iftext')
-        .setCheck(null);
+        .setCheck(null)
       this.appendDummyInput()
         .appendField(':');
       this.appendStatementInput('ifstate')
@@ -556,134 +554,134 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
   };
 
   Blocks['internal'] = {
-    init: function () {
-      // should you translate to other languages
-      // var rtlOperators = [
-      //     // ['=', 'EQ'],
-      //     // ['\u2260', 'NEQ'],
-      //     ['\u200F<\u200F', 'LT'],
-      //     ['\u200F\u2264\u200F', 'LTE'],
-      //     ['\u200F>\u200F', 'GT'],
-      //     ['\u200F\u2265\u200F', 'GTE']
-      //   ];
-      let ltrOperators = [
-        ['==', '=='],
-        ['!=', '!='],
-        ['<', '<'],
-        ['<=', '<='],
-        ['>', '>'],
-        ['=>', '=>'],
-      ];
-      let OPERATORS = ltrOperators;
-      this.appendValueInput('first')
-        .setCheck(null);
+    init: function() {
+        // should you translate to other languages
+        // var rtlOperators = [
+        //     // ['=', 'EQ'],
+        //     // ['\u2260', 'NEQ'],
+        //     ['\u200F<\u200F', 'LT'],
+        //     ['\u200F\u2264\u200F', 'LTE'],
+        //     ['\u200F>\u200F', 'GT'],
+        //     ['\u200F\u2265\u200F', 'GTE']
+        //   ];
+          var ltrOperators = [
+            ['==', '=='],
+            ['!=', '!='],
+            ['<', '<'],
+            ['<=', '<='],
+            ['>', '>'],
+            ['=>', '=>']
+          ];
+          var OPERATORS = ltrOperators;
+      this.appendValueInput("first")
+          .setCheck(null);
       this.appendDummyInput()
-        .appendField(new Blockly.FieldDropdown(OPERATORS), 'choose');
-      this.appendValueInput('last')
-        .setCheck(null);
+          .appendField(new Blockly.FieldDropdown(OPERATORS), "choose")
+      this.appendValueInput("last")
+          .setCheck(null);
       this.setInputsInline(true);
       this.setOutput(true, null);
       this.setOutputShape(Blockly.OUTPUT_SHAPE_ROUND);
       this.setColour(maincolour, inputcolour, bordercolour);
-      this.setTooltip('');
-      this.setHelpUrl('');
-    },
+      this.setTooltip("");
+      this.setHelpUrl("");
+    }
   };
 
   Blocks['textinline'] = {
-    init: function () {
+    init: function() {
       this.appendDummyInput()
-        .appendField(new Blockly.FieldTextInput(''), 'text');
+        .appendField(new Blockly.FieldTextInput(""), "text");
       this.setInputsInline(true);
       this.setOutput(true, null);
       this.setOutputShape(Blockly.OUTPUT_SHAPE_ROUND);
-      this.setColour('#FFFFFF', '#FFFFFF', bordercolour);
-      this.setTooltip('Text input for inline input');
-      this.setHelpUrl('');
-    },
+      this.setColour("#FFFFFF", "#FFFFFF", bordercolour);
+      this.setTooltip("Text input for inline input");
+      this.setHelpUrl("");
+    }
   };
 
   Blocks['stringinline'] = {
-    init: function () {
+    init: function() {
       this.appendDummyInput()
-        .appendField(new Blockly.FieldString(''), 'text');
+        .appendField(new Blockly.FieldString(""), "text");
       this.setInputsInline(true);
       this.setOutput(true, null);
       this.setOutputShape(Blockly.OUTPUT_SHAPE_ROUND);
-      this.setColour('#FFFFFF', '#FFFFFF', bordercolour);
-      this.setTooltip('String input for inline input');
-      this.setHelpUrl('');
-    },
+      this.setColour("#FFFFFF", "#FFFFFF", bordercolour);
+      this.setTooltip("String input for inline input");
+      this.setHelpUrl("");
+    }
   };
 
   Blocks['sliderinline'] = {
-    init: function () {
+    init: function() {
       this.appendDummyInput()
-        .appendField(new Blockly.FieldSlider('0', '0', '1', '1', '1', 'Value'), 'slider');
+        .appendField(new Blockly.FieldSlider("0", "0", "1", "1", "1", "Value"), 'slider');
       this.setInputsInline(true);
       this.setOutput(true, null);
       this.setOutputShape(Blockly.OUTPUT_SHAPE_ROUND);
-      this.setColour('#FFFFFF', '#FFFFFF', bordercolour);
-      this.setTooltip('Slider input for inline input');
-      this.setHelpUrl('');
-    },
+      this.setColour("#FFFFFF", "#FFFFFF", bordercolour);
+      this.setTooltip("Slider input for inline input");
+      this.setHelpUrl("");
+    }
   };
 
   Blocks['varinlines'] = {
-    init: function () {
+    init: function() {
       this.appendDummyInput()
-        .appendField(new Blockly.FieldVariable('variable'), 'var')
-        .appendField(new Blockly.FieldDropdown([['=', '='], ['+=', '+='], ['-=', '-=']]), 'NAME');
-      this.appendValueInput('value')
+        .appendField(new Blockly.FieldVariable("variable"), "var")
+        .appendField(new Blockly.FieldDropdown([['=', '='], ['+=', '+='], ["-=", "-="]]), 'NAME')
+      this.appendValueInput("value")
         .setCheck(null);
       this.setInputsInline(true);
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
       this.setColour(maincolour, inputcolour, bordercolour);
-      this.setTooltip('assign a value, increment, or decrement a variable');
-      this.setHelpUrl('');
-    },
+      this.setTooltip("assign a value, increment, or decrement a variable");
+      this.setHelpUrl("");
+    }
   };
 
   Blocks['boolstatus'] = {
-    init: function () {
+    init: function() {
       this.appendDummyInput()
         .appendField(new Blockly.FieldDropdown([
-          ['True', 'True'],
-          ['False', 'False'],
-        ]), 'bool');
-      this.setOutput(true, 'Boolean');
+            ["True","True"], 
+            ["False","False"]
+        ]), "bool");
+      this.setOutput(true, "Boolean");
       this.setOutputShape(Blockly.OUTPUT_SHAPE_ROUND);
       this.setColour(maincolour, inputcolour, bordercolour);
-      this.setTooltip('');
-      this.setHelpUrl('');
-    },
+      this.setTooltip("");
+      this.setHelpUrl("");
+    }
   };
 
-
+  
 
   Blocks['andor'] = {
-    init: function () {
-      this.appendValueInput('first')
-        .setCheck(null);
+    init: function() {
+      this.appendValueInput("first")
+          .setCheck(null);
       this.appendDummyInput()
-        .appendField(new Blockly.FieldDropdown([['and', 'and'], ['or', 'or']]), 'choose');
-      this.appendValueInput('last')
-        .setCheck(null);
+          .appendField(new Blockly.FieldDropdown([["and", "and"], ["or", "or"]]), "choose")
+      this.appendValueInput("last")
+          .setCheck(null);
       this.setInputsInline(true);
       this.setOutput(true, null);
       this.setOutputShape(Blockly.OUTPUT_SHAPE_ROUND);
       this.setColour(maincolour, inputcolour, bordercolour);
-      this.setTooltip('');
-      this.setHelpUrl('');
-    },
+      this.setTooltip("");
+      this.setHelpUrl("");
+    }
   };
 
   Blocks['not'] = {
     init: function () {
       this.appendDummyInput()
         .appendField('not');
-      this.appendValueInput('bool')
+      this.appendValueInput("bool")
         .setCheck(null);
       this.setInputsInline(true);
       this.setOutput(true, null);
@@ -706,32 +704,6 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     },
   };
 
-  Blocks['variables_get'] = {
-    init: function () {
-      this.appendDummyInput()
-        .appendField(new Blockly.FieldVariable('var'), 'VAR');
-      this.setOutput(true, null);
-      this.setOutputShape(Blockly.OUTPUT_SHAPE_ROUND);
-      this.setColour('#ff0066', '#ff0066', '#b3235a');
-      this.setTooltip('');
-      this.setHelpUrl('');
-    },
-  };
 
-  Blocks['variables_set'] = {
-    init: function () {
-      this.appendDummyInput()
-        .appendField(new Blockly.FieldVariable(''), 'VAR')
-        .appendField(' = ');
-      this.appendValueInput('varset')
-        .setCheck(null);
-      this.setInputsInline(true);
-      this.setPreviousStatement(true, null);
-      this.setNextStatement(true, null);
-      this.setColour('#ff0066', '#ff0066', '#b3235a');
-      this.setTooltip('');
-      this.setHelpUrl('');
-    },
-  };
 }
 

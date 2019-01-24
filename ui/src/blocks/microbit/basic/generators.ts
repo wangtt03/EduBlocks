@@ -1,5 +1,4 @@
 export default function define(Python: Blockly.BlockGenerators) {
-
   Python['import_microbit'] = function (block) {
     const code = 'from microbit import *\n';
     return code;

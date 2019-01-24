@@ -64,6 +64,10 @@ export async function getToolBoxXml(extensions: Extension[]) {
     (await import('./microbit/basic/generators')).default(Blockly.Python as any);
     toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'microbit', 'basic', 'toolbox.xml'));
 
+    (await import('./microbit/variables/definitions')).default(Blockly.Blocks);
+    (await import('./microbit/variables/generators')).default(Blockly.Python as any);
+    toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'microbit', 'variables', 'toolbox.xml'));
+
     (await import('./microbit/display/definitions')).default(Blockly.Blocks);
     (await import('./microbit/display/generators')).default(Blockly.Python as any);
     toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'microbit', 'display', 'toolbox.xml'));
