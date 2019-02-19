@@ -11,8 +11,8 @@ import RemoteShellView from './RemoteShellView';
 import SelectModal, { SelectModalOption } from './SelectModal';
 import TrinketView from './TrinketView';
 
-type AdvancedFunction = 'Export';
-const AdvancedFunctions: AdvancedFunction[] = ['Export'];
+type AdvancedFunction = 'Export Python' | 'Themes';
+const AdvancedFunctions: AdvancedFunction[] = ['Export Python', 'Themes'];
 
 const ViewModeBlockly = 'blocks';
 const ViewModePython = 'python';
@@ -342,11 +342,16 @@ export default class Page extends Component<Props, State> {
   }
 
   private async runAdvancedFunction(func: AdvancedFunction) {
-    if (func === 'Export') {
+    if (func === 'Export Python') {
       await this.downloadPython();
+      await this.closeModal();
     }
 
-    this.closeModal();
+    if (func === 'Themes') {
+      await this.openThemes();
+    }
+
+    
   }
 
 

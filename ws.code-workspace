@@ -1,7 +1,8 @@
 {
     "settings": {
         "typescript.tsdk": "ui/node_modules/typescript/lib",
-        "editor.tabSize": 2
+        "editor.tabSize": 2,
+        "terminal.integrated.shell.linux": "/bin/bash"
     },
     "folders": [
         {

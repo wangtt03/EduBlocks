@@ -31,7 +31,9 @@ export default class PythonView extends Component<PythonViewProps, {}> {
 
     this.editor.setTheme('ace/theme/monokai');
     this.editor.getSession().setMode('ace/mode/python');
-
+    this.editor.setOptions({
+      fontSize: "16pt"
+    });
     this.editor.on('change', _.debounce(() => {
       const code = this.getCode();
 

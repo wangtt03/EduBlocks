@@ -63,9 +63,9 @@ export default class Nav extends Component<Props, {}> {
           </a> */}
 
 
-          <a class='button' title='Themes' href='javascript:void(0)' onClick={() => this.props.openThemes()}>
+          {/*<a class='button' title='Themes' href='javascript:void(0)' onClick={() => this.props.openThemes()}>
             Themes
-          </a>
+          </a>*/}
 
           {openExtensions &&
             <a class='button icon-puzzle' title='Extensions' href='javascript:void(0)' onClick={() => openExtensions()}>
