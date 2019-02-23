@@ -232,7 +232,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.setNextStatement(true, null);
       this.setInputsInline(false);
       this.setColour("#C3E516","#C3E516","#a4b835");
-      this.setTooltip("");
+      this.setTooltip("This block lets you create a custom image. Each box represents an LED on the micro:bit's display. Each box is brightness controlled, 0 being off and 9 being full brightness.");
       this.setHelpUrl("");
     }
   };
