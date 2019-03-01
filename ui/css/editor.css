@@ -34,6 +34,14 @@ body {
   text-align: center;
 }
 
+.buttonFloatRight{
+  float: right;
+}
+
+.buttonMarginRight{
+  margin-right: 15px;
+}
+
 #page {
   height: 100%;
   width: 100%;

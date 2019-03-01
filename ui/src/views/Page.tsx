@@ -5,6 +5,7 @@ import { App, Capability, Extension, PlatformInterface, PlatformSelection } from
 import BlocklyView from './BlocklyView';
 import ImageModal from './ImageModal';
 import AlertModal from './AlertModal';
+import OverModal from './OverwriteModal';
 import Nav from './Nav';
 import PythonView from './PythonView';
 import RemoteShellView from './RemoteShellView';
@@ -32,7 +33,7 @@ interface DocumentState {
 interface State {
   platform?: PlatformInterface;
   viewMode: ViewMode;
-  modal: null | 'platform' | 'terminal' | 'samples' | 'themes' | 'extensions' | 'functions' | 'pythonOverwritten' | 'https' | 'noCode';
+  modal: null | 'platform' | 'terminal' | 'samples' | 'themes' | 'extensions' | 'functions' | 'pythonOverwritten' | 'https' | 'noCode' | 'codeOverwrite';
   extensionsActive: Extension[];
   doc: Readonly<DocumentState>;
 }
@@ -203,7 +204,7 @@ export default class Page extends Component<Props, State> {
 
   private async selectPlatform(selection: PlatformSelection) {
     const platform = await getPlatform(selection.platform);
-    
+
     if (selection.platform === 'Web') {
       this.new()
     }
@@ -243,7 +244,7 @@ export default class Page extends Component<Props, State> {
       modal: null,
       extensionsActive: platform.defaultExtensions,
     });
-    
+
   }
 
 
@@ -330,8 +331,12 @@ export default class Page extends Component<Props, State> {
   }
 
   private openPlatforms() {
-    this
+    this.new()
     this.setState({ modal: 'platform' });
+  }
+
+  private modeQuestion() {
+    this.setState({ modal: 'codeOverwrite' });
   }
 
   private getAdvancedFunctionList(): SelectModalOption[] {
@@ -351,7 +356,7 @@ export default class Page extends Component<Props, State> {
       await this.openThemes();
     }
 
-    
+
   }
 
 
@@ -376,6 +381,15 @@ export default class Page extends Component<Props, State> {
           onButtonClick={(key) => key === 'close' && this.closeModal()}
         />
 
+        <OverModal
+          title='Attention!'
+          visible={this.state.modal === 'codeOverwrite'}
+          text='Changing mode will make you lose your code, do you wish to continue?'
+          onCancel={() => { }}
+          onButtonClick={(key) => key === 'close' && this.closeModal()}
+          onYes={(key1) => key1 === 'yes' && this.openPlatforms()}
+        />
+
         <AlertModal
           title='Attention!'
           visible={this.state.modal === 'https'}
@@ -396,6 +410,7 @@ export default class Page extends Component<Props, State> {
           platformImg={this.state.platform && this.state.platform.image}
           sync={this.state.doc.pythonClean}
           openPlatforms={() => this.openPlatforms()}
+          modeQuestion={() => this.modeQuestion()}
           openTerminal={this.hasCapability('RemoteShell') || this.hasCapability('TrinketShell') ? () => this.openTerminal() : undefined}
           // downloadPython={() => this.downloadPython()}
           downloadHex={this.hasCapability('HexDownload') ? () => this.downloadHex() : undefined}
