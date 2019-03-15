@@ -1,0 +1,38 @@
+<category name="Loops" colour="#ff0066" iconclass="blocklyTreeIconCustom basic">
+
+  <label text="Loops" web-class="myLabelStyle"></label>
+
+  <block type="whileout">
+    <value name="cond">
+      <shadow type="textinline">
+        <field name="text">True</field>
+      </shadow>
+    </value>
+  </block>
+  <block type="for">
+    <value name="letter">
+      <shadow type="textinline">
+        <field name="text">i</field>
+      </shadow>
+    </value>
+    <value name="no">
+      <shadow type="textinline">
+        <field name="text">number</field>
+      </shadow>
+    </value>
+  </block>
+  <block type="advancedforloops">
+    <value name="x">
+      <shadow type="textinline">
+        <field name="text">x</field>
+      </shadow>
+    </value>
+    <value name="y">
+      <shadow type="textinline">
+        <field name="text">y</field>
+      </shadow>
+    </value>
+  </block>
+  <block type="break"></block>
+  
+</category>

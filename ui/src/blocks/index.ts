@@ -8,9 +8,41 @@ export async function getToolBoxXml(extensions: Extension[]) {
   toolBoxXml += '<xml>';
 
   if (extensions.indexOf('Web General') !== -1) {
-    (await import('./web/basic/definitions')).default(Blockly.Blocks);
-    (await import('./web/basic/generators')).default(Blockly.Python as any);
-    toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'web', 'basic', 'toolbox.xml'));
+    (await import('./web/imports/definitions')).default(Blockly.Blocks);
+    (await import('./web/imports/generators')).default(Blockly.Python as any);
+    toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'web', 'imports', 'toolbox.xml'));
+
+    (await import('./web/variables/definitions')).default(Blockly.Blocks);
+    (await import('./web/variables/generators')).default(Blockly.Python as any);
+    toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'web', 'variables', 'toolbox.xml'));
+
+    (await import('./web/statements/definitions')).default(Blockly.Blocks);
+    (await import('./web/statements/generators')).default(Blockly.Python as any);
+    toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'web', 'statements', 'toolbox.xml'));
+
+    (await import('./web/logic/definitions')).default(Blockly.Blocks);
+    (await import('./web/logic/generators')).default(Blockly.Python as any);
+    toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'web', 'logic', 'toolbox.xml'));
+
+    (await import('./web/lists/definitions')).default(Blockly.Blocks);
+    (await import('./web/lists/generators')).default(Blockly.Python as any);
+    toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'web', 'lists', 'toolbox.xml'));
+
+    (await import('./web/loops/definitions')).default(Blockly.Blocks);
+    (await import('./web/loops/generators')).default(Blockly.Python as any);
+    toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'web', 'loops', 'toolbox.xml'));
+
+    (await import('./web/conditions/definitions')).default(Blockly.Blocks);
+    (await import('./web/conditions/generators')).default(Blockly.Python as any);
+    toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'web', 'conditions', 'toolbox.xml'));
+
+    (await import('./web/definitions/definitions')).default(Blockly.Blocks);
+    (await import('./web/definitions/generators')).default(Blockly.Python as any);
+    toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'web', 'definitions', 'toolbox.xml'));
+
+    (await import('./web/math/definitions')).default(Blockly.Blocks);
+    (await import('./web/math/generators')).default(Blockly.Python as any);
+    toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'web', 'math', 'toolbox.xml'));
 
     (await import('./web/turtle/definitions')).default(Blockly.Blocks);
     (await import('./web/turtle/generators')).default(Blockly.Python as any);

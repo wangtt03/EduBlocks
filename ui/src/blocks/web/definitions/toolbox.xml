@@ -1,0 +1,30 @@
+<category name="Definitions" colour="#ff0066" iconclass="blocklyTreeIconCustom basic">
+
+  <label text="Definitions" web-class="myLabelStyle"></label>
+  <block type="define">
+    <value name="1">
+      <shadow type="textinline">
+        <field name="text"></field>
+      </shadow>
+    </value>
+    <value name="2">
+      <shadow type="textinline">
+        <field name="text"></field>
+      </shadow>
+    </value>
+  </block>
+  <block type="return2">
+    <value name="return">
+      <shadow type="textinline">
+        <field name="text"></field>
+      </shadow>
+    </value>
+  </block>
+  <block type="class">
+    <value name="class">
+      <shadow type="textinline">
+        <field name="text">classname</field>
+      </shadow>
+    </value>
+  </block>
+</category>

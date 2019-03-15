@@ -1,0 +1,5 @@
+<category name="Math" colour="#ff0066" iconclass="blocklyTreeIconCustom basic">
+
+  <label text="Math" web-class="myLabelStyle"></label>
+
+</category>

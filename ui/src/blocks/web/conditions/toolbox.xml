@@ -1,0 +1,21 @@
+<category name="Conditions" colour="#ff0066" iconclass="blocklyTreeIconCustom basic">
+
+  
+  <label text="Conditions" web-class="myLabelStyle"></label>
+  <block type="ifinline">
+    <value name="iftext">
+      <shadow type="textinline">
+        <field name="text">True</field>
+      </shadow>
+    </value>
+  </block>
+  <block type="elifinline">
+    <value name="iftext">
+      <shadow type="textinline">
+        <field name="text">True</field>
+      </shadow>
+    </value>
+  </block>
+  <block type="else"></block>
+
+</category>

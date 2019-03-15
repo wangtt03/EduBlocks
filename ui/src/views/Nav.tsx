@@ -74,7 +74,7 @@ export default class Nav extends Component<Props, {}> {
             </a>
           }
 
-          <a class='button' title='Samples' href='javascript:void(0)' onClick={() => this.props.openSamples()}>
+          <a class='button icon-book' title='Samples' href='javascript:void(0)' onClick={() => this.props.openSamples()}>
             Samples
           </a>
 
@@ -85,6 +85,7 @@ export default class Nav extends Component<Props, {}> {
           }
 
           <a class='button icon-cog' title="Settings" href='javascript:void(0)' onClick={() => this.props.onFunction()}>
+            Settings
           </a>
 
         </div>
