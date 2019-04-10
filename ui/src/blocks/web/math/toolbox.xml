@@ -1,4 +1,4 @@
-<category name="Math" colour="#ff0066" iconclass="blocklyTreeIconCustom basic">
+<category name="Math" colour="#1B173D" iconclass="blocklyTreeIconCustom math">
 
   <label text="Math" web-class="myLabelStyle"></label>
 

@@ -1,4 +1,4 @@
-<category name="Lists" colour="#ff0066" iconclass="blocklyTreeIconCustom basic">
+<category name="Lists" colour="#15BAD4" iconclass="blocklyTreeIconCustom lists">
 
   <label text="Lists" web-class="myLabelStyle"></label>
 

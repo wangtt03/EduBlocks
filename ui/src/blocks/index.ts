@@ -32,10 +32,6 @@ export async function getToolBoxXml(extensions: Extension[]) {
     (await import('./web/loops/generators')).default(Blockly.Python as any);
     toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'web', 'loops', 'toolbox.xml'));
 
-    (await import('./web/conditions/definitions')).default(Blockly.Blocks);
-    (await import('./web/conditions/generators')).default(Blockly.Python as any);
-    toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'web', 'conditions', 'toolbox.xml'));
-
     (await import('./web/definitions/definitions')).default(Blockly.Blocks);
     (await import('./web/definitions/generators')).default(Blockly.Python as any);
     toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'web', 'definitions', 'toolbox.xml'));
@@ -47,6 +43,10 @@ export async function getToolBoxXml(extensions: Extension[]) {
     (await import('./web/turtle/definitions')).default(Blockly.Blocks);
     (await import('./web/turtle/generators')).default(Blockly.Python as any);
     toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'web', 'turtle', 'toolbox.xml'));
+
+    (await import('./web/graphs/definitions')).default(Blockly.Blocks);
+    (await import('./web/graphs/generators')).default(Blockly.Python as any);
+    toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'web', 'graphs', 'toolbox.xml'));
   }
 
   if (extensions.indexOf('CircuitPython General') !== -1) {
@@ -195,6 +195,10 @@ export async function getToolBoxXml(extensions: Extension[]) {
     (await import('./pi/turtle/definitions')).default(Blockly.Blocks);
     (await import('./pi/turtle/generators')).default(Blockly.Python as any);
     toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'pi', 'turtle', 'toolbox.xml'));
+
+    (await import('./pi/picamera/definitions')).default(Blockly.Blocks);
+    (await import('./pi/picamera/generators')).default(Blockly.Python as any);
+    toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'pi', 'picamera', 'toolbox.xml'));
   }
 
   toolBoxXml += '</xml>';

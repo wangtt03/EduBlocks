@@ -2,7 +2,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
 
   var maincolour = "#ff0066";
   var bordercolour = "#b3235a";
-  var inputcolour = "#ff0066";
+  var inputcolour = "#ff0066"; 
   Blocks['import_time'] = {
     init: function () {
       this.appendDummyInput()

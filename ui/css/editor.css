@@ -419,6 +419,42 @@ div.blocklyTreeRow {
   content: "\f52c";
 }
 
+.blocklyTreeIconCustom.camera::before {
+  content: "\f030";
+}
+
+.blocklyTreeIconCustom.imports::before {
+  content: "\f093";
+}
+
+.blocklyTreeIconCustom.statements::before {
+  content: "\f12a";
+}
+
+.blocklyTreeIconCustom.logic::before {
+  content: "\f362";
+}
+
+.blocklyTreeIconCustom.lists::before {
+  content: "\f03a";
+}
+
+.blocklyTreeIconCustom.loops::before {
+  content: "\f2f9";
+}
+
+.blocklyTreeIconCustom.definitions::before {
+  content: "\f02d";
+}
+
+.blocklyTreeIconCustom.math::before {
+  content: "\f698";
+}
+
+.blocklyTreeIconCustom.graphs::before {
+  content: "\f200";
+}
+
 iframe > body{
   background: white !important;
 }

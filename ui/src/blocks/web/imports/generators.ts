@@ -12,7 +12,7 @@ export default function define(Python: Blockly.BlockGenerators) {
   Python['pause_s'] = function (block) {
     const code = 'pause()\n';
     return code;
-  };
+  }; 
 
   Python['random'] = function (block) {
     const code = 'import random\n';

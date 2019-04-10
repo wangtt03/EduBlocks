@@ -30,7 +30,7 @@ export default class Nav extends Component<Props, {}> {
         <a class='brand' onClick={() => this.props.modeQuestion()} data-tooltip="Change Mode">
           {this.props.platformImg && <img src={this.props.platformImg} class='Nav__platformImg' height={50} />}
 
-          <img class='logo' src='/images/ebmblogo.png' />
+          <img class='logo' src='/images/edublock-logo_Final_edublocks_white.svg' />
           {/*<span class='filename'>({this.props.sync ? 'In sync' : 'Out of sync'})</span>*/}
         </a>
 

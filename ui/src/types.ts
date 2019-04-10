@@ -31,9 +31,9 @@ export interface TerminalInterface {
   rows: number;
 }
 
-export type Extension = 'micro:bit General' | 'Pi General' | 'Web General' | 'CircuitPython General' | 'scroll:bit' | 'enviro:bit' | 'GiggleBot' | 'Pi Supply IoT LoRa Node' | 'EnviroBit';
+export type Extension = 'micro:bit General' | 'Pi General' | 'Web General' | 'CircuitPython General' | 'Calliope General' | 'scroll:bit' | 'enviro:bit' | 'GiggleBot' | 'Pi Supply IoT LoRa Node' | 'EnviroBit';
 
-export type Platform = 'Web' | 'MicroBit' | 'RaspberryPi' | 'CircuitPython';
+export type Platform = 'Web' | 'MicroBit' | 'RaspberryPi' | 'CircuitPython' | 'Calliope';
 
 export interface PlatformSelection {
   
