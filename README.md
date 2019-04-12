@@ -13,7 +13,7 @@ EduBlocks is a visual block based programming tool that will hopefully help teac
 EduBlocks features:
 * Block Format:
 Easy and simple interface that uses a building block format to code.
-* Extensive Documentation: 
+* Extensive Documentation:  
 Lots of documentation to get you ready to go quickly. New projects added every 2 weeks.
 * Range of features:
 Includes majority of the micropython system.
