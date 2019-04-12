@@ -42,7 +42,7 @@ export default class Nav extends Component<Props, {}> {
           
 
           <a class='button icon-plus' title="Create new file" href='javascript:void(0)' onClick={() => this.props.newCode()}>
-            Newwwwwww
+            New
           </a>
 
           <a class='button icon-folder-open' title="Open a file" href='javascript:void(0)' onClick={() => this.props.openCode()}>
