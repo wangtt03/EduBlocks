@@ -2,14 +2,14 @@
 
   <label text="Loops" web-class="myLabelStyle"></label>
 
-  <block type="whileout">
+  <block type="webwhileout">
     <value name="cond">
       <shadow type="textinline">
         <field name="text">True</field>
       </shadow>
     </value>
   </block>
-  <block type="for">
+  <block type="webfor">
     <value name="letter">
       <shadow type="textinline">
         <field name="text">i</field>
@@ -21,7 +21,7 @@
       </shadow>
     </value>
   </block>
-  <block type="advancedforloops">
+  <block type="webadvancedforloops">
     <value name="x">
       <shadow type="textinline">
         <field name="text">x</field>
@@ -33,6 +33,6 @@
       </shadow>
     </value>
   </block>
-  <block type="break"></block>
+  <block type="webbreak"></block>
   
 </category>
