@@ -78,15 +78,15 @@ export default class Nav extends Component<Props, {}> {
             Samples
           </a>
 
-          {sendCode &&
-            <a class='button icon-play' title='Run your code' href='javascript:void(0)' onClick={() => sendCode()}>
-              Run
-            </a>
-          }
-
           <a class='button icon-cog' title="Settings" href='javascript:void(0)' onClick={() => this.props.onFunction()}>
             Settings
           </a>
+
+          {sendCode &&
+            <a class='button icon-play button-green' title='Run your code' href='javascript:void(0)' onClick={() => sendCode()}>
+              Run
+            </a>
+          }
 
         </div>
       </nav>

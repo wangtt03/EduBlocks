@@ -333,6 +333,10 @@ div.blocklyTreeRow {
   align-items: baseline;
 }
 
+.button-green{
+  background-color: #49B04D !important;
+}
+
 
 .ImageModalOption button{
   margin-bottom: 8px;

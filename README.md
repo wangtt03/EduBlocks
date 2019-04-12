@@ -25,7 +25,7 @@ Runs on most computers with a USB port running a web brower.
 Status
 ---------------
 ### Build Status
-![Build Status](https://circleci.com/gh/AllAboutCode/EduBlocks.png?circle-token=:circle-token)
+![Build Status](https://jenkins.pi-supply.com/job/Edublocks%20Release/badge/icon)]
 
 ### Branch Status
 ![experimental](http://badges.github.io/stability-badges/dist/stable.svg)
