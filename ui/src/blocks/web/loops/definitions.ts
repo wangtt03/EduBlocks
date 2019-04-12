@@ -73,5 +73,17 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.setHelpUrl('http://www.example.com/');
     },
   };
+
+  Blocks['loop_get'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField(new Blockly.FieldVariable("i"), "VAR");
+      this.setOutput(true, null);
+      this.setOutputShape(Blockly.OUTPUT_SHAPE_ROUND);
+      this.setColour("#644A9E");
+   this.setTooltip("");
+   this.setHelpUrl("");
+    }
+  };
 }
 

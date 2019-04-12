@@ -2,4 +2,16 @@
 
   <label text="Math" web-class="myLabelStyle"></label>
 
+  <block type="operators2">
+    <value name="first">
+      <shadow type="textinline">
+        <field name="text">True</field>
+      </shadow>
+    </value>
+    <value name="last">
+      <shadow type="textinline">
+        <field name="text">True</field>
+      </shadow>
+    </value>
+  </block>
 </category>

@@ -34,5 +34,5 @@
     </value>
   </block>
   <block type="webbreak"></block>
-  
+  <block type="loop_get"></block>
 </category>

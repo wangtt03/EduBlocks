@@ -1,22 +1,22 @@
 <category name="Statements" colour="#F89621" iconclass="blocklyTreeIconCustom statements">
 
   <label text="Statements" web-class="myLabelStyle"></label>
-  <block type="sleepnew">
+  <block type="websleepnew">
       <value name="sleep">
         <shadow type="textinline">
           <field name="text">1</field>
         </shadow>
       </value>
-  </block>
+  </block> 
  
-  <block type="typeanything">
+  <block type="webtypeanything">
       <value name="stuff">
         <shadow type="textinline">
           <field name="text">     </field>
         </shadow>
       </value>
   </block>
-  <!-- <block type="equalsblocknew">
+  <!-- <block type="webequalsblocknew">
       <value name="text1">
         <shadow type="textinline">
           <field name="text">var</field>
@@ -29,15 +29,8 @@
       </value>
   </block> -->
 
-  <!-- <block type="textinline"></block> -->
-  <block type="varinlines">
-        <value name="value">
-        <shadow type="textinline">
-          <field name="text">1</field>
-        </shadow>
-      </value>
-  </block>
-  <block type="df">
+  <!-- <block type="webtextinline"></block> -->
+  <block type="webdf">
     <value name="def">
       <shadow type="textinline">
           <field name="text">function_name</field>
@@ -49,16 +42,16 @@
         </shadow>
       </value>
   </block>
-  <block type="pass"></block>
+  <block type="webpass"></block>
 
-  <block type="printnew">
+  <block type="webprintnew">
       <value name="text">
         <shadow type="textinline">
           <field name="text">Hello World</field>
         </shadow>
       </value>
   </block>
-  <block type="varprint">
+  <block type="webvarprint">
   <value name="var">
         <shadow type="textinline">
           <field name="text">Variable</field>

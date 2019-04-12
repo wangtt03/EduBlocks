@@ -32,6 +32,7 @@ export default function define(Python: Blockly.BlockGenerators) {
     // TODO: Change ORDER_NONE to the correct strength.
     return [code, Blockly.Python.ORDER_ATOMIC];
   };
+  
   Python['webandor'] = Python['webinternal'];
 
   Python['webnot'] = function (block) {
