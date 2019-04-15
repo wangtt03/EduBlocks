@@ -31,6 +31,6 @@ sudo rm -f $GLOBAL_BIN_PATH/edublocks-startup-disable
 sudo rm -f $GLOBAL_BIN_PATH/edublocks-uninstall
 
 sudo rm -f /usr/share/icons/hicolor/scalable/apps/connectlogo.png
-sudo rm -f /usr/share/applications/edublocks.desktop
+sudo rm -f /usr/share/applications/edublocks-connect.desktop
 
 echo '==== EduBlocks has been uninstalled successfully ===='
