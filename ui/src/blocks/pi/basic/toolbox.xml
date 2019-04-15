@@ -8,19 +8,19 @@
 
   <label text="Statements" web-class="myLabelStyle"></label>
   <block type="sleepnew">
-      <value name="sleep">
-        <shadow type="textinline">
-          <field name="text">1</field>
-        </shadow>
-      </value>
+    <value name="sleep">
+      <shadow type="textinline">
+        <field name="text">1</field>
+      </shadow>
+    </value>
   </block>
- 
+
   <block type="typeanything">
-      <value name="stuff">
-        <shadow type="textinline">
-          <field name="text">     </field>
-        </shadow>
-      </value>
+    <value name="stuff">
+      <shadow type="textinline">
+        <field name="text"></field>
+      </shadow>
+    </value>
   </block>
   <!-- <block type="equalsblocknew">
       <value name="text1">
@@ -37,39 +37,39 @@
 
   <!-- <block type="textinline"></block> -->
   <block type="varinlines">
-        <value name="value">
-        <shadow type="textinline">
-          <field name="text">1</field>
-        </shadow>
-      </value>
+    <value name="value">
+      <shadow type="textinline">
+        <field name="text">1</field>
+      </shadow>
+    </value>
   </block>
   <block type="df">
     <value name="def">
       <shadow type="textinline">
-          <field name="text">function_name</field>
-        </shadow>
-      </value>
+        <field name="text">function_name</field>
+      </shadow>
+    </value>
     <value name="params">
       <shadow type="textinline">
-          <field name="text"></field>
-        </shadow>
-      </value>
+        <field name="text"></field>
+      </shadow>
+    </value>
   </block>
   <block type="pass"></block>
 
   <block type="printnew">
-      <value name="text">
-        <shadow type="textinline">
-          <field name="text">Hello World</field>
-        </shadow>
-      </value>
+    <value name="text">
+      <shadow type="textinline">
+        <field name="text">Hello World</field>
+      </shadow>
+    </value>
   </block>
   <block type="varprint">
-  <value name="var">
-        <shadow type="textinline">
-          <field name="text">Variable</field>
-        </shadow>
-      </value>
+    <value name="var">
+      <shadow type="textinline">
+        <field name="text">Variable</field>
+      </shadow>
+    </value>
   </block>
 
   <label text="Logic" web-class="myLabelStyle"></label>
@@ -139,7 +139,7 @@
     </value>
   </block>
   <block type="break"></block>
-  
+
   <label text="Conditions" web-class="myLabelStyle"></label>
   <block type="ifinline">
     <value name="iftext">

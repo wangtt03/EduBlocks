@@ -15,7 +15,25 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     init: function () {
       this.appendDummyInput()
         .appendField('sample(')
-        .appendField(new Blockly.FieldTextInput('name'), 'name')
+      this.appendValueInput("text")
+        .setCheck(null);
+      this.appendDummyInput()
+        .appendField(')');
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour(180);
+      this.setTooltip('');
+      this.setHelpUrl('');
+    },
+  };
+
+  Blocks['synth'] = {
+    init: function () {
+      this.appendDummyInput()
+        .appendField('use_synth(')
+      this.appendValueInput("text")
+        .setCheck(null);
+      this.appendDummyInput()
         .appendField(')');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
@@ -29,7 +47,9 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     init: function () {
       this.appendDummyInput()
         .appendField('play(')
-        .appendField(new Blockly.FieldTextInput('0'), 'value')
+      this.appendValueInput("text")
+        .setCheck(null);
+      this.appendDummyInput()
         .appendField(')');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
@@ -43,7 +63,9 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     init: function () {
       this.appendDummyInput()
         .appendField('sleep(')
-        .appendField(new Blockly.FieldTextInput('0'), 'value')
+      this.appendValueInput("text")
+        .setCheck(null);
+      this.appendDummyInput()
         .appendField(')');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);

@@ -6,21 +6,28 @@ export default function define(Python: Blockly.BlockGenerators) {
   };
 
   Python['sampleson'] = function (block) {
-    let text_name = block.getFieldValue('name');
+    var text_name = Blockly.Python.valueToCode(block, 'text', Blockly.Python.ORDER_ATOMIC);
     // TODO: Assemble Python into code variable.
     let code = 'sample(' + text_name + ')\n';
     return code;
   };
 
+  Python['synth'] = function (block) {
+    var text_name = Blockly.Python.valueToCode(block, 'text', Blockly.Python.ORDER_ATOMIC);
+    // TODO: Assemble Python into code variable.
+    let code = 'use_synth(' + text_name + ')\n';
+    return code;
+  };
+
   Python['play'] = function (block) {
-    let text_value = block.getFieldValue('value');
+    var text_value = Blockly.Python.valueToCode(block, 'text', Blockly.Python.ORDER_ATOMIC);
     // TODO: Assemble Python into code variable.
     let code = 'play(' + text_value + ')\n';
     return code;
   };
 
   Python['sleep1'] = function (block) {
-    let text_value = block.getFieldValue('value');
+    var text_value = Blockly.Python.valueToCode(block, 'text', Blockly.Python.ORDER_ATOMIC);
     // TODO: Assemble Python into code variable.
     let code = 'sleep(' + text_value + ')\n';
     return code;

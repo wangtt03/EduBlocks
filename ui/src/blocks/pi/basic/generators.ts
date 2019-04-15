@@ -16,7 +16,7 @@ export default function define(Python: Blockly.BlockGenerators) {
 
   Python['random'] = function (block) {
     const code = 'import random\n';
-    return code;
+    return code; 
   };
 
   Python['while_true'] = function (block) {

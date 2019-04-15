@@ -16,7 +16,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
   };
 
   
-
+ 
   Blocks['import_signal'] = {
     init: function () {
       this.appendDummyInput()
