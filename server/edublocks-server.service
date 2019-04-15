@@ -2,11 +2,11 @@
 Description=EduBlocks Server
 
 [Service]
-ExecStart=/opt/edublocks/server/start.sh
+ExecStart=/opt/edublocks-connect/server/start.sh
 Restart=always
 User=pi
 Group=pi
-WorkingDirectory=/opt/edublocks/server
+WorkingDirectory=/opt/edublocks-connect/server
 
 [Install]
 WantedBy=multi-user.target
