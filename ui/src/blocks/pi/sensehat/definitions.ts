@@ -115,10 +115,10 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     },
   };
 
-  Blockly.Blocks['senserotation'] = {
+  Blockly.Blocks['sensesetpix'] = {
     init: function () {
       this.appendDummyInput()
-        .appendField('sense.set_rotation(')
+        .appendField('sense.set_pixels(')
       this.appendValueInput("text")
         .setCheck(null);
       this.appendDummyInput()
