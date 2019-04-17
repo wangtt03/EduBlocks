@@ -78,6 +78,20 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     },
   };
 
+  Blocks['global'] = {
+    init: function () {
+      this.appendDummyInput()
+        .appendField('global ')
+      this.appendValueInput("text")
+        .setCheck(null);
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour('#F89621');
+      this.setTooltip('Make a variable global');
+      this.setHelpUrl('');
+    },
+  };
+
   Blocks['webvarprint'] = {
     init: function () {
       this.appendDummyInput()

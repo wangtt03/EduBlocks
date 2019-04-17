@@ -26,10 +26,16 @@ export default function define(Python: Blockly.BlockGenerators) {
   };
 
   Python['webprintnew'] = function (block) {
-    var text_print = Blockly.Python.valueToCode(block, 'text', Blockly.Python.ORDER_ATOMIC)
-    || 'Hello World';
+    var text_print = Blockly.Python.valueToCode(block, 'text', Blockly.Python.ORDER_ATOMIC);
     // TODO: Assemble Python into code variable.
     const code = 'print("' + text_print + '")\n';
+    return code;
+  };
+
+  Python['global'] = function (block) {
+    var text_print = Blockly.Python.valueToCode(block, 'text', Blockly.Python.ORDER_ATOMIC);
+    // TODO: Assemble Python into code variable.
+    const code = 'global ' + text_print + '\n';
     return code;
   };
 

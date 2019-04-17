@@ -14,6 +14,11 @@ export default function define(Python: Blockly.BlockGenerators) {
     return code;
   };
 
+  Python['import_processing'] = function (block) {
+    const code = 'from processing import *\n';
+    return code;
+  };
+
   Python['pause_s'] = function (block) {
     const code = 'pause()\n';
     return code;

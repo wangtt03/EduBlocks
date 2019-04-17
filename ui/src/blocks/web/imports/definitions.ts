@@ -25,7 +25,17 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     },
   };
  
-  
+  Blocks['import_processing'] = {
+    init: function () {
+      this.appendDummyInput()
+        .appendField('from processing import *');
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour("#FF0066");
+      this.setTooltip('Imports the pygal library.');
+      this.setHelpUrl('http://www.example.com/');
+    },
+  };
 
   Blocks['import_signal'] = {
     init: function () {

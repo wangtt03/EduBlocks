@@ -58,5 +58,12 @@
         </shadow>
       </value>
   </block>
+  <block type="global">
+      <value name="text">
+        <shadow type="textinline">
+          <field name="text">variable</field>
+        </shadow>
+      </value>
+  </block>
 
 </category>

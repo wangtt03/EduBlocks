@@ -463,6 +463,10 @@ div.blocklyTreeRow {
   content: "\f074";
 }
 
+.blocklyTreeIconCustom.processing::before {
+  content: "\f53f";
+}
+
 iframe > body{
   background: white !important;
 }
