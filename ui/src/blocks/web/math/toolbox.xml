@@ -183,7 +183,7 @@
     </value>
   </block>
 
-  <block type="math_sqrt">
+  <block type="math_st">
     <value name="text">
       <shadow type="textinline">
         <field name="text"></field>

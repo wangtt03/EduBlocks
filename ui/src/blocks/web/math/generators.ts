@@ -169,7 +169,7 @@ export default function define(Python: Blockly.BlockGenerators) {
     return [code, Blockly.Python.ORDER_ATOMIC];
   };
 
-  Python['math_sin'] = function (block) {
+  Python['math_sinh'] = function (block) {
     var value_text = Blockly.Python.valueToCode(block, 'text', Blockly.Python.ORDER_ATOMIC);
     // TODO: Assemble Python into code variable.
     var code = 'math.sinh(' + value_text + ')';
@@ -177,7 +177,7 @@ export default function define(Python: Blockly.BlockGenerators) {
     return [code, Blockly.Python.ORDER_ATOMIC];
   };
 
-  Python['math_sqrt'] = function (block) {
+  Python['math_st'] = function (block) {
     var value_text = Blockly.Python.valueToCode(block, 'text', Blockly.Python.ORDER_ATOMIC);
     // TODO: Assemble Python into code variable.
     var code = 'math.sqrt(' + value_text + ')';

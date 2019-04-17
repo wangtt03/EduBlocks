@@ -375,7 +375,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     }
   };
 
-  Blocks['math_sqrt'] = {
+  Blocks['math_st'] = {
     init: function() {
       this.appendDummyInput()
           .appendField("math.sqrt(");
@@ -442,5 +442,6 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
    this.setHelpUrl("");
     }
   };
+
 }
  
