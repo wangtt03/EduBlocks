@@ -17,7 +17,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.setHelpUrl("");
     }
   };
-
+ 
   Blocks['random_randint'] = {
     init: function () {
       this.appendDummyInput()

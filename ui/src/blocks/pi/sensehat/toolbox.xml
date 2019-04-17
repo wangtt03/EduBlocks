@@ -2,6 +2,18 @@
   <block type="senseimport"></block>
   <block type="senseimportemu"></block>
   <block type="senseinit"></block>
-  <block type="senseshow"></block>
-  <block type="senseshowvar"></block>
+  <block type="senseshow">
+    <value name="text">
+      <shadow type="textinline">
+        <field name="text">Text Here</field>
+      </shadow>
+    </value>
+  </block>
+  <block type="senseshowvar">
+    <value name="text">
+      <shadow type="textinline">
+        <field name="text">Variable</field>
+      </shadow>
+    </value>
+  </block>
 </category>

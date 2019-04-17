@@ -5,7 +5,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField('import explorerhat');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      
+
       this.setTooltip('Import the Explorer Hat library');
       this.setHelpUrl('');
     },
@@ -19,11 +19,13 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField('.')
         .appendField(new Blockly.FieldDropdown([['is_pressed', 'is_pressed'], ['is_held', 'is_held'], ['pressed', 'pressed'], ['held', 'held'], ['released', 'released']]), 'event')
         .appendField('(')
-        .appendField(new Blockly.FieldTextInput(''), 'bracket')
+      this.appendValueInput("text")
+        .setCheck(null);
+      this.appendDummyInput()
         .appendField(')');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      
+
       this.setTooltip('Control the eight cap touch buttons on Explorer Hat');
       this.setHelpUrl('');
     },
@@ -37,11 +39,13 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField('.')
         .appendField(new Blockly.FieldDropdown([['read', 'read'], ['has_changed', 'has_changed'], ['on_changed', 'on_changed'], ['on_low', 'on_low'], ['on_high', 'on_high'], ['clear_events', 'clear_events']]), 'inputevent')
         .appendField('(')
-        .appendField(new Blockly.FieldTextInput(''), 'bracketin')
+      this.appendValueInput("text")
+        .setCheck(null);
+      this.appendDummyInput()
         .appendField(')');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      
+
       this.setTooltip('Control the 4 inputs on Explorer Hat');
       this.setHelpUrl('');
     },
@@ -55,11 +59,13 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField('.')
         .appendField(new Blockly.FieldDropdown([['on', 'on'], ['off', 'off'], ['toggle', 'toggle'], ['write', 'write'], ['blink', 'blink'], ['pulse', 'pulse'], ['fade', 'fade'], ['stop', 'stop']]), 'outputevent')
         .appendField('(')
-        .appendField(new Blockly.FieldTextInput(''), 'bracketout')
+      this.appendValueInput("text")
+        .setCheck(null);
+      this.appendDummyInput()
         .appendField(')');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      
+
       this.setTooltip('Contol the 4 outputs on Explorer Hat');
       this.setHelpUrl('');
     },
@@ -73,11 +79,13 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField('.')
         .appendField(new Blockly.FieldDropdown([['on', 'on'], ['off', 'off'], ['toggle', 'toggle'], ['write', 'write'], ['blink', 'blink'], ['pulse', 'pulse'], ['fade', 'fade'], ['stop', 'stop']]), 'lightevent')
         .appendField('(')
-        .appendField(new Blockly.FieldTextInput(''), 'bracketlight')
+      this.appendValueInput("text")
+        .setCheck(null);
+      this.appendDummyInput()
         .appendField(')');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      
+
       this.setTooltip('Control the 4 lights on Explorer Hat');
       this.setHelpUrl('');
     },
@@ -91,11 +99,13 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField('.')
         .appendField(new Blockly.FieldDropdown([['read', 'read'], ['changed', 'changed']]), 'analogevent')
         .appendField('(')
-        .appendField(new Blockly.FieldTextInput(''), 'bracketanalog')
+      this.appendValueInput("text")
+        .setCheck(null);
+      this.appendDummyInput()
         .appendField(')');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      
+
       this.setTooltip('Control the 4 Analog Inputs on Explorer Hat');
       this.setHelpUrl('');
     },
@@ -109,11 +119,13 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField('.')
         .appendField(new Blockly.FieldDropdown([['forwards', 'forwards'], ['backwards', 'backwards'], ['invert', 'invert'], ['speed', 'speed'], ['stop', 'stop']]), 'motorevent')
         .appendField('(')
-        .appendField(new Blockly.FieldTextInput(''), 'bracketmotor')
+      this.appendValueInput("text")
+        .setCheck(null);
+      this.appendDummyInput()
         .appendField(')');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      
+
       this.setTooltip('Control the 2 motor outputs on Explorer Hat');
       this.setHelpUrl('');
     },
@@ -135,13 +147,21 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     init: function () {
       this.appendDummyInput()
         .appendField('set_pixel(')
-        .appendField(new Blockly.FieldTextInput('pixelno'), 'pixelno')
+      this.appendValueInput("text")
+        .setCheck(null);
+      this.appendDummyInput()
         .appendField(',')
-        .appendField(new Blockly.FieldTextInput('r'), 'r')
+      this.appendValueInput("text1")
+        .setCheck(null);
+      this.appendDummyInput()
         .appendField(',')
-        .appendField(new Blockly.FieldTextInput('g'), 'g')
+      this.appendValueInput("text2")
+        .setCheck(null);
+      this.appendDummyInput()
         .appendField(',')
-        .appendField(new Blockly.FieldTextInput('b'), 'b')
+      this.appendValueInput("text3")
+        .setCheck(null);
+      this.appendDummyInput()
         .appendField(')');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
@@ -167,7 +187,9 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     init: function () {
       this.appendDummyInput()
         .appendField('set_brightness(')
-        .appendField(new Blockly.FieldTextInput('number'), 'number')
+      this.appendValueInput("text")
+        .setCheck(null);
+      this.appendDummyInput()
         .appendField(')');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
@@ -181,11 +203,17 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     init: function () {
       this.appendDummyInput()
         .appendField('set_all(')
-        .appendField(new Blockly.FieldTextInput('r'), 'r')
+      this.appendValueInput("text")
+        .setCheck(null);
+      this.appendDummyInput()
         .appendField(',')
-        .appendField(new Blockly.FieldTextInput('g'), 'g')
+      this.appendValueInput("text1")
+        .setCheck(null);
+      this.appendDummyInput()
         .appendField(',')
-        .appendField(new Blockly.FieldTextInput('b'), 'b')
+      this.appendValueInput("text2")
+        .setCheck(null);
+      this.appendDummyInput()
         .appendField(')');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
@@ -199,13 +227,21 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     init: function () {
       this.appendDummyInput()
         .appendField('set_all(')
-        .appendField(new Blockly.FieldTextInput('r'), 'r')
+      this.appendValueInput("text")
+        .setCheck(null);
+      this.appendDummyInput()
         .appendField(',')
-        .appendField(new Blockly.FieldTextInput('g'), 'g')
+      this.appendValueInput("text1")
+        .setCheck(null);
+      this.appendDummyInput()
         .appendField(',')
-        .appendField(new Blockly.FieldTextInput('b'), 'b')
+      this.appendValueInput("text2")
+        .setCheck(null);
+      this.appendDummyInput()
         .appendField(',')
-        .appendField(new Blockly.FieldTextInput('brightness'), 'bright')
+      this.appendValueInput("text3")
+        .setCheck(null);
+      this.appendDummyInput()
         .appendField(')');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);

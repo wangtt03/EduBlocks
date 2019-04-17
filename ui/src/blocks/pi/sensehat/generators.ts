@@ -6,14 +6,14 @@ export default function define(Python: Blockly.BlockGenerators) {
   };
 
   Python['senseshow'] = function (block) {
-    const text_text = block.getFieldValue('text');
+    const text_text = Blockly.Python.valueToCode(block, 'text', Blockly.Python.ORDER_ATOMIC);
     // TODO: Assemble Python into code variable.
     const code = 'sense.show_message("' + text_text + '")\n';
     return code;
   };
 
   Python['senseshowvar'] = function (block) {
-    const text_varname = block.getFieldValue('varname');
+    const text_varname = Blockly.Python.valueToCode(block, 'text', Blockly.Python.ORDER_ATOMIC);
     // TODO: Assemble Python into code variable.
     const code = 'sense.show_message(' + text_varname + ')\n\n';
     return code;

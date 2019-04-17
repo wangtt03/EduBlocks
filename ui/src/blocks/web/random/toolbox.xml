@@ -26,7 +26,7 @@
       </shadow>
     </value>
   </block>
-
+ 
   <block type="random_randrange">
     <value name="text">
       <shadow type="textinline">
