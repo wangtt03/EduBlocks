@@ -47,6 +47,10 @@ export async function getToolBoxXml(extensions: Extension[]) {
     (await import('./web/graphs/definitions')).default(Blockly.Blocks);
     (await import('./web/graphs/generators')).default(Blockly.Python as any);
     toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'web', 'graphs', 'toolbox.xml'));
+
+    (await import('./web/random/definitions')).default(Blockly.Blocks);
+    (await import('./web/random/generators')).default(Blockly.Python as any);
+    toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'web', 'random', 'toolbox.xml'));
   }
 
   if (extensions.indexOf('CircuitPython General') !== -1) {

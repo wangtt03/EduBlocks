@@ -7,7 +7,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.appendDummyInput()
           .appendField(new Blockly.FieldVariable("name"), "name")
           .appendField(" = pygal.")
-          .appendField(new Blockly.FieldDropdown([["Line","Line"], ["HorizontalLine","HorizontalLine"], ["StackedLine","StackedLine"], ["Bar","Bar"], ["StackedBar","StackedBar"], ["HorizontalBar","HorizontalBar"], ["Histogram","Histogram"], ["XY","XY"], ["DateTimeLine","DateTimeLine"], ["DateLine","DateLine"], ["TimeLine","TimeLine"], ["TimeDeltaLine","TimeDeltaLine"], ["Pie","Pie"], ["Radar","Radar"], ["Box","Box"], ["Dot","Dot"], ["Funnel","Funnel"], ["SolidGauge","SolidGauge"], ["Pyramid","Pyramid"], ["Treemap","Treemap"]]), "chartTypes")
+          .appendField(new Blockly.FieldDropdown([["Line","Line"], ["StackedLine","StackedLine"], ["Bar","Bar"], ["StackedBar","StackedBar"], ["HorizontalBar","HorizontalBar"], ["StackedHorizontalBar","StackedHorizontalBar"], ["XY","XY"],["Pie","Pie"], ["Radar","Radar"]]), "chartTypes")
           .appendField("(");
       this.appendValueInput("text")
           .setCheck(null);

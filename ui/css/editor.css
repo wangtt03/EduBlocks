@@ -459,6 +459,10 @@ div.blocklyTreeRow {
   content: "\f200";
 }
 
+.blocklyTreeIconCustom.random::before {
+  content: "\f074";
+}
+
 iframe > body{
   background: white !important;
 }
