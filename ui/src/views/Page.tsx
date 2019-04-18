@@ -219,7 +219,7 @@ export default class Page extends Component<Props, State> {
         return;
       }
 
-      if (navigator.platform == 'Linux armv7l') {
+      if (navigator.platform.indexOf('arm') !== -1) {
         await this.props.app.initConnection('localhost');
       } else {
         ip = prompt('Please enter your Raspberry Pi\'s IP address');
