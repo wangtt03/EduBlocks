@@ -52,14 +52,14 @@ export function newApp(): App {
     await io.saveFile(combinedScript, 'py', 'text/python;charset=utf-8');
   }
 
-  async function flashHex(python: string, extensions: Extension[]) {
+  async function flashHex(python: string, extensions: Extension[], onProgress: (progress: number) => void) {
     const combinedScript = getCombinedScript(python, extensions);
 
     // const hex = getHexFile(combinedScript);
 
     // await io.saveFile(hex, 'hex', 'application/octet-stream');
 
-    flashMicroBit(combinedScript);
+    await flashMicroBit(combinedScript, onProgress);
   }
 
   async function saveHex(python: string, extensions: Extension[]) {

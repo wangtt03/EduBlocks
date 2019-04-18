@@ -1,7 +1,7 @@
 import * as DAPjs from '../../lib/dapjs';
 import { getHexFile } from '../../lib/hexlify';
 
-export async function flashMicroBit(python: string) {
+export async function flashMicroBit(python: string, onProgress: (progress: number) => void) {
   console.log('Select your micro:bit');
 
   const device = await navigator.usb.requestDevice({
@@ -18,6 +18,8 @@ export async function flashMicroBit(python: string) {
   // Event to monitor flashing progress
   window.daplink.on(DAPjs.DAPLink.EVENT_PROGRESS, (progress: number) => {
     console.log('progress', progress);
+
+    onProgress(progress);
   });
 
   try {

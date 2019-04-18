@@ -33,8 +33,9 @@ interface DocumentState {
 interface State {
   platform?: PlatformInterface;
   viewMode: ViewMode;
-  modal: null | 'platform' | 'terminal' | 'samples' | 'themes' | 'extensions' | 'functions' | 'pythonOverwritten' | 'https' | 'noCode' | 'codeOverwrite';
+  modal: null | 'platform' | 'terminal' | 'samples' | 'themes' | 'extensions' | 'functions' | 'pythonOverwritten' | 'https' | 'noCode' | 'codeOverwrite' | 'progress';
   extensionsActive: Extension[];
+  progress: number;
   doc: Readonly<DocumentState>;
 }
 
@@ -48,6 +49,7 @@ export default class Page extends Component<Props, State> {
       viewMode: ViewModeBlockly,
       modal: 'platform',
       extensionsActive: [],
+      progress: 0,
 
       doc: {
         xml: null,
@@ -363,7 +365,15 @@ export default class Page extends Component<Props, State> {
       const python = this.state.doc.python;
 
       if (python) {
-        await this.props.app.flashHex(python, this.state.extensionsActive);
+        this.setState({ modal: 'progress', progress: 0 });
+
+        try {
+          await this.props.app.flashHex(python, this.state.extensionsActive, (progress) => {
+            this.setState({ progress });
+          });
+        } finally {
+          this.setState({ modal: null });
+        }
       }
     }
 
@@ -413,6 +423,14 @@ export default class Page extends Component<Props, State> {
           title='Attention!'
           visible={this.state.modal === 'noCode'}
           text='There is no code to run!'
+          onCancel={() => { }}
+          onButtonClick={(key) => key === 'close' && this.closeModal()}
+        />
+
+        <AlertModal
+          title='Uploading...'
+          visible={this.state.modal === 'progress'}
+          text={`Uploading: ${(this.state.progress * 100) | 0}`}
           onCancel={() => { }}
           onButtonClick={(key) => key === 'close' && this.closeModal()}
         />
