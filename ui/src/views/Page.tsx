@@ -1,12 +1,12 @@
 import React = require('preact');
 import { Component } from 'preact';
 import { getPlatform, getPlatformList } from '../platforms';
-import { App, Capability, Extension, PlatformInterface, PlatformSelection, Platform } from '../types';
+import { App, Capability, Extension, Platform, PlatformInterface } from '../types';
+import AlertModal from './AlertModal';
 import BlocklyView from './BlocklyView';
 import ImageModal from './ImageModal';
-import AlertModal from './AlertModal';
-import OverModal from './OverwriteModal';
 import Nav from './Nav';
+import OverModal from './OverwriteModal';
 import PythonView from './PythonView';
 import RemoteShellView from './RemoteShellView';
 import SelectModal, { SelectModalOption } from './SelectModal';
