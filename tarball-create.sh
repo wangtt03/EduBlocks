@@ -122,6 +122,10 @@ echo '========================='
 cd $REPO_PATH/ui
 
 echo ''
+echo 'Clean...'
+yarn clean
+
+echo ''
 echo 'Installing dev dependencies...'
 yarn install
 
