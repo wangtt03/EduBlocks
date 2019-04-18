@@ -14,8 +14,8 @@ const Samples: AllPlatformSamples = {};
 const microbitSamples = includeFolder(path.join(__dirname, '..', 'src', 'platforms', 'microbit', 'samples'));
 registerSamples('MicroBit', microbitSamples);
 
-// const webSamples = includeFolder(path.join(__dirname, '..', 'src', 'platforms', 'web', 'samples'));
-// registerSamples('Web', webSamples);
+const webSamples = includeFolder(path.join(__dirname, '..', 'src', 'platforms', 'web', 'samples'));
+registerSamples('Web', webSamples);
 
 // ... other platforms (like above) ...
 
