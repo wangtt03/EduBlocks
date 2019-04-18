@@ -43,8 +43,7 @@ export function newSamples() {
     const platformSamples = Samples[platform];
 
     if (!platformSamples) {
-      // throw new Error('No samples found');
-      return [];
+      throw new Error('No samples found');
     }
 
     return platformSamples[file];
