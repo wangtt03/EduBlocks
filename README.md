@@ -1,4 +1,4 @@
-![alt tag](misc/newebheader.png)
+![alt tag](misc/edublock-logo_final_edublocks_Blue-pink.png)
 
 Welcome to the EduBlocks for micro:bit Github Repository!
 ===========================================
