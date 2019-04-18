@@ -5,7 +5,7 @@ export function newMicrobitPlatform(): PlatformInterface {
     key: 'MicroBit',
     name: 'micro:bit',
     image: '/images/microbit.png',
-    capabilities: ['HexDownload'],
+    capabilities: ['HexDownload', 'HexFlash'], 
     defaultExtensions: [
       'micro:bit General',
     ],

@@ -4,6 +4,7 @@ import { flashMicroBit } from './platforms/microbit/flash';
 import { newSamples } from './samples';
 import { newServerConnection, ServerConnection } from './server';
 import { App, Extension, TerminalInterface } from './types';
+import { getHexFile } from './lib/hexlify';
 
 export function newApp(): App {
   let connection: ServerConnection | undefined;
@@ -51,7 +52,7 @@ export function newApp(): App {
     await io.saveFile(combinedScript, 'py', 'text/python;charset=utf-8');
   }
 
-  async function saveHex(python: string, extensions: Extension[]) {
+  async function flashHex(python: string, extensions: Extension[]) {
     const combinedScript = getCombinedScript(python, extensions);
 
     // const hex = getHexFile(combinedScript);
@@ -59,6 +60,15 @@ export function newApp(): App {
     // await io.saveFile(hex, 'hex', 'application/octet-stream');
 
     flashMicroBit(combinedScript);
+  }
+
+  async function saveHex(python: string, extensions: Extension[]) {
+    const combinedScript = getCombinedScript(python, extensions);
+
+    const hex = getHexFile(combinedScript);
+
+    await io.saveFile(hex, 'hex', 'application/octet-stream');
+
   }
 
   function assignTerminal(terminal: TerminalInterface) {
@@ -101,6 +111,7 @@ export function newApp(): App {
     openFile,
     saveFile,
     exportPython,
+    flashHex,
     saveHex,
     assignTerminal,
     getThemes,

@@ -6,6 +6,7 @@ export interface App {
   saveFile(data: string | Uint8Array, ext: string, type: string): Promise<void>;
   exportPython(python: string, extensions: Extension[]): Promise<void>;
   saveHex(python: string, extensions: Extension[]): Promise<void>;
+  flashHex(python: string, extensions: Extension[]): Promise<void>;
 
   assignTerminal(term: TerminalInterface): void;
 
@@ -51,4 +52,4 @@ export interface PlatformInterface {
   extensions: Extension[];
 }
 
-export type Capability = 'HexDownload' | 'RemoteShell' | 'TrinketShell';
+export type Capability = 'HexDownload' | 'RemoteShell' | 'TrinketShell' | 'HexFlash';

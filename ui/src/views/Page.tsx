@@ -12,7 +12,7 @@ import RemoteShellView from './RemoteShellView';
 import SelectModal, { SelectModalOption } from './SelectModal';
 import TrinketView from './TrinketView';
 
-type AdvancedFunction = 'Export Python' | 'Themes';
+type AdvancedFunction = 'Export Python' | 'Themes' | 'Flash Hex';
 const AdvancedFunctions: AdvancedFunction[] = ['Export Python', 'Themes'];
 
 const ViewModeBlockly = 'blocks';
@@ -300,7 +300,6 @@ export default class Page extends Component<Props, State> {
 
     return this.state.platform.capabilities.indexOf(capability) !== -1;
 
-    this.new();
   }
 
   private getExtensions() {
@@ -338,7 +337,13 @@ export default class Page extends Component<Props, State> {
   }
 
   private getAdvancedFunctionList(): SelectModalOption[] {
-    return AdvancedFunctions.map((func) => ({
+    let advancedFunctions = AdvancedFunctions;
+
+    if (this.state.platform && this.state.platform.capabilities.indexOf('HexFlash') !== -1) {
+      advancedFunctions = [...advancedFunctions, 'Flash Hex'];
+    }
+
+    return advancedFunctions.map((func) => ({
       label: func,
       obj: func,
     }));
@@ -352,6 +357,14 @@ export default class Page extends Component<Props, State> {
 
     if (func === 'Themes') {
       await this.openThemes();
+    }
+
+    if (func === 'Flash Hex') {
+      const python = this.state.doc.python;
+
+      if (python) {
+        await this.props.app.flashHex(python, this.state.extensionsActive);
+      }
     }
 
 
