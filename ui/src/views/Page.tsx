@@ -1,7 +1,7 @@
 import React = require('preact');
 import { Component } from 'preact';
 import { getPlatform, getPlatformList } from '../platforms';
-import { App, Capability, Extension, PlatformInterface, PlatformSelection } from '../types';
+import { App, Capability, Extension, PlatformInterface, PlatformSelection, Platform } from '../types';
 import BlocklyView from './BlocklyView';
 import ImageModal from './ImageModal';
 import AlertModal from './AlertModal';
@@ -117,7 +117,11 @@ export default class Page extends Component<Props, State> {
   }
 
   public componentDidMount() {
+    if (window.location.hash) {
+      const platformKey = window.location.hash.slice(1) as unknown as Platform;
 
+      this.selectPlatform(platformKey);
+    }
   }
 
   private toggleView(): 0 {
@@ -202,14 +206,14 @@ export default class Page extends Component<Props, State> {
   }
 
 
-  private async selectPlatform(selection: PlatformSelection) {
-    const platform = await getPlatform(selection.platform);
+  private async selectPlatform(platformKey: Platform) {
+    const platform = await getPlatform(platformKey);
 
-    if (selection.platform === 'Web') {
+    if (platformKey === 'Web') {
       this.new();
     }
 
-    if (selection.platform === 'RaspberryPi') {
+    if (platformKey === 'RaspberryPi') {
       this.new();
       let ip: string | null = null;
 
@@ -363,7 +367,7 @@ export default class Page extends Component<Props, State> {
           title='Select your mode'
           options={availablePlatforms}
           visible={this.state.modal === 'platform'}
-          onSelect={(platform) => this.selectPlatform(platform) && this.new()}
+          onSelect={(platform) => this.selectPlatform(platform.platform) && this.new()}
           onCancel={() => { }}
         />
 

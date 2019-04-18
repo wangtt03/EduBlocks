@@ -29,5 +29,7 @@ export async function getPlatform(platform: Platform): Promise<PlatformInterface
       return newCircuitPythonPlatform();
     case 'Calliope':
       return newCalliopePlatform();
+    default:
+      throw new Error('Invalid platform: ' + platform);
   }
 }
