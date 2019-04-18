@@ -1,9 +1,9 @@
 import { Platform, PlatformInterface, PlatformSelection } from '../types';
+import { newCalliopePlatform } from './calliope';
+import { newCircuitPythonPlatform } from './circuitpython';
 import { newMicrobitPlatform } from './microbit';
 import { newRaspberryPiPlatform } from './raspberrypi';
 import { newWebPlatform } from './web';
-import { newCircuitPythonPlatform } from './circuitpython';
-import { newCalliopePlatform } from './calliope';
 
 
 export function getPlatformList(): PlatformSelection[] {

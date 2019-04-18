@@ -1,22 +1,53 @@
 import path = require('path');
 import changeCase = require('change-case');
+import { Platform } from './types';
+const includeFolder: (folderPath: string) => { [file: string]: string } = require('include-folder');
 
-const includeFolder = require('include-folder');
-const samples: { [file: string]: string } = includeFolder(path.join(__dirname, '..', 'samples'));
+interface PlatformSamples {
+  [name: string]: string;
+}
 
-const Samples: { [name: string]: string } = {};
+type AllPlatformSamples = Partial<Record<Platform, PlatformSamples>>;
 
-Object.keys(samples).forEach((file) => {
-  Samples[changeCase.titleCase(file)] = samples[file];
-});
+const Samples: AllPlatformSamples = {};
 
-function newSamples() {
-  function getSamples() {
-    return Object.keys(Samples);
+const microbitSamples = includeFolder(path.join(__dirname, '..', 'src', 'platforms', 'microbit', 'samples'));
+registerSamples('MicroBit', microbitSamples);
+
+// const webSamples = includeFolder(path.join(__dirname, '..', 'src', 'platforms', 'web', 'samples'));
+// registerSamples('Web', webSamples);
+
+// ... other platforms (like above) ...
+
+function registerSamples(platform: Platform, foundSamples: { [file: string]: string }) {
+  Samples[platform] = {};
+
+  Object.keys(foundSamples).forEach((file) => {
+    Samples[platform]![changeCase.titleCase(file)] = foundSamples[file];
+  });
+}
+
+export function newSamples() {
+  function getSamples(platform: Platform) {
+    const platformSamples = Samples[platform];
+
+    if (!platformSamples) {
+      // throw new Error('No samples found');
+      return [];
+    }
+
+    return Object.keys(platformSamples);
   }
 
-  function getSample(file: string) {
-    return Samples[file];
+  function getSample(platform: Platform, file: string) {
+    const platformSamples = Samples[platform];
+
+    if (!platformSamples) {
+      // throw new Error('No samples found');
+      return [];
+    }
+
+    return platformSamples[file];
   }
 
   return {
@@ -24,7 +55,3 @@ function newSamples() {
     getSample,
   };
 }
-
-export {
-  newSamples,
-};

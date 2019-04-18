@@ -206,25 +206,22 @@ export default class Page extends Component<Props, State> {
     const platform = await getPlatform(selection.platform);
 
     if (selection.platform === 'Web') {
-      this.new()
+      this.new();
     }
 
     if (selection.platform === 'RaspberryPi') {
-      this.new()
+      this.new();
       let ip: string | null = null;
 
       if (window.location.protocol === 'https:') {
-        alert("Need to switch to HTTPS to access Raspberry Pi mode...")
+        alert('Need to switch to HTTPS to access Raspberry Pi mode...');
         window.location.protocol = 'http:';
         return;
       }
 
       if (navigator.platform == 'Linux armv7l') {
-
         await this.props.app.initConnection('localhost');
-      }
-
-      else {
+      } else {
         ip = prompt('Please enter your Raspberry Pi\'s IP address');
 
         if (!ip) return;
@@ -234,9 +231,7 @@ export default class Page extends Component<Props, State> {
         } catch (err) {
           console.error(err);
         }
-
       }
-
     }
 
     this.setState({
@@ -244,7 +239,6 @@ export default class Page extends Component<Props, State> {
       modal: null,
       extensionsActive: platform.defaultExtensions,
     });
-
   }
 
 
@@ -260,7 +254,7 @@ export default class Page extends Component<Props, State> {
   private selectSample(file: string) {
     this.setState({ modal: null });
 
-    const xml = this.props.app.getSample(file);
+    const xml = this.props.app.getSample(this.state.platform!.key, file);
 
     this.readBlocklyContents(xml);
   }
@@ -302,13 +296,13 @@ export default class Page extends Component<Props, State> {
 
     return this.state.platform.capabilities.indexOf(capability) !== -1;
 
-    this.new()
+    this.new();
   }
 
   private getExtensions() {
     if (!this.state.platform) return [];
 
-    return this.state.platform.extentions;
+    return this.state.platform.extensions;
   }
 
 
@@ -331,7 +325,7 @@ export default class Page extends Component<Props, State> {
   }
 
   private openPlatforms() {
-    this.new()
+    this.new();
     this.setState({ modal: 'platform' });
   }
 
@@ -465,7 +459,7 @@ export default class Page extends Component<Props, State> {
 
         <SelectModal
           title='Samples'
-          options={this.props.app.getSamples().map((label) => ({ label }))}
+          options={this.state.platform ? this.props.app.getSamples(this.state.platform.key).map((label) => ({ label })) : []}
           selectLabel='Open'
           buttons={[]}
           visible={this.state.modal === 'samples'}

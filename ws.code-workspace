@@ -2,7 +2,10 @@
     "settings": {
         "typescript.tsdk": "ui/node_modules/typescript/lib",
         "editor.tabSize": 2,
-        "terminal.integrated.shell.linux": "/bin/bash"
+        "terminal.integrated.shell.linux": "/bin/bash",
+        "cSpell.words": [
+            "microbit"
+        ]
     },
     "folders": [
         {

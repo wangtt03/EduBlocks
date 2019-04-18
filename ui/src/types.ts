@@ -11,8 +11,8 @@ export interface App {
 
   getThemes(): string[];
 
-  getSamples(): string[];
-  getSample(file: string): string;
+  getSamples(platform: Platform): string[];
+  getSample(platform: Platform, file: string): string;
 }
 
 export interface TerminalEvents {
@@ -36,7 +36,6 @@ export type Extension = 'micro:bit General' | 'Pi General' | 'Web General' | 'Ci
 export type Platform = 'Web' | 'MicroBit' | 'RaspberryPi' | 'CircuitPython' | 'Calliope';
 
 export interface PlatformSelection {
-  
   platform: Platform;
   title: string;
   image: string;
@@ -44,11 +43,12 @@ export interface PlatformSelection {
 }
 
 export interface PlatformInterface {
+  key: Platform;
   name: string;
   image: string;
   capabilities: Capability[];
   defaultExtensions: Extension[];
-  extentions: Extension[];
+  extensions: Extension[];
 }
 
 export type Capability = 'HexDownload' | 'RemoteShell' | 'TrinketShell';
