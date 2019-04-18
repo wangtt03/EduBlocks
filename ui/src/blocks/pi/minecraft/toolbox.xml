@@ -245,8 +245,6 @@
         </shadow>
       </value>
     </block>
-
-    <block type="return"></block>
     <block type="getdist">
       <value name="text">
         <shadow type="textinline">
