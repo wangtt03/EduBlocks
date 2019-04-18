@@ -34,7 +34,7 @@ export interface TerminalInterface {
 
 export type Extension = 'micro:bit General' | 'Pi General' | 'Web General' | 'CircuitPython General' | 'Calliope General' | 'scroll:bit' | 'enviro:bit' | 'GiggleBot' | 'Pi Supply IoT LoRa Node' | 'EnviroBit';
 
-export type Platform = 'Web' | 'MicroBit' | 'RaspberryPi' | 'CircuitPython' | 'Calliope';
+export type Platform = 'Python' | 'MicroBit' | 'RaspberryPi' | 'CircuitPython' | 'Calliope';
 
 export interface PlatformSelection {
   platform: Platform;

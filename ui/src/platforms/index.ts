@@ -3,12 +3,12 @@ import { newCalliopePlatform } from './calliope';
 import { newCircuitPythonPlatform } from './circuitpython';
 import { newMicrobitPlatform } from './microbit';
 import { newRaspberryPiPlatform } from './raspberrypi';
-import { newWebPlatform } from './web';
+import { newWebPlatform } from './python';
 
 
 export function getPlatformList(): PlatformSelection[] {
   return [
-    { platform: 'Web', title: 'Python 3', image: '/images/webpy.png', help: 'https://docs.edublocks.org/mode-guides/web' },
+    { platform: 'Python', title: 'Python 3', image: '/images/webpy.png', help: 'https://docs.edublocks.org/mode-guides/web' },
     // { title: 'Advanced Python', image: '/images/advpy.png', help: 'https://edublocks.org' },
     { platform: 'RaspberryPi', title: 'Raspberry Pi', image: '/images/pi.png', help: 'https://docs.edublocks.org/mode-guides/raspberry-pi' },
     { platform: 'MicroBit', title: 'micro:bit', image: '/images/microbit.png', help: 'https://docs.edublocks.org/mode-guides/microbit' },
@@ -19,7 +19,7 @@ export function getPlatformList(): PlatformSelection[] {
 
 export async function getPlatform(platform: Platform): Promise<PlatformInterface> {
   switch (platform) {
-    case 'Web':
+    case 'Python':
       return newWebPlatform();
     case 'MicroBit':
       return newMicrobitPlatform();

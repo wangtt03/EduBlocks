@@ -211,7 +211,7 @@ export default class Page extends Component<Props, State> {
   private async selectPlatform(platformKey: Platform) {
     const platform = await getPlatform(platformKey);
 
-    if (platformKey === 'Web') {
+    if (platformKey === 'Python') {
       this.new();
     }
 
