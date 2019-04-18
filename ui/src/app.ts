@@ -1,6 +1,6 @@
 import { getBeforeScript } from './blocks/index';
 import { getIo } from './io';
-import { getHexFile } from './lib/hexlify';
+import { flashMicroBit } from './platforms/microbit/flash';
 import { newSamples } from './samples';
 import { newServerConnection, ServerConnection } from './server';
 import { App, Extension, TerminalInterface } from './types';
@@ -54,9 +54,11 @@ export function newApp(): App {
   async function saveHex(python: string, extensions: Extension[]) {
     const combinedScript = getCombinedScript(python, extensions);
 
-    const hex = getHexFile(combinedScript);
+    // const hex = getHexFile(combinedScript);
 
-    await io.saveFile(hex, 'hex', 'application/octet-stream');
+    // await io.saveFile(hex, 'hex', 'application/octet-stream');
+
+    flashMicroBit(combinedScript);
   }
 
   function assignTerminal(terminal: TerminalInterface) {

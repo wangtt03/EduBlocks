@@ -1,20 +1,29 @@
-declare class Terminal {
-  constructor(args?: TermNewArgs);
+import * as DAPjs from './lib/dapjs';
 
-  on(event: 'data', handler: (data: string) => void): void;
+declare global {
+  interface Window {
+    transport: DAPjs.WebUSB;
+    daplink: DAPjs.DAPLink;
+  }
 
-  open(element: Node, focus: boolean): void;
-  fit(): void;
-  focus(): void;
-  write(text: string): void;
-  reset(): void;
+  class Terminal {
+    constructor(args?: TermNewArgs);
 
-  cols: number;
-  rows: number;
+    on(event: 'data', handler: (data: string) => void): void;
 
-  element: HTMLElement;
-}
+    open(element: Node, focus: boolean): void;
+    fit(): void;
+    focus(): void;
+    write(text: string): void;
+    reset(): void;
 
-interface TermNewArgs {
+    cols: number;
+    rows: number;
 
+    element: HTMLElement;
+  }
+
+  interface TermNewArgs {
+
+  }
 }

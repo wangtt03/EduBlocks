@@ -4,6 +4,9 @@
         "editor.tabSize": 2,
         "terminal.integrated.shell.linux": "/bin/bash",
         "cSpell.words": [
+            "dapjs",
+            "daplink",
+            "hexlify",
             "microbit"
         ]
     },
