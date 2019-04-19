@@ -8,11 +8,11 @@ import { newWebPlatform } from './python';
 
 export function getPlatformList(): PlatformSelection[] {
   return [
-    { platform: 'Python', title: 'Python 3', image: '/images/webpy.png', help: 'https://docs.edublocks.org/mode-guides/web' },
+    { platform: 'Python', title: 'Python 3', image: '/images/webpy.png', help: '' },
     // { title: 'Advanced Python', image: '/images/advpy.png', help: 'https://edublocks.org' },
-    { platform: 'RaspberryPi', title: 'Raspberry Pi', image: '/images/pi.png', help: 'https://docs.edublocks.org/mode-guides/raspberry-pi' },
-    { platform: 'MicroBit', title: 'micro:bit', image: '/images/microbit.png', help: 'https://docs.edublocks.org/mode-guides/microbit' },
-    { platform: 'CircuitPython', title: 'CircuitPython', image: '/images/circuitplayground.png', help: 'https://docs.edublocks.org/mode-guides/circuitpython' },
+    { platform: 'RaspberryPi', title: 'Raspberry Pi', image: '/images/pi.png', help: '' },
+    { platform: 'MicroBit', title: 'micro:bit', image: '/images/microbit.png', help: '' },
+    { platform: 'CircuitPython', title: 'CircuitPython', image: '/images/circuitplayground.png', help: '' },
     // { platform: 'Calliope', title: 'Calliope Mini', image: '/images/calliope.png', help: 'https://docs.edublocks.org/mode-guides/calliope' },
   ];
 }
