@@ -1,42 +1,53 @@
 <div style="text-align:center"><img src ="misc/edublock-logo_Final_edublocks_Blue-pink.png" /></div>
 
-Welcome to the EduBlocks for micro:bit Github Repository!
+Welcome to the EduBlocks Github Repository!
 ===========================================
 
 About EduBlocks
 ---------------
-EduBlocks is a visual block based programming tool that will hopefully help teachers to introduce text based programming languages, like Python, to children at an earlier age.
+EduBlocks is a visual block based programming tool that helps teachers to introduce text based programming languages, like Python, to children at an earlier age via a drag and drop programming experience
 
-# The micro:bit editor can be found at ![https://microbit.edublocks.org](https://microbit.edublocks.org)
+![alt tag](misc/new-edublocks-app.png)
 
-![alt tag](misc/mbscreenshot.png)
-EduBlocks features:
-* Block Format:
-Easy and simple interface that uses a building block format to code.
-* Extensive Documentation:  
-Lots of documentation to get you ready to go quickly. New projects added every 2 weeks.
-* Range of features:
-Includes majority of the micropython system.
-* Python View:
-Once you have coded the blocks, you can easily switch to the Python View to see the real Python code.
-* Multi-Device:
-Runs on most computers with a USB port running a web brower.
+EduBlocks is the easiest way to make the transition from blocks to text, here's why:
+
+* Text on the blocks:
+EduBlocks displays the Python text on the block so you can see exactly what you're coding.
+
+* Python view:
+The main part of EduBlocks is the visual block editor but once you've completed your block code, you can switch straight to a Python editor.
+
+* Cross-Platform:
+You can code on any device with the Web Python mode and program microcontrollers with your PC, Mac & Raspberry Pi.
+
+* Modal Editor:
+EduBlocks is a modal editor. Whatever you want to create a project with, it's all in one place.
+
+* Designed with education in mind
+EduBlocks hosts a number of resources to help students and teachers get started quickly.
+
+* Everything is free!
+EduBlocks and it's resources are all free and open source and we're commited to keeping it that way. We want to make sure EduBlocks can be accessed by all.
+
+EduBlocks has many different "modes" that can be used with external hardware or just in the browser. Modes include:
+
+- Python 3
+- BBC micro:bit
+- Raspberry Pi
+- CircuitPython
+
+### The editor can be found at ![https://app.edublocks.org](https://app.edublocks.org)
 
 Status
 ---------------
 ### Build Status
 ![Build Status](https://jenkins.pi-supply.com/job/Edublocks%20Release/badge/icon)]
 
-### Branch Status
-![experimental](http://badges.github.io/stability-badges/dist/stable.svg)
-
 
 Developer Instructions
 ----------------------
 
 NOTE: Windows users will need to enable symbolic link support before they attempt to clone the repository!
-
-
 
 ### Dependencies
 
@@ -65,9 +76,13 @@ In the second terminal, run the server:
     yarn
     yarn run watch
 
-EduBlocks micro:bit UI will now be available at http://localhost:8081/
+Alternatively, you can install TMUX and run:
 
-#### Bash on Windows instructions (better instructions will follow)
+    tools/dev-start-sh
+
+EduBlocks UI will now be available at http://localhost:8081/
+
+#### Linux Install Instructions:
 
     sudo apt install git build-essential
     curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
@@ -78,7 +93,6 @@ EduBlocks micro:bit UI will now be available at http://localhost:8081/
     git clone git@github.com:AllAboutCode/EduBlocks/
 
     cd EduBlocks
-    git checkout microbit
     cd ui
     ln -s ../../server/src/protocol.ts src/protocol.ts
 
@@ -87,26 +101,13 @@ EduBlocks micro:bit UI will now be available at http://localhost:8081/
 
     cd ../server
     yarn
-    yarn run watch
 
-### Releasing a new version
+    cd ..
+    tools/dev-start.sh
 
-Increment version, this will automatically tag the current commit as the new version. E.G. 0.0.19-microbit:
+### Building the EduBlocks tarball
 
-    yarn version
-
-Push changes along with the new tag to GitHub, triggering a new build:
-
-    git push --tags
-    git push
-
-Once build has completed successfully, a new build will be available at:
-
-    http://edublocks.org/downloads/edublocks-armv6l.tar.xz
-
-### Building EduBlocks
-
-Building is performed by our CI platform. See `circle.yml` for more info. The tarball is built using a shell script. This will create the subdirectory `edublocks`. The build script is only intended to be run by the CI platform however it will probably work on most Linux platforms.
+The tarball is built using a shell script. This will create the subdirectory `edublocks`. The build script is only intended to be run by the CI platform however it will probably work on most Linux platforms.
 
 To run build script:
 
@@ -125,51 +126,15 @@ All About Code: @all_about_code
 
 ### Email
 
-Support Email: support@edublocks.org
-<br>
-Joshua Email: josh@edublocks.org
-<br>
-Chris (Developer) Email: chris@edublocks.org
+Email: josh@edublocks.org
+
 
 ### Website
 
 EduBlocks: http://edublocks.org
-<br>
-All About Code: http://allaboutcode.co.uk
 
 Ways to contribute
 -----------
 
 We want to make EduBlocks a community project. We are open to people opening issues, giving us feedback on how we can improve and opening pull requests to add features or fixes to the project. The community plays a huge part in EduBlocks.
 
-Contributors
------------
-
-Meet the contributers who make EduBlocks a reality.
-
-### Joshua Lowe @joshualowe1002
-
-Joshua is the project lead and oversees all new changes. He programs he blocks and adds new libraries and features. Josh also was the founder of EduBlocks.
-
-### Chris Dell @cjdell
-
-Chris is a freelance software developer who works on the programming and software side of EduBlocks. He works with Joshua to make his ideas a reality.
-
-### Les Pounder
-
-Les is a freelance software developer who mainly contributed on the original install script making sure that anyone can install EduBlocks with ease. Also Les helps with writing and making sure EduBlocks is out there in the Raspberry Pi community. Les is also a pi-top champion meaning we can borrow 10 pi-tops for our workshops.
-
-### Chris Penn (AKA NCS:Computing) @ncscomputing
-
-Chris P developed the first ever EduBlocks resource sheets within the HackPack anthology. Also, Chris P suggested that MineCraft should be incuded with EduBlocks. Chris also blogs about his cool uses of new EduBlocks features.
-
-We would also like to recognize the following companies. These may not have contibuted to software but have contributed in other ways.
-
-### Makerspace @ CPC:
-For supplying GPIO equimpment for workshops and helping EduBlocks out whenever we need them. They are a truly great team. Thanks Kev, Rachel & Ivan!
-
-### Pimoroni:
-For letting us visit the ship at Sheffield-On-Sea to promote and learn about software & hardware to improve EduBlocks and for being awesome people. Thanks Jon, Paul, Phil, Sandy & The team.
-
-### Pi-Top:
-For the pi-top  FUTUREchampions for giving us acess to 4 pi-top CEEDS for demonstrating and running EduBlocks workshops.
