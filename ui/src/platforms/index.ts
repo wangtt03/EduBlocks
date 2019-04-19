@@ -8,11 +8,11 @@ import { newWebPlatform } from './python';
 
 export function getPlatformList(): PlatformSelection[] {
   return [
-    { platform: 'Python', title: 'Python 3', image: '/images/webpy.png', help: '' },
+    { platform: 'Python', title: 'Python 3', image: '/images/webpy.png', help: 'https://edublocks.org/newsite/python.html' },
     // { title: 'Advanced Python', image: '/images/advpy.png', help: 'https://edublocks.org' },
-    { platform: 'RaspberryPi', title: 'Raspberry Pi', image: '/images/pi.png', help: '' },
-    { platform: 'MicroBit', title: 'micro:bit', image: '/images/microbit.png', help: '' },
-    { platform: 'CircuitPython', title: 'CircuitPython', image: '/images/circuitplayground.png', help: '' },
+    { platform: 'RaspberryPi', title: 'Raspberry Pi', image: '/images/pi.png', help: 'https://edublocks.org/newsite/pi.html' },
+    { platform: 'MicroBit', title: 'micro:bit', image: '/images/microbit.png', help: 'https://edublocks.org/newsite/microbit.html' },
+    { platform: 'CircuitPython', title: 'CircuitPython', image: '/images/circuitplayground.png', help: 'https://edublocks.org/newsite/circuitpy.html' },
     // { platform: 'Calliope', title: 'Calliope Mini', image: '/images/calliope.png', help: 'https://docs.edublocks.org/mode-guides/calliope' },
   ];
 }
