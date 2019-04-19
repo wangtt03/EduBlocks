@@ -17,6 +17,9 @@ registerSamples('MicroBit', microbitSamples);
 const webSamples = includeFolder(path.join(__dirname, '..', 'src', 'platforms', 'python', 'samples'));
 registerSamples('Python', webSamples);
 
+const circuitpySamples = includeFolder(path.join(__dirname, '..', 'src', 'platforms', 'circuitpython', 'samples'));
+registerSamples('CircuitPython', circuitpySamples);
+
 // ... other platforms (like above) ...
 
 function registerSamples(platform: Platform, foundSamples: { [file: string]: string }) {
