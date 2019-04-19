@@ -36,7 +36,7 @@ EduBlocks has many different "modes" that can be used with external hardware or 
 - Raspberry Pi
 - CircuitPython
 
-### The editor can be found at ![https://app.edublocks.org](https://app.edublocks.org)
+### The editor can be found at [https://app.edublocks.org](https://app.edublocks.org)
 
 Status
 ---------------
