@@ -52,4 +52,4 @@ export interface PlatformInterface {
   extensions: Extension[];
 }
 
-export type Capability = 'HexDownload' | 'RemoteShell' | 'TrinketShell' | 'HexFlash';
+export type Capability = 'HexDownload' | 'RemoteShell' | 'TrinketShell' | 'HexFlash' | 'PythonDownload';

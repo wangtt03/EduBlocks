@@ -206,6 +206,7 @@ export default class Page extends Component<Props, State> {
       await this.props.app.saveHex(python, this.state.extensionsActive);
     }
   }
+  
 
 
   private async selectPlatform(platformKey: Platform) {
@@ -441,7 +442,7 @@ export default class Page extends Component<Props, State> {
           openPlatforms={() => this.openPlatforms()}
           modeQuestion={() => this.modeQuestion()}
           openTerminal={this.hasCapability('RemoteShell') || this.hasCapability('TrinketShell') ? () => this.openTerminal() : undefined}
-          // downloadPython={() => this.downloadPython()}
+          downloadPython={this.hasCapability('PythonDownload') ? () => this.downloadPython() : undefined}
           downloadHex={this.hasCapability('HexDownload') ? () => this.downloadHex() : undefined}
           openCode={() => this.openFile()}
           saveCode={() => this.saveFile()}

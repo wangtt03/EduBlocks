@@ -9,6 +9,7 @@ interface Props {
   openThemes(): void;
   // downloadPython(): void;
   downloadHex?(): void;
+  downloadPython?(): void;
   onFunction(): void;
   openPlatforms(): void;
   modeQuestion(): void;
@@ -23,7 +24,7 @@ interface Props {
 
 export default class Nav extends Component<Props, {}> {
   public render() {
-    const { openExtensions, downloadHex, openTerminal: sendCode } = this.props;
+    const { openExtensions, downloadHex, openTerminal: sendCode, downloadPython } = this.props;
 
     return (
       <nav>
@@ -38,8 +39,8 @@ export default class Nav extends Component<Props, {}> {
         <label for='bmenub' class='burger pseudo button icon-menu'></label>
 
         <div class='menu'>
-        
-          
+
+
 
           <a class='button icon-plus' title="Create new file" href='javascript:void(0)' onClick={() => this.props.newCode()}>
             New
@@ -59,9 +60,11 @@ export default class Nav extends Component<Props, {}> {
             </a>
           }
 
-          {/* <a class='button icon-download' title='Download Python Source Code' href='javascript:void(0)' onClick={() => this.props.downloadPython()}>
-            Python
-          </a> */}
+          {downloadPython &&
+            <a class='button icon-download' title='Download Python Source Code' href='javascript:void(0)' onClick={() => downloadPython()}>
+              Download
+          </a>
+          }
 
 
           {/*<a class='button' title='Themes' href='javascript:void(0)' onClick={() => this.props.openThemes()}>

@@ -5,7 +5,7 @@ export function newCircuitPythonPlatform(): PlatformInterface {
     key: 'CircuitPython',
     name: 'CircuitPython',
     image: '/images/circuitplayground.png',
-    capabilities: [],
+    capabilities: ['PythonDownload'],
     defaultExtensions: [
       'CircuitPython General',
     ],
