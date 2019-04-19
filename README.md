@@ -41,7 +41,8 @@ EduBlocks has many different "modes" that can be used with external hardware or 
 Status
 ---------------
 ### Build Status
-![Build Status](https://jenkins.pi-supply.com/job/Edublocks%20Release/badge/icon)]
+
+![Build Status](https://jenkins.pi-supply.com/job/Edublocks%20Release/badge/icon)
 
 
 Developer Instructions
