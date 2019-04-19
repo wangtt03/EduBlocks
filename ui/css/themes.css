@@ -9,8 +9,7 @@
   color: white;
 }
 
-.theme-Dark .button {
-  background:rgba(0,0,0,0); 
+.theme-Dark .button { 
   color: white;
 }
 
@@ -34,6 +33,10 @@
 .theme-Solarized nav {
   background: #00262F;
 }
+
+.theme-Solarized .SelectModal__header  {
+  background: #00262F;
+}
 .theme-Solarized .blocklySvg {
   background-color: #002F39 !important;
 }
@@ -43,7 +46,6 @@
 }
 
 .theme-Solarized .button {
-  background:#053844; 
   color: white;
 }
 
@@ -79,6 +81,14 @@
 
 }
 
+.theme-Default .SelectModal__header{
+  background: #396afc;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #2948ff, #396afc);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #2948ff, #396afc); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+}
+
 
 /* Tangerine Theme */
 
@@ -89,14 +99,7 @@
 
 }
 
-.theme-Tangerine .close{
-  color: #fc4a1a;  /* fallback for old browsers */
-  color: -webkit-linear-gradient(to right, #f7b733, #fc4a1a);  /* Chrome 10-25, Safari 5.1-6 */
-  color: linear-gradient(to right, #f7b733, #fc4a1a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-}
-
-.theme-Tangerine button{
+.theme-Tangerine .SelectModal__header{
   background: #fc4a1a;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #f7b733, #fc4a1a);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #f7b733, #fc4a1a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
@@ -113,15 +116,7 @@
 
 }
 
-.theme-Vivid .close{
-  color: #FC466B;  /* fallback for old browsers */
-  color: -webkit-linear-gradient(to right, #3F5EFB, #FC466B);  /* Chrome 10-25, Safari 5.1-6 */
-  color: linear-gradient(to right, #3F5EFB, #FC466B); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-
-}
-
-.theme-Vivid button{
+.theme-Vivid .SelectModal__header{
   background: #FC466B;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #3F5EFB, #FC466B);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #3F5EFB, #FC466B); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
@@ -140,16 +135,7 @@
 
 }
 
-.theme-DarkRed .close{
-  color: #070000;  /* fallback for old browsers */
-  color: -webkit-linear-gradient(to right, #070000, #4C0001, #070000);  /* Chrome 10-25, Safari 5.1-6 */
-  color: linear-gradient(to right, #070000, #4C0001, #070000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-
-
-}
-
-.theme-DarkRed button{
+.theme-DarkRed .SelectModal__header{
   background: #070000;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #070000, #4C0001, #070000);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #070000, #4C0001, #070000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
@@ -157,6 +143,7 @@
 
 
 }
+
 
 /* Celestial Theme */
 
@@ -170,17 +157,7 @@
 
 }
 
-.theme-Celestial .close{
-  color: #C33764;  /* fallback for old browsers */
-  color: -webkit-linear-gradient(to right, #1D2671, #C33764);  /* Chrome 10-25, Safari 5.1-6 */
-  color: linear-gradient(to right, #1D2671, #C33764); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-
-
-
-}
-
-.theme-Celestial button{
+.theme-Celestial .SelectModal__header{
   background: #C33764;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #1D2671, #C33764);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #1D2671, #C33764); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
@@ -189,6 +166,8 @@
 
 
 }
+
+
 
 /* Pacific Theme */
 
@@ -203,18 +182,7 @@
 
 }
 
-.theme-Pacific .close{
-  color: #34e89e;  /* fallback for old browsers */
-  color: -webkit-linear-gradient(to right, #0f3443, #34e89e);  /* Chrome 10-25, Safari 5.1-6 */
-  color: linear-gradient(to right, #0f3443, #34e89e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-
-
-
-
-}
-
-.theme-Pacific button{
+.theme-Pacific .SelectModal__header{
   background: #34e89e;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #0f3443, #34e89e);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #0f3443, #34e89e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
@@ -224,5 +192,4 @@
 
 
 }
-
 
