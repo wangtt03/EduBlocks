@@ -168,6 +168,23 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.setHelpUrl("");
     }
   };
+  
+  Blocks['turtlespeed'] = {
+    init: function () {
+      this.appendDummyInput()
+        .appendField(new Blockly.FieldVariable("turtle"), "turtle")
+        .appendField(".speed(")
+      this.appendValueInput('text')
+        .setCheck(null);
+      this.appendDummyInput()
+        .appendField(")");
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour(240);
+      this.setTooltip("Change the speed");
+      this.setHelpUrl("");
+    }
+  };
 
   Blocks['circle'] = {
     init: function () {
