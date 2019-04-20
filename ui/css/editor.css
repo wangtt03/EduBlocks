@@ -59,7 +59,6 @@ nav {
 }
 
 .Nav__platformImg {
-  animation: beat 0.5s infinite alternate;
   margin-right: 10px;
   height: 2em;
 }
