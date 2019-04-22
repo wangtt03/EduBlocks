@@ -25,7 +25,7 @@ export async function getPlatform(platform: Platform): Promise<PlatformInterface
       return newMicrobitPlatform();
     case 'RaspberryPi':
       return newRaspberryPiPlatform();
-    case 'CircuitPython':
+    case 'CircuitPython': 
       return newCircuitPythonPlatform();
     case 'Calliope':
       return newCalliopePlatform();
