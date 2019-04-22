@@ -46,4 +46,16 @@ export default function define(Python: Blockly.BlockGenerators) {
     return code;
   };
 
+  Python['webint'] = function (block) {
+    var value_bool = Blockly.Python.valueToCode(block, 'bool', Blockly.Python.ORDER_ATOMIC);
+    const code = 'int(' +  value_bool+ ')';
+    return [code, Blockly.Python.ORDER_ATOMIC];
+  };
+
+  Python['webstr'] = function (block) {
+    var value_bool = Blockly.Python.valueToCode(block, 'bool', Blockly.Python.ORDER_ATOMIC);
+    const code = 'str(' +  value_bool+ ')';
+    return [code, Blockly.Python.ORDER_ATOMIC];
+  };
+
 }

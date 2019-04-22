@@ -13,7 +13,7 @@
       <shadow type="textinline">
         <field name="text">True</field>
       </shadow>
-    </value>
+    </value> 
   </block>
   <block type="webelse"></block>
   <block type="webinternal">

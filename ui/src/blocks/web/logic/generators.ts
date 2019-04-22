@@ -18,7 +18,7 @@ export default function define(Python: Blockly.BlockGenerators) {
   };
 
   Python['webelse'] = function (block) {
-    let branch = Blockly.Python.statementToCode(block, 'DO');
+    let branch = Blockly.Python.statementToCode(block, 'DO'); 
     branch = Blockly.Python.addLoopTrap(branch, block.id) || Blockly.Python.PASS;
     return 'else:\n' + branch;
   };
@@ -40,5 +40,6 @@ export default function define(Python: Blockly.BlockGenerators) {
     const code = 'not ' +  value_bool;
     return [code, Blockly.Python.ORDER_ATOMIC];
   };
+
 
 }

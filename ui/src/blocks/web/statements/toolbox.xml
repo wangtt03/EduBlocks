@@ -65,5 +65,19 @@
         </shadow>
       </value>
   </block>
+  <block type="webint">
+    <value name="bool">
+      <shadow type="textinline">
+        <field name="text">1</field>
+      </shadow>
+    </value>
+  </block>
+  <block type="webstr">
+    <value name="bool">
+      <shadow type="textinline">
+        <field name="text">1</field>
+      </shadow>
+    </value>
+  </block>
 
 </category>

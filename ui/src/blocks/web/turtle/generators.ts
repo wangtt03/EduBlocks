@@ -91,6 +91,14 @@ export default function define(Python: Blockly.BlockGenerators) {
     return code;
   };
 
+  Python['turtleshape'] = function(block) {
+    var variable_turtle = Blockly.Python.variableDB_.getName(block.getFieldValue('turtle'), Blockly.Variables.NAME_TYPE);
+    let text_dist = Blockly.Python.valueToCode(block, 'text', Blockly.Python.ORDER_ATOMIC);
+    // TODO: Assemble Python into code variable.
+    var code = variable_turtle+'.shape(' +text_dist+ ')\n';
+    return code;
+  };
+
   Python['circle'] = function(block) {
     var variable_turtle = Blockly.Python.variableDB_.getName(block.getFieldValue('turtle'), Blockly.Variables.NAME_TYPE);
     let text_dist = Blockly.Python.valueToCode(block, 'text', Blockly.Python.ORDER_ATOMIC);

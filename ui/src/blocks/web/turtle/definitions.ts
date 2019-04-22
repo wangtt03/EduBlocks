@@ -186,6 +186,23 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     }
   };
 
+  Blocks['turtleshape'] = {
+    init: function () {
+      this.appendDummyInput()
+        .appendField(new Blockly.FieldVariable("turtle"), "turtle")
+        .appendField(".shape(")
+      this.appendValueInput('text')
+        .setCheck(null);
+      this.appendDummyInput()
+        .appendField(")");
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour(240);
+      this.setTooltip("Change the shape");
+      this.setHelpUrl("");
+    }
+  };
+
   Blocks['circle'] = {
     init: function () {
       this.appendDummyInput()

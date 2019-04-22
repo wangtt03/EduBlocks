@@ -20,6 +20,9 @@ registerSamples('Python', webSamples);
 const circuitpySamples = includeFolder(path.join(__dirname, '..', 'src', 'platforms', 'circuitpython', 'samples'));
 registerSamples('CircuitPython', circuitpySamples);
 
+const piSamples = includeFolder(path.join(__dirname, '..', 'src', 'platforms', 'raspberrypi', 'samples'));
+registerSamples('RaspberryPi', piSamples);
+
 // ... other platforms (like above) ...
 
 function registerSamples(platform: Platform, foundSamples: { [file: string]: string }) {

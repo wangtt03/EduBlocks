@@ -23,6 +23,20 @@
             </shadow>
         </value>
     </block>
+    <block type="turtlespeed">
+        <value name="text">
+            <shadow type="textinline">
+                <field name="text">100</field>
+            </shadow>
+        </value>
+    </block>
+    <block type="turtleshape">
+        <value name="text">
+            <shadow type="stringinline">
+                <field name="text">turtle</field>
+            </shadow>
+        </value>
+    </block>
     <block type="colour">
         <value name="text">
             <shadow type="textinline">
@@ -42,13 +56,6 @@
         <value name="text">
             <shadow type="textinline">
                 <field name="text">20</field>
-            </shadow>
-        </value>
-    </block>
-    <block type="turtlespeed">
-        <value name="text">
-            <shadow type="textinline">
-                <field name="text">100</field>
             </shadow>
         </value>
     </block>

@@ -107,5 +107,39 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.setHelpUrl('http://www.example.com/');
     },
   };
+
+  Blocks['webint'] = {
+    init: function () {
+      this.appendDummyInput()
+        .appendField('int(');
+      this.appendValueInput("bool")
+        .setCheck(null);
+      this.appendDummyInput()
+        .appendField(")")
+      this.setInputsInline(true);
+      this.setOutput(true, null);
+      this.setOutputShape(Blockly.OUTPUT_SHAPE_ROUND);
+      this.setColour('#F89621');
+      this.setTooltip('Changes to an int');
+      this.setHelpUrl('http://www.example.com/');
+    },
+  };
+
+  Blocks['webstr'] = {
+    init: function () {
+      this.appendDummyInput()
+        .appendField('str(');
+      this.appendValueInput("bool")
+        .setCheck(null);
+      this.appendDummyInput()
+        .appendField(")")
+      this.setInputsInline(true);
+      this.setOutput(true, null);
+      this.setOutputShape(Blockly.OUTPUT_SHAPE_ROUND);
+      this.setColour('#F89621');
+      this.setTooltip('Changes to an str');
+      this.setHelpUrl('http://www.example.com/');
+    },
+  };
 }
 

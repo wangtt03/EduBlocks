@@ -107,7 +107,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
   Blocks['webnot'] = {
     init: function () {
       this.appendDummyInput()
-        .appendField('not');
+        .appendField('not'); 
       this.appendValueInput("bool")
         .setCheck(null);
       this.setInputsInline(true);
