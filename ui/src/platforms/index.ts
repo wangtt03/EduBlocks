@@ -22,7 +22,7 @@ export async function getPlatform(platform: Platform): Promise<PlatformInterface
     case 'Python':
       return newWebPlatform();
     case 'MicroBit':
-      return newMicrobitPlatform();
+      return newMicrobitPlatform(); 
     case 'RaspberryPi':
       return newRaspberryPiPlatform();
     case 'CircuitPython': 
