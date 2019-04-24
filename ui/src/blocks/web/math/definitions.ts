@@ -30,7 +30,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.setOutput(true, null);
       this.setColour(math_col);
       this.setOutputShape(Blockly.OUTPUT_SHAPE_ROUND);
-   this.setTooltip("Choose a random element from a non-empty sequence.");
+   this.setTooltip("");
    this.setHelpUrl("");
     }
   };
@@ -47,7 +47,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.setOutput(true, null);
       this.setColour(math_col);
       this.setOutputShape(Blockly.OUTPUT_SHAPE_ROUND);
-   this.setTooltip("Choose a random element from a non-empty sequence.");
+   this.setTooltip("");
    this.setHelpUrl("");
     }
   };
@@ -64,7 +64,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.setOutput(true, null);
       this.setColour(math_col);
       this.setOutputShape(Blockly.OUTPUT_SHAPE_ROUND);
-   this.setTooltip("Choose a random element from a non-empty sequence.");
+   this.setTooltip("");
    this.setHelpUrl("");
     }
   };
@@ -81,7 +81,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.setOutput(true, null);
       this.setColour(math_col);
       this.setOutputShape(Blockly.OUTPUT_SHAPE_ROUND);
-   this.setTooltip("Choose a random element from a non-empty sequence.");
+   this.setTooltip("");
    this.setHelpUrl("");
     }
   };
@@ -98,7 +98,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.setOutput(true, null);
       this.setColour(math_col);
       this.setOutputShape(Blockly.OUTPUT_SHAPE_ROUND);
-   this.setTooltip("Choose a random element from a non-empty sequence.");
+   this.setTooltip("");
    this.setHelpUrl("");
     }
   };
@@ -115,7 +115,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.setOutput(true, null);
       this.setColour(math_col);
       this.setOutputShape(Blockly.OUTPUT_SHAPE_ROUND);
-   this.setTooltip("Choose a random element from a non-empty sequence.");
+   this.setTooltip("");
    this.setHelpUrl("");
     }
   };
@@ -132,7 +132,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.setOutput(true, null);
       this.setColour(math_col);
       this.setOutputShape(Blockly.OUTPUT_SHAPE_ROUND);
-   this.setTooltip("Choose a random element from a non-empty sequence.");
+   this.setTooltip("");
    this.setHelpUrl("");
     }
   };
@@ -149,7 +149,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.setOutput(true, null);
       this.setColour(math_col);
       this.setOutputShape(Blockly.OUTPUT_SHAPE_ROUND);
-   this.setTooltip("Choose a random element from a non-empty sequence.");
+   this.setTooltip("");
    this.setHelpUrl("");
     }
   };
@@ -166,7 +166,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.setOutput(true, null);
       this.setColour(math_col);
       this.setOutputShape(Blockly.OUTPUT_SHAPE_ROUND);
-   this.setTooltip("Choose a random element from a non-empty sequence.");
+   this.setTooltip("");
    this.setHelpUrl("");
     }
   };
@@ -183,7 +183,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.setOutput(true, null);
       this.setColour(math_col);
       this.setOutputShape(Blockly.OUTPUT_SHAPE_ROUND);
-   this.setTooltip("Choose a random element from a non-empty sequence.");
+   this.setTooltip("");
    this.setHelpUrl("");
     }
   };
@@ -200,7 +200,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.setOutput(true, null);
       this.setColour(math_col);
       this.setOutputShape(Blockly.OUTPUT_SHAPE_ROUND);
-   this.setTooltip("Choose a random element from a non-empty sequence.");
+   this.setTooltip("");
    this.setHelpUrl("");
     }
   };
@@ -217,7 +217,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.setOutput(true, null);
       this.setColour(math_col);
       this.setOutputShape(Blockly.OUTPUT_SHAPE_ROUND);
-   this.setTooltip("Choose a random element from a non-empty sequence.");
+   this.setTooltip("");
    this.setHelpUrl("");
     }
   };
@@ -234,7 +234,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.setOutput(true, null);
       this.setColour(math_col);
       this.setOutputShape(Blockly.OUTPUT_SHAPE_ROUND);
-   this.setTooltip("Choose a random element from a non-empty sequence.");
+   this.setTooltip("");
    this.setHelpUrl("");
     }
   };
@@ -251,7 +251,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.setOutput(true, null);
       this.setColour(math_col);
       this.setOutputShape(Blockly.OUTPUT_SHAPE_ROUND);
-   this.setTooltip("Choose a random element from a non-empty sequence.");
+   this.setTooltip("");
    this.setHelpUrl("");
     }
   };
@@ -268,7 +268,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.setOutput(true, null);
       this.setColour(math_col);
       this.setOutputShape(Blockly.OUTPUT_SHAPE_ROUND);
-   this.setTooltip("Choose a random element from a non-empty sequence.");
+   this.setTooltip("");
    this.setHelpUrl("");
     }
   };
@@ -285,7 +285,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.setOutput(true, null);
       this.setColour(math_col);
       this.setOutputShape(Blockly.OUTPUT_SHAPE_ROUND);
-   this.setTooltip("Choose a random element from a non-empty sequence.");
+   this.setTooltip("");
    this.setHelpUrl("");
     }
   };
@@ -302,7 +302,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.setOutput(true, null);
       this.setColour(math_col);
       this.setOutputShape(Blockly.OUTPUT_SHAPE_ROUND);
-   this.setTooltip("Choose a random element from a non-empty sequence.");
+   this.setTooltip("");
    this.setHelpUrl("");
     }
   };
@@ -319,7 +319,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.setOutput(true, null);
       this.setColour(math_col);
       this.setOutputShape(Blockly.OUTPUT_SHAPE_ROUND);
-   this.setTooltip("Choose a random element from a non-empty sequence.");
+   this.setTooltip("");
    this.setHelpUrl("");
     }
   };
@@ -336,7 +336,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.setOutput(true, null);
       this.setColour(math_col);
       this.setOutputShape(Blockly.OUTPUT_SHAPE_ROUND);
-   this.setTooltip("Choose a random element from a non-empty sequence.");
+   this.setTooltip("");
    this.setHelpUrl("");
     }
   };
@@ -353,7 +353,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.setOutput(true, null);
       this.setColour(math_col);
       this.setOutputShape(Blockly.OUTPUT_SHAPE_ROUND);
-   this.setTooltip("Choose a random element from a non-empty sequence.");
+   this.setTooltip("");
    this.setHelpUrl("");
     }
   };
@@ -370,7 +370,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.setOutput(true, null);
       this.setColour(math_col);
       this.setOutputShape(Blockly.OUTPUT_SHAPE_ROUND);
-   this.setTooltip("Choose a random element from a non-empty sequence.");
+   this.setTooltip("");
    this.setHelpUrl("");
     }
   };
@@ -387,7 +387,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.setOutput(true, null);
       this.setColour(math_col);
       this.setOutputShape(Blockly.OUTPUT_SHAPE_ROUND);
-   this.setTooltip("Choose a random element from a non-empty sequence.");
+   this.setTooltip("");
    this.setHelpUrl("");
     }
   };
@@ -404,7 +404,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.setOutput(true, null);
       this.setColour(math_col);
       this.setOutputShape(Blockly.OUTPUT_SHAPE_ROUND);
-   this.setTooltip("Choose a random element from a non-empty sequence.");
+   this.setTooltip("");
    this.setHelpUrl("");
     }
   };
@@ -421,7 +421,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.setOutput(true, null);
       this.setColour(math_col);
       this.setOutputShape(Blockly.OUTPUT_SHAPE_ROUND);
-   this.setTooltip("Choose a random element from a non-empty sequence.");
+   this.setTooltip("");
    this.setHelpUrl("");
     }
   };
@@ -438,7 +438,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.setOutput(true, null);
       this.setColour(math_col);
       this.setOutputShape(Blockly.OUTPUT_SHAPE_ROUND);
-   this.setTooltip("Choose a random element from a non-empty sequence.");
+   this.setTooltip("");
    this.setHelpUrl("");
     }
   };

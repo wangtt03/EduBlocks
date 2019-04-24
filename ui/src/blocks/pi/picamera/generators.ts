@@ -42,7 +42,7 @@ export default function define(Python: Blockly.BlockGenerators) {
 	Python['start_recording'] = function(block) {
 	  var text_path = Blockly.Python.valueToCode(block, 'text', Blockly.Python.ORDER_ATOMIC);
 	  // TODO: Assemble Python into code variable.
-	  var code = 'camera.start_recording(\'' + text_path +'\')\n';
+	  var code = 'camera.start_recording(' + text_path + ')\n';
 	  return code;
 	};
 	Python['wait_recording'] = function(block) {
