@@ -95,7 +95,6 @@ EduBlocks UI will now be available at http://localhost:8081/
 
     cd EduBlocks
     cd ui
-    ln -s ../../server/src/protocol.ts src/protocol.ts
 
     yarn
     yarn run build
