@@ -33,6 +33,6 @@
       </shadow>
     </value>
   </block>
-  <block type="webbreak"></block>
+  <block type="web_break"></block>
   <block type="loop_get"></block>
 </category>

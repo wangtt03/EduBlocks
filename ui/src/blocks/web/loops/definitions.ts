@@ -62,16 +62,16 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     },
   };
 
-  Blocks['webbreak'] = {
+  Blocks['web_break'] = {
     init: function () {
       this.appendDummyInput()
-        .appendField('break');
+        .appendField("break");
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
       this.setColour("#644A9E");
-      this.setTooltip('breaks out of a loop');
-      this.setHelpUrl('http://www.example.com/');
-    },
+      this.setTooltip("");
+      this.setHelpUrl("");
+    }
   };
 
   Blocks['loop_get'] = {

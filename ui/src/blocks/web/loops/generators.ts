@@ -29,8 +29,9 @@ export default function define(Python: Blockly.BlockGenerators) {
     return code;
   };
 
-  Python['webbreak'] = function (block) {
-    const code = 'break\n ';
+  Python['web_break'] = function(block) {
+    // TODO: Assemble Python into code variable.
+    var code = 'break\n';
     return code;
   };
 
