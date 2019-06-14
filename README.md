@@ -3,6 +3,8 @@
 Welcome to the EduBlocks GitHub Repository!
 ===========================================
 
+## This is the BETA branch which is where all of the new features/bug fixes are worked on before going live online and get merged into master.
+
 About EduBlocks
 ---------------
 EduBlocks is a visual block based programming tool that helps teachers to introduce text based programming languages, like Python, to children at an earlier age via a drag and drop programming experience
