@@ -47,6 +47,16 @@ export default function define(Python: Blockly.BlockGenerators) {
     var code = 'pin' +text_pinno+ '.write_digital(' +text_digital+ ')\n';
     return code;
   };
+  
+  Python['pin_pull'] = function(block) {
+    var text_pinno = Blockly.Python.valueToCode(block, 'text', Blockly.Python.ORDER_ATOMIC)
+    || 'True';
+    var text_digital = Blockly.Python.valueToCode(block, 'text1', Blockly.Python.ORDER_ATOMIC)
+    || 'True';
+    // TODO: Assemble Python into code variable.
+    var code = 'pin' +text_pinno+ '.set_pull(' +text_digital+ ')\n';
+    return code;
+  };
 
   Python['pintouched'] = function(block) {
     var text_pinno = block.getFieldValue('pinno');
