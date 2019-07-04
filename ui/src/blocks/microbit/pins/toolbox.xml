@@ -43,4 +43,16 @@
       </shadow>
     </value>
   </block>
+ <block type="pin_pull">
+  <value name="text">
+      <shadow type="textinline">
+        <field name="text">0</field>
+      </shadow>
+    </value>
+  <value name="text1">
+      <shadow type="textinline">
+        <field name="text">pin0.NO_PULL</field>
+      </shadow>
+    </value>
+  </block>
 </category>
