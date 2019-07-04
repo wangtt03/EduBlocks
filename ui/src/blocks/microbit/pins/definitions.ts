@@ -87,6 +87,26 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
    this.setHelpUrl("");
     }
   };
+  
+  Blocks['pin_pull'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField("pin")
+      this.appendValueInput("text")
+          .setCheck(null);
+      this.appendDummyInput()
+          .appendField(".set_pull(")
+      this.appendValueInput("text1")
+          .setCheck(null);
+      this.appendDummyInput()
+          .appendField(")");
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour("#E51616","#E51616","#a82f2f");
+   this.setTooltip("Set Pin Pull Value");
+   this.setHelpUrl("");
+    }
+  };
 
   Blocks['pintouched'] = {
     init: function() {
