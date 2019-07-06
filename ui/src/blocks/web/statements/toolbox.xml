@@ -72,6 +72,13 @@
       </shadow>
     </value>
   </block>
+  <block type="webinput">
+    <value name="bool">
+      <shadow type="stringinline">
+        <field name="text">What is your name?</field>
+      </shadow>
+    </value>
+  </block>
   <block type="webstr">
     <value name="bool">
       <shadow type="textinline">

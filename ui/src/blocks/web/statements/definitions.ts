@@ -125,6 +125,23 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     },
   };
 
+  Blocks['webinput'] = {
+    init: function () {
+      this.appendDummyInput()
+        .appendField('input(');
+      this.appendValueInput("bool")
+        .setCheck(null);
+      this.appendDummyInput()
+        .appendField(")")
+      this.setInputsInline(true);
+      this.setOutput(true, null);
+      this.setOutputShape(Blockly.OUTPUT_SHAPE_ROUND);
+      this.setColour('#F89621');
+      this.setTooltip('Ask a question via an input');
+      this.setHelpUrl('http://www.example.com/');
+    },
+  };
+
   Blocks['webstr'] = {
     init: function () {
       this.appendDummyInput()

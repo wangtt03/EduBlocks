@@ -52,6 +52,12 @@ export default function define(Python: Blockly.BlockGenerators) {
     return [code, Blockly.Python.ORDER_ATOMIC];
   };
 
+  Python['webinput'] = function (block) {
+    var value_bool = Blockly.Python.valueToCode(block, 'bool', Blockly.Python.ORDER_ATOMIC);
+    const code = 'input(' +  value_bool+ ')';
+    return [code, Blockly.Python.ORDER_ATOMIC];
+  };
+
   Python['webstr'] = function (block) {
     var value_bool = Blockly.Python.valueToCode(block, 'bool', Blockly.Python.ORDER_ATOMIC);
     const code = 'str(' +  value_bool+ ')';
