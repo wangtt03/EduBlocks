@@ -38,8 +38,7 @@ function getWebIo() {
    * @param text Data to save
    * @param ext Suggested file name extension, i.e. 'xml'
    */
-  function saveFile(data: string | Uint8Array, ext: string, type: string) {
-    let fileName = 'main';
+  function saveFile(fileName: string, data: string | Uint8Array, ext: string, type: string) {
     let disableAutoBOM = true;
 
     if (!fileName) return Promise.resolve(void 0);

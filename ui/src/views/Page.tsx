@@ -37,6 +37,7 @@ interface State {
   extensionsActive: Extension[];
   progress: number;
   doc: Readonly<DocumentState>;
+  fileName: string;
 }
 
 export default class Page extends Component<Props, State> {
@@ -50,6 +51,7 @@ export default class Page extends Component<Props, State> {
       modal: 'platform',
       extensionsActive: [],
       progress: 0,
+      fileName: "Untitled",
 
       doc: {
         xml: null,
@@ -187,7 +189,7 @@ export default class Page extends Component<Props, State> {
     const xml = this.state.doc.xml;
 
     if (xml) {
-      await this.props.app.saveFile(xml, 'xml', 'text/xml;charset=utf-8');
+      await this.props.app.saveFile(this.state.fileName, xml, 'xml', 'text/xml;charset=utf-8');
     }
   }
 
@@ -195,7 +197,7 @@ export default class Page extends Component<Props, State> {
     const python = this.state.doc.python;
 
     if (python) {
-      await this.props.app.exportPython(python, this.state.extensionsActive);
+      await this.props.app.exportPython(this.state.fileName, python, this.state.extensionsActive);
     }
   }
 
@@ -203,7 +205,7 @@ export default class Page extends Component<Props, State> {
     const python = this.state.doc.python;
 
     if (python) {
-      await this.props.app.saveHex(python, this.state.extensionsActive);
+      await this.props.app.saveHex(this.state.fileName, python, this.state.extensionsActive);
     }
   }
   
@@ -330,6 +332,10 @@ export default class Page extends Component<Props, State> {
     this.setState({ modal: 'functions' });
   }
 
+  private fileChange(fileName: string) {
+    this.setState({fileName});
+  }
+
   private openPlatforms() {
     this.new();
     this.setState({ modal: 'platform' });
@@ -451,6 +457,7 @@ export default class Page extends Component<Props, State> {
           openExtensions={this.getExtensions().length ? () => this.openExtensions() : undefined}
           openThemes={() => this.openThemes()}
           onFunction={() => this.openAdvancedFunctionDialog()}
+          onFileChange={(fileName) => this.fileChange(fileName)}
         />
 
         <section id='workspace'>

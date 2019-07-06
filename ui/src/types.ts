@@ -3,9 +3,9 @@ export interface App {
   runCode(code: string): void;
 
   openFile(): Promise<string>;
-  saveFile(data: string | Uint8Array, ext: string, type: string): Promise<void>;
-  exportPython(python: string, extensions: Extension[]): Promise<void>;
-  saveHex(python: string, extensions: Extension[]): Promise<void>;
+  saveFile(fileName: string, data: string | Uint8Array, ext: string, type: string): Promise<void>;
+  exportPython(fileName: string, python: string, extensions: Extension[]): Promise<void>;
+  saveHex(fileName: string, python: string, extensions: Extension[]): Promise<void>;
   flashHex(python: string, extensions: Extension[], onProgress: (progress: number) => void): Promise<void>;
 
   assignTerminal(term: TerminalInterface): void;

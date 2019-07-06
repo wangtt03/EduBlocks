@@ -27,8 +27,8 @@ export function newApp(): App {
     return io.openFile();
   }
 
-  function saveFile(data: string | Uint8Array, ext: string, type: string) {
-    return io.saveFile(data, ext, type);
+  function saveFile(fileName: string, data: string | Uint8Array, ext: string, type: string) {
+    return io.saveFile(fileName, data, ext, type);
   }
 
   function getCombinedScript(python: string, extensions: Extension[]) {
@@ -46,10 +46,10 @@ export function newApp(): App {
     return combinedScript;
   }
 
-  async function exportPython(python: string, extensions: Extension[]) {
+  async function exportPython(fileName: string, python: string, extensions: Extension[]) {
     const combinedScript = getCombinedScript(python, extensions);
 
-    await io.saveFile(combinedScript, 'py', 'text/python;charset=utf-8');
+    await io.saveFile(fileName, combinedScript, 'py', 'text/python;charset=utf-8');
   }
 
   async function flashHex(python: string, extensions: Extension[], onProgress: (progress: number) => void) {
@@ -62,12 +62,12 @@ export function newApp(): App {
     await flashMicroBit(combinedScript, onProgress);
   }
 
-  async function saveHex(python: string, extensions: Extension[]) {
+  async function saveHex(fileName: string, python: string, extensions: Extension[]) {
     const combinedScript = getCombinedScript(python, extensions);
 
     const hex = getHexFile(combinedScript);
 
-    await io.saveFile(hex, 'hex', 'application/octet-stream');
+    await io.saveFile(fileName, hex, 'hex', 'application/octet-stream');
 
   }
 
