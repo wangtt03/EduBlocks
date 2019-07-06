@@ -11,6 +11,13 @@
       <shadow type="textinline" id="D13mVS0Li/f4*;4h5?D_">
         <field name="text">input("What is your name?")</field>
       </shadow>
+      <block type="webinput" id="Qv43+2St#bo0W{q(-`jr">
+        <value name="bool">
+          <shadow type="stringinline" id="8tCg`uf)s6A#;y6(oc!Z">
+            <field name="text">What is your name?</field>
+          </shadow>
+        </value>
+      </block>
     </value>
     <next>
       <block type="webvarprint" id="N}J|5]%#3Z:Np]ZC55Sq">
@@ -24,6 +31,9 @@
               <shadow type="textinline" id="e~?7YuV[2[k!z1[x1Z+?">
                 <field name="text">"Hello, "</field>
               </shadow>
+              <block type="stringinline" id="UQZ#9]f~FLMI#Nvb=P.B">
+                <field name="text">Hello, </field>
+              </block>
             </value>
             <value name="last">
               <shadow type="textinline" id="EUALr-o7Ds,dGrcVkuNt">

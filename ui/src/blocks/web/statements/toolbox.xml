@@ -58,6 +58,13 @@
         </shadow>
       </value>
   </block>
+  <block type="webinput">
+    <value name="bool">
+      <shadow type="stringinline">
+        <field name="text">What is your name?</field>
+      </shadow>
+    </value>
+  </block>
   <block type="global">
       <value name="text">
         <shadow type="textinline">
@@ -65,17 +72,11 @@
         </shadow>
       </value>
   </block>
+  <block type="stringinline"></block>
   <block type="webint">
     <value name="bool">
       <shadow type="textinline">
         <field name="text">1</field>
-      </shadow>
-    </value>
-  </block>
-  <block type="webinput">
-    <value name="bool">
-      <shadow type="stringinline">
-        <field name="text">What is your name?</field>
       </shadow>
     </value>
   </block>
