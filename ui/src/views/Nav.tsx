@@ -33,10 +33,10 @@ export default class Nav extends Component<Props, {}> {
         <a class='brand' onClick={() => this.props.modeQuestion()} data-tooltip="Change Mode">
           {this.props.platformImg && <img src={this.props.platformImg} class='Nav__platformImg' height={50} />}
 
-          <img class='logo' src='/images/edublocksBetaLogo.svg' />
+          <img class='logo' src='/images/edublock-logo_Final_edublocks_white.svg' />
           
         </a>
-            <input class="brand" type="email" placeholder="Untitled" style="width: 200px !important; color:black; margin-left: 10px" onChange={(e) => this.props.onFileChange((e.target as any).value)}></input>
+            <input class="brand" type="email" placeholder="Untitled" style="width: 200px !important; color:black; margin-left: 5px" onChange={(e) => this.props.onFileChange((e.target as any).value)}></input>
             <input id='bmenub' type='checkbox' class='show' />
             <label for='bmenub' class='burger pseudo button icon-menu'></label>
 
