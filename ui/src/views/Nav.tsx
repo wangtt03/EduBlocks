@@ -36,7 +36,7 @@ export default class Nav extends Component<Props, {}> {
           <img class='logo' src='/images/edublock-logo_Final_edublocks_white.svg' />
           
         </a>
-            <input class="brand" type="email" placeholder="Untitled" style="width: 200px !important; color:black; margin-left: 5px" onChange={(e) => this.props.onFileChange((e.target as any).value)}></input>
+            <input class="brand" type="email" placeholder="Untitled" style="width: 200px !important; color:black; margin-left: 5px; font-weight: 500!important;" onChange={(e) => this.props.onFileChange((e.target as any).value)}></input>
             <input id='bmenub' type='checkbox' class='show' />
             <label for='bmenub' class='burger pseudo button icon-menu'></label>
 
