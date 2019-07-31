@@ -60,13 +60,6 @@
         </shadow>
       </value>
   </block>
-  <block type="input_web">
-  <value name="NAME">
-        <shadow type="stringinline">
-          <field name="text">What is your name?</field>
-        </shadow>
-      </value>
-  </block>
   <block type="global">
       <value name="text">
         <shadow type="textinline">
