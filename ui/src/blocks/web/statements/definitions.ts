@@ -141,5 +141,23 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.setHelpUrl('http://www.example.com/');
     },
   };
+
+  Blocks['input_web'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField("input(");
+      this.appendValueInput("NAME")
+          .setCheck(null);
+      this.appendDummyInput()
+          .appendField(")");
+      this.setInputsInline(true);
+      this.setOutput(true, null);
+      this.setOutputShape(Blockly.OUTPUT_SHAPE_ROUND);
+      this.setColour(230);
+   this.setTooltip("Text input");
+   this.setHelpUrl("");
+    }
+  };
+  
 }
 
