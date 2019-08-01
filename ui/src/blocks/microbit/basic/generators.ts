@@ -280,6 +280,11 @@ export default function define(Python: Blockly.BlockGenerators) {
     return [code, Blockly.Python.ORDER_ATOMIC];
   };
 
+  Python['ticks'] = function (block) {
+    const code = 'utime.ticks_us()';
+    return [code, Blockly.Python.ORDER_ATOMIC];
+  };
+
   Python['break'] = function (block) {
     const code = 'break\n ';
     return code;

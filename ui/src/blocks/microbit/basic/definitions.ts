@@ -722,6 +722,19 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     },
   };
 
+  Blocks['ticks'] = {
+    init: function () {
+      this.appendDummyInput()
+        .appendField('utime.ticks_us()');
+      this.setInputsInline(true);
+      this.setOutput(true, null);
+      this.setOutputShape(Blockly.OUTPUT_SHAPE_ROUND);
+      this.setColour(maincolour, inputcolour, bordercolour);
+      this.setTooltip('Ticks US, Utime');
+      this.setHelpUrl('http://www.example.com/');
+    },
+  };
+
   Blocks['break'] = {
     init: function () {
       this.appendDummyInput()
