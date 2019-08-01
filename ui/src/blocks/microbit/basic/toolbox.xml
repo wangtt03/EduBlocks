@@ -6,6 +6,7 @@
   <block type="import_math"></block>
   <block type="random"></block>
   <block type="import_audio"></block>
+  <block type="import_utime"></block>
 
   <label text="Statements" web-class="myLabelStyle"></label>
   <block type="sleepnew">

@@ -29,6 +29,18 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     },
   };
 
+  Blocks['import_utime'] = {
+    init: function () {
+      this.appendDummyInput()
+        .appendField('import utime');
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour(maincolour, inputcolour, bordercolour);
+      this.setTooltip('Imports the utime library.');
+      this.setHelpUrl('http://www.example.com/');
+    },
+  };
+
   Blocks['pause_s'] = {
     init: function () {
       this.appendDummyInput()

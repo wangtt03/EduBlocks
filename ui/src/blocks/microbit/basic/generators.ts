@@ -9,6 +9,11 @@ export default function define(Python: Blockly.BlockGenerators) {
     return code;
   };
 
+  Python['import_utime'] = function (block) {
+    const code = 'import utime\n';
+    return code;
+  };
+
   Python['pause_s'] = function (block) {
     const code = 'pause()\n';
     return code;
