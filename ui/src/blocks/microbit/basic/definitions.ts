@@ -390,6 +390,24 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     }
   };
 
+  Blocks['sleepus'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField("utime.sleep_us(");
+      this.appendValueInput("sleep")
+          .setCheck(null);
+      this.appendDummyInput()
+          .appendField(")");
+      this.setInputsInline(true);
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour(maincolour, inputcolour, bordercolour);
+      this.setTooltip("Wait (in milliseconds)");
+      this.setHelpUrl("");
+    }
+  };
+
+
   //deprecated
 
   Blocks['print'] = {

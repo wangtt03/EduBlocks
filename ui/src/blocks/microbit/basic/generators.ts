@@ -186,6 +186,13 @@ export default function define(Python: Blockly.BlockGenerators) {
     return code;
   };
 
+  Python['sleepus'] = function(block) {
+    var value_name = Blockly.Python.valueToCode(block, 'sleep', Blockly.Python.ORDER_ATOMIC);
+    // TODO: Assemble Python into code variable.
+    var code = 'utime.sleep_us(' +value_name+ ')\n';
+    return code;
+  };
+
   Python['printnew'] = function (block) {
     var text_print = Blockly.Python.valueToCode(block, 'text', Blockly.Python.ORDER_ATOMIC)
     || 'Hello World';

@@ -188,4 +188,13 @@
     </value>
   </block>
 
+  <label text="Miscellaneous" web-class="myLabelStyle"></label>
+  <block type="sleepus">
+      <value name="sleep">
+        <shadow type="textinline">
+          <field name="text">20</field>
+        </shadow>
+      </value>
+  </block>
+
 </category>
