@@ -33,6 +33,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
           .appendField("cpx.switch");
       this.setInputsInline(true);
       this.setOutput(true, null);
+      this.setOutputShape(Blockly.OUTPUT_SHAPE_ROUND);
       this.setColour(cpxcol);
    this.setTooltip("");
    this.setHelpUrl("");
@@ -60,6 +61,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
           .appendField("cpx.tapped");
       this.setInputsInline(true);
       this.setOutput(true, null);
+      this.setOutputShape(Blockly.OUTPUT_SHAPE_ROUND);
       this.setColour(cpxcol);
    this.setTooltip("");
    this.setHelpUrl("");
@@ -88,6 +90,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
           .appendField("cpx.light");
       this.setInputsInline(true);
       this.setOutput(true, null);
+      this.setOutputShape(Blockly.OUTPUT_SHAPE_ROUND);
       this.setColour(cpxcol);
    this.setTooltip("");
    this.setHelpUrl("");
@@ -100,6 +103,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
           .appendField("cpx.acceleration");
       this.setInputsInline(true);
       this.setOutput(true, null);
+      this.setOutputShape(Blockly.OUTPUT_SHAPE_ROUND);
       this.setColour(cpxcol);
    this.setTooltip("");
    this.setHelpUrl("");
@@ -113,6 +117,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
           .appendField(new Blockly.FieldDropdown([["a","a"], ["b","b"]]), "button");
       this.setInputsInline(true);
       this.setOutput(true, null);
+      this.setOutputShape(Blockly.OUTPUT_SHAPE_ROUND);
       this.setColour(cpxcol);
    this.setTooltip("");
    this.setHelpUrl("");
@@ -125,6 +130,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
           .appendField("cpx.acceleration");
       this.setInputsInline(true);
       this.setOutput(true, null);
+      this.setOutputShape(Blockly.OUTPUT_SHAPE_ROUND);
       this.setColour(cpxcol);
    this.setTooltip("");
    this.setHelpUrl("");
@@ -138,6 +144,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
           .appendField(new Blockly.FieldDropdown([["a1","a1"], ["a2","a2"], ["a3","a3"], ["a4","a4"], ["a5","a5"], ["a6","a6"], ["a7","a7"]]), "button");
       this.setInputsInline(true);
       this.setOutput(true, null);
+      this.setOutputShape(Blockly.OUTPUT_SHAPE_ROUND);
       this.setColour(cpxcol);
    this.setTooltip("");
    this.setHelpUrl("");
@@ -175,6 +182,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
           .appendField(")");
       this.setInputsInline(true);
       this.setOutput(true, null);
+      this.setOutputShape(Blockly.OUTPUT_SHAPE_ROUND);
       this.setColour(cpxcol);
    this.setTooltip("");
    this.setHelpUrl("");
@@ -187,6 +195,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
           .appendField("cpx.stop_tone()");
       this.setInputsInline(true);
       this.setOutput(true, null);
+      this.setOutputShape(Blockly.OUTPUT_SHAPE_ROUND);
       this.setColour(cpxcol);
    this.setTooltip("");
    this.setHelpUrl("");

@@ -103,6 +103,12 @@ export async function getToolBoxXml(extensions: Extension[]) {
     toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'circuitpython', 'advanced', 'toolbox.xml'));
   }
 
+  if (extensions.indexOf('Circuit Playground Easy') !== -1) {
+    (await import('./circuitpython/cpx/definitions')).default(Blockly.Blocks);
+    (await import('./circuitpython/cpx/generators')).default(Blockly.Python as any);
+    toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'circuitpython', 'cpx', 'toolbox.xml'));
+  }
+
   if (extensions.indexOf('micro:bit General') !== -1) {
     (await import('./microbit/basic/definitions')).default(Blockly.Blocks);
     (await import('./microbit/basic/generators')).default(Blockly.Python as any);
@@ -224,6 +230,9 @@ export function getBeforeScript(extensions: Extension[]) {
   }
   if (extensions.indexOf('GiggleBot') !== -1) {
     return fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'microbit', 'gigglebot', 'gigglebot.py'));
+  }
+  if (extensions.indexOf('Circuit Playground Easy') !== -1) {
+    return fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'circuitpython', 'cpx', 'cpx.py'));
   }
   if (extensions.indexOf('Pi Supply IoT LoRa Node') !== -1) {
     return fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'microbit', 'iotloranode', 'iotloranode.py'));
