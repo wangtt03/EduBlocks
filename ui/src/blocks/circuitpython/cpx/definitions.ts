@@ -78,6 +78,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
           .appendField(")");
       this.setInputsInline(true);
       this.setOutput(true, null);
+      this.setOutputShape(Blockly.OUTPUT_SHAPE_ROUND);
       this.setColour(cpxcol);
    this.setTooltip("");
    this.setHelpUrl("");
