@@ -722,6 +722,40 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     },
   };
 
+  Blocks['operators3'] = {
+    init: function() {
+      this.appendValueInput("first")
+          .setCheck(null);
+      this.appendDummyInput()
+        .appendField(new Blockly.FieldDropdown([["+","+"], ["-","-"], ["/","/"], ["%","%"], ["*","*"]]), "operators");
+      this.appendValueInput("last")
+          .setCheck(null);
+      this.setInputsInline(true);
+      this.setOutput(true, null);
+      this.setOutputShape(Blockly.OUTPUT_SHAPE_ROUND);
+      this.setColour(maincolour, inputcolour, bordercolour);
+      this.setTooltip("");
+      this.setHelpUrl("");
+    }
+  };
+
+  Blocks['mbint'] = {
+    init: function () {
+      this.appendDummyInput()
+        .appendField('int(');
+      this.appendValueInput("bool")
+        .setCheck(null);
+      this.appendDummyInput()
+        .appendField(")")
+      this.setInputsInline(true);
+      this.setOutput(true, null);
+      this.setOutputShape(Blockly.OUTPUT_SHAPE_ROUND);
+      this.setColour(maincolour, inputcolour, bordercolour);
+      this.setTooltip('Changes to an int');
+      this.setHelpUrl('http://www.example.com/');
+    },
+  };
+
   Blocks['ticks'] = {
     init: function () {
       this.appendDummyInput()

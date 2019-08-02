@@ -280,6 +280,23 @@ export default function define(Python: Blockly.BlockGenerators) {
     return [code, Blockly.Python.ORDER_ATOMIC];
   };
 
+  Python['operators3'] = function(block) {
+    var value_first = Blockly.Python.valueToCode(block, 'first', Blockly.Python.ORDER_ATOMIC);
+    var text_choose = block.getFieldValue('operators');
+    var value_last = Blockly.Python.valueToCode(block, 'last', Blockly.Python.ORDER_ATOMIC);
+    // TODO: Assemble Python into code variable.
+    var code = value_first+ ' ' +text_choose+ ' ' +value_last;
+    // TODO: Change ORDER_NONE to the correct strength.
+    return [code, Blockly.Python.ORDER_ATOMIC];
+  };
+
+  Python['mbint'] = function (block) {
+    var value_bool = Blockly.Python.valueToCode(block, 'bool', Blockly.Python.ORDER_ATOMIC);
+    const code = 'int(' +  value_bool+ ')';
+    return [code, Blockly.Python.ORDER_ATOMIC];
+  };
+
+
   Python['ticks'] = function (block) {
     const code = 'utime.ticks_us()';
     return [code, Blockly.Python.ORDER_ATOMIC];
