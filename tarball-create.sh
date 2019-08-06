@@ -24,9 +24,9 @@ echo '========================'
 
 echo ''
 echo 'Downloading / Extracting Node.JS...'
-curl https://nodejs.org/dist/v6.10.2/node-v6.10.2-linux-$ARCH.tar.xz | tar -xJ -C $TMP_PATH
+curl https://nodejs.org/dist/v8.15.0/node-v8.15.0-linux-$ARCH.tar.xz | tar -xJ -C $TMP_PATH
 
-NODE_TMP_PATH=$TMP_PATH/node-v6.10.2-linux-$ARCH
+NODE_TMP_PATH=$TMP_PATH/node-v8.15.0-linux-$ARCH
 
 REPO_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
@@ -34,9 +34,9 @@ cd $REPO_PATH
 
 NODE_VERSION=$(node -v)
 
-if [ "$NODE_VERSION" != 'v6.10.2' ]; then
+if [ "$NODE_VERSION" != 'v6.15.0' ]; then
   echo "NodeJS has invalid version! ($NODE_VERSION)"
-  echo "Please switch to v6.10.2 using nvm or similar tool, i.e. nvm use v6.10.2"
+  echo "Please switch to v8.15.0 using nvm or similar tool, i.e. nvm use v8.15.0"
   exit 1
 fi
 
