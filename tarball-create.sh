@@ -34,7 +34,7 @@ cd $REPO_PATH
 
 NODE_VERSION=$(node -v)
 
-if [ "$NODE_VERSION" != 'v6.15.0' ]; then
+if [ "$NODE_VERSION" != 'v8.15.0' ]; then
   echo "NodeJS has invalid version! ($NODE_VERSION)"
   echo "Please switch to v8.15.0 using nvm or similar tool, i.e. nvm use v8.15.0"
   exit 1
