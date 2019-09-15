@@ -179,6 +179,18 @@ export default class Page extends Component<Props, State> {
     this.updateFromPython(python);
   }
 
+  private async runMyCode() {
+    if((window as any).Bridge) {
+        const python = this.state.doc.python;
+        // Note that the sendMessage function needs to be setup in the preload
+        // script and ties to a corresponding main process method/function
+        (window as any).Bridge.sendMessage(python);
+    } else {
+        console.log('Not electron; cannot access the Bridge')
+    }
+
+  }
+
   private async openFile() {
     const xml = await this.props.app.openFile();
 
@@ -453,6 +465,7 @@ export default class Page extends Component<Props, State> {
           openCode={() => this.openFile()}
           saveCode={() => this.saveFile()}
           newCode={() => this.new()}
+          runMyCode={() => this.runMyCode()}
           openSamples={() => this.openSamples()}
           openExtensions={this.getExtensions().length ? () => this.openExtensions() : undefined}
           openThemes={() => this.openThemes()}

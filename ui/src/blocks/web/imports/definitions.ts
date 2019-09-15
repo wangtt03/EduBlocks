@@ -37,6 +37,18 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
     },
   };
 
+  Blocks['import_minecraft'] = {
+    init: function () {
+      this.appendDummyInput()
+        .appendField('from mcpi.minecraft import *');
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour("#FF0066");
+      this.setTooltip('Imports the pygal library.');
+      this.setHelpUrl('http://www.example.com/');
+    },
+  };
+
   Blocks['import_signal'] = {
     init: function () {
       this.appendDummyInput()

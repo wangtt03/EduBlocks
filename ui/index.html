@@ -80,6 +80,18 @@
       ur.src = ('https:' == document.location.protocol ? 'https://cdn.userreport.com/userreport.js' : 'http://cdn.userreport.com/userreport.js');
       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ur, s);
     })();
+
+    window.isElectron = function() {
+        return 'Bridge' in window;
+    };
+
+    if(isElectron()) {
+        window.Bridge.infoFromMain = function(data){
+            // var timestamp = new Date();
+            // var currentText = document.querySelector('#info').innerHTML
+            // document.querySelector('#info').innerHTML = currentText + '<br>' + timestamp.toTimeString().substring(0,8) + ': ' + data.msg;
+        };
+    }
   </script>
 
 

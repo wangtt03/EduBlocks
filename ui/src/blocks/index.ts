@@ -12,6 +12,10 @@ export async function getToolBoxXml(extensions: Extension[]) {
     (await import('./web/imports/generators')).default(Blockly.Python as any);
     toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'web', 'imports', 'toolbox.xml'));
 
+    (await import('./web/minecraft/definitions')).default(Blockly.Blocks);
+    (await import('./web/minecraft/generators')).default(Blockly.Python as any);
+    toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'pi', 'minecraft', 'toolbox.xml'));
+
     (await import('./web/variables/definitions')).default(Blockly.Blocks);
     (await import('./web/variables/generators')).default(Blockly.Python as any);
     toolBoxXml += fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'blocks', 'web', 'variables', 'toolbox.xml'));

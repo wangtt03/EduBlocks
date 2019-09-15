@@ -18,6 +18,7 @@ interface Props {
   openCode(): void;
   saveCode(): void;
   openTerminal?(): void;
+  runMyCode?(): void;
 
   onFileChange(fileName: string): void;
 
@@ -25,8 +26,9 @@ interface Props {
 }
 
 export default class Nav extends Component<Props, {}> {
+
   public render() {
-    const { openExtensions, downloadHex, openTerminal: sendCode, downloadPython } = this.props;
+    const { openExtensions, downloadHex, runMyCode, downloadPython } = this.props;
 
     return (
       <nav>
@@ -85,9 +87,8 @@ export default class Nav extends Component<Props, {}> {
               <a class='button icon-cog' title="Settings" href='javascript:void(0)' onClick={() => this.props.onFunction()}>
                 Settings
           </a>
-
-              {sendCode &&
-                <a class='button icon-play button-green' title='Run your code' href='javascript:void(0)' onClick={() => sendCode()}>
+              {runMyCode &&
+                <a class='button icon-play button-green' id='runCode' title='Run your code' href='javascript:void(0)' onClick={() => runMyCode()}>
                   Run
             </a>
               }

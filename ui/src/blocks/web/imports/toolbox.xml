@@ -7,5 +7,6 @@
   <block type="random"></block>
   <block type="import_pygal"></block>
   <block type="import_processing"></block>
+  <block type="import_minecraft"></block>
 
 </category>
