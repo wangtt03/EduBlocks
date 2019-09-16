@@ -342,7 +342,8 @@ export default function define(Python: Blockly.BlockGenerators) {
   };
 
   Python['mc_t_gridalign'] = function (block) {
-    const code = 't.gridalign()\n';
+    var variable_turtle = Blockly.Python.variableDB_.getName(block.getFieldValue('turtle'), Blockly.Variables.NAME_TYPE);
+    const code = variable_turtle + '.gridalign()\n';
     return code;
   };
 }

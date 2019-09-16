@@ -183,7 +183,6 @@ export default class Page extends Component<Props, State> {
     if((window as any).Bridge) {
         const btn = document.getElementById("runCode");
         if (!btn) return;
-        alert(btn.innerHTML);
         if (btn.innerHTML == "Run") {
           const python = this.state.doc.python;
           // Note that the sendMessage function needs to be setup in the preload
