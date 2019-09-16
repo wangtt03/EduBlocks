@@ -260,7 +260,9 @@ export default function define(Python: Blockly.BlockGenerators) {
 
   Python['mc_t_new_turtle'] = function (block) {
     // TODO: Assemble Python into code variable.
-    const code = 't = mcturtle.Turtle() \n';
+    var variable_turtle = Blockly.Python.variableDB_.getName(block.getFieldValue('turtle'), Blockly.Variables.NAME_TYPE);
+    // TODO: Assemble Python into code variable.
+    var code = variable_turtle+ ' =  mcturtle.Turtle()\n';
     return code;
   };
 
@@ -271,93 +273,71 @@ export default function define(Python: Blockly.BlockGenerators) {
   };
 
   Python['mc_t_pendelay'] = function (block) {
+    var variable_turtle = Blockly.Python.variableDB_.getName(block.getFieldValue('turtle'), Blockly.Variables.NAME_TYPE);
     var text_chat = Blockly.Python.valueToCode(block, 'text1', Blockly.Python.ORDER_ATOMIC);
     // TODO: Assemble Python into code variable.
-    const code = 't.pendelay(' + text_chat + ')\n';
+    const code = variable_turtle + '.pendelay(' + text_chat + ')\n';
     return code;
   };
 
   Python['mc_t_penblock'] = function (block) {
+    var variable_turtle = Blockly.Python.variableDB_.getName(block.getFieldValue('turtle'), Blockly.Variables.NAME_TYPE);
     var text_chat = Blockly.Python.valueToCode(block, 'text1', Blockly.Python.ORDER_ATOMIC);
     // TODO: Assemble Python into code variable.
-    const code = 't.penblock(' + text_chat + ')\n';
+    const code = variable_turtle + '.penblock(' + text_chat + ')\n';
     return code;
   };
 
   Python['mc_t_turtletype'] = function (block) {
+    var variable_turtle = Blockly.Python.variableDB_.getName(block.getFieldValue('turtle'), Blockly.Variables.NAME_TYPE);
     var text_chat = Blockly.Python.valueToCode(block, 'text1', Blockly.Python.ORDER_ATOMIC);
     // TODO: Assemble Python into code variable.
-    const code = 't.turtle(' + text_chat + ')\n';
+    const code = variable_turtle + '.turtle(' + text_chat + ')\n';
     return code;
   };
 
   Python['mc_t_penwidth'] = function (block) {
+    var variable_turtle = Blockly.Python.variableDB_.getName(block.getFieldValue('turtle'), Blockly.Variables.NAME_TYPE);
     var text_chat = Blockly.Python.valueToCode(block, 'text1', Blockly.Python.ORDER_ATOMIC);
     // TODO: Assemble Python into code variable.
-    const code = 't.penwidth(' + text_chat + ')\n';
+    const code = variable_turtle + '.penwidth(' + text_chat + ')\n';
     return code;
   };
 
   Python['mc_t_goto'] = function (block) {
+    var variable_turtle = Blockly.Python.variableDB_.getName(block.getFieldValue('turtle'), Blockly.Variables.NAME_TYPE);
     var text_x = Blockly.Python.valueToCode(block, 'text', Blockly.Python.ORDER_ATOMIC);
     var text_y = Blockly.Python.valueToCode(block, 'text1', Blockly.Python.ORDER_ATOMIC);
     var text_z = Blockly.Python.valueToCode(block, 'text2', Blockly.Python.ORDER_ATOMIC);
     // TODO: Assemble Python into code variable.
-    const code = 't.goto(' + text_x + ', ' + text_y + ', ' + text_z + ')\n\n';
+    const code = variable_turtle + '.goto(' + text_x + ', ' + text_y + ', ' + text_z + ')\n';
     return code;
   };
 
-  Python['mc_t_penup'] = function (block) {
+  Python['mc_t_penupdown'] = function (block) {
     // TODO: Assemble Python into code variable.
-    const code = 't.penup() \n';
+    var variable_turtle = Blockly.Python.variableDB_.getName(block.getFieldValue('turtle'), Blockly.Variables.NAME_TYPE);
+    var dropdown_options = block.getFieldValue('options');
+    // TODO: Assemble Python into code variable.
+    var code = variable_turtle+ '.' +dropdown_options+ '()\n';
     return code;
   };
 
-  Python['mc_t_pendown'] = function (block) {
+  Python['mc_t_pendirection'] = function (block) {
+    var variable_turtle = Blockly.Python.variableDB_.getName(block.getFieldValue('turtle'), Blockly.Variables.NAME_TYPE);
+    var dropdown_options = block.getFieldValue('options');
+    let text_dist = Blockly.Python.valueToCode(block, 'text', Blockly.Python.ORDER_ATOMIC);
     // TODO: Assemble Python into code variable.
-    const code = 't.pendown() \n';
-    return code;
-  };
-
-  Python['mc_t_penright'] = function (block) {
-    var text_chat = Blockly.Python.valueToCode(block, 'text1', Blockly.Python.ORDER_ATOMIC);
-    // TODO: Assemble Python into code variable.
-    const code = 't.right(' + text_chat + ')\n';
-    return code;
-  };
-
-  Python['mc_t_penleft'] = function (block) {
-    var text_chat = Blockly.Python.valueToCode(block, 'text1', Blockly.Python.ORDER_ATOMIC);
-    // TODO: Assemble Python into code variable.
-    const code = 't.left(' + text_chat + ')\n';
-    return code;
-  };
-
-  Python['mc_t_penup'] = function (block) {
-    var text_chat = Blockly.Python.valueToCode(block, 'text1', Blockly.Python.ORDER_ATOMIC);
-    // TODO: Assemble Python into code variable.
-    const code = 't.up(' + text_chat + ')\n';
-    return code;
-  };
-
-  Python['mc_t_pendown'] = function (block) {
-    var text_chat = Blockly.Python.valueToCode(block, 'text1', Blockly.Python.ORDER_ATOMIC);
-    // TODO: Assemble Python into code variable.
-    const code = 't.down(' + text_chat + ')\n';
+    var code = variable_turtle+ '.' +dropdown_options+ '(' +text_dist+ ')\n';
     return code;
   };
 
   Python['mc_t_pengo'] = function (block) {
+    var variable_turtle = Blockly.Python.variableDB_.getName(block.getFieldValue('turtle'), Blockly.Variables.NAME_TYPE);
     var text_chat = Blockly.Python.valueToCode(block, 'text1', Blockly.Python.ORDER_ATOMIC);
+    var dropdown_options = block.getFieldValue('options');
     // TODO: Assemble Python into code variable.
-    const code = 't.go(' + text_chat + ')\n';
-    return code;
-  };
-
-  Python['mc_t_penback'] = function (block) {
-    var text_chat = Blockly.Python.valueToCode(block, 'text1', Blockly.Python.ORDER_ATOMIC);
-    // TODO: Assemble Python into code variable.
-    const code = 't.back(' + text_chat + ')\n';
+    const code = variable_turtle + '.'+dropdown_options+'(' + text_chat + ')\n';
     return code;
   };
 

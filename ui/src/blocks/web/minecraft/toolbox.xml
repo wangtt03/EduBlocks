@@ -16,28 +16,7 @@
         </shadow>
       </value>
     </block>
-    <block type="mc_t_penleft">
-      <value name="text1">
-        <shadow type="textinline">
-          <field name="text">0</field>
-        </shadow>
-      </value>
-    </block>
-    <block type="mc_t_penright">
-      <value name="text1">
-        <shadow type="textinline">
-          <field name="text">0</field>
-        </shadow>
-      </value>
-    </block>
-    <block type="mc_t_penup">
-      <value name="text1">
-        <shadow type="textinline">
-          <field name="text">0</field>
-        </shadow>
-      </value>
-    </block>
-    <block type="mc_t_pendown">
+    <block type="mc_t_pendirection">
       <value name="text1">
         <shadow type="textinline">
           <field name="text">0</field>
@@ -45,13 +24,6 @@
       </value>
     </block>
     <block type="mc_t_pengo">
-      <value name="text1">
-        <shadow type="textinline">
-          <field name="text">0</field>
-        </shadow>
-      </value>
-    </block>
-    <block type="mc_t_penback">
       <value name="text1">
         <shadow type="textinline">
           <field name="text">0</field>
