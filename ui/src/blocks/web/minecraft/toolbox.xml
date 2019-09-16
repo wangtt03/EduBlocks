@@ -1,11 +1,103 @@
-<category name="Minecraft" colour="#19E32E" iconclass="blocklyTreeIconCustom minecraft">
-  <category name="General" colour="#7D21E1">
+<category name="我的世界" colour="#19E32E" iconclass="blocklyTreeIconCustom minecraft">
+  <category name="常用模块" colour="#7D21E1">
     <block type="mcimport"></block>
     <block type="import_block"></block>
     <block type="mcpiblockas"></block>
     <block type="mccreate"></block>
+    <block type="mcimportturtle"></block>
   </category>
-  <category name="Commands" colour="#19E32E">
+  <category name="海龟画笔" colour="#0000CD">
+    <block type="mc_t_new_turtle"></block>
+    <block type="mc_t_gridalign"></block>
+    <block type="mc_t_pendelay">
+      <value name="text1">
+        <shadow type="textinline">
+          <field name="text">0</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="mc_t_penleft">
+      <value name="text1">
+        <shadow type="textinline">
+          <field name="text">0</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="mc_t_penright">
+      <value name="text1">
+        <shadow type="textinline">
+          <field name="text">0</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="mc_t_penup">
+      <value name="text1">
+        <shadow type="textinline">
+          <field name="text">0</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="mc_t_pendown">
+      <value name="text1">
+        <shadow type="textinline">
+          <field name="text">0</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="mc_t_pengo">
+      <value name="text1">
+        <shadow type="textinline">
+          <field name="text">0</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="mc_t_penback">
+      <value name="text1">
+        <shadow type="textinline">
+          <field name="text">0</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="mc_t_penblock">
+      <value name="text1">
+        <shadow type="textinline">
+          <field name="text">block.GOLD_BLOCK</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="mc_t_turtletype">
+      <value name="text1">
+        <shadow type="stringinline">
+          <field name="text">chicken</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="mc_t_penwidth">
+      <value name="text1">
+        <shadow type="textinline">
+          <field name="text">1</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="mc_t_goto">
+      <value name="text">
+        <shadow type="textinline">
+          <field name="text">x</field>
+        </shadow>
+      </value>
+      <value name="text1">
+        <shadow type="textinline">
+          <field name="text">y</field>
+        </shadow>
+      </value>
+      <value name="text2">
+        <shadow type="textinline">
+          <field name="text">z</field>
+        </shadow>
+      </value>
+    </block>
+  </category>
+  <category name="动作" colour="#19E32E">
     <block type="mcpost">
       <value name="text">
         <shadow type="stringinline">

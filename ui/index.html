@@ -92,6 +92,21 @@
             // document.querySelector('#info').innerHTML = currentText + '<br>' + timestamp.toTimeString().substring(0,8) + ': ' + data.msg;
         };
     }
+
+    if(isElectron()) {
+        window.Bridge.infoFromMain = function(data){
+            if (!data) {
+              return;
+            }
+            if (data.msg == "started") {
+              document.getElementById("runCode").innerHTML = "Stop";
+              document.getElementById("runCode").setAttribute("class", "button icon-play button-red");
+            } else if (data.msg == "ended") {
+              document.getElementById("runCode").innerHTML = "Run";
+              document.getElementById("runCode").setAttribute("class", "button icon-play button-green");
+            }
+        };
+    }
   </script>
 
 

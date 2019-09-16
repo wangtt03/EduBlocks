@@ -1,4 +1,4 @@
-<category name="Random" colour="#8BC248" iconclass="blocklyTreeIconCustom random">
+<category name="随机" colour="#8BC248" iconclass="blocklyTreeIconCustom random">
 
 
   <label text="Random" web-class="myLabelStyle"></label>

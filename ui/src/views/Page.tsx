@@ -181,10 +181,18 @@ export default class Page extends Component<Props, State> {
 
   private async runMyCode() {
     if((window as any).Bridge) {
-        const python = this.state.doc.python;
-        // Note that the sendMessage function needs to be setup in the preload
-        // script and ties to a corresponding main process method/function
-        (window as any).Bridge.sendMessage(python);
+        const btn = document.getElementById("runCode");
+        if (!btn) return;
+        alert(btn.innerHTML);
+        if (btn.innerHTML == "Run") {
+          const python = this.state.doc.python;
+          // Note that the sendMessage function needs to be setup in the preload
+          // script and ties to a corresponding main process method/function
+          (window as any).Bridge.sendMessage(python);
+        } else {
+          (window as any).Bridge.sendMessage("stop");
+        }
+        
     } else {
         console.log('Not electron; cannot access the Bridge')
     }

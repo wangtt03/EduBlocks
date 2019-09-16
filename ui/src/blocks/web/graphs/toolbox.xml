@@ -1,4 +1,4 @@
-<category name="Graphs" colour="#008FD1" iconclass="blocklyTreeIconCustom graphs">
+<category name="图表" colour="#008FD1" iconclass="blocklyTreeIconCustom graphs">
 
 
   <label text="Graphs" web-class="myLabelStyle"></label>

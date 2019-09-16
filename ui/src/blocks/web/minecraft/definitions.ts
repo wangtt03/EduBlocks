@@ -623,4 +623,252 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
       this.setHelpUrl('');
     },
   };
+
+  Blocks['mc_t_new_turtle'] = {
+    init: function () {
+      this.appendDummyInput()
+        .appendField('t = mcturtle.Turtle()');
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour("#0000CD");
+      this.setTooltip('创建一个海龟画笔.');
+      this.setHelpUrl('http://www.example.com/');
+    },
+  };
+
+  Blockly.Blocks['mcimportturtle'] = {
+    init: function () {
+      this.appendDummyInput()
+        .appendField('import mcpi.utils.mineturtle as mcturtle');
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour("#7D21E1");
+      this.setTooltip('导入我的世界海龟画笔工具包.');
+      this.setHelpUrl('');
+    },
+  };
+
+  Blocks['mc_t_pendelay'] = {
+    init: function () {
+      this.appendDummyInput()
+        .appendField('t.pendelay(')
+      this.appendValueInput("text1")
+        .setCheck(null);
+      this.appendDummyInput()
+        .appendField(')');
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour("#0000CD");
+      this.setTooltip('Use this to send a message to the Minecraft chat.');
+      this.setHelpUrl('http://www.example.com/');
+    },
+  };
+
+  Blocks['mc_t_penblock'] = {
+    init: function () {
+      this.appendDummyInput()
+        .appendField('t.penblock(')
+      this.appendValueInput("text1")
+        .setCheck(null);
+      this.appendDummyInput()
+        .appendField(')');
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour("#0000CD");
+      this.setTooltip('Use this to send a message to the Minecraft chat.');
+      this.setHelpUrl('http://www.example.com/');
+    },
+  };
+
+  Blocks['mc_t_turtletype'] = {
+    init: function () {
+      this.appendDummyInput()
+        .appendField('t.turtle(')
+      this.appendValueInput("text1")
+        .setCheck(null);
+      this.appendDummyInput()
+        .appendField(')');
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour("#0000CD");
+      this.setTooltip('Use this to send a message to the Minecraft chat.');
+      this.setHelpUrl('http://www.example.com/');
+    },
+  };
+
+  Blocks['mc_t_penwidth'] = {
+    init: function () {
+      this.appendDummyInput()
+        .appendField('t.penwidth(')
+      this.appendValueInput("text1")
+        .setCheck(null);
+      this.appendDummyInput()
+        .appendField(')');
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour("#0000CD");
+      this.setTooltip('Use this to send a message to the Minecraft chat.');
+      this.setHelpUrl('http://www.example.com/');
+    },
+  };
+
+  Blockly.Blocks['mc_t_goto'] = {
+    init: function () {
+      this.appendDummyInput()
+        .appendField('t.goto(')
+      this.appendValueInput("text")
+        .setCheck(null);
+      this.appendDummyInput()
+        .appendField(', ')
+      this.appendValueInput("text1")
+        .setCheck(null);
+      this.appendDummyInput()
+        .appendField(', ')
+      this.appendValueInput("text2")
+        .setCheck(null);
+      this.appendDummyInput()
+        .appendField(')');
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour("#0000CD");
+      this.setTooltip('Set players position');
+      this.setHelpUrl('');
+    },
+  };
+
+  Blocks['mc_t_penup'] = {
+    init: function () {
+      this.appendDummyInput()
+        .appendField('t.penup()');
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour("#0000CD");
+      this.setTooltip('创建一个海龟画笔.');
+      this.setHelpUrl('http://www.example.com/');
+    },
+  };
+
+  Blocks['mc_t_pendown'] = {
+    init: function () {
+      this.appendDummyInput()
+        .appendField('t .pendown()');
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour("#0000CD");
+      this.setTooltip('创建一个海龟画笔.');
+      this.setHelpUrl('http://www.example.com/');
+    },
+  };
+
+  Blocks['mc_t_penright'] = {
+    init: function () {
+      this.appendDummyInput()
+        .appendField('t.right(')
+      this.appendValueInput("text1")
+        .setCheck(null);
+      this.appendDummyInput()
+        .appendField(')');
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour("#0000CD");
+      this.setTooltip('Use this to send a message to the Minecraft chat.');
+      this.setHelpUrl('http://www.example.com/');
+    },
+  };
+
+  Blocks['mc_t_penleft'] = {
+    init: function () {
+      this.appendDummyInput()
+        .appendField('t.left(')
+      this.appendValueInput("text1")
+        .setCheck(null);
+      this.appendDummyInput()
+        .appendField(')');
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour("#0000CD");
+      this.setTooltip('Use this to send a message to the Minecraft chat.');
+      this.setHelpUrl('http://www.example.com/');
+    },
+  };
+
+  Blocks['mc_t_penup'] = {
+    init: function () {
+      this.appendDummyInput()
+        .appendField('t.up(')
+      this.appendValueInput("text1")
+        .setCheck(null);
+      this.appendDummyInput()
+        .appendField(')');
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour("#0000CD");
+      this.setTooltip('Use this to send a message to the Minecraft chat.');
+      this.setHelpUrl('http://www.example.com/');
+    },
+  };
+
+  Blocks['mc_t_pendown'] = {
+    init: function () {
+      this.appendDummyInput()
+        .appendField('t.down(')
+      this.appendValueInput("text1")
+        .setCheck(null);
+      this.appendDummyInput()
+        .appendField(')');
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour("#0000CD");
+      this.setTooltip('Use this to send a message to the Minecraft chat.');
+      this.setHelpUrl('http://www.example.com/');
+    },
+  };
+
+  Blocks['mc_t_pengo'] = {
+    init: function () {
+      this.appendDummyInput()
+        .appendField('t.go(')
+      this.appendValueInput("text1")
+        .setCheck(null);
+      this.appendDummyInput()
+        .appendField(')');
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour("#0000CD");
+      this.setTooltip('Use this to send a message to the Minecraft chat.');
+      this.setHelpUrl('http://www.example.com/');
+    },
+  };
+
+  Blocks['mc_t_penback'] = {
+    init: function () {
+      this.appendDummyInput()
+        .appendField('t.back(')
+      this.appendValueInput("text1")
+        .setCheck(null);
+      this.appendDummyInput()
+        .appendField(')');
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour("#0000CD");
+      this.setTooltip('Use this to send a message to the Minecraft chat.');
+      this.setHelpUrl('http://www.example.com/');
+    },
+  };
+
+  Blocks['mc_t_gridalign'] = {
+    init: function () {
+      this.appendDummyInput()
+        .appendField('t.gridalign()');
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour("#0000CD");
+      this.setTooltip('创建一个海龟画笔.');
+      this.setHelpUrl('http://www.example.com/');
+    },
+  };
 }

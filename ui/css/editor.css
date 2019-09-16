@@ -336,6 +336,10 @@ div.blocklyTreeRow {
   background-color: #49B04D !important;
 }
 
+.button-red{
+  background-color: #ff0000 !important;
+}
+
 
 .ImageModalOption button{
   margin-bottom: 8px;

@@ -1,4 +1,4 @@
-<category name="Loops" colour="#644A9E" iconclass="blocklyTreeIconCustom loops">
+<category name="循环" colour="#644A9E" iconclass="blocklyTreeIconCustom loops">
 
   <label text="Loops" web-class="myLabelStyle"></label>
 

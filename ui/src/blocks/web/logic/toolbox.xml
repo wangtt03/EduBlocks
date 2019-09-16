@@ -1,4 +1,4 @@
-<category name="Logic" colour="#49B04D" iconclass="blocklyTreeIconCustom logic">
+<category name="逻辑" colour="#49B04D" iconclass="blocklyTreeIconCustom logic">
 
   <label text="Logic" web-class="myLabelStyle"></label>
   <block type="webifinline">

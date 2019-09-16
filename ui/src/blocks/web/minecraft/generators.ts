@@ -257,4 +257,112 @@ export default function define(Python: Blockly.BlockGenerators) {
     let code = text_fname + '(' + text_extra + ')\n';
     return code;
   };
+
+  Python['mc_t_new_turtle'] = function (block) {
+    // TODO: Assemble Python into code variable.
+    const code = 't = mcturtle.Turtle() \n';
+    return code;
+  };
+
+  Python['mcimportturtle'] = function (block) {
+    // TODO: Assemble Python into code variable.
+    let code = 'import mcpi.utils.mineturtle as mcturtle\n';
+    return code;
+  };
+
+  Python['mc_t_pendelay'] = function (block) {
+    var text_chat = Blockly.Python.valueToCode(block, 'text1', Blockly.Python.ORDER_ATOMIC);
+    // TODO: Assemble Python into code variable.
+    const code = 't.pendelay(' + text_chat + ')\n';
+    return code;
+  };
+
+  Python['mc_t_penblock'] = function (block) {
+    var text_chat = Blockly.Python.valueToCode(block, 'text1', Blockly.Python.ORDER_ATOMIC);
+    // TODO: Assemble Python into code variable.
+    const code = 't.penblock(' + text_chat + ')\n';
+    return code;
+  };
+
+  Python['mc_t_turtletype'] = function (block) {
+    var text_chat = Blockly.Python.valueToCode(block, 'text1', Blockly.Python.ORDER_ATOMIC);
+    // TODO: Assemble Python into code variable.
+    const code = 't.turtle(' + text_chat + ')\n';
+    return code;
+  };
+
+  Python['mc_t_penwidth'] = function (block) {
+    var text_chat = Blockly.Python.valueToCode(block, 'text1', Blockly.Python.ORDER_ATOMIC);
+    // TODO: Assemble Python into code variable.
+    const code = 't.penwidth(' + text_chat + ')\n';
+    return code;
+  };
+
+  Python['mc_t_goto'] = function (block) {
+    var text_x = Blockly.Python.valueToCode(block, 'text', Blockly.Python.ORDER_ATOMIC);
+    var text_y = Blockly.Python.valueToCode(block, 'text1', Blockly.Python.ORDER_ATOMIC);
+    var text_z = Blockly.Python.valueToCode(block, 'text2', Blockly.Python.ORDER_ATOMIC);
+    // TODO: Assemble Python into code variable.
+    const code = 't.goto(' + text_x + ', ' + text_y + ', ' + text_z + ')\n\n';
+    return code;
+  };
+
+  Python['mc_t_penup'] = function (block) {
+    // TODO: Assemble Python into code variable.
+    const code = 't.penup() \n';
+    return code;
+  };
+
+  Python['mc_t_pendown'] = function (block) {
+    // TODO: Assemble Python into code variable.
+    const code = 't.pendown() \n';
+    return code;
+  };
+
+  Python['mc_t_penright'] = function (block) {
+    var text_chat = Blockly.Python.valueToCode(block, 'text1', Blockly.Python.ORDER_ATOMIC);
+    // TODO: Assemble Python into code variable.
+    const code = 't.right(' + text_chat + ')\n';
+    return code;
+  };
+
+  Python['mc_t_penleft'] = function (block) {
+    var text_chat = Blockly.Python.valueToCode(block, 'text1', Blockly.Python.ORDER_ATOMIC);
+    // TODO: Assemble Python into code variable.
+    const code = 't.left(' + text_chat + ')\n';
+    return code;
+  };
+
+  Python['mc_t_penup'] = function (block) {
+    var text_chat = Blockly.Python.valueToCode(block, 'text1', Blockly.Python.ORDER_ATOMIC);
+    // TODO: Assemble Python into code variable.
+    const code = 't.up(' + text_chat + ')\n';
+    return code;
+  };
+
+  Python['mc_t_pendown'] = function (block) {
+    var text_chat = Blockly.Python.valueToCode(block, 'text1', Blockly.Python.ORDER_ATOMIC);
+    // TODO: Assemble Python into code variable.
+    const code = 't.down(' + text_chat + ')\n';
+    return code;
+  };
+
+  Python['mc_t_pengo'] = function (block) {
+    var text_chat = Blockly.Python.valueToCode(block, 'text1', Blockly.Python.ORDER_ATOMIC);
+    // TODO: Assemble Python into code variable.
+    const code = 't.go(' + text_chat + ')\n';
+    return code;
+  };
+
+  Python['mc_t_penback'] = function (block) {
+    var text_chat = Blockly.Python.valueToCode(block, 'text1', Blockly.Python.ORDER_ATOMIC);
+    // TODO: Assemble Python into code variable.
+    const code = 't.back(' + text_chat + ')\n';
+    return code;
+  };
+
+  Python['mc_t_gridalign'] = function (block) {
+    const code = 't.gridalign()\n';
+    return code;
+  };
 }

@@ -1,4 +1,4 @@
-<category name="Imports" colour="#ff0066" iconclass="blocklyTreeIconCustom imports">
+<category name="模块导入" colour="#ff0066" iconclass="blocklyTreeIconCustom imports">
 
   <label text="Imports" web-class="myLabelStyle"></label>
 
