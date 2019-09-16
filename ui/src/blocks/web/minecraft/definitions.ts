@@ -763,7 +763,7 @@ export default function define(Blocks: Blockly.BlockDefinitions) {
         .appendField(new Blockly.FieldVariable("turtle"), "turtle")
         .appendField(".")
         .appendField(new Blockly.FieldDropdown([["left", "left"], ["right", "right"], ["up", "up"], ["down", "down"]]), "options")
-        .appendField("(")
+        .appendField("(");
       this.appendValueInput('text')
         .setCheck(null);
       this.appendDummyInput()
